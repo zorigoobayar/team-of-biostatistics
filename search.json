@@ -1,31 +1,31 @@
 [
   {
-    "objectID": "team.html",
-    "href": "team.html",
-    "title": "Our Team",
+    "objectID": "contact.html",
+    "href": "contact.html",
+    "title": "Contact",
     "section": "",
-    "text": "Манай баг нь биостатистик, тархвар судлал, эрүүл мэндийн судалгаа болон өгөгдлийн шинжлэх ухааны чиглэлээр ажилладаг.\n\n\n\n\n\n\n\nЭрүүл мэнд, анагаах ухааны судалгаанд статистикийн арга зүй, загварчлал болон өгөгдлийн шинжилгээг хэрэгжүүлнэ.\nFocus\n\nBiostatistics\nStatistical modelling\nClinical research\n\n\n\n\nӨвчний тархалт, эрсдэлт хүчин зүйл, хүн амын эрүүл мэндийн үзүүлэлтүүдийг судална.\nFocus\n\nEpidemiology\nStudy design\nPublic health\n\n\n\n\nӨгөгдөл боловсруулах, программчлал, статистикийн тооцоолол болон өгөгдлийн дүрслэл дээр ажиллана.\nFocus\n\nR programming\nData science\nData visualization\n\n\n\n\nСудлаач оюутнууд биостатистик, тархвар судлал болон статистикийн арга зүйгээр суралцаж, судалгаа хийж байна.\nFocus\n\nBiostatistics\nEpidemiology\nResearch\n\n\n\n\n\n\n\nМанай баг дараах чиглэлүүдээр судалгаа, сургалт болон хамтын ажиллагаа явуулна.\n\nБиостатистикийн арга зүй\nЭмнэлзүйн судалгаа\nТархвар судлал\nСтатистикийн загварчлал\nR программчлал\nӨгөгдлийн дүрслэл\nДахин давтагдахуйц судалгаа"
+    "text": "Биостатистикийн багтай холбоо барих, судалгааны хамтын ажиллагаа болон статистикийн зөвлөгөөтэй холбоотой мэдээллийг энд байршуулна."
   },
   {
-    "objectID": "team.html#манай-баг",
-    "href": "team.html#манай-баг",
-    "title": "Our Team",
+    "objectID": "contact.html#холбоо-барих",
+    "href": "contact.html#холбоо-барих",
+    "title": "Contact",
     "section": "",
-    "text": "Манай баг нь биостатистик, тархвар судлал, эрүүл мэндийн судалгаа болон өгөгдлийн шинжлэх ухааны чиглэлээр ажилладаг."
+    "text": "Биостатистикийн багтай холбоо барих, судалгааны хамтын ажиллагаа болон статистикийн зөвлөгөөтэй холбоотой мэдээллийг энд байршуулна."
   },
   {
-    "objectID": "team.html#our-expertise",
-    "href": "team.html#our-expertise",
-    "title": "Our Team",
-    "section": "",
-    "text": "Эрүүл мэнд, анагаах ухааны судалгаанд статистикийн арга зүй, загварчлал болон өгөгдлийн шинжилгээг хэрэгжүүлнэ.\nFocus\n\nBiostatistics\nStatistical modelling\nClinical research\n\n\n\n\nӨвчний тархалт, эрсдэлт хүчин зүйл, хүн амын эрүүл мэндийн үзүүлэлтүүдийг судална.\nFocus\n\nEpidemiology\nStudy design\nPublic health\n\n\n\n\nӨгөгдөл боловсруулах, программчлал, статистикийн тооцоолол болон өгөгдлийн дүрслэл дээр ажиллана.\nFocus\n\nR programming\nData science\nData visualization\n\n\n\n\nСудлаач оюутнууд биостатистик, тархвар судлал болон статистикийн арга зүйгээр суралцаж, судалгаа хийж байна.\nFocus\n\nBiostatistics\nEpidemiology\nResearch"
+    "objectID": "contact.html#email",
+    "href": "contact.html#email",
+    "title": "Contact",
+    "section": "Email",
+    "text": "Email\nEmail: biostatistics@example.com"
   },
   {
-    "objectID": "team.html#what-we-work-on",
-    "href": "team.html#what-we-work-on",
-    "title": "Our Team",
-    "section": "",
-    "text": "Манай баг дараах чиглэлүүдээр судалгаа, сургалт болон хамтын ажиллагаа явуулна.\n\nБиостатистикийн арга зүй\nЭмнэлзүйн судалгаа\nТархвар судлал\nСтатистикийн загварчлал\nR программчлал\nӨгөгдлийн дүрслэл\nДахин давтагдахуйц судалгаа"
+    "objectID": "contact.html#research-collaboration",
+    "href": "contact.html#research-collaboration",
+    "title": "Contact",
+    "section": "Research Collaboration",
+    "text": "Research Collaboration\nДараах чиглэлээр хамтран ажиллах боломжтой:\n\nБиостатистикийн зөвлөгөө\nСудалгааны дизайн\nӨгөгдлийн шинжилгээ\nСтатистикийн загварчлал\nR программчлал"
   },
   {
     "objectID": "research.html",
@@ -70,32 +70,32 @@
     "text": "Reproducible Research\nR болон Quarto ашиглан судалгааны код, өгөгдлийн боловсруулалт, үр дүн болон тайланг нэг дор нэгтгэж, дахин давтагдахуйц судалгааны орчин бүрдүүлж болно."
   },
   {
-    "objectID": "contact.html",
-    "href": "contact.html",
-    "title": "Contact",
+    "objectID": "team.html",
+    "href": "team.html",
+    "title": "Our Team",
     "section": "",
-    "text": "Биостатистикийн багтай холбоо барих, судалгааны хамтын ажиллагаа болон статистикийн зөвлөгөөтэй холбоотой мэдээллийг энд байршуулна."
+    "text": "Манай баг нь биостатистик, тархвар судлал, эрүүл мэндийн судалгаа болон өгөгдлийн шинжлэх ухааны чиглэлээр ажилладаг.\n\n\n\n\n\n\n\nЭрүүл мэнд, анагаах ухааны судалгаанд статистикийн арга зүй, загварчлал болон өгөгдлийн шинжилгээг хэрэгжүүлнэ.\nFocus\n\nBiostatistics\nStatistical modelling\nClinical research\n\n\n\n\nӨвчний тархалт, эрсдэлт хүчин зүйл, хүн амын эрүүл мэндийн үзүүлэлтүүдийг судална.\nFocus\n\nEpidemiology\nStudy design\nPublic health\n\n\n\n\nӨгөгдөл боловсруулах, программчлал, статистикийн тооцоолол болон өгөгдлийн дүрслэл дээр ажиллана.\nFocus\n\nR programming\nData science\nData visualization\n\n\n\n\nСудлаач оюутнууд биостатистик, тархвар судлал болон статистикийн арга зүйгээр суралцаж, судалгаа хийж байна.\nFocus\n\nBiostatistics\nEpidemiology\nResearch\n\n\n\n\n\n\n\nМанай баг дараах чиглэлүүдээр судалгаа, сургалт болон хамтын ажиллагаа явуулна.\n\nБиостатистикийн арга зүй\nЭмнэлзүйн судалгаа\nТархвар судлал\nСтатистикийн загварчлал\nR программчлал\nӨгөгдлийн дүрслэл\nДахин давтагдахуйц судалгаа"
   },
   {
-    "objectID": "contact.html#холбоо-барих",
-    "href": "contact.html#холбоо-барих",
-    "title": "Contact",
+    "objectID": "team.html#манай-баг",
+    "href": "team.html#манай-баг",
+    "title": "Our Team",
     "section": "",
-    "text": "Биостатистикийн багтай холбоо барих, судалгааны хамтын ажиллагаа болон статистикийн зөвлөгөөтэй холбоотой мэдээллийг энд байршуулна."
+    "text": "Манай баг нь биостатистик, тархвар судлал, эрүүл мэндийн судалгаа болон өгөгдлийн шинжлэх ухааны чиглэлээр ажилладаг."
   },
   {
-    "objectID": "contact.html#email",
-    "href": "contact.html#email",
-    "title": "Contact",
-    "section": "Email",
-    "text": "Email\nEmail: biostatistics@example.com"
+    "objectID": "team.html#our-expertise",
+    "href": "team.html#our-expertise",
+    "title": "Our Team",
+    "section": "",
+    "text": "Эрүүл мэнд, анагаах ухааны судалгаанд статистикийн арга зүй, загварчлал болон өгөгдлийн шинжилгээг хэрэгжүүлнэ.\nFocus\n\nBiostatistics\nStatistical modelling\nClinical research\n\n\n\n\nӨвчний тархалт, эрсдэлт хүчин зүйл, хүн амын эрүүл мэндийн үзүүлэлтүүдийг судална.\nFocus\n\nEpidemiology\nStudy design\nPublic health\n\n\n\n\nӨгөгдөл боловсруулах, программчлал, статистикийн тооцоолол болон өгөгдлийн дүрслэл дээр ажиллана.\nFocus\n\nR programming\nData science\nData visualization\n\n\n\n\nСудлаач оюутнууд биостатистик, тархвар судлал болон статистикийн арга зүйгээр суралцаж, судалгаа хийж байна.\nFocus\n\nBiostatistics\nEpidemiology\nResearch"
   },
   {
-    "objectID": "contact.html#research-collaboration",
-    "href": "contact.html#research-collaboration",
-    "title": "Contact",
-    "section": "Research Collaboration",
-    "text": "Research Collaboration\nДараах чиглэлээр хамтран ажиллах боломжтой:\n\nБиостатистикийн зөвлөгөө\nСудалгааны дизайн\nӨгөгдлийн шинжилгээ\nСтатистикийн загварчлал\nR программчлал"
+    "objectID": "team.html#what-we-work-on",
+    "href": "team.html#what-we-work-on",
+    "title": "Our Team",
+    "section": "",
+    "text": "Манай баг дараах чиглэлүүдээр судалгаа, сургалт болон хамтын ажиллагаа явуулна.\n\nБиостатистикийн арга зүй\nЭмнэлзүйн судалгаа\nТархвар судлал\nСтатистикийн загварчлал\nR программчлал\nӨгөгдлийн дүрслэл\nДахин давтагдахуйц судалгаа"
   },
   {
     "objectID": "books.html",
@@ -140,41 +140,6 @@
     "text": "Энд бид цаашдаа ном бүрийн:\n\nНэр\nЗохиогч\nХэвлэгдсэн он\nТовч тайлбар\nНомын зураг\nАлбан ёсны холбоос\n\nзэргийг оруулна."
   },
   {
-    "objectID": "cheatsheet.html",
-    "href": "cheatsheet.html",
-    "title": "Cheatsheet",
-    "section": "",
-    "text": "{{&lt; pdf 01_R-iin_undes_base-R.pdf width=100% height=800 &gt;}} {{&lt; pdf 02_RStudio_IDE.pdf width=100% height=800 &gt;}} {{&lt; pdf 03_Ogogdol_importloh_readr.pdf width=100% height=800 &gt;}} {{&lt; pdf 04_Ogogdol_huvirgah_dplyr.pdf width=100% height=800 &gt;}} {{&lt; pdf 05_Ogogdol_tsegtsleh_tidyr.pdf width=100% height=800 &gt;}} {{&lt; pdf 06_Ogogdol_durslekh_ggplot2.pdf width=100% height=800 &gt;}}"
-  },
-  {
-    "objectID": "cheatsheet.html#статистикийн-товч-гарын-авлага",
-    "href": "cheatsheet.html#статистикийн-товч-гарын-авлага",
-    "title": "Cheatsheet",
-    "section": "Статистикийн товч гарын авлага",
-    "text": "Статистикийн товч гарын авлага\nЭнэ хэсэгт статистик болон биостатистикийн түгээмэл ойлголт, томьёо, шинжилгээний аргуудыг товч бөгөөд ойлгомжтой байдлаар нэгтгэнэ."
-  },
-  {
-    "objectID": "cheatsheet.html#descriptive-statistics",
-    "href": "cheatsheet.html#descriptive-statistics",
-    "title": "Cheatsheet",
-    "section": "Descriptive Statistics",
-    "text": "Descriptive Statistics\n\nMean\nДундаж утга:\n\\[\n\\bar{x} = \\frac{1}{n}\\sum_{i=1}^{n}x_i\n\\]\n\n\nMedian\nӨгөгдлийг эрэмбэлсний дараах дундах утга.\n\n\nStandard Deviation\nӨгөгдлийн тархалтыг хэмжих үзүүлэлт.\n\n\nInterquartile Range\n\\[\nIQR = Q_3 - Q_1\n\\]"
-  },
-  {
-    "objectID": "cheatsheet.html#statistical-tests",
-    "href": "cheatsheet.html#statistical-tests",
-    "title": "Cheatsheet",
-    "section": "Statistical Tests",
-    "text": "Statistical Tests\n\n\n\nСудалгааны зорилго\nТүгээмэл арга\n\n\n\n\nХоёр дундаж харьцуулах\nt-test\n\n\nГурваас олон дундаж харьцуулах\nANOVA\n\n\nАнгиллын хувьсагч\nChi-square test\n\n\nХоёр тоон хувьсагчийн хамаарал\nCorrelation\n\n\nХамаарлыг загварчлах\nRegression\n\n\nЦаг хугацаа хүртэлх үр дүн\nSurvival analysis"
-  },
-  {
-    "objectID": "cheatsheet.html#regression",
-    "href": "cheatsheet.html#regression",
-    "title": "Cheatsheet",
-    "section": "Regression",
-    "text": "Regression\n\nLinear Regression\nТасралтгүй үр дүнгийн хувьсагчийг тайлбарлахад ашиглана.\nЖишээ:\n```text Y = β₀ + β₁X + ε"
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Home",
@@ -208,6 +173,34 @@
     "title": "Home",
     "section": "Our Mission",
     "text": "Our Mission\nСтатистикийн мэдлэг, судалгааны арга зүй болон өгөгдөлд суурилсан шийдвэр гаргалтыг оюутан, судлаач болон эрүүл мэндийн мэргэжилтнүүдэд ойлгомжтой, хүртээмжтэй хүргэх нь бидний зорилго юм."
+  },
+  {
+    "objectID": "cheatsheet.html#статистикийн-товч-гарын-авлага",
+    "href": "cheatsheet.html#статистикийн-товч-гарын-авлага",
+    "title": "Cheatsheet",
+    "section": "Статистикийн товч гарын авлага",
+    "text": "Статистикийн товч гарын авлага\nЭнэ хэсэгт статистик болон биостатистикийн түгээмэл ойлголт, томьёо, шинжилгээний аргуудыг товч бөгөөд ойлгомжтой байдлаар нэгтгэнэ."
+  },
+  {
+    "objectID": "cheatsheet.html#descriptive-statistics",
+    "href": "cheatsheet.html#descriptive-statistics",
+    "title": "Cheatsheet",
+    "section": "Descriptive Statistics",
+    "text": "Descriptive Statistics\n\nMean\nДундаж утга:\n\\[\n\\bar{x} = \\frac{1}{n}\\sum_{i=1}^{n}x_i\n\\]\n\n\nMedian\nӨгөгдлийг эрэмбэлсний дараах дундах утга.\n\n\nStandard Deviation\nӨгөгдлийн тархалтыг хэмжих үзүүлэлт.\n\n\nInterquartile Range\n\\[\nIQR = Q_3 - Q_1\n\\]"
+  },
+  {
+    "objectID": "cheatsheet.html#statistical-tests",
+    "href": "cheatsheet.html#statistical-tests",
+    "title": "Cheatsheet",
+    "section": "Statistical Tests",
+    "text": "Statistical Tests\n\n\n\nСудалгааны зорилго\nТүгээмэл арга\n\n\n\n\nХоёр дундаж харьцуулах\nt-test\n\n\nГурваас олон дундаж харьцуулах\nANOVA\n\n\nАнгиллын хувьсагч\nChi-square test\n\n\nХоёр тоон хувьсагчийн хамаарал\nCorrelation\n\n\nХамаарлыг загварчлах\nRegression\n\n\nЦаг хугацаа хүртэлх үр дүн\nSurvival analysis"
+  },
+  {
+    "objectID": "cheatsheet.html#regression",
+    "href": "cheatsheet.html#regression",
+    "title": "Cheatsheet",
+    "section": "Regression",
+    "text": "Regression\n\nLinear Regression\nТасралтгүй үр дүнгийн хувьсагчийг тайлбарлахад ашиглана.\nЖишээ:\n```text Y = β₀ + β₁X + ε"
   },
   {
     "objectID": "software.html",
