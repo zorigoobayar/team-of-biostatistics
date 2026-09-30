@@ -1,0 +1,114 @@
+---
+title: "Home"
+---
+
+<div class="hero-section">
+
+# Team of Biostatistics
+
+## Statistics • Health • Research • Data Science
+
+Манай Биостатистикийн багийн цахим хуудсанд тавтай морилно уу.
+
+Бид статистик, биостатистик болон өгөгдлийн шинжлэх
+ухааны аргыг эрүүл мэнд, анагаах ухаан,
+тархвар судлалын судалгаанд ашигладаг.
+
+</div>
+
+---
+
+## What We Do
+
+<div class="feature-grid">
+
+<div class="feature-card">
+
+### 📊 Biostatistics
+
+Эрүүл мэндийн судалгаанд статистикийн арга,
+шинжилгээ болон загварчлалыг ашиглана.
+
+</div>
+
+<div class="feature-card">
+
+### 🔬 Epidemiology
+
+Өвчний тархалт, эрсдэлт хүчин зүйл болон
+хүн амын эрүүл мэндийн асуудлыг судална.
+
+</div>
+
+<div class="feature-card">
+
+### 💻 R Programming
+
+R ашиглан өгөгдөл боловсруулах,
+шинжлэх болон дүрслэх жишээнүүдийг үзүүлнэ.
+
+</div>
+
+<div class="feature-card">
+
+### 📈 Data Science
+
+Өгөгдөлд суурилсан шинжилгээ,
+статистикийн загварчлал болон дүрслэл хийнэ.
+
+</div>
+
+</div>
+
+---
+
+## Explore Our Resources
+
+<div class="resource-grid">
+
+<div class="resource-card">
+
+### Statistical Software
+
+R, Python, SAS, SPSS болон бусад
+статистикийн програмуудын талаар.
+
+</div>
+
+<div class="resource-card">
+
+### Interesting Research
+
+Биостатистик болон эрүүл мэндийн
+судалгааны сонирхолтой жишээнүүд.
+
+</div>
+
+<div class="resource-card">
+
+### Biostatistics Books
+
+Биостатистик, тархвар судлал болон
+статистикийн ном, сурах бичгүүд.
+
+</div>
+
+<div class="resource-card">
+
+### Cheatsheet
+
+Статистикийн томьёо, арга болон
+R кодын товч гарын авлага.
+
+</div>
+
+</div>
+
+---
+
+## Our Mission
+
+Статистикийн мэдлэг, судалгааны арга зүй болон
+өгөгдөлд суурилсан шийдвэр гаргалтыг оюутан,
+судлаач болон эрүүл мэндийн мэргэжилтнүүдэд
+ойлгомжтой, хүртээмжтэй хүргэх нь бидний зорилго юм.

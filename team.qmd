@@ -1,0 +1,102 @@
+---
+title: "Our Team"
+---
+
+# Our Team
+
+<div class="team-intro">
+
+## Манай баг
+
+Манай баг нь биостатистик, тархвар судлал,
+эрүүл мэндийн судалгаа болон өгөгдлийн шинжлэх
+ухааны чиглэлээр ажилладаг.
+
+</div>
+
+---
+
+## Our Expertise
+
+<div class="team-grid">
+
+<div class="team-card">
+
+### 📊 Biostatistician
+
+Эрүүл мэнд, анагаах ухааны судалгаанд
+статистикийн арга зүй, загварчлал болон
+өгөгдлийн шинжилгээг хэрэгжүүлнэ.
+
+**Focus**
+
+- Biostatistics
+- Statistical modelling
+- Clinical research
+
+</div>
+
+<div class="team-card">
+
+### 🔬 Epidemiologist
+
+Өвчний тархалт, эрсдэлт хүчин зүйл,
+хүн амын эрүүл мэндийн үзүүлэлтүүдийг
+судална.
+
+**Focus**
+
+- Epidemiology
+- Study design
+- Public health
+
+</div>
+
+<div class="team-card">
+
+### 💻 Data Scientist
+
+Өгөгдөл боловсруулах, программчлал,
+статистикийн тооцоолол болон өгөгдлийн
+дүрслэл дээр ажиллана.
+
+**Focus**
+
+- R programming
+- Data science
+- Data visualization
+
+</div>
+
+<div class="team-card">
+
+### 🎓 Research Students
+
+Судлаач оюутнууд биостатистик,
+тархвар судлал болон статистикийн
+арга зүйгээр суралцаж, судалгаа хийж байна.
+
+**Focus**
+
+- Biostatistics
+- Epidemiology
+- Research
+
+</div>
+
+</div>
+
+---
+
+## What We Work On
+
+Манай баг дараах чиглэлүүдээр судалгаа,
+сургалт болон хамтын ажиллагаа явуулна.
+
+- Биостатистикийн арга зүй
+- Эмнэлзүйн судалгаа
+- Тархвар судлал
+- Статистикийн загварчлал
+- R программчлал
+- Өгөгдлийн дүрслэл
+- Дахин давтагдахуйц судалгаа
