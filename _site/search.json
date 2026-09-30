@@ -214,14 +214,14 @@
     "href": "cheatsheet.html",
     "title": "Cheatsheet",
     "section": "",
-    "text": "Энэ хэсэгт статистик болон биостатистикийн түгээмэл ойлголт, томьёо, шинжилгээний аргуудыг товч бөгөөд ойлгомжтой байдлаар нэгтгэнэ."
+    "text": "{{&lt; pdf 01_R-iin_undes_base-R.pdf width=100% height=800 &gt;}} {{&lt; pdf 02_RStudio_IDE.pdf width=100% height=800 &gt;}} {{&lt; pdf 03_Ogogdol_importloh_readr.pdf width=100% height=800 &gt;}} {{&lt; pdf 04_Ogogdol_huvirgah_dplyr.pdf width=100% height=800 &gt;}} {{&lt; pdf 05_Ogogdol_tsegtsleh_tidyr.pdf width=100% height=800 &gt;}} {{&lt; pdf 06_Ogogdol_durslekh_ggplot2.pdf width=100% height=800 &gt;}}"
   },
   {
     "objectID": "cheatsheet.html#статистикийн-товч-гарын-авлага",
     "href": "cheatsheet.html#статистикийн-товч-гарын-авлага",
     "title": "Cheatsheet",
-    "section": "",
-    "text": "Энэ хэсэгт статистик болон биостатистикийн түгээмэл ойлголт, томьёо, шинжилгээний аргуудыг товч бөгөөд ойлгомжтой байдлаар нэгтгэнэ."
+    "section": "Статистикийн товч гарын авлага",
+    "text": "Статистикийн товч гарын авлага\nЭнэ хэсэгт статистик болон биостатистикийн түгээмэл ойлголт, томьёо, шинжилгээний аргуудыг товч бөгөөд ойлгомжтой байдлаар нэгтгэнэ."
   },
   {
     "objectID": "cheatsheet.html#descriptive-statistics",

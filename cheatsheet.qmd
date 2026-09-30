@@ -12,8 +12,7 @@ title: "Cheatsheet"
 
 <iframe src="05_Ogogdol_tsegtsleh_tidyr.pdf" width="100%" height="800px"></iframe>
 
-<iframe src="06_Ogogdol_dursleh_ggplot2.pdf" width="100%" height="800px"></iframe>
-
+<iframe src="06_Ogogdol_durslekh_ggplot2.pdf" width="100%" height="800px"></iframe>
 
 ## Статистикийн товч гарын авлага
 
