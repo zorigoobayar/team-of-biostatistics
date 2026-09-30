@@ -1,0 +1,159 @@
+/* Team of Biostatistics - Main Style */
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.7;
+}
+
+/* Navigation */
+
+.navbar-brand {
+  font-weight: bold;
+}
+
+/* Headings */
+
+h1 {
+  font-weight: 700;
+}
+
+h2 {
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Home hero section */
+
+.hero-section {
+  padding: 4rem 2rem;
+  margin-bottom: 3rem;
+  text-align: center;
+  border-radius: 16px;
+  background: #f1f5f9;
+}
+
+.hero-section h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero-section h2 {
+  margin-top: 0;
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
+/* Feature cards */
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.feature-card {
+  padding: 1.5rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: white;
+}
+
+.feature-card h3 {
+  margin-top: 0;
+}
+
+/* Resource cards */
+
+.resource-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.resource-card {
+  padding: 1.5rem;
+  border-radius: 12px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+.resource-card h3 {
+  margin-top: 0;
+}
+
+/* Mobile */
+
+@media (max-width: 900px) {
+
+  .feature-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .feature-grid,
+  .resource-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-section {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .hero-section h1 {
+    font-size: 2.2rem;
+  }
+
+}
+
+/* Hide Quarto automatic page title */
+
+.quarto-title-block {
+  display: none;
+}
+
+
+
+/* Our Team */
+
+.team-intro {
+  max-width: 850px;
+  margin-bottom: 2rem;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.team-card {
+  padding: 1.8rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  background: white;
+}
+
+.team-card h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.team-card strong {
+  font-size: 0.9rem;
+}
+
+/* Team cards on small screens */
+
+@media (max-width: 700px) {
+
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
