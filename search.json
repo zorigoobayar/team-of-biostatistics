@@ -175,32 +175,18 @@
     "text": "Our Mission\nСтатистикийн мэдлэг, судалгааны арга зүй болон өгөгдөлд суурилсан шийдвэр гаргалтыг оюутан, судлаач болон эрүүл мэндийн мэргэжилтнүүдэд ойлгомжтой, хүртээмжтэй хүргэх нь бидний зорилго юм."
   },
   {
-    "objectID": "cheatsheet.html#статистикийн-товч-гарын-авлага",
-    "href": "cheatsheet.html#статистикийн-товч-гарын-авлага",
+    "objectID": "cheatsheet.html",
+    "href": "cheatsheet.html",
     "title": "Cheatsheet",
-    "section": "Статистикийн товч гарын авлага",
-    "text": "Статистикийн товч гарын авлага\nЭнэ хэсэгт статистик болон биостатистикийн түгээмэл ойлголт, томьёо, шинжилгээний аргуудыг товч бөгөөд ойлгомжтой байдлаар нэгтгэнэ."
+    "section": "",
+    "text": "Энэ хэсэгт R программчлал, өгөгдөл боловсруулах, өгөгдлийн дүрслэл болон статистикийн шинжилгээний товч гарын авлагуудыг байршууллаа."
   },
   {
-    "objectID": "cheatsheet.html#descriptive-statistics",
-    "href": "cheatsheet.html#descriptive-statistics",
+    "objectID": "cheatsheet.html#r-болон-өгөгдлийн-шинжилгээний-гарын-авлага",
+    "href": "cheatsheet.html#r-болон-өгөгдлийн-шинжилгээний-гарын-авлага",
     "title": "Cheatsheet",
-    "section": "Descriptive Statistics",
-    "text": "Descriptive Statistics\n\nMean\nДундаж утга:\n\\[\n\\bar{x} = \\frac{1}{n}\\sum_{i=1}^{n}x_i\n\\]\n\n\nMedian\nӨгөгдлийг эрэмбэлсний дараах дундах утга.\n\n\nStandard Deviation\nӨгөгдлийн тархалтыг хэмжих үзүүлэлт.\n\n\nInterquartile Range\n\\[\nIQR = Q_3 - Q_1\n\\]"
-  },
-  {
-    "objectID": "cheatsheet.html#statistical-tests",
-    "href": "cheatsheet.html#statistical-tests",
-    "title": "Cheatsheet",
-    "section": "Statistical Tests",
-    "text": "Statistical Tests\n\n\n\nСудалгааны зорилго\nТүгээмэл арга\n\n\n\n\nХоёр дундаж харьцуулах\nt-test\n\n\nГурваас олон дундаж харьцуулах\nANOVA\n\n\nАнгиллын хувьсагч\nChi-square test\n\n\nХоёр тоон хувьсагчийн хамаарал\nCorrelation\n\n\nХамаарлыг загварчлах\nRegression\n\n\nЦаг хугацаа хүртэлх үр дүн\nSurvival analysis"
-  },
-  {
-    "objectID": "cheatsheet.html#regression",
-    "href": "cheatsheet.html#regression",
-    "title": "Cheatsheet",
-    "section": "Regression",
-    "text": "Regression\n\nLinear Regression\nТасралтгүй үр дүнгийн хувьсагчийг тайлбарлахад ашиглана.\nЖишээ:\n```text Y = β₀ + β₁X + ε"
+    "section": "",
+    "text": "Энэ хэсэгт R программчлал, өгөгдөл боловсруулах, өгөгдлийн дүрслэл болон статистикийн шинжилгээний товч гарын авлагуудыг байршууллаа."
   },
   {
     "objectID": "software.html",
