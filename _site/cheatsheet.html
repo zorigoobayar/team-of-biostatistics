@@ -74,35 +74,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -168,18 +139,15 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#статистикийн-товч-гарын-авлага" id="toc-статистикийн-товч-гарын-авлага" class="nav-link active" data-scroll-target="#статистикийн-товч-гарын-авлага">Статистикийн товч гарын авлага</a></li>
-  <li><a href="#descriptive-statistics" id="toc-descriptive-statistics" class="nav-link" data-scroll-target="#descriptive-statistics">Descriptive Statistics</a>
+  <li><a href="#cheatsheet" id="toc-cheatsheet" class="nav-link active" data-scroll-target="#cheatsheet">Cheatsheet</a>
   <ul class="collapse">
-  <li><a href="#mean" id="toc-mean" class="nav-link" data-scroll-target="#mean">Mean</a></li>
-  <li><a href="#median" id="toc-median" class="nav-link" data-scroll-target="#median">Median</a></li>
-  <li><a href="#standard-deviation" id="toc-standard-deviation" class="nav-link" data-scroll-target="#standard-deviation">Standard Deviation</a></li>
-  <li><a href="#interquartile-range" id="toc-interquartile-range" class="nav-link" data-scroll-target="#interquartile-range">Interquartile Range</a></li>
-  </ul></li>
-  <li><a href="#statistical-tests" id="toc-statistical-tests" class="nav-link" data-scroll-target="#statistical-tests">Statistical Tests</a></li>
-  <li><a href="#regression" id="toc-regression" class="nav-link" data-scroll-target="#regression">Regression</a>
-  <ul class="collapse">
-  <li><a href="#linear-regression" id="toc-linear-regression" class="nav-link" data-scroll-target="#linear-regression">Linear Regression</a></li>
+  <li><a href="#r-болон-өгөгдлийн-шинжилгээний-гарын-авлага" id="toc-r-болон-өгөгдлийн-шинжилгээний-гарын-авлага" class="nav-link" data-scroll-target="#r-болон-өгөгдлийн-шинжилгээний-гарын-авлага">R болон өгөгдлийн шинжилгээний гарын авлага</a></li>
+  <li><a href="#r-ийн-үндэс" id="toc-r-ийн-үндэс" class="nav-link" data-scroll-target="#r-ийн-үндэс">01. R-ийн үндэс</a></li>
+  <li><a href="#rstudio-ide" id="toc-rstudio-ide" class="nav-link" data-scroll-target="#rstudio-ide">02. RStudio IDE</a></li>
+  <li><a href="#өгөгдөл-импортлох-readr" id="toc-өгөгдөл-импортлох-readr" class="nav-link" data-scroll-target="#өгөгдөл-импортлох-readr">03. Өгөгдөл импортлох — readr</a></li>
+  <li><a href="#өгөгдөл-хувиргах-dplyr" id="toc-өгөгдөл-хувиргах-dplyr" class="nav-link" data-scroll-target="#өгөгдөл-хувиргах-dplyr">04. Өгөгдөл хувиргах — dplyr</a></li>
+  <li><a href="#өгөгдөл-цэгцлэх-tidyr" id="toc-өгөгдөл-цэгцлэх-tidyr" class="nav-link" data-scroll-target="#өгөгдөл-цэгцлэх-tidyr">05. Өгөгдөл цэгцлэх — tidyr</a></li>
+  <li><a href="#өгөгдөл-дүрслэх-ggplot2" id="toc-өгөгдөл-дүрслэх-ggplot2" class="nav-link" data-scroll-target="#өгөгдөл-дүрслэх-ggplot2">06. Өгөгдөл дүрслэх — ggplot2</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -206,93 +174,60 @@ window.Quarto = {
 </header>
 
 
-<iframe src="01_R-iin_undes_base-R.pdf" width="100%" height="800px">
-</iframe>
-<iframe src="02_RStudio_IDE.pdf" width="100%" height="800px">
-</iframe>
-<iframe src="03_Ogogdol_importloh_readr.pdf" width="100%" height="800px">
-</iframe>
-<iframe src="04_Ogogdol_huvirgah_dplyr.pdf" width="100%" height="800px">
-</iframe>
-<iframe src="05_Ogogdol_tsegtsleh_tidyr.pdf" width="100%" height="800px">
-</iframe>
-<iframe src="06_Ogogdol_durslekh_ggplot2.pdf" width="100%" height="800px">
-</iframe>
-<section id="статистикийн-товч-гарын-авлага" class="level2">
-<h2 class="anchored" data-anchor-id="статистикийн-товч-гарын-авлага">Статистикийн товч гарын авлага</h2>
-<p>Энэ хэсэгт статистик болон биостатистикийн түгээмэл ойлголт, томьёо, шинжилгээний аргуудыг товч бөгөөд ойлгомжтой байдлаар нэгтгэнэ.</p>
+<section id="cheatsheet" class="level1">
+<h1>Cheatsheet</h1>
+<section id="r-болон-өгөгдлийн-шинжилгээний-гарын-авлага" class="level2">
+<h2 class="anchored" data-anchor-id="r-болон-өгөгдлийн-шинжилгээний-гарын-авлага">R болон өгөгдлийн шинжилгээний гарын авлага</h2>
+<p>Энэ хэсэгт R программчлал, өгөгдөл боловсруулах, өгөгдлийн дүрслэл болон статистикийн шинжилгээний товч гарын авлагуудыг байршууллаа.</p>
 <hr>
 </section>
-<section id="descriptive-statistics" class="level2">
-<h2 class="anchored" data-anchor-id="descriptive-statistics">Descriptive Statistics</h2>
-<section id="mean" class="level3">
-<h3 class="anchored" data-anchor-id="mean">Mean</h3>
-<p>Дундаж утга:</p>
-<p><span class="math display">\[
-\bar{x} = \frac{1}{n}\sum_{i=1}^{n}x_i
-\]</span></p>
-</section>
-<section id="median" class="level3">
-<h3 class="anchored" data-anchor-id="median">Median</h3>
-<p>Өгөгдлийг эрэмбэлсний дараах дундах утга.</p>
-</section>
-<section id="standard-deviation" class="level3">
-<h3 class="anchored" data-anchor-id="standard-deviation">Standard Deviation</h3>
-<p>Өгөгдлийн тархалтыг хэмжих үзүүлэлт.</p>
-</section>
-<section id="interquartile-range" class="level3">
-<h3 class="anchored" data-anchor-id="interquartile-range">Interquartile Range</h3>
-<p><span class="math display">\[
-IQR = Q_3 - Q_1
-\]</span></p>
+<section id="r-ийн-үндэс" class="level2">
+<h2 class="anchored" data-anchor-id="r-ийн-үндэс">01. R-ийн үндэс</h2>
+<div class="pdf-section">
+<iframe class="pdf-viewer" src="01_R-iin_undes_base-R.pdf#toolbar=1&amp;navpanes=0&amp;scrollbar=1">
+</iframe>
+</div>
 <hr>
 </section>
-</section>
-<section id="statistical-tests" class="level2">
-<h2 class="anchored" data-anchor-id="statistical-tests">Statistical Tests</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Судалгааны зорилго</th>
-<th>Түгээмэл арга</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Хоёр дундаж харьцуулах</td>
-<td>t-test</td>
-</tr>
-<tr class="even">
-<td>Гурваас олон дундаж харьцуулах</td>
-<td>ANOVA</td>
-</tr>
-<tr class="odd">
-<td>Ангиллын хувьсагч</td>
-<td>Chi-square test</td>
-</tr>
-<tr class="even">
-<td>Хоёр тоон хувьсагчийн хамаарал</td>
-<td>Correlation</td>
-</tr>
-<tr class="odd">
-<td>Хамаарлыг загварчлах</td>
-<td>Regression</td>
-</tr>
-<tr class="even">
-<td>Цаг хугацаа хүртэлх үр дүн</td>
-<td>Survival analysis</td>
-</tr>
-</tbody>
-</table>
+<section id="rstudio-ide" class="level2">
+<h2 class="anchored" data-anchor-id="rstudio-ide">02. RStudio IDE</h2>
+<div class="pdf-section">
+<iframe class="pdf-viewer" src="02_RStudio_IDE.pdf#toolbar=1&amp;navpanes=0&amp;scrollbar=1">
+</iframe>
+</div>
 <hr>
 </section>
-<section id="regression" class="level2">
-<h2 class="anchored" data-anchor-id="regression">Regression</h2>
-<section id="linear-regression" class="level3">
-<h3 class="anchored" data-anchor-id="linear-regression">Linear Regression</h3>
-<p>Тасралтгүй үр дүнгийн хувьсагчийг тайлбарлахад ашиглана.</p>
-<p>Жишээ:</p>
-<p>```text Y = β₀ + β₁X + ε</p>
+<section id="өгөгдөл-импортлох-readr" class="level2">
+<h2 class="anchored" data-anchor-id="өгөгдөл-импортлох-readr">03. Өгөгдөл импортлох — readr</h2>
+<div class="pdf-section">
+<iframe class="pdf-viewer" src="03_Ogogdol_importloh_readr.pdf#toolbar=1&amp;navpanes=0&amp;scrollbar=1">
+</iframe>
+</div>
+<hr>
+</section>
+<section id="өгөгдөл-хувиргах-dplyr" class="level2">
+<h2 class="anchored" data-anchor-id="өгөгдөл-хувиргах-dplyr">04. Өгөгдөл хувиргах — dplyr</h2>
+<div class="pdf-section">
+<iframe class="pdf-viewer" src="04_Ogogdol_huvirgah_dplyr.pdf#toolbar=1&amp;navpanes=0&amp;scrollbar=1">
+</iframe>
+</div>
+<hr>
+</section>
+<section id="өгөгдөл-цэгцлэх-tidyr" class="level2">
+<h2 class="anchored" data-anchor-id="өгөгдөл-цэгцлэх-tidyr">05. Өгөгдөл цэгцлэх — tidyr</h2>
+<div class="pdf-section">
+<iframe class="pdf-viewer" src="05_Ogogdol_tsegtsleh_tidyr.pdf#toolbar=1&amp;navpanes=0&amp;scrollbar=1">
+</iframe>
+</div>
+<hr>
+</section>
+<section id="өгөгдөл-дүрслэх-ggplot2" class="level2">
+<h2 class="anchored" data-anchor-id="өгөгдөл-дүрслэх-ggplot2">06. Өгөгдөл дүрслэх — ggplot2</h2>
+<div class="pdf-section">
+<iframe class="pdf-viewer" src="06_Ogogdol_durslekh_ggplot2.pdf#toolbar=1&amp;navpanes=0&amp;scrollbar=1">
+</iframe>
+</div>
+<hr>
 
 
 </section>

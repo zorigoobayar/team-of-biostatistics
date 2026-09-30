@@ -186,3 +186,227 @@ h2 {
     height: 650px;
   }
 }
+
+
+
+
+
+
+
+
+/* =========================================================
+   DIFFERENT BACKGROUNDS FOR EACH MAIN PAGE
+   ========================================================= */
+
+/* ---------- Common page background ---------- */
+
+body.page-home,
+body.page-team,
+body.page-software,
+body.page-research,
+body.page-books {
+  min-height: 100vh;
+  position: relative;
+  background-attachment: fixed;
+}
+
+/* ---------- HOME — Soft Blue ---------- */
+
+body.page-home {
+  background:
+    radial-gradient(circle at 5% 20%, rgba(147, 197, 253, 0.35) 0 90px, transparent 91px),
+    radial-gradient(circle at 95% 15%, rgba(191, 219, 254, 0.45) 0 110px, transparent 111px),
+    radial-gradient(circle at 10% 90%, rgba(147, 197, 253, 0.25) 0 120px, transparent 121px),
+    #eef6ff;
+}
+
+
+/* ---------- OUR TEAM — Warm Cream ---------- */
+
+body.page-team {
+  background:
+    radial-gradient(circle at 5% 25%, rgba(251, 191, 36, 0.16) 0 100px, transparent 101px),
+    radial-gradient(circle at 94% 80%, rgba(253, 186, 116, 0.18) 0 130px, transparent 131px),
+    linear-gradient(135deg, #fffaf0, #fff7e8);
+}
+
+
+/* ---------- STATISTICAL SOFTWARE — Soft Green ---------- */
+
+body.page-software {
+  background:
+    radial-gradient(circle at 8% 18%, rgba(52, 211, 153, 0.18) 0 90px, transparent 91px),
+    radial-gradient(circle at 94% 25%, rgba(110, 231, 183, 0.22) 0 110px, transparent 111px),
+    radial-gradient(circle at 90% 90%, rgba(167, 243, 208, 0.28) 0 130px, transparent 131px),
+    #eefaf5;
+}
+
+
+/* ---------- INTERESTING RESEARCH — Soft Purple ---------- */
+
+body.page-research {
+  background:
+    radial-gradient(circle at 5% 20%, rgba(196, 181, 253, 0.30) 0 100px, transparent 101px),
+    radial-gradient(circle at 95% 20%, rgba(221, 214, 254, 0.40) 0 120px, transparent 121px),
+    radial-gradient(circle at 10% 90%, rgba(167, 139, 250, 0.18) 0 130px, transparent 131px),
+    #f5f1ff;
+}
+
+
+/* ---------- BIOSTATISTICS BOOKS — Soft Orange ---------- */
+
+body.page-books {
+  background:
+    radial-gradient(circle at 5% 25%, rgba(251, 191, 36, 0.18) 0 110px, transparent 111px),
+    radial-gradient(circle at 94% 20%, rgba(253, 186, 116, 0.22) 0 120px, transparent 121px),
+    radial-gradient(circle at 90% 90%, rgba(251, 191, 36, 0.15) 0 140px, transparent 141px),
+    #fff4e8;
+}
+
+
+/* =========================================================
+   CONTENT AREA
+   ========================================================= */
+
+body.page-home .page-columns,
+body.page-team .page-columns,
+body.page-software .page-columns,
+body.page-research .page-columns,
+body.page-books .page-columns {
+  background: transparent;
+}
+
+
+/* =========================================================
+   HERO SECTION
+   ========================================================= */
+
+.hero-section {
+  position: relative;
+  overflow: hidden;
+  padding: 4.5rem 2rem;
+  margin-bottom: 3rem;
+  text-align: center;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 10px 35px rgba(15, 23, 42, 0.06);
+  backdrop-filter: blur(8px);
+}
+
+
+/* =========================================================
+   CARDS
+   ========================================================= */
+
+.feature-card,
+.resource-card,
+.team-card {
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 8px 25px rgba(15, 23, 42, 0.06);
+  backdrop-filter: blur(6px);
+  transition: all 0.25s ease;
+}
+
+.feature-card:hover,
+.resource-card:hover,
+.team-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(15, 23, 42, 0.10);
+}
+
+
+/* =========================================================
+   HOME FEATURE CARDS
+   ========================================================= */
+
+.feature-card {
+  text-align: center;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+/* =========================================================
+   BOOKS PAGE
+   ========================================================= */
+
+body.page-books .resource-card {
+  background: rgba(255, 255, 255, 0.78);
+}
+
+body.page-books h1 {
+  font-weight: 700;
+}
+
+body.page-books h2 {
+  margin-top: 2rem;
+}
+
+
+/* =========================================================
+   SOFTWARE PAGE
+   ========================================================= */
+
+body.page-software .resource-card {
+  background: rgba(255, 255, 255, 0.80);
+}
+
+
+/* =========================================================
+   RESEARCH PAGE
+   ========================================================= */
+
+body.page-research .resource-card {
+  background: rgba(255, 255, 255, 0.82);
+}
+
+
+/* =========================================================
+   TEAM PAGE
+   ========================================================= */
+
+body.page-team .team-card {
+  background: rgba(255, 255, 255, 0.82);
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.navbar {
+  background: rgba(255, 255, 255, 0.88) !important;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.7);
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  body.page-home,
+  body.page-team,
+  body.page-software,
+  body.page-research,
+  body.page-books {
+    background-attachment: scroll;
+  }
+
+  .hero-section {
+    padding: 3rem 1.5rem;
+    border-radius: 18px;
+  }
+
+  .feature-card,
+  .resource-card,
+  .team-card {
+    box-shadow: 0 5px 18px rgba(15, 23, 42, 0.06);
+  }
+}

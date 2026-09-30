@@ -1,5 +1,8 @@
 ---
 title: "Our Team"
+format:
+  html:
+    body-classes: page-team
 ---
 
 # Our Team

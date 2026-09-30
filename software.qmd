@@ -1,5 +1,8 @@
 ---
 title: "Statistical Software"
+format:
+  html:
+    body-classes: page-software
 ---
 
 

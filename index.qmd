@@ -1,5 +1,8 @@
 ---
 title: "Home"
+format:
+  html:
+    body-classes: page-home
 ---
 
 <div class="hero-section">
