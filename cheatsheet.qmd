@@ -2,17 +2,18 @@
 title: "Cheatsheet"
 ---
 
-{{< pdf 01_R-iin_undes_base-R.pdf width="100%" height="800" >}}
+<iframe src="01_R-iin_undes_base-R.pdf" width="100%" height="800px"></iframe>
 
-{{< pdf 02_RStudio_IDE.pdf width="100%" height="800" >}}
+<iframe src="02_RStudio_IDE.pdf" width="100%" height="800px"></iframe>
 
-{{< pdf 03_Ogogdol_importloh_readr.pdf width="100%" height="800" >}}
+<iframe src="03_Ogogdol_importloh_readr.pdf" width="100%" height="800px"></iframe>
 
-{{< pdf 04_Ogogdol_huvirgah_dplyr.pdf width="100%" height="800" >}}
+<iframe src="04_Ogogdol_huvirgah_dplyr.pdf" width="100%" height="800px"></iframe>
 
-{{< pdf 05_Ogogdol_tsegtsleh_tidyr.pdf width="100%" height="800" >}}
+<iframe src="05_Ogogdol_tsegtsleh_tidyr.pdf" width="100%" height="800px"></iframe>
 
-{{< pdf 06_Ogogdol_dursleh_ggplot2.pdf width="100%" height="800" >}}
+<iframe src="06_Ogogdol_dursleh_ggplot2.pdf" width="100%" height="800px"></iframe>
+
 
 ## Статистикийн товч гарын авлага
 
