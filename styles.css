@@ -157,3 +157,32 @@ h2 {
   }
 
 }
+
+
+
+
+
+/* PDF viewer */
+
+.pdf-viewer {
+  width: 100%;
+  height: 900px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  margin-bottom: 3rem;
+  background: #f8fafc;
+}
+
+.pdf-section {
+  margin-bottom: 3rem;
+}
+
+.pdf-section h2 {
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 700px) {
+  .pdf-viewer {
+    height: 650px;
+  }
+}

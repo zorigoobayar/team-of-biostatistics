@@ -1,5 +1,6 @@
 ---
 title: "Cheatsheet"
+
 resources:
   - 01_R-iin_undes_base-R.pdf
   - 02_RStudio_IDE.pdf
@@ -9,73 +10,90 @@ resources:
   - 06_Ogogdol_durslekh_ggplot2.pdf
 ---
 
-<iframe src="01_R-iin_undes_base-R.pdf" width="100%" height="800px"></iframe>
+# Cheatsheet
 
-<iframe src="02_RStudio_IDE.pdf" width="100%" height="800px"></iframe>
+## R болон өгөгдлийн шинжилгээний гарын авлага
 
-<iframe src="03_Ogogdol_importloh_readr.pdf" width="100%" height="800px"></iframe>
-
-<iframe src="04_Ogogdol_huvirgah_dplyr.pdf" width="100%" height="800px"></iframe>
-
-<iframe src="05_Ogogdol_tsegtsleh_tidyr.pdf" width="100%" height="800px"></iframe>
-
-<iframe src="06_Ogogdol_durslekh_ggplot2.pdf" width="100%" height="800px"></iframe>
-
-## Статистикийн товч гарын авлага
-
-Энэ хэсэгт статистик болон биостатистикийн
-түгээмэл ойлголт, томьёо, шинжилгээний аргуудыг
-товч бөгөөд ойлгомжтой байдлаар нэгтгэнэ.
+Энэ хэсэгт R программчлал, өгөгдөл боловсруулах,
+өгөгдлийн дүрслэл болон статистикийн шинжилгээний
+товч гарын авлагуудыг байршууллаа.
 
 ---
 
-## Descriptive Statistics
+## 01. R-ийн үндэс
 
-### Mean
+<div class="pdf-section">
 
-Дундаж утга:
+<iframe
+  class="pdf-viewer"
+  src="01_R-iin_undes_base-R.pdf#toolbar=1&navpanes=0&scrollbar=1">
+</iframe>
 
-$$
-\bar{x} = \frac{1}{n}\sum_{i=1}^{n}x_i
-$$
-
-### Median
-
-Өгөгдлийг эрэмбэлсний дараах дундах утга.
-
-### Standard Deviation
-
-Өгөгдлийн тархалтыг хэмжих үзүүлэлт.
-
-### Interquartile Range
-
-$$
-IQR = Q_3 - Q_1
-$$
+</div>
 
 ---
 
-## Statistical Tests
+## 02. RStudio IDE
 
-| Судалгааны зорилго | Түгээмэл арга |
-|---|---|
-| Хоёр дундаж харьцуулах | t-test |
-| Гурваас олон дундаж харьцуулах | ANOVA |
-| Ангиллын хувьсагч | Chi-square test |
-| Хоёр тоон хувьсагчийн хамаарал | Correlation |
-| Хамаарлыг загварчлах | Regression |
-| Цаг хугацаа хүртэлх үр дүн | Survival analysis |
+<div class="pdf-section">
+
+<iframe
+  class="pdf-viewer"
+  src="02_RStudio_IDE.pdf#toolbar=1&navpanes=0&scrollbar=1">
+</iframe>
+
+</div>
 
 ---
 
-## Regression
+## 03. Өгөгдөл импортлох — readr
 
-### Linear Regression
+<div class="pdf-section">
 
-Тасралтгүй үр дүнгийн хувьсагчийг
-тайлбарлахад ашиглана.
+<iframe
+  class="pdf-viewer"
+  src="03_Ogogdol_importloh_readr.pdf#toolbar=1&navpanes=0&scrollbar=1">
+</iframe>
 
-Жишээ:
+</div>
 
-```text
-Y = β₀ + β₁X + ε
+---
+
+## 04. Өгөгдөл хувиргах — dplyr
+
+<div class="pdf-section">
+
+<iframe
+  class="pdf-viewer"
+  src="04_Ogogdol_huvirgah_dplyr.pdf#toolbar=1&navpanes=0&scrollbar=1">
+</iframe>
+
+</div>
+
+---
+
+## 05. Өгөгдөл цэгцлэх — tidyr
+
+<div class="pdf-section">
+
+<iframe
+  class="pdf-viewer"
+  src="05_Ogogdol_tsegtsleh_tidyr.pdf#toolbar=1&navpanes=0&scrollbar=1">
+</iframe>
+
+</div>
+
+---
+
+## 06. Өгөгдөл дүрслэх — ggplot2
+
+<div class="pdf-section">
+
+<iframe
+  class="pdf-viewer"
+  src="06_Ogogdol_durslekh_ggplot2.pdf#toolbar=1&navpanes=0&scrollbar=1">
+</iframe>
+
+</div>
+
+---
