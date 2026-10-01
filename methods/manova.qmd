@@ -1,0 +1,96 @@
+---
+title: "Олон хэмжээст дисперсийн шинжилгээ (MANOVA)"
+description: "Хоёр ба түүнээс дээш хамааралтай үр дагаврыг бүлгүүдийн хооронд зэрэг харьцуулна."
+format:
+  html:
+    body-classes: page-methods
+    css:
+      - ../styles.css
+      - ../styles/methods.css
+      - ../styles/glossary.css
+    include-after-body:
+      text: |
+        <script src="../assets/js/js-yaml.min.js"></script>
+        <script src="../assets/js/glossary.js"></script>
+---
+
+```{=html}
+<header class="mt-hero" style="--mt-accent:#db2777">
+  <p class="mt-eyebrow"><a href="../methods.html">Data Analysis Methods</a> · Дундаж харьцуулах</p>
+  <h1>Олон хэмжээст дисперсийн шинжилгээ (MANOVA)</h1>
+  <p class="mt-en" lang="en">Multivariate analysis of variance</p>
+  <p class="mt-lead">Хоорондоо хамааралтай хэд хэдэн тасралтгүй үр дагаврын хувьсагчийг нэг дор авч үзэж, бүлгүүд эдгээр хувьсагчдын хослолоор ялгаатай эсэхийг шалгана.</p>
+  <ul class="mt-badges"><li>≥ 2 тасралтгүй үр дагавар</li><li>≥ 2 бүлэг</li><li><code>manova()</code></li></ul>
+</header>
+```
+
+## Товч мэдээлэл
+
+```{=html}
+<div class="mt-facts"><div><span>Үр дагавар</span><strong>≥ 2 тасралтгүй</strong></div><div><span>Бүлэг</span><strong>≥ 2</strong></div><div><span>Тестийн статистик</span><strong>Pillai, Wilks&#x27; Λ</strong></div><div><span>Дараагийн алхам</span><strong>Үр дагавар тус бүрийн ANOVA</strong></div></div>
+```
+
+## Хэзээ хэрэглэх вэ?
+
+Үр дагаврууд онолын хувьд нэг цогц ойлголтыг илэрхийлж, хоорондоо дунд зэрэг хамааралтай бол.
+
+::: {.callout-tip appearance="simple" icon="false"}
+**Жишээ судалгааны асуулт:** Гурван дасгалын хөтөлбөр систол ба диастолын даралтад хамтдаа ялгаатай нөлөөлөх үү?
+:::
+
+## Таамаглалууд
+
+Шинжилгээ хийхээс өмнө шалгана:
+
+- [ ] Ажиглалтууд хоорондоо хамааралгүй.
+- [ ] Үр дагаврууд бүлэг бүрт олон хэмжээст хэвийн тархалттай.
+- [ ] Ковариацын матрицууд бүлгүүдэд ижил (Box-ийн M тест).
+- [ ] Үр дагаврууд дунд зэрэг хамааралтай (хэт өндөр биш, хэт бага биш).
+
+## R дээр хийх
+
+```r
+# Өгөгдөл: df$sbp, df$dbp, df$program (3 түвшин)
+m <- manova(cbind(sbp, dbp) ~ program, data = df)
+summary(m, test = "Pillai")      # олон хэмжээст тест
+summary.aov(m)                   # үр дагавар тус бүрийн ANOVA
+```
+
+## Үр дүнг тайлбарлах
+
+- **Pillai's trace** — хамгийн бат бөх тестийн статистик (таамаглал бага зэрэг зөрчигдсөн ч найдвартай).
+- **approx F, Pr(>F)** — бүлгүүд үр дагаврын хослолоор ялгаатай эсэх.
+- **summary.aov** — аль үр дагаварт ялгаа байгааг тус тусад нь харуулна (олон харьцуулалтын залруулга хийнэ).
+
+## Тайлагнах жишээ
+
+::: {.callout-note appearance="simple" icon="false"}
+Дасгалын хөтөлбөрүүд систол ба диастолын даралтад хамтдаа ялгаатай нөлөөлсөн (Pillai's trace = 0.11, F(4, 294) = 4.27, p = 0.002). Тус тусын ANOVA-аар ялгаа систолын даралтад илэрсэн.
+
+<small>Тоонууд зохиомол бөгөөд тайлагнах хэлбэрийг харуулах зорилготой.</small>
+:::
+
+## Түгээмэл алдаа
+
+::: {.callout-warning appearance="simple" icon="false"}
+- Хамааралгүй, онолын холбоогүй олон үр дагаврыг MANOVA-д хийх.
+- MANOVA-г «олон тест хийхээс зайлсхийх» хамгаалалт гэж үзэх. Үр дагавар тус бүрийн дараах тестэд залруулга хэрэгтэй хэвээр.
+:::
+
+## Өөр аргууд
+
+- [Дисперсийн шинжилгээ (ANOVA)](anova.html) — Гурав ба түүнээс дээш хамааралгүй бүлгийн дундажийг нэг дор харьцуулна.
+- [Шугаман регресс](linear-regression.html) — Тасралтгүй үр дагаврыг нэг буюу олон тайлбарлагч хувьсагчаар загварчилна.
+
+## Холбогдох нэр томьёо
+
+```{=html}
+<div class="glossary-embed"
+     data-src="../glossary/terms.yml"
+     data-glossary-url="../glossary.html"
+     data-terms="manova,anova,multiple-comparisons,bonferroni,pearson-correlation,normal-distribution">
+  <p class="gl-loading">Нэр томьёог ачаалж байна…</p>
+</div>
+
+<nav class="mt-pager" aria-label="Аргууд хооронд шилжих"><a href="ancova.html">← Ковариацын шинжилгээ (ANCOVA)</a><a href="correlation.html">Корреляцийн шинжилгээ →</a></nav>
+```

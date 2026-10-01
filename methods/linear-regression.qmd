@@ -1,0 +1,106 @@
+---
+title: "Шугаман регресс"
+description: "Тасралтгүй үр дагаврыг нэг буюу олон тайлбарлагч хувьсагчаар загварчилна."
+format:
+  html:
+    body-classes: page-methods
+    css:
+      - ../styles.css
+      - ../styles/methods.css
+      - ../styles/glossary.css
+    include-after-body:
+      text: |
+        <script src="../assets/js/js-yaml.min.js"></script>
+        <script src="../assets/js/glossary.js"></script>
+---
+
+```{=html}
+<header class="mt-hero" style="--mt-accent:#dc2626">
+  <p class="mt-eyebrow"><a href="../methods.html">Data Analysis Methods</a> · Хамаарал ба регресс</p>
+  <h1>Шугаман регресс</h1>
+  <p class="mt-en" lang="en">Linear regression</p>
+  <p class="mt-lead">Тасралтгүй үр дагавар ба тайлбарлагч хувьсагчдын хамаарлыг шулуун шугамын тэгшитгэлээр илэрхийлж, хувьсагч бүрийн нөлөөг бусдаар нь залруулж тооцно.</p>
+  <ul class="mt-badges"><li>Тасралтгүй үр дагавар</li><li>Олон хувьсагч</li><li><code>lm()</code></li></ul>
+</header>
+```
+
+## Товч мэдээлэл
+
+```{=html}
+<div class="mt-facts"><div><span>Үр дагавар</span><strong>Тасралтгүй</strong></div><div><span>Тайлбарлагч</span><strong>Тоон ба ангиллын</strong></div><div><span>Үр дүн</span><strong>β коэффициент, R²</strong></div><div><span>Таамаглал шалгах</span><strong>Үлдэгдлийн график</strong></div></div>
+```
+
+## Хэзээ хэрэглэх вэ?
+
+Тасралтгүй үр дагаврыг таамаглах, эсвэл confounder-аар залруулсан хамаарлыг тооцох бол.
+
+::: {.callout-tip appearance="simple" icon="false"}
+**Жишээ судалгааны асуулт:** Нас, хүйс, BMI-гээр залруулахад тамхи татах нь систолын даралттай хамааралтай юу?
+:::
+
+## Таамаглалууд
+
+Шинжилгээ хийхээс өмнө шалгана:
+
+- [ ] Тайлбарлагч ба үр дагаврын хамаарал шугаман.
+- [ ] Ажиглалтууд хоорондоо хамааралгүй.
+- [ ] Үлдэгдэл ойролцоогоор хэвийн тархалттай.
+- [ ] Үлдэгдлийн дисперс тогтмол (homoscedasticity).
+- [ ] Тайлбарлагч хувьсагчид хэт хүчтэй хамааралгүй (VIF < 5–10).
+
+## R дээр хийх
+
+```r
+m <- lm(sbp ~ smoke + age + sex + bmi, data = df)
+summary(m)          # β, SE, t, p, R²
+confint(m)          # β-ийн 95% CI
+
+par(mfrow = c(2, 2)); plot(m)   # үлдэгдлийн оношлогоо
+car::vif(m)                     # олон шугамт хамаарал
+
+# Хүснэгт гаргах
+gtsummary::tbl_regression(m)
+```
+
+## Үр дүнг тайлбарлах
+
+- **Estimate (β)** — бусад хувьсагчийг тогтмол байлгахад тухайн хувьсагч нэг нэгжээр (эсвэл жишиг ангиллаас) өөрчлөгдөхөд үр дагаврын дундаж өөрчлөлт.
+- **(Intercept)** — бүх тайлбарлагч 0 эсвэл жишиг ангилалд байх үеийн дундаж (ихэвчлэн шууд утгагүй).
+- **Pr(>|t|), 95% CI** — коэффициент тус бүрийн ач холбогдол ба нарийвчлал.
+- **R², adjusted R²** — загвар үр дагаврын хэлбэлзлийн хэдэн хувийг тайлбарлаж байгаа.
+
+## Тайлагнах жишээ
+
+::: {.callout-note appearance="simple" icon="false"}
+Нас, хүйс, BMI-гээр залруулахад тамхи татдаг хүмүүсийн систолын даралт татдаггүй хүмүүсийнхээс дунджаар 4.3 мм м.у.б (95% CI 1.8; 6.8, p = 0.001) өндөр байв. Загвар даралтын хэлбэлзлийн 29%-ийг тайлбарлав (adjusted R² = 0.29).
+
+<small>Тоонууд зохиомол бөгөөд тайлагнах хэлбэрийг харуулах зорилготой.</small>
+:::
+
+## Түгээмэл алдаа
+
+::: {.callout-warning appearance="simple" icon="false"}
+- Ангиллын хувьсагчийг (1, 2, 3 кодтой) тоон мэт оруулах. factor() болгоно.
+- Хувьсагчийг зөвхөн p-утгаар (stepwise) сонгох. Онол, урьдчилсан мэдлэгт тулгуурлана.
+- Өгөгдлийн мужаас гадуур таамаглал хийх.
+:::
+
+## Өөр аргууд
+
+- [Корреляцийн шинжилгээ](correlation.html) — Хоёр тоон хувьсагчийн хамаарлын хүч ба чиглэлийг −1-ээс +1 хооронд хэмжинэ.
+- [Ковариацын шинжилгээ (ANCOVA)](ancova.html) — Бүлгүүдийн дундажийг суурь утга зэрэг тасралтгүй ковариатаар залруулж харьцуулна.
+- [Логистик регресс](logistic-regression.html) — Хоёр утгат (тийм/үгүй) үр дагаврын odds-ийг олон хувьсагчаар загварчилж OR тооцно.
+- [Ерөнхийлсөн үнэлгээний тэгшитгэл (GEE)](gee.html) — Давтан хэмжилт эсвэл кластерласан өгөгдлийн хүн амын түвшний нөлөөг үнэлнэ.
+
+## Холбогдох нэр томьёо
+
+```{=html}
+<div class="glossary-embed"
+     data-src="../glossary/terms.yml"
+     data-glossary-url="../glossary.html"
+     data-terms="linear-regression,regression-coefficient,r-squared,residual,multiple-regression,covariate,dummy-variable,interaction,multicollinearity,overfitting,confounding,log-transformation">
+  <p class="gl-loading">Нэр томьёог ачаалж байна…</p>
+</div>
+
+<nav class="mt-pager" aria-label="Аргууд хооронд шилжих"><a href="correlation.html">← Корреляцийн шинжилгээ</a><a href="logistic-regression.html">Логистик регресс →</a></nav>
+```

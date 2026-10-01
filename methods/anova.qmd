@@ -1,0 +1,105 @@
+---
+title: "Дисперсийн шинжилгээ (ANOVA)"
+description: "Гурав ба түүнээс дээш хамааралгүй бүлгийн дундажийг нэг дор харьцуулна."
+format:
+  html:
+    body-classes: page-methods
+    css:
+      - ../styles.css
+      - ../styles/methods.css
+      - ../styles/glossary.css
+    include-after-body:
+      text: |
+        <script src="../assets/js/js-yaml.min.js"></script>
+        <script src="../assets/js/glossary.js"></script>
+---
+
+```{=html}
+<header class="mt-hero" style="--mt-accent:#7c3aed">
+  <p class="mt-eyebrow"><a href="../methods.html">Data Analysis Methods</a> · Дундаж харьцуулах</p>
+  <h1>Дисперсийн шинжилгээ (ANOVA)</h1>
+  <p class="mt-en" lang="en">One-way analysis of variance</p>
+  <p class="mt-lead">Гурав ба түүнээс дээш хамааралгүй бүлгийн тасралтгүй хувьсагчийн дундаж бүгд ижил эсэхийг нэг тестээр шалгана. Ялгаа илэрвэл аль бүлгүүд ялгаатайг post hoc тестээр тогтооно.</p>
+  <ul class="mt-badges"><li>Тасралтгүй</li><li>≥ 3 бүлэг</li><li><code>aov()</code></li></ul>
+</header>
+```
+
+## Товч мэдээлэл
+
+```{=html}
+<div class="mt-facts"><div><span>Үр дагавар</span><strong>Тасралтгүй</strong></div><div><span>Бүлэг</span><strong>≥ 3, хамааралгүй</strong></div><div><span>Тэг таамаглал</span><strong>μ₁ = μ₂ = … = μₖ</strong></div><div><span>Непараметр хувилбар</span><strong>Крускал-Уоллисын тест</strong></div></div>
+```
+
+## Хэзээ хэрэглэх вэ?
+
+Нэг ангиллын хүчин зүйл (3+ түвшинтэй)-ийн бүлгүүдийн дундажийг харьцуулах бол.
+
+::: {.callout-tip appearance="simple" icon="false"}
+**Жишээ судалгааны асуулт:** Гурван өөр хоолны дэглэм (бага нүүрс ус, бага өөх тос, Газрын дундад тэнгисийн)-ийн 6 сарын дараах жингийн бууралт ялгаатай юу?
+:::
+
+## Таамаглалууд
+
+Шинжилгээ хийхээс өмнө шалгана:
+
+- [ ] Ажиглалтууд хоорондоо хамааралгүй.
+- [ ] Бүлэг тус бүрийн үлдэгдэл ойролцоогоор хэвийн тархалттай.
+- [ ] Бүлгүүдийн дисперс ойролцоогоор тэнцүү (Левенийн тест). Зөрчигдвөл Welch ANOVA.
+
+## R дээр хийх
+
+```r
+# Өгөгдөл: df$loss (кг), df$diet (3 түвшинтэй factor)
+m <- aov(loss ~ diet, data = df)
+summary(m)                        # F, df, p
+car::leveneTest(loss ~ diet, data = df)
+shapiro.test(residuals(m))
+TukeyHSD(m)                       # хосын харьцуулалт
+
+# Дисперс тэнцүү биш бол:
+oneway.test(loss ~ diet, data = df)   # Welch ANOVA
+# Хэвийн тархалтгүй бол:
+kruskal.test(loss ~ diet, data = df)
+```
+
+## Үр дүнг тайлбарлах
+
+- **F value, Pr(>F)** — бүх бүлгийн дундаж ижил гэсэн тэг таамаглалын тест. Ач холбогдолтой гарвал дор хаяж нэг бүлэг ялгаатай.
+- **Df** — бүлгийн хоорондох (k − 1) ба бүлгийн доторх (N − k) чөлөөний зэрэг.
+- **TukeyHSD** — хос бүрийн дунджийн зөрүү, олон харьцуулалтаар залруулсан CI ба p.
+- **η² (eta squared)** — нийт хэлбэлзлийн хэдэн хувийг бүлэг тайлбарлаж байгааг харуулах нөлөөний хэмжээ.
+
+## Тайлагнах жишээ
+
+::: {.callout-note appearance="simple" icon="false"}
+Гурван дэглэмийн жингийн бууралт ялгаатай байв (F(2, 147) = 6.21, p = 0.003, η² = 0.08). Tukey тестээр бага нүүрс устай дэглэм бага өөх тостой дэглэмээс 2.1 кг (95% CI 0.6; 3.6) илүү бууралттай байв.
+
+<small>Тоонууд зохиомол бөгөөд тайлагнах хэлбэрийг харуулах зорилготой.</small>
+:::
+
+## Түгээмэл алдаа
+
+::: {.callout-warning appearance="simple" icon="false"}
+- ANOVA ач холбогдолгүй гарсан ч post hoc тестээр ялгаа хайх.
+- Бүлэг бүрийг хосоор нь залруулгагүй t-тестээр харьцуулах.
+- Давтан хэмжилтэд (нэг хүн бүх бүлэгт) энгийн ANOVA хэрэглэх.
+:::
+
+## Өөр аргууд
+
+- [Ковариацын шинжилгээ (ANCOVA)](ancova.html) — Бүлгүүдийн дундажийг суурь утга зэрэг тасралтгүй ковариатаар залруулж харьцуулна.
+- [Олон хэмжээст дисперсийн шинжилгээ (MANOVA)](manova.html) — Хоёр ба түүнээс дээш хамааралтай үр дагаврыг бүлгүүдийн хооронд зэрэг харьцуулна.
+- [Хамааралгүй түүврийн t-тест](independent-t-test.html) — Хоёр хамааралгүй бүлгийн тасралтгүй хувьсагчийн дундажийг харьцуулна.
+
+## Холбогдох нэр томьёо
+
+```{=html}
+<div class="glossary-embed"
+     data-src="../glossary/terms.yml"
+     data-glossary-url="../glossary.html"
+     data-terms="anova,post-hoc-test,multiple-comparisons,bonferroni,variance,levene-test,kruskal-wallis,residual,effect-size,repeated-measures-anova">
+  <p class="gl-loading">Нэр томьёог ачаалж байна…</p>
+</div>
+
+<nav class="mt-pager" aria-label="Аргууд хооронд шилжих"><a href="paired-t-test.html">← Хосолсон t-тест</a><a href="ancova.html">Ковариацын шинжилгээ (ANCOVA) →</a></nav>
+```

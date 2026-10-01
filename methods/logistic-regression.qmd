@@ -1,0 +1,106 @@
+---
+title: "Логистик регресс"
+description: "Хоёр утгат (тийм/үгүй) үр дагаврын odds-ийг олон хувьсагчаар загварчилж OR тооцно."
+format:
+  html:
+    body-classes: page-methods
+    css:
+      - ../styles.css
+      - ../styles/methods.css
+      - ../styles/glossary.css
+    include-after-body:
+      text: |
+        <script src="../assets/js/js-yaml.min.js"></script>
+        <script src="../assets/js/glossary.js"></script>
+---
+
+```{=html}
+<header class="mt-hero" style="--mt-accent:#b45309">
+  <p class="mt-eyebrow"><a href="../methods.html">Data Analysis Methods</a> · Хамаарал ба регресс</p>
+  <h1>Логистик регресс</h1>
+  <p class="mt-en" lang="en">Logistic regression</p>
+  <p class="mt-lead">Үр дагавар хоёр утгатай (өвчтэй/эрүүл, нас барсан/амьд) үед тайлбарлагч хувьсагчдын нөлөөг сондгойн харьцаа (OR)-аар илэрхийлж, confounder-аар залруулна.</p>
+  <ul class="mt-badges"><li>Хоёр утгат үр дагавар</li><li>OR</li><li><code>glm(binomial)</code></li></ul>
+</header>
+```
+
+## Товч мэдээлэл
+
+```{=html}
+<div class="mt-facts"><div><span>Үр дагавар</span><strong>Хоёр утгат (0/1)</strong></div><div><span>Тайлбарлагч</span><strong>Тоон ба ангиллын</strong></div><div><span>Үр дүн</span><strong>OR, aOR, AUC</strong></div><div><span>Түүврийн шаардлага</span><strong>EPV ≥ 10 орчим</strong></div></div>
+```
+
+## Хэзээ хэрэглэх вэ?
+
+Хоёр утгат үр дагаврын эрсдэлт хүчин зүйлсийг тодорхойлох, эсвэл тохиолдол-хяналтын судалгааг шинжлэх бол.
+
+::: {.callout-tip appearance="simple" icon="false"}
+**Жишээ судалгааны асуулт:** Нас, хүйс, BMI-гээр залруулахад тамхи татах нь артерийн гипертензийн odds-ийг нэмэгдүүлдэг үү?
+:::
+
+## Таамаглалууд
+
+Шинжилгээ хийхээс өмнө шалгана:
+
+- [ ] Үр дагавар хоёр утгат.
+- [ ] Ажиглалтууд хоорондоо хамааралгүй.
+- [ ] Тасралтгүй тайлбарлагч ба logit(p)-ийн хамаарал шугаман.
+- [ ] Тайлбарлагч хувьсагч бүрт хангалттай үйл явдал (EPV ≥ 10 орчим), олон шугамт хамааралгүй.
+
+## R дээр хийх
+
+```r
+m <- glm(htn ~ smoke + age + sex + bmi, family = binomial, data = df)
+summary(m)
+
+# OR ба 95% CI
+exp(cbind(OR = coef(m), confint(m)))
+
+# Crude ба adjusted OR-ийг нэг хүснэгтэд
+gtsummary::tbl_regression(m, exponentiate = TRUE)
+
+# Ялгах чадвар
+pROC::auc(pROC::roc(df$htn, fitted(m)))
+```
+
+## Үр дүнг тайлбарлах
+
+- **OR = exp(β)** — тухайн хувьсагч нэг нэгжээр (эсвэл жишиг ангиллаас) өөрчлөгдөхөд үр дагаврын odds хэд дахин өөрчлөгдөх. OR > 1 эрсдэл нэмэгдүүлнэ.
+- **95% CI** — 1-ийг агуулахгүй бол p < 0.05.
+- **aOR** — бусад хувьсагчаар залруулсан OR, crude OR-той харьцуулж confounding-ийг үнэлнэ.
+- **AUC** — загвар өвчтэй ба эрүүл хүмүүсийг ялгах чадвар.
+
+## Тайлагнах жишээ
+
+::: {.callout-note appearance="simple" icon="false"}
+Нас, хүйс, BMI-гээр залруулахад тамхи татах нь артерийн гипертензийн odds-ийг 1.8 дахин нэмэгдүүлж байв (aOR = 1.82, 95% CI 1.31; 2.53, p < 0.001).
+
+<small>Тоонууд зохиомол бөгөөд тайлагнах хэлбэрийг харуулах зорилготой.</small>
+:::
+
+## Түгээмэл алдаа
+
+::: {.callout-warning appearance="simple" icon="false"}
+- Үр дагавар түгээмэл үед OR-ийг «эрсдэл X дахин» гэж RR мэт тайлбарлах.
+- Тайлбарлагч хувьсагч хэт олон, үйл явдал цөөн загвар (EPV бага).
+- Тасралтгүй хувьсагчийг шалтгаангүйгээр бүлэглэх.
+:::
+
+## Өөр аргууд
+
+- [Шугаман регресс](linear-regression.html) — Тасралтгүй үр дагаврыг нэг буюу олон тайлбарлагч хувьсагчаар загварчилна.
+- [Коксын регресс](cox-regression.html) — Үйл явдал хүртэлх хугацаанд олон хувьсагчийн нөлөөг залруулж hazard ratio тооцно.
+- [Ерөнхийлсөн үнэлгээний тэгшитгэл (GEE)](gee.html) — Давтан хэмжилт эсвэл кластерласан өгөгдлийн хүн амын түвшний нөлөөг үнэлнэ.
+
+## Холбогдох нэр томьёо
+
+```{=html}
+<div class="glossary-embed"
+     data-src="../glossary/terms.yml"
+     data-glossary-url="../glossary.html"
+     data-terms="logistic-regression,odds,odds-ratio,adjusted-odds-ratio,relative-risk,confounding,dummy-variable,interaction,overfitting,roc-curve,auc,case-control-study">
+  <p class="gl-loading">Нэр томьёог ачаалж байна…</p>
+</div>
+
+<nav class="mt-pager" aria-label="Аргууд хооронд шилжих"><a href="linear-regression.html">← Шугаман регресс</a><a href="survival-analysis.html">Амьдрах чадварын шинжилгээ →</a></nav>
+```

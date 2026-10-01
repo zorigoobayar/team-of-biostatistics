@@ -1,0 +1,102 @@
+---
+title: "Ковариацын шинжилгээ (ANCOVA)"
+description: "Бүлгүүдийн дундажийг суурь утга зэрэг тасралтгүй ковариатаар залруулж харьцуулна."
+format:
+  html:
+    body-classes: page-methods
+    css:
+      - ../styles.css
+      - ../styles/methods.css
+      - ../styles/glossary.css
+    include-after-body:
+      text: |
+        <script src="../assets/js/js-yaml.min.js"></script>
+        <script src="../assets/js/glossary.js"></script>
+---
+
+```{=html}
+<header class="mt-hero" style="--mt-accent:#c026d3">
+  <p class="mt-eyebrow"><a href="../methods.html">Data Analysis Methods</a> · Дундаж харьцуулах</p>
+  <h1>Ковариацын шинжилгээ (ANCOVA)</h1>
+  <p class="mt-en" lang="en">Analysis of covariance</p>
+  <p class="mt-lead">Бүлгүүдийн дундажийг харьцуулахдаа үр дагаварт нөлөөлдөг тасралтгүй хувьсагч (ковариат)-ийн нөлөөг залруулна. RCT-д суурь утгаар залруулахад хамгийн түгээмэл хэрэглэгддэг.</p>
+  <ul class="mt-badges"><li>Тасралтгүй</li><li>≥ 2 бүлэг + ковариат</li><li><code>lm(y ~ g + x)</code></li></ul>
+</header>
+```
+
+## Товч мэдээлэл
+
+```{=html}
+<div class="mt-facts"><div><span>Үр дагавар</span><strong>Тасралтгүй</strong></div><div><span>Бүлэг</span><strong>≥ 2 + ковариат</strong></div><div><span>Үр дүн</span><strong>Залруулсан дунджийн зөрүү</strong></div><div><span>Холбоотой</span><strong>Шугаман регресс</strong></div></div>
+```
+
+## Хэзээ хэрэглэх вэ?
+
+Бүлгүүд суурь түвшиндээ ялгаатай байж болох, эсвэл суурь утгаар залруулж нарийвчлалаа сайжруулах бол.
+
+::: {.callout-tip appearance="simple" icon="false"}
+**Жишээ судалгааны асуулт:** Суурь жинг харгалзан үзвэл 12 дахь долоо хоногт эмийн бүлгийн жин плацебо бүлгийнхээс бага байна уу?
+:::
+
+## Таамаглалууд
+
+Шинжилгээ хийхээс өмнө шалгана:
+
+- [ ] ANOVA-ийн бүх таамаглал (хамааралгүй байдал, үлдэгдлийн хэвийн тархалт, дисперсийн тэнцүү байдал).
+- [ ] Ковариат ба үр дагаврын хамаарал шугаман.
+- [ ] Регрессийн налуу бүлгүүдэд ижил (бүлэг × ковариат харилцан үйлчлэл ач холбогдолгүй).
+- [ ] Ковариат нь бүлгийн хуваарилалтаас хамаарахгүй (эмчилгээ эхлэхээс өмнө хэмжигдсэн).
+
+## R дээр хийх
+
+```r
+# Өгөгдөл: df$wt12 (12 дахь долоо хоног), df$wt0 (суурь), df$group
+m <- lm(wt12 ~ group + wt0, data = df)
+summary(m)          # group-ийн коэффициент = залруулсан зөрүү
+confint(m)
+
+# Налуу ижил эсэхийг шалгах
+anova(lm(wt12 ~ group * wt0, data = df))
+
+# Залруулсан дундаж (estimated marginal means)
+emmeans::emmeans(m, ~ group)
+```
+
+## Үр дүнг тайлбарлах
+
+- **group коэффициент** — суурь утгыг ижил байлгахад бүлгүүдийн дунджийн зөрүү.
+- **wt0 коэффициент** — суурь жин 1 кг өндөр байхад 12 дахь долоо хоногийн жин хэр өндөр байх.
+- **emmeans** — бүлэг тус бүрийн залруулсан дундаж ба CI.
+
+## Тайлагнах жишээ
+
+::: {.callout-note appearance="simple" icon="false"}
+Суурь жингээр залруулахад 12 дахь долоо хоногт эмийн бүлгийн жин плацебо бүлгийнхээс 2.4 кг (95% CI 1.1; 3.7, p < 0.001) бага байв (ANCOVA).
+
+<small>Тоонууд зохиомол бөгөөд тайлагнах хэлбэрийг харуулах зорилготой.</small>
+:::
+
+## Түгээмэл алдаа
+
+::: {.callout-warning appearance="simple" icon="false"}
+- Өөрчлөлтийн оноо (дараа − өмнө)-г t-тестээр харьцуулах нь ANCOVA-аас чадал багатай, суурь ялгаатай үед хазайлттай байж болно.
+- Эмчилгээний дараа хэмжигдсэн, эмчилгээнд өртсөн хувьсагчаар залруулах.
+:::
+
+## Өөр аргууд
+
+- [Дисперсийн шинжилгээ (ANOVA)](anova.html) — Гурав ба түүнээс дээш хамааралгүй бүлгийн дундажийг нэг дор харьцуулна.
+- [Шугаман регресс](linear-regression.html) — Тасралтгүй үр дагаврыг нэг буюу олон тайлбарлагч хувьсагчаар загварчилна.
+
+## Холбогдох нэр томьёо
+
+```{=html}
+<div class="glossary-embed"
+     data-src="../glossary/terms.yml"
+     data-glossary-url="../glossary.html"
+     data-terms="ancova,covariate,linear-regression,regression-coefficient,interaction,confounding,anova,rct">
+  <p class="gl-loading">Нэр томьёог ачаалж байна…</p>
+</div>
+
+<nav class="mt-pager" aria-label="Аргууд хооронд шилжих"><a href="anova.html">← Дисперсийн шинжилгээ (ANOVA)</a><a href="manova.html">Олон хэмжээст дисперсийн шинжилгээ (MANOVA) →</a></nav>
+```
