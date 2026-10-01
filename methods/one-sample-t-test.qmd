@@ -27,7 +27,7 @@ format:
 ## Товч мэдээлэл
 
 ```{=html}
-<div class="mt-facts"><div><span>Үр дагавар</span><strong>Тасралтгүй</strong></div><div><span>Бүлэг</span><strong>1</strong></div><div><span>Тэг таамаглал</span><strong>μ = μ₀</strong></div><div><span>Непараметр хувилбар</span><strong>Уилкоксоны тэмдэгт эрэмбийн тест</strong></div></div>
+<div class="mt-facts"><div><span>Үр дагавар</span><strong>Тасралтгүй</strong></div><div><span>Бүлэг</span><strong>1</strong></div><div><span>Тэг таамаглал</span><strong>μ = μ₀</strong></div><div><span>Параметрийн бус хувилбар</span><strong>Уилкоксоны тэмдэгт эрэмбийн тест</strong></div></div>
 ```
 
 ## Хэзээ хэрэглэх вэ?
@@ -82,7 +82,7 @@ wilcox.test(df$hb, mu = 120)
 ## Өөр аргууд
 
 - [Хамааралгүй түүврийн t-тест](independent-t-test.html) — Хоёр хамааралгүй бүлгийн тасралтгүй хувьсагчийн дундажийг харьцуулна.
-- [Хосолсон t-тест](paired-t-test.html) — Нэг хүнээс авсан хоёр хэмжилтийн (өмнө/дараа) дундаж зөрүүг шалгана.
+- [Хамааралт түүврийн t тест](paired-t-test.html) — Нэг хүнээс авсан хоёр хэмжилтийн (өмнө/дараа) дундаж зөрүүг шалгана.
 
 ## Холбогдох нэр томьёо
 

@@ -27,7 +27,7 @@ format:
 ## Товч мэдээлэл
 
 ```{=html}
-<div class="mt-facts"><div><span>Хувьсагч</span><strong>2 тасралтгүй эсвэл эрэмбэт</strong></div><div><span>Хэмжүүр</span><strong>r эсвэл ρ, −1…+1</strong></div><div><span>Тэг таамаглал</span><strong>ρ = 0</strong></div><div><span>Непараметр хувилбар</span><strong>Спирмен</strong></div></div>
+<div class="mt-facts"><div><span>Хувьсагч</span><strong>2 тасралтгүй эсвэл эрэмбэт</strong></div><div><span>Хэмжүүр</span><strong>r эсвэл ρ, −1…+1</strong></div><div><span>Тэг таамаглал</span><strong>ρ = 0</strong></div><div><span>Параметрийн бус хувилбар</span><strong>Спирмен</strong></div></div>
 ```
 
 ## Хэзээ хэрэглэх вэ?
