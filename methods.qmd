@@ -61,7 +61,7 @@ format:
     <div class="mt-cover"><span class="mt-num">03</span><span class="mt-symbol" aria-hidden="true">t</span></div>
     <div class="mt-body">
       <p class="mt-cat"><i class="bi bi-bar-chart-line"></i> Дундаж харьцуулах</p>
-      <h3>Хосолсон t-тест</h3>
+      <h3>Хамааралт түүврийн t тест</h3>
       <p class="mt-card-en" lang="en">Paired t-test</p>
       <p>Нэг хүнээс авсан хоёр хэмжилтийн (өмнө/дараа) дундаж зөрүүг шалгана.</p>
       <div class="mt-tags"><span>Тасралтгүй</span><span>2 хэмжилт</span><span><code>t.test(paired = TRUE)</code></span></div>
@@ -200,12 +200,12 @@ format:
 
 ::: {.mt-table-wrap}
 
-| Үр дагавар | Харьцуулах / асуулт | Параметр арга | Непараметр / өөр хувилбар |
+| Үр дагавар | Харьцуулах / асуулт | Параметр арга | Параметрийн бус / өөр хувилбар |
 |---|---|---|---|
 | Тасралтгүй | 1 бүлэг ба жишиг утга | [Нэг түүврийн t-тест](methods/one-sample-t-test.html) | Уилкоксоны тэмдэгт эрэмбийн тест |
 | Тасралтгүй | 2 хамааралгүй бүлэг | [Хамааралгүй түүврийн t-тест](methods/independent-t-test.html) | Манн-Уитнигийн U тест |
-| Тасралтгүй | Нэг хүний 2 хэмжилт | [Хосолсон t-тест](methods/paired-t-test.html) | Уилкоксоны тэмдэгт эрэмбийн тест |
-| Тасралтгүй | ≥ 3 хамааралгүй бүлэг | [ANOVA](methods/anova.html) | Крускал-Уоллисын тест |
+| Тасралтгүй | Нэг хүний 2 хэмжилт | [Хамааралт түүврийн t тест](methods/paired-t-test.html) | Уилкоксоны тэмдэгт эрэмбийн тест |
+| Тасралтгүй | ≥ 3 хамааралгүй бүлэг | [ANOVA](methods/anova.html) | Крускал-Валлисын тест |
 | Тасралтгүй | Бүлэг + суурь утгаар залруулах | [ANCOVA](methods/ancova.html) | — |
 | ≥ 2 тасралтгүй | Бүлгүүдийг хамтад нь | [MANOVA](methods/manova.html) | — |
 | 2 тоон хувьсагч | Хамаарлын хүч | [Пирсоны корреляци](methods/correlation.html) | [Спирмены корреляци](methods/correlation.html) |

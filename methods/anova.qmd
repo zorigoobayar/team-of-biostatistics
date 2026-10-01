@@ -27,7 +27,7 @@ format:
 ## Товч мэдээлэл
 
 ```{=html}
-<div class="mt-facts"><div><span>Үр дагавар</span><strong>Тасралтгүй</strong></div><div><span>Бүлэг</span><strong>≥ 3, хамааралгүй</strong></div><div><span>Тэг таамаглал</span><strong>μ₁ = μ₂ = … = μₖ</strong></div><div><span>Непараметр хувилбар</span><strong>Крускал-Уоллисын тест</strong></div></div>
+<div class="mt-facts"><div><span>Үр дагавар</span><strong>Тасралтгүй</strong></div><div><span>Бүлэг</span><strong>≥ 3, хамааралгүй</strong></div><div><span>Тэг таамаглал</span><strong>μ₁ = μ₂ = … = μₖ</strong></div><div><span>Параметрийн бус хувилбар</span><strong>Крускал-Валлисын тест</strong></div></div>
 ```
 
 ## Хэзээ хэрэглэх вэ?
@@ -101,5 +101,5 @@ kruskal.test(loss ~ diet, data = df)
   <p class="gl-loading">Нэр томьёог ачаалж байна…</p>
 </div>
 
-<nav class="mt-pager" aria-label="Аргууд хооронд шилжих"><a href="paired-t-test.html">← Хосолсон t-тест</a><a href="ancova.html">Ковариацын шинжилгээ (ANCOVA) →</a></nav>
+<nav class="mt-pager" aria-label="Аргууд хооронд шилжих"><a href="paired-t-test.html">← Хамааралт түүврийн t тест</a><a href="ancova.html">Ковариацын шинжилгээ (ANCOVA) →</a></nav>
 ```
