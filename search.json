@@ -74,70 +74,28 @@
     "href": "team.html",
     "title": "Our Team",
     "section": "",
-    "text": "Манай баг нь биостатистик, тархвар судлал, эрүүл мэндийн судалгаа болон өгөгдлийн шинжлэх ухааны чиглэлээр ажилладаг.\n\n\n\n\n\n\n\nЭрүүл мэнд, анагаах ухааны судалгаанд статистикийн арга зүй, загварчлал болон өгөгдлийн шинжилгээг хэрэгжүүлнэ.\nFocus\n\nBiostatistics\nStatistical modelling\nClinical research\n\n\n\n\nӨвчний тархалт, эрсдэлт хүчин зүйл, хүн амын эрүүл мэндийн үзүүлэлтүүдийг судална.\nFocus\n\nEpidemiology\nStudy design\nPublic health\n\n\n\n\nӨгөгдөл боловсруулах, программчлал, статистикийн тооцоолол болон өгөгдлийн дүрслэл дээр ажиллана.\nFocus\n\nR programming\nData science\nData visualization\n\n\n\n\nСудлаач оюутнууд биостатистик, тархвар судлал болон статистикийн арга зүйгээр суралцаж, судалгаа хийж байна.\nFocus\n\nBiostatistics\nEpidemiology\nResearch\n\n\n\n\n\n\n\nМанай баг дараах чиглэлүүдээр судалгаа, сургалт болон хамтын ажиллагаа явуулна.\n\nБиостатистикийн арга зүй\nЭмнэлзүйн судалгаа\nТархвар судлал\nСтатистикийн загварчлал\nR программчлал\nӨгөгдлийн дүрслэл\nДахин давтагдахуйц судалгаа"
-  },
-  {
-    "objectID": "team.html#манай-баг",
-    "href": "team.html#манай-баг",
-    "title": "Our Team",
-    "section": "",
     "text": "Манай баг нь биостатистик, тархвар судлал, эрүүл мэндийн судалгаа болон өгөгдлийн шинжлэх ухааны чиглэлээр ажилладаг."
   },
   {
     "objectID": "team.html#our-expertise",
     "href": "team.html#our-expertise",
     "title": "Our Team",
-    "section": "",
-    "text": "Эрүүл мэнд, анагаах ухааны судалгаанд статистикийн арга зүй, загварчлал болон өгөгдлийн шинжилгээг хэрэгжүүлнэ.\nFocus\n\nBiostatistics\nStatistical modelling\nClinical research\n\n\n\n\nӨвчний тархалт, эрсдэлт хүчин зүйл, хүн амын эрүүл мэндийн үзүүлэлтүүдийг судална.\nFocus\n\nEpidemiology\nStudy design\nPublic health\n\n\n\n\nӨгөгдөл боловсруулах, программчлал, статистикийн тооцоолол болон өгөгдлийн дүрслэл дээр ажиллана.\nFocus\n\nR programming\nData science\nData visualization\n\n\n\n\nСудлаач оюутнууд биостатистик, тархвар судлал болон статистикийн арга зүйгээр суралцаж, судалгаа хийж байна.\nFocus\n\nBiostatistics\nEpidemiology\nResearch"
+    "section": "Our Expertise",
+    "text": "Our Expertise\n\n\n📊 Biostatistician\nЭрүүл мэнд, анагаах ухааны судалгаанд статистикийн арга зүй, загварчлал болон өгөгдлийн шинжилгээг хэрэгжүүлнэ.\nFocus\n\nBiostatistics\nStatistical modelling\nClinical research\n\n\n\n\n\nБ.Батзориг\n\n\nНЭМУ-ны доктор\n\n\nБакалавр: Хэрэглээний математикч (Applied Mathematician), Магистр: Хэрэглээний статистикч (Applied Statistician), Доктор: Нийгмийн эрүүл мэндийн ухаан (Phd in Public Health)\n\nFocus\n\n\nБиостатистик (Biostatistics)\n\n\nСтатистийн загварчлал (Statistical modelling)\n\n\nХэтийн төлөв (Forecasting)\n\n\nТүүвэрлэлтийн асуудал (Sampling issues)\n\n\nКлиникийн судалгаа (Clinical research)\n\n\nЧанарын судалгаа (Qualitative research)\n\n\n\n\n💻 Data Scientist\nӨгөгдөл боловсруулах, программчлал, статистикийн тооцоолол болон өгөгдлийн дүрслэл дээр ажиллана.\nFocus\n\nR programming\nData science\nData visualization\n\n\n\n🎓 Research Students\nСудлаач оюутнууд биостатистик, тархвар судлал болон статистикийн арга зүйгээр суралцаж, судалгаа хийж байна.\nFocus\n\nBiostatistics\nEpidemiology\nResearch"
   },
   {
     "objectID": "team.html#what-we-work-on",
     "href": "team.html#what-we-work-on",
     "title": "Our Team",
-    "section": "",
-    "text": "Манай баг дараах чиглэлүүдээр судалгаа, сургалт болон хамтын ажиллагаа явуулна.\n\nБиостатистикийн арга зүй\nЭмнэлзүйн судалгаа\nТархвар судлал\nСтатистикийн загварчлал\nR программчлал\nӨгөгдлийн дүрслэл\nДахин давтагдахуйц судалгаа"
+    "section": "What We Work On",
+    "text": "What We Work On\n\nМанай баг дараах чиглэлүүдээр судалгаа, сургалт болон хамтын ажиллагаа явуулна.\n\nБиостатистикийн арга зүй\nЭмнэлзүйн судалгаа\nТархвар судлал\nСтатистикийн загварчлал\nR программчлал\nӨгөгдлийн дүрслэл\nДахин давтагдахуйц судалгаа"
   },
   {
     "objectID": "books.html",
     "href": "books.html",
     "title": "Biostatistics Books",
     "section": "",
-    "text": "Энэ хэсэгт биостатистик, статистик, тархвар судлал болон өгөгдлийн шинжлэх ухааны чиглэлээр суралцахад ашигтай ном, сурах бичгүүдийг танилцуулна.\n\n\n\nБиостатистикийн үндсэн ойлголт, статистикийн арга зүйг сурахад зориулсан номууд.\n\n\n\nDescriptive statistics\nProbability\nStatistical inference\nHypothesis testing\nRegression\nSurvival analysis\n\n\n\n\n\n\nТархвар судлалын үндсэн ойлголт болон судалгааны арга зүйг сурахад зориулсан номууд.\n\n\n\nStudy design\nDisease frequency\nRisk and association\nBias and confounding\nEpidemiological methods\n\n\n\n\n\n\nR болон статистикийн программчлал сурахад зориулсан номууд.\n\n\n\nR programming\nData manipulation\nData visualization\nStatistical modelling\nReproducible research\n\n\n\n\n\n\nЭнд бид цаашдаа ном бүрийн:\n\nНэр\nЗохиогч\nХэвлэгдсэн он\nТовч тайлбар\nНомын зураг\nАлбан ёсны холбоос\n\nзэргийг оруулна."
-  },
-  {
-    "objectID": "books.html#биостатистикийн-номууд",
-    "href": "books.html#биостатистикийн-номууд",
-    "title": "Biostatistics Books",
-    "section": "",
-    "text": "Энэ хэсэгт биостатистик, статистик, тархвар судлал болон өгөгдлийн шинжлэх ухааны чиглэлээр суралцахад ашигтай ном, сурах бичгүүдийг танилцуулна."
-  },
-  {
-    "objectID": "books.html#biostatistics",
-    "href": "books.html#biostatistics",
-    "title": "Biostatistics Books",
-    "section": "",
-    "text": "Биостатистикийн үндсэн ойлголт, статистикийн арга зүйг сурахад зориулсан номууд.\n\n\n\nDescriptive statistics\nProbability\nStatistical inference\nHypothesis testing\nRegression\nSurvival analysis"
-  },
-  {
-    "objectID": "books.html#epidemiology",
-    "href": "books.html#epidemiology",
-    "title": "Biostatistics Books",
-    "section": "",
-    "text": "Тархвар судлалын үндсэн ойлголт болон судалгааны арга зүйг сурахад зориулсан номууд.\n\n\n\nStudy design\nDisease frequency\nRisk and association\nBias and confounding\nEpidemiological methods"
-  },
-  {
-    "objectID": "books.html#statistical-programming",
-    "href": "books.html#statistical-programming",
-    "title": "Biostatistics Books",
-    "section": "",
-    "text": "R болон статистикийн программчлал сурахад зориулсан номууд.\n\n\n\nR programming\nData manipulation\nData visualization\nStatistical modelling\nReproducible research"
-  },
-  {
-    "objectID": "books.html#recommended-reading",
-    "href": "books.html#recommended-reading",
-    "title": "Biostatistics Books",
-    "section": "",
-    "text": "Энд бид цаашдаа ном бүрийн:\n\nНэр\nЗохиогч\nХэвлэгдсэн он\nТовч тайлбар\nНомын зураг\nАлбан ёсны холбоос\n\nзэргийг оруулна."
+    "text": "Biostatistics Books\n\nБиостатистикийн номууд\nБиостатистик, статистик, тархвар судлал болон өгөгдлийн шинжлэх ухааны чиглэлээр суралцахад ашигтай ном, сурах бичгүүдийг танилцуулна.\n\n\n\n\n📊 Biostatistics\nБиостатистикийн үндсэн ойлголт, статистикийн арга зүйг сурахад зориулсан номууд.\nҮндсэн сэдвүүд\n\nDescriptive statistics\nProbability\nStatistical inference\nHypothesis testing\nRegression\nSurvival analysis\n\n\n\n🦠 Epidemiology\nТархвар судлалын үндсэн ойлголт болон судалгааны арга зүйг сурахад зориулсан номууд.\nҮндсэн сэдвүүд\n\nStudy design\nDisease frequency\nRisk and association\nBias and confounding\nEpidemiological methods\n\n\n\n💻 Statistical Programming\nR болон статистикийн программчлал сурахад зориулсан номууд.\nСурах зүйлс\n\nR programming\nData manipulation\nData visualization\nStatistical modelling\nReproducible research\n\n\n\n📚 Recommended Reading\nЦаашдаа энд ном бүрийн дараах мэдээллийг оруулна:\n\nНэр\nЗохиогч\nХэвлэгдсэн он\nТовч тайлбар\nНомын зураг\nАлбан ёсны холбоос"
   },
   {
     "objectID": "index.html",
