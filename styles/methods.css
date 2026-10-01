@@ -1,0 +1,340 @@
+/* =========================================================
+   DATA ANALYSIS METHODS (methods.qmd, methods/*.qmd, glossary.qmd)
+   Cheatsheet хуудастай ижил хэв маяг, өөр өнгө (индиго).
+   ========================================================= */
+
+body.page-methods {
+  --mt-ink: #0f172a;
+  --mt-muted: #475569;
+  --mt-line: #e2e8f0;
+  --mt-card: rgba(255, 255, 255, 0.92);
+  --mt-brand: #4338ca;
+  background:
+    radial-gradient(circle at 4% 18%, rgba(129, 140, 248, 0.16) 0 110px, transparent 111px),
+    radial-gradient(circle at 96% 12%, rgba(165, 180, 252, 0.22) 0 120px, transparent 121px),
+    radial-gradient(circle at 92% 92%, rgba(199, 210, 254, 0.28) 0 140px, transparent 141px),
+    #f4f5ff;
+  background-attachment: fixed;
+}
+
+body.page-methods .page-columns {
+  background: transparent;
+}
+
+/* ---------- Hero (index + method pages) ---------- */
+
+.mt-hero {
+  padding: 2.5rem 2.25rem;
+  margin: 1rem 0 1.5rem;
+  border-radius: 24px;
+  background: var(--mt-card);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 10px 35px rgba(15, 23, 42, 0.06);
+}
+
+.mt-eyebrow {
+  margin: 0 0 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--mt-accent, var(--mt-brand));
+}
+
+.mt-hero h1 {
+  margin: 0 0 0.25rem;
+  font-size: clamp(1.7rem, 3.2vw, 2.4rem);
+  line-height: 1.2;
+  color: var(--mt-ink);
+}
+
+.mt-hero .mt-en {
+  margin: 0 0 0.9rem;
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--mt-accent, var(--mt-brand));
+}
+
+.mt-lead {
+  max-width: 66ch;
+  margin: 0 0 1.25rem;
+  font-size: 1.05rem;
+  color: var(--mt-muted);
+}
+
+.mt-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mt-badges li {
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  background: #e0e7ff;
+  color: #312e81;
+  font-size: 0.85rem;
+}
+
+.mt-badges code {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+}
+
+.mt-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
+
+.mt-actions .btn {
+  border-radius: 10px;
+}
+
+.mt-actions .btn-primary {
+  background: var(--mt-brand);
+  border-color: var(--mt-brand);
+}
+
+/* ---------- Group titles on index ---------- */
+
+body.page-methods h2.mt-group {
+  margin: 2.25rem 0 1rem;
+  padding: 0;
+  border: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--mt-muted);
+}
+
+/* ---------- Method cards ---------- */
+
+.mt-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+@media (max-width: 1100px) {
+  .mt-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 640px) {
+  .mt-grid { grid-template-columns: minmax(0, 1fr); }
+}
+
+.mt-card {
+  --mt-accent: var(--mt-brand);
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 18px;
+  background: var(--mt-card);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-top: 4px solid var(--mt-accent);
+  box-shadow: 0 8px 25px rgba(15, 23, 42, 0.06);
+  color: inherit;
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+a.mt-card:hover,
+a.mt-card:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(15, 23, 42, 0.1);
+  color: inherit;
+}
+
+.mt-cover {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem 1.25rem;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--mt-accent) 14%, #fff), #fff);
+  border-bottom: 1px solid var(--mt-line);
+}
+
+.mt-num {
+  padding: 0.15rem 0.55rem;
+  border-radius: 8px;
+  background: var(--mt-accent);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.mt-symbol {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2.1rem;
+  font-style: italic;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--mt-accent);
+}
+
+.mt-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 1rem 1.25rem 1.25rem;
+}
+
+.mt-cat {
+  margin: 0 0 0.2rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--mt-accent);
+}
+
+.mt-body h3 {
+  margin: 0 !important;
+  font-size: 1.15rem !important;
+  color: var(--mt-ink);
+}
+
+.mt-body .mt-card-en {
+  margin: 0 0 0.6rem;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: #64748b;
+}
+
+.mt-body p {
+  margin: 0 0 0.75rem;
+  font-size: 0.93rem;
+  line-height: 1.6;
+  color: var(--mt-muted);
+}
+
+.mt-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: auto 0 0.85rem;
+}
+
+.mt-tags span {
+  padding: 0.1rem 0.5rem;
+  border-radius: 6px;
+  background: #f1f5f9;
+  color: #334155;
+  font-size: 0.76rem;
+}
+
+.mt-tags code {
+  background: transparent;
+  color: var(--mt-accent);
+  padding: 0;
+  font-size: 0.76rem;
+}
+
+.mt-go {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--mt-accent);
+}
+
+/* ---------- Chooser table ---------- */
+
+.mt-chooser {
+  margin-top: 2.5rem;
+  padding: 1.5rem;
+  border-radius: 18px;
+  background: var(--mt-card);
+  border: 1px solid var(--mt-line);
+}
+
+.mt-chooser h2 {
+  margin-top: 0 !important;
+  border: 0 !important;
+}
+
+.mt-chooser table {
+  width: 100%;
+  font-size: 0.92rem;
+}
+
+.mt-chooser td,
+.mt-chooser th {
+  padding: 0.5rem 0.6rem !important;
+  vertical-align: top;
+}
+
+.mt-chooser a {
+  white-space: nowrap;
+}
+
+.mt-table-wrap {
+  overflow-x: auto;
+}
+
+/* ---------- Method page content ---------- */
+
+body.page-methods main h2 {
+  margin-top: 2.25rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 2px solid #e0e7ff;
+}
+
+.mt-facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+
+.mt-facts div {
+  padding: 0.75rem 0.9rem;
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid var(--mt-line);
+}
+
+.mt-facts span {
+  display: block;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #64748b;
+}
+
+.mt-facts strong {
+  font-size: 0.95rem;
+  color: var(--mt-ink);
+}
+
+.mt-pager {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--mt-line);
+}
+
+.mt-pager a {
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--mt-brand);
+}
+
+@media (max-width: 700px) {
+  body.page-methods { background-attachment: scroll; }
+  .mt-hero { padding: 1.75rem 1.25rem; border-radius: 18px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mt-card { transition: none; }
+}

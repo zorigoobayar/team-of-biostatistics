@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="Анагаах ухааны статистик, эпидемиологийн нэр томьёоны монгол-англи толь: тодорхойлолт, жишээ, түгээмэл алдаа, R код.">
 
-<title>Interesting Research – Team of Biostatistics</title>
+<title>Нэр томьёоны толь – Team of Biostatistics</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -76,9 +77,11 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles/methods.css">
+<link rel="stylesheet" href="styles/glossary.css">
 </head>
 
-<body class="nav-fixed page-research quarto-light">
+<body class="nav-fixed page-methods fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -108,7 +111,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Statistical Software</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./research.html" aria-current="page"> 
+    <a class="nav-link" href="./research.html"> 
 <span class="menu-text">Interesting Research</span></a>
   </li>  
   <li class="nav-item">
@@ -138,30 +141,20 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#сонирхолтой-судалгаанууд" id="toc-сонирхолтой-судалгаанууд" class="nav-link active" data-scroll-target="#сонирхолтой-судалгаанууд">Сонирхолтой судалгаанууд</a></li>
-  <li><a href="#clinical-research" id="toc-clinical-research" class="nav-link" data-scroll-target="#clinical-research">Clinical Research</a>
-  <ul class="collapse">
-  <li><a href="#судалгаанд-ашиглагддаг-аргууд" id="toc-судалгаанд-ашиглагддаг-аргууд" class="nav-link" data-scroll-target="#судалгаанд-ашиглагддаг-аргууд">Судалгаанд ашиглагддаг аргууд</a></li>
-  </ul></li>
-  <li><a href="#epidemiological-research" id="toc-epidemiological-research" class="nav-link" data-scroll-target="#epidemiological-research">Epidemiological Research</a></li>
-  <li><a href="#statistical-modelling" id="toc-statistical-modelling" class="nav-link" data-scroll-target="#statistical-modelling">Statistical Modelling</a></li>
-  <li><a href="#reproducible-research" id="toc-reproducible-research" class="nav-link" data-scroll-target="#reproducible-research">Reproducible Research</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Interesting Research</h1>
+<h1 class="title">Нэр томьёоны толь</h1>
 </div>
 
+<div>
+  <div class="description">
+    Анагаах ухааны статистик, эпидемиологийн нэр томьёоны монгол-англи толь: тодорхойлолт, жишээ, түгээмэл алдаа, R код.
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
@@ -176,46 +169,32 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="сонирхолтой-судалгаанууд" class="level2">
-<h2 class="anchored" data-anchor-id="сонирхолтой-судалгаанууд">Сонирхолтой судалгаанууд</h2>
-<p>Энэ хэсэгт биостатистик, тархвар судлал, эмнэлзүйн судалгаа болон эрүүл мэндийн өгөгдлийн шинжилгээтэй холбоотой сонирхолтой судалгаануудыг танилцуулна.</p>
-</section>
-<section id="clinical-research" class="level2">
-<h2 class="anchored" data-anchor-id="clinical-research">Clinical Research</h2>
-<p>Эмнэлзүйн судалгаанд статистикийн арга зүй нь эмчилгээний үр нөлөө, аюулгүй байдал болон судалгааны үр дүнг үнэлэхэд чухал ач холбогдолтой.</p>
-<section id="судалгаанд-ашиглагддаг-аргууд" class="level3">
-<h3 class="anchored" data-anchor-id="судалгаанд-ашиглагддаг-аргууд">Судалгаанд ашиглагддаг аргууд</h3>
-<ul>
-<li>Descriptive statistics</li>
-<li>Hypothesis testing</li>
-<li>Confidence intervals</li>
-<li>Regression analysis</li>
-<li>Survival analysis</li>
-<li>Sample size calculation</li>
-</ul>
-</section>
-</section>
-<section id="epidemiological-research" class="level2">
-<h2 class="anchored" data-anchor-id="epidemiological-research">Epidemiological Research</h2>
-<p>Тархвар судлалын судалгаанд өвчний тархалт, эрсдэлт хүчин зүйл болон хүн амын эрүүл мэндийн үзүүлэлтүүдийг статистикийн аргаар судална.</p>
-</section>
-<section id="statistical-modelling" class="level2">
-<h2 class="anchored" data-anchor-id="statistical-modelling">Statistical Modelling</h2>
-<p>Статистикийн загварчлал ашиглан судалгааны өгөгдлөөс хамаарал, холбоо болон таамаглалыг шинжилж болно.</p>
-<p>Жишээлбэл:</p>
-<ul>
-<li>Linear regression</li>
-<li>Logistic regression</li>
-<li>Cox regression</li>
-<li>Mixed-effects models</li>
-</ul>
-</section>
-<section id="reproducible-research" class="level2">
-<h2 class="anchored" data-anchor-id="reproducible-research">Reproducible Research</h2>
-<p>R болон Quarto ашиглан судалгааны код, өгөгдлийн боловсруулалт, үр дүн болон тайланг нэг дор нэгтгэж, дахин давтагдахуйц судалгааны орчин бүрдүүлж болно.</p>
+<header class="mt-hero column-page">
+  <p class="mt-eyebrow"><a href="methods.html">Data Analysis Methods</a> · Толь</p>
+  <h1>Нэр томьёоны толь</h1>
+  <p class="mt-lead">
+    Анагаах ухааны статистик, эпидемиологийн түгээмэл нэр томьёо монгол, англи
+    хэлээр. Нэр томьёо бүрт товч тодорхойлолт, эмнэлзүйн жишээ, түгээмэл алдаа,
+    R код болон холбоотой нэр томьёо багтсан.
+  </p>
+</header>
+
+<div class="glossary-app column-page" data-src="glossary/terms.yml">
+  <p class="gl-loading">Нэр томьёог ачаалж байна…</p>
+</div>
+<noscript><p>Толийг харахын тулд JavaScript идэвхжүүлнэ үү.</p></noscript>
+<div class="column-page callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Эх сурвалж ба зохиогчийн эрх.</strong> Тодорхойлолт, жишээг Team of Biostatistics баг өөрсдийн үгээр бичсэн бөгөөд аль нэг номоос хуулж, орчуулаагүй. Цааш унших: Everitt B.S. <em>Medical Statistics from A to Z</em> (Cambridge University Press); Kirkwood B.R., Sterne J.A.C. <em>Essential Medical Statistics</em> (Blackwell). Алдаа олсон эсвэл нэр томьёо нэмэх санал байвал <a href="https://github.com/zorigoobayar/team-of-biostatistics/issues/new">GitHub дээр мэдэгдээрэй</a>.</p>
+</div>
+</div>
+</div>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -619,6 +598,8 @@ ul.task-list li input[type="checkbox"] {
   });
   </script>
 </div> <!-- /content -->
+<script src="assets/js/js-yaml.min.js"></script>
+<script src="assets/js/glossary.js"></script>
 
 
 

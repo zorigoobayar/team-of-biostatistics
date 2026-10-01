@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="Гурав ба түүнээс дээш хамааралгүй бүлгийн дундажийг нэг дор харьцуулна.">
 
-<title>Interesting Research – Team of Biostatistics</title>
+<title>Дисперсийн шинжилгээ (ANOVA) – Team of Biostatistics</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,26 +27,61 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-55617497126496852ff9f5a59253c640.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-55617497126496852ff9f5a59253c640.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -75,17 +111,19 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../styles/methods.css">
+<link rel="stylesheet" href="../styles/glossary.css">
 </head>
 
-<body class="nav-fixed page-research quarto-light">
+<body class="nav-fixed page-methods quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Team of Biostatistics</span>
     </a>
   </div>
@@ -96,35 +134,35 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./team.html"> 
+    <a class="nav-link" href="../team.html"> 
 <span class="menu-text">Our Team</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./software.html"> 
+    <a class="nav-link" href="../software.html"> 
 <span class="menu-text">Statistical Software</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./research.html" aria-current="page"> 
+    <a class="nav-link" href="../research.html"> 
 <span class="menu-text">Interesting Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./books.html"> 
+    <a class="nav-link" href="../books.html"> 
 <span class="menu-text">Biostatistics Books</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./cheatsheet.html"> 
+    <a class="nav-link" href="../cheatsheet.html"> 
 <span class="menu-text">Cheat sheet</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./methods.html"> 
+    <a class="nav-link" href="../methods.html"> 
 <span class="menu-text">Data Analysis Methods</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./contact.html"> 
+    <a class="nav-link" href="../contact.html"> 
 <span class="menu-text">Contact</span></a>
   </li>  
 </ul>
@@ -143,14 +181,15 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#сонирхолтой-судалгаанууд" id="toc-сонирхолтой-судалгаанууд" class="nav-link active" data-scroll-target="#сонирхолтой-судалгаанууд">Сонирхолтой судалгаанууд</a></li>
-  <li><a href="#clinical-research" id="toc-clinical-research" class="nav-link" data-scroll-target="#clinical-research">Clinical Research</a>
-  <ul class="collapse">
-  <li><a href="#судалгаанд-ашиглагддаг-аргууд" id="toc-судалгаанд-ашиглагддаг-аргууд" class="nav-link" data-scroll-target="#судалгаанд-ашиглагддаг-аргууд">Судалгаанд ашиглагддаг аргууд</a></li>
-  </ul></li>
-  <li><a href="#epidemiological-research" id="toc-epidemiological-research" class="nav-link" data-scroll-target="#epidemiological-research">Epidemiological Research</a></li>
-  <li><a href="#statistical-modelling" id="toc-statistical-modelling" class="nav-link" data-scroll-target="#statistical-modelling">Statistical Modelling</a></li>
-  <li><a href="#reproducible-research" id="toc-reproducible-research" class="nav-link" data-scroll-target="#reproducible-research">Reproducible Research</a></li>
+  <li><a href="#товч-мэдээлэл" id="toc-товч-мэдээлэл" class="nav-link active" data-scroll-target="#товч-мэдээлэл">Товч мэдээлэл</a></li>
+  <li><a href="#хэзээ-хэрэглэх-вэ" id="toc-хэзээ-хэрэглэх-вэ" class="nav-link" data-scroll-target="#хэзээ-хэрэглэх-вэ">Хэзээ хэрэглэх вэ?</a></li>
+  <li><a href="#таамаглалууд" id="toc-таамаглалууд" class="nav-link" data-scroll-target="#таамаглалууд">Таамаглалууд</a></li>
+  <li><a href="#r-дээр-хийх" id="toc-r-дээр-хийх" class="nav-link" data-scroll-target="#r-дээр-хийх">R дээр хийх</a></li>
+  <li><a href="#үр-дүнг-тайлбарлах" id="toc-үр-дүнг-тайлбарлах" class="nav-link" data-scroll-target="#үр-дүнг-тайлбарлах">Үр дүнг тайлбарлах</a></li>
+  <li><a href="#тайлагнах-жишээ" id="toc-тайлагнах-жишээ" class="nav-link" data-scroll-target="#тайлагнах-жишээ">Тайлагнах жишээ</a></li>
+  <li><a href="#түгээмэл-алдаа" id="toc-түгээмэл-алдаа" class="nav-link" data-scroll-target="#түгээмэл-алдаа">Түгээмэл алдаа</a></li>
+  <li><a href="#өөр-аргууд" id="toc-өөр-аргууд" class="nav-link" data-scroll-target="#өөр-аргууд">Өөр аргууд</a></li>
+  <li><a href="#холбогдох-нэр-томьёо" id="toc-холбогдох-нэр-томьёо" class="nav-link" data-scroll-target="#холбогдох-нэр-томьёо">Холбогдох нэр томьёо</a></li>
   </ul>
 </nav>
     </div>
@@ -159,9 +198,14 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Interesting Research</h1>
+<h1 class="title">Дисперсийн шинжилгээ (ANOVA)</h1>
 </div>
 
+<div>
+  <div class="description">
+    Гурав ба түүнээс дээш хамааралгүй бүлгийн дундажийг нэг дор харьцуулна.
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
@@ -176,43 +220,109 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="сонирхолтой-судалгаанууд" class="level2">
-<h2 class="anchored" data-anchor-id="сонирхолтой-судалгаанууд">Сонирхолтой судалгаанууд</h2>
-<p>Энэ хэсэгт биостатистик, тархвар судлал, эмнэлзүйн судалгаа болон эрүүл мэндийн өгөгдлийн шинжилгээтэй холбоотой сонирхолтой судалгаануудыг танилцуулна.</p>
+<header class="mt-hero" style="--mt-accent:#7c3aed">
+  <p class="mt-eyebrow"><a href="../methods.html">Data Analysis Methods</a> · Дундаж харьцуулах</p>
+  <h1>Дисперсийн шинжилгээ (ANOVA)</h1>
+  <p class="mt-en" lang="en">One-way analysis of variance</p>
+  <p class="mt-lead">Гурав ба түүнээс дээш хамааралгүй бүлгийн тасралтгүй хувьсагчийн дундаж бүгд ижил эсэхийг нэг тестээр шалгана. Ялгаа илэрвэл аль бүлгүүд ялгаатайг post hoc тестээр тогтооно.</p>
+  <ul class="mt-badges"><li>Тасралтгүй</li><li>≥ 3 бүлэг</li><li><code>aov()</code></li></ul>
+</header>
+<section id="товч-мэдээлэл" class="level2">
+<h2 class="anchored" data-anchor-id="товч-мэдээлэл">Товч мэдээлэл</h2>
+<div class="mt-facts"><div><span>Үр дагавар</span><strong>Тасралтгүй</strong></div><div><span>Бүлэг</span><strong>≥ 3, хамааралгүй</strong></div><div><span>Тэг таамаглал</span><strong>μ₁ = μ₂ = … = μₖ</strong></div><div><span>Непараметр хувилбар</span><strong>Крускал-Уоллисын тест</strong></div></div>
 </section>
-<section id="clinical-research" class="level2">
-<h2 class="anchored" data-anchor-id="clinical-research">Clinical Research</h2>
-<p>Эмнэлзүйн судалгаанд статистикийн арга зүй нь эмчилгээний үр нөлөө, аюулгүй байдал болон судалгааны үр дүнг үнэлэхэд чухал ач холбогдолтой.</p>
-<section id="судалгаанд-ашиглагддаг-аргууд" class="level3">
-<h3 class="anchored" data-anchor-id="судалгаанд-ашиглагддаг-аргууд">Судалгаанд ашиглагддаг аргууд</h3>
-<ul>
-<li>Descriptive statistics</li>
-<li>Hypothesis testing</li>
-<li>Confidence intervals</li>
-<li>Regression analysis</li>
-<li>Survival analysis</li>
-<li>Sample size calculation</li>
+<section id="хэзээ-хэрэглэх-вэ" class="level2">
+<h2 class="anchored" data-anchor-id="хэзээ-хэрэглэх-вэ">Хэзээ хэрэглэх вэ?</h2>
+<p>Нэг ангиллын хүчин зүйл (3+ түвшинтэй)-ийн бүлгүүдийн дундажийг харьцуулах бол.</p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Жишээ судалгааны асуулт:</strong> Гурван өөр хоолны дэглэм (бага нүүрс ус, бага өөх тос, Газрын дундад тэнгисийн)-ийн 6 сарын дараах жингийн бууралт ялгаатай юу?</p>
+</div>
+</div>
+</div>
+</section>
+<section id="таамаглалууд" class="level2">
+<h2 class="anchored" data-anchor-id="таамаглалууд">Таамаглалууд</h2>
+<p>Шинжилгээ хийхээс өмнө шалгана:</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Ажиглалтууд хоорондоо хамааралгүй.</label></li>
+<li><label><input type="checkbox">Бүлэг тус бүрийн үлдэгдэл ойролцоогоор хэвийн тархалттай.</label></li>
+<li><label><input type="checkbox">Бүлгүүдийн дисперс ойролцоогоор тэнцүү (Левенийн тест). Зөрчигдвөл Welch ANOVA.</label></li>
 </ul>
 </section>
+<section id="r-дээр-хийх" class="level2">
+<h2 class="anchored" data-anchor-id="r-дээр-хийх">R дээр хийх</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Өгөгдөл: df$loss (кг), df$diet (3 түвшинтэй factor)</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">aov</span>(loss <span class="sc">~</span> diet, <span class="at">data =</span> df)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m)                        <span class="co"># F, df, p</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>car<span class="sc">::</span><span class="fu">leveneTest</span>(loss <span class="sc">~</span> diet, <span class="at">data =</span> df)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(<span class="fu">residuals</span>(m))</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">TukeyHSD</span>(m)                       <span class="co"># хосын харьцуулалт</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Дисперс тэнцүү биш бол:</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">oneway.test</span>(loss <span class="sc">~</span> diet, <span class="at">data =</span> df)   <span class="co"># Welch ANOVA</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Хэвийн тархалтгүй бол:</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">kruskal.test</span>(loss <span class="sc">~</span> diet, <span class="at">data =</span> df)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="epidemiological-research" class="level2">
-<h2 class="anchored" data-anchor-id="epidemiological-research">Epidemiological Research</h2>
-<p>Тархвар судлалын судалгаанд өвчний тархалт, эрсдэлт хүчин зүйл болон хүн амын эрүүл мэндийн үзүүлэлтүүдийг статистикийн аргаар судална.</p>
-</section>
-<section id="statistical-modelling" class="level2">
-<h2 class="anchored" data-anchor-id="statistical-modelling">Statistical Modelling</h2>
-<p>Статистикийн загварчлал ашиглан судалгааны өгөгдлөөс хамаарал, холбоо болон таамаглалыг шинжилж болно.</p>
-<p>Жишээлбэл:</p>
+<section id="үр-дүнг-тайлбарлах" class="level2">
+<h2 class="anchored" data-anchor-id="үр-дүнг-тайлбарлах">Үр дүнг тайлбарлах</h2>
 <ul>
-<li>Linear regression</li>
-<li>Logistic regression</li>
-<li>Cox regression</li>
-<li>Mixed-effects models</li>
+<li><strong>F value, Pr(&gt;F)</strong> — бүх бүлгийн дундаж ижил гэсэн тэг таамаглалын тест. Ач холбогдолтой гарвал дор хаяж нэг бүлэг ялгаатай.</li>
+<li><strong>Df</strong> — бүлгийн хоорондох (k − 1) ба бүлгийн доторх (N − k) чөлөөний зэрэг.</li>
+<li><strong>TukeyHSD</strong> — хос бүрийн дунджийн зөрүү, олон харьцуулалтаар залруулсан CI ба p.</li>
+<li><strong>η² (eta squared)</strong> — нийт хэлбэлзлийн хэдэн хувийг бүлэг тайлбарлаж байгааг харуулах нөлөөний хэмжээ.</li>
 </ul>
 </section>
-<section id="reproducible-research" class="level2">
-<h2 class="anchored" data-anchor-id="reproducible-research">Reproducible Research</h2>
-<p>R болон Quarto ашиглан судалгааны код, өгөгдлийн боловсруулалт, үр дүн болон тайланг нэг дор нэгтгэж, дахин давтагдахуйц судалгааны орчин бүрдүүлж болно.</p>
+<section id="тайлагнах-жишээ" class="level2">
+<h2 class="anchored" data-anchor-id="тайлагнах-жишээ">Тайлагнах жишээ</h2>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Гурван дэглэмийн жингийн бууралт ялгаатай байв (F(2, 147) = 6.21, p = 0.003, η² = 0.08). Tukey тестээр бага нүүрс устай дэглэм бага өөх тостой дэглэмээс 2.1 кг (95% CI 0.6; 3.6) илүү бууралттай байв.</p>
+<p><small>Тоонууд зохиомол бөгөөд тайлагнах хэлбэрийг харуулах зорилготой.</small></p>
+</div>
+</div>
+</div>
+</section>
+<section id="түгээмэл-алдаа" class="level2">
+<h2 class="anchored" data-anchor-id="түгээмэл-алдаа">Түгээмэл алдаа</h2>
+<div class="callout callout-style-simple callout-warning no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<ul>
+<li>ANOVA ач холбогдолгүй гарсан ч post hoc тестээр ялгаа хайх.</li>
+<li>Бүлэг бүрийг хосоор нь залруулгагүй t-тестээр харьцуулах.</li>
+<li>Давтан хэмжилтэд (нэг хүн бүх бүлэгт) энгийн ANOVA хэрэглэх.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="өөр-аргууд" class="level2">
+<h2 class="anchored" data-anchor-id="өөр-аргууд">Өөр аргууд</h2>
+<ul>
+<li><a href="ancova.html">Ковариацын шинжилгээ (ANCOVA)</a> — Бүлгүүдийн дундажийг суурь утга зэрэг тасралтгүй ковариатаар залруулж харьцуулна.</li>
+<li><a href="manova.html">Олон хэмжээст дисперсийн шинжилгээ (MANOVA)</a> — Хоёр ба түүнээс дээш хамааралтай үр дагаврыг бүлгүүдийн хооронд зэрэг харьцуулна.</li>
+<li><a href="independent-t-test.html">Хамааралгүй түүврийн t-тест</a> — Хоёр хамааралгүй бүлгийн тасралтгүй хувьсагчийн дундажийг харьцуулна.</li>
+</ul>
+</section>
+<section id="холбогдох-нэр-томьёо" class="level2">
+<h2 class="anchored" data-anchor-id="холбогдох-нэр-томьёо">Холбогдох нэр томьёо</h2>
+<div class="glossary-embed" data-src="../glossary/terms.yml" data-glossary-url="../glossary.html" data-terms="anova,post-hoc-test,multiple-comparisons,bonferroni,variance,levene-test,kruskal-wallis,residual,effect-size,repeated-measures-anova">
+  <p class="gl-loading">Нэр томьёог ачаалж байна…</p>
+</div>
+
+<nav class="mt-pager" aria-label="Аргууд хооронд шилжих"><a href="paired-t-test.html">← Хосолсон t-тест</a><a href="ancova.html">Ковариацын шинжилгээ (ANCOVA) →</a></nav>
 
 
 </section>
@@ -619,6 +729,8 @@ ul.task-list li input[type="checkbox"] {
   });
   </script>
 </div> <!-- /content -->
+<script src="../assets/js/js-yaml.min.js"></script>
+<script src="../assets/js/glossary.js"></script>
 
 
 

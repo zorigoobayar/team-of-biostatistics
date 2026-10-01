@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="Анагаах ухааны судалгаанд түгээмэл хэрэглэгддэг статистик аргууд: хэзээ хэрэглэх, таамаглал, R код, тайлагнах, нэр томьёо.">
 
-<title>Interesting Research – Team of Biostatistics</title>
+<title>Data Analysis Methods – Team of Biostatistics</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -76,9 +77,10 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles/methods.css">
 </head>
 
-<body class="nav-fixed page-research quarto-light">
+<body class="nav-fixed page-methods fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -108,7 +110,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Statistical Software</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./research.html" aria-current="page"> 
+    <a class="nav-link" href="./research.html"> 
 <span class="menu-text">Interesting Research</span></a>
   </li>  
   <li class="nav-item">
@@ -120,7 +122,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Cheat sheet</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./methods.html"> 
+    <a class="nav-link active" href="./methods.html" aria-current="page"> 
 <span class="menu-text">Data Analysis Methods</span></a>
   </li>  
   <li class="nav-item">
@@ -138,30 +140,20 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#сонирхолтой-судалгаанууд" id="toc-сонирхолтой-судалгаанууд" class="nav-link active" data-scroll-target="#сонирхолтой-судалгаанууд">Сонирхолтой судалгаанууд</a></li>
-  <li><a href="#clinical-research" id="toc-clinical-research" class="nav-link" data-scroll-target="#clinical-research">Clinical Research</a>
-  <ul class="collapse">
-  <li><a href="#судалгаанд-ашиглагддаг-аргууд" id="toc-судалгаанд-ашиглагддаг-аргууд" class="nav-link" data-scroll-target="#судалгаанд-ашиглагддаг-аргууд">Судалгаанд ашиглагддаг аргууд</a></li>
-  </ul></li>
-  <li><a href="#epidemiological-research" id="toc-epidemiological-research" class="nav-link" data-scroll-target="#epidemiological-research">Epidemiological Research</a></li>
-  <li><a href="#statistical-modelling" id="toc-statistical-modelling" class="nav-link" data-scroll-target="#statistical-modelling">Statistical Modelling</a></li>
-  <li><a href="#reproducible-research" id="toc-reproducible-research" class="nav-link" data-scroll-target="#reproducible-research">Reproducible Research</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Interesting Research</h1>
+<h1 class="title">Data Analysis Methods</h1>
 </div>
 
+<div>
+  <div class="description">
+    Анагаах ухааны судалгаанд түгээмэл хэрэглэгддэг статистик аргууд: хэзээ хэрэглэх, таамаглал, R код, тайлагнах, нэр томьёо.
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
@@ -176,46 +168,278 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="сонирхолтой-судалгаанууд" class="level2">
-<h2 class="anchored" data-anchor-id="сонирхолтой-судалгаанууд">Сонирхолтой судалгаанууд</h2>
-<p>Энэ хэсэгт биостатистик, тархвар судлал, эмнэлзүйн судалгаа болон эрүүл мэндийн өгөгдлийн шинжилгээтэй холбоотой сонирхолтой судалгаануудыг танилцуулна.</p>
+<header class="mt-hero column-page">
+  <p class="mt-eyebrow"><i class="bi bi-clipboard2-data"></i> Шинжилгээний аргууд</p>
+  <h1>Data Analysis Methods</h1>
+  <p class="mt-lead">
+    Анагаах ухааны судалгаанд хамгийн түгээмэл хэрэглэгддэг статистик аргууд.
+    Арга бүрийн хуудсанд хэзээ хэрэглэх, таамаглал, R код, үр дүнг тайлбарлах,
+    тайлагнах загвар болон холбогдох нэр томьёо багтсан.
+  </p>
+  <ul class="mt-badges" aria-label="Товч мэдээлэл">
+    <li><strong>12</strong> арга</li>
+    <li><strong>R</strong> кодын жишээ</li>
+    <li><strong>Монгол</strong> нэр томьёо</li>
+  </ul>
+  <div class="mt-actions">
+    <a class="btn btn-primary btn-sm" href="#аль-аргыг-сонгох-вэ"><i class="bi bi-signpost-split"></i> Аль аргыг сонгох вэ?</a>
+    <a class="btn btn-outline-secondary btn-sm" href="glossary.html"><i class="bi bi-journal-text"></i> Нэр томьёоны толь</a>
+  </div>
+</header>
+<section id="дундаж-харьцуулах" class="level2 mt-group column-page">
+<h2 class="mt-group anchored" data-anchor-id="дундаж-харьцуулах">Дундаж харьцуулах</h2>
+<div class="mt-grid">
+  <a class="mt-card" href="methods/one-sample-t-test.html" style="--mt-accent:#2563eb">
+    <div class="mt-cover"><span class="mt-num">01</span><span class="mt-symbol" aria-hidden="true">t</span></div>
+    <div class="mt-body">
+      <p class="mt-cat"><i class="bi bi-bar-chart-line"></i> Дундаж харьцуулах</p>
+      <h3 class="anchored">Нэг түүврийн t-тест</h3>
+      <p class="mt-card-en" lang="en">One-sample t-test</p>
+      <p>Нэг бүлгийн дундажийг норм, жишиг эсвэл онолын утгатай харьцуулна.</p>
+      <div class="mt-tags"><span>Тасралтгүй</span><span>1 бүлэг</span><span><code>t.test(x, mu = )</code></span></div>
+      <span class="mt-go">Дэлгэрэнгүй →</span>
+    </div>
+  </a>
+  <a class="mt-card" href="methods/independent-t-test.html" style="--mt-accent:#0891b2">
+    <div class="mt-cover"><span class="mt-num">02</span><span class="mt-symbol" aria-hidden="true">t</span></div>
+    <div class="mt-body">
+      <p class="mt-cat"><i class="bi bi-bar-chart-line"></i> Дундаж харьцуулах</p>
+      <h3 class="anchored">Хамааралгүй түүврийн t-тест</h3>
+      <p class="mt-card-en" lang="en">Independent samples t-test</p>
+      <p>Хоёр хамааралгүй бүлгийн тасралтгүй хувьсагчийн дундажийг харьцуулна.</p>
+      <div class="mt-tags"><span>Тасралтгүй</span><span>2 бүлэг</span><span><code>t.test(y ~ g)</code></span></div>
+      <span class="mt-go">Дэлгэрэнгүй →</span>
+    </div>
+  </a>
+  <a class="mt-card" href="methods/paired-t-test.html" style="--mt-accent:#059669">
+    <div class="mt-cover"><span class="mt-num">03</span><span class="mt-symbol" aria-hidden="true">t</span></div>
+    <div class="mt-body">
+      <p class="mt-cat"><i class="bi bi-bar-chart-line"></i> Дундаж харьцуулах</p>
+      <h3 class="anchored">Хосолсон t-тест</h3>
+      <p class="mt-card-en" lang="en">Paired t-test</p>
+      <p>Нэг хүнээс авсан хоёр хэмжилтийн (өмнө/дараа) дундаж зөрүүг шалгана.</p>
+      <div class="mt-tags"><span>Тасралтгүй</span><span>2 хэмжилт</span><span><code>t.test(paired = TRUE)</code></span></div>
+      <span class="mt-go">Дэлгэрэнгүй →</span>
+    </div>
+  </a>
+  <a class="mt-card" href="methods/anova.html" style="--mt-accent:#7c3aed">
+    <div class="mt-cover"><span class="mt-num">04</span><span class="mt-symbol" aria-hidden="true">F</span></div>
+    <div class="mt-body">
+      <p class="mt-cat"><i class="bi bi-bar-chart-line"></i> Дундаж харьцуулах</p>
+      <h3 class="anchored">Дисперсийн шинжилгээ (ANOVA)</h3>
+      <p class="mt-card-en" lang="en">One-way analysis of variance</p>
+      <p>Гурав ба түүнээс дээш хамааралгүй бүлгийн дундажийг нэг дор харьцуулна.</p>
+      <div class="mt-tags"><span>Тасралтгүй</span><span>≥ 3 бүлэг</span><span><code>aov()</code></span></div>
+      <span class="mt-go">Дэлгэрэнгүй →</span>
+    </div>
+  </a>
+  <a class="mt-card" href="methods/ancova.html" style="--mt-accent:#c026d3">
+    <div class="mt-cover"><span class="mt-num">05</span><span class="mt-symbol" aria-hidden="true">F</span></div>
+    <div class="mt-body">
+      <p class="mt-cat"><i class="bi bi-bar-chart-line"></i> Дундаж харьцуулах</p>
+      <h3 class="anchored">Ковариацын шинжилгээ (ANCOVA)</h3>
+      <p class="mt-card-en" lang="en">Analysis of covariance</p>
+      <p>Бүлгүүдийн дундажийг суурь утга зэрэг тасралтгүй ковариатаар залруулж харьцуулна.</p>
+      <div class="mt-tags"><span>Тасралтгүй</span><span>≥ 2 бүлэг + ковариат</span><span><code>lm(y ~ g + x)</code></span></div>
+      <span class="mt-go">Дэлгэрэнгүй →</span>
+    </div>
+  </a>
+  <a class="mt-card" href="methods/manova.html" style="--mt-accent:#db2777">
+    <div class="mt-cover"><span class="mt-num">06</span><span class="mt-symbol" aria-hidden="true">Λ</span></div>
+    <div class="mt-body">
+      <p class="mt-cat"><i class="bi bi-bar-chart-line"></i> Дундаж харьцуулах</p>
+      <h3 class="anchored">Олон хэмжээст дисперсийн шинжилгээ (MANOVA)</h3>
+      <p class="mt-card-en" lang="en">Multivariate analysis of variance</p>
+      <p>Хоёр ба түүнээс дээш хамааралтай үр дагаврыг бүлгүүдийн хооронд зэрэг харьцуулна.</p>
+      <div class="mt-tags"><span>≥ 2 тасралтгүй үр дагавар</span><span>≥ 2 бүлэг</span><span><code>manova()</code></span></div>
+      <span class="mt-go">Дэлгэрэнгүй →</span>
+    </div>
+  </a>
+</div>
 </section>
-<section id="clinical-research" class="level2">
-<h2 class="anchored" data-anchor-id="clinical-research">Clinical Research</h2>
-<p>Эмнэлзүйн судалгаанд статистикийн арга зүй нь эмчилгээний үр нөлөө, аюулгүй байдал болон судалгааны үр дүнг үнэлэхэд чухал ач холбогдолтой.</p>
-<section id="судалгаанд-ашиглагддаг-аргууд" class="level3">
-<h3 class="anchored" data-anchor-id="судалгаанд-ашиглагддаг-аргууд">Судалгаанд ашиглагддаг аргууд</h3>
-<ul>
-<li>Descriptive statistics</li>
-<li>Hypothesis testing</li>
-<li>Confidence intervals</li>
-<li>Regression analysis</li>
-<li>Survival analysis</li>
-<li>Sample size calculation</li>
-</ul>
+<section id="хамаарал-ба-регресс" class="level2 mt-group column-page">
+<h2 class="mt-group anchored" data-anchor-id="хамаарал-ба-регресс">Хамаарал ба регресс</h2>
+<div class="mt-grid">
+  <a class="mt-card" href="methods/correlation.html" style="--mt-accent:#ea580c">
+    <div class="mt-cover"><span class="mt-num">07</span><span class="mt-symbol" aria-hidden="true">r</span></div>
+    <div class="mt-body">
+      <p class="mt-cat"><i class="bi bi-graph-up"></i> Хамаарал ба регресс</p>
+      <h3 class="anchored">Корреляцийн шинжилгээ</h3>
+      <p class="mt-card-en" lang="en">Correlation analysis</p>
+      <p>Хоёр тоон хувьсагчийн хамаарлын хүч ба чиглэлийг −1-ээс +1 хооронд хэмжинэ.</p>
+      <div class="mt-tags"><span>2 тоон хувьсагч</span><span>Пирсон / Спирмен</span><span><code>cor.test()</code></span></div>
+      <span class="mt-go">Дэлгэрэнгүй →</span>
+    </div>
+  </a>
+  <a class="mt-card" href="methods/linear-regression.html" style="--mt-accent:#dc2626">
+    <div class="mt-cover"><span class="mt-num">08</span><span class="mt-symbol" aria-hidden="true">β</span></div>
+    <div class="mt-body">
+      <p class="mt-cat"><i class="bi bi-graph-up"></i> Хамаарал ба регресс</p>
+      <h3 class="anchored">Шугаман регресс</h3>
+      <p class="mt-card-en" lang="en">Linear regression</p>
+      <p>Тасралтгүй үр дагаврыг нэг буюу олон тайлбарлагч хувьсагчаар загварчилна.</p>
+      <div class="mt-tags"><span>Тасралтгүй үр дагавар</span><span>Олон хувьсагч</span><span><code>lm()</code></span></div>
+      <span class="mt-go">Дэлгэрэнгүй →</span>
+    </div>
+  </a>
+  <a class="mt-card" href="methods/logistic-regression.html" style="--mt-accent:#b45309">
+    <div class="mt-cover"><span class="mt-num">09</span><span class="mt-symbol" aria-hidden="true">OR</span></div>
+    <div class="mt-body">
+      <p class="mt-cat"><i class="bi bi-graph-up"></i> Хамаарал ба регресс</p>
+      <h3 class="anchored">Логистик регресс</h3>
+      <p class="mt-card-en" lang="en">Logistic regression</p>
+      <p>Хоёр утгат (тийм/үгүй) үр дагаврын odds-ийг олон хувьсагчаар загварчилж OR тооцно.</p>
+      <div class="mt-tags"><span>Хоёр утгат үр дагавар</span><span>OR</span><span><code>glm(binomial)</code></span></div>
+      <span class="mt-go">Дэлгэрэнгүй →</span>
+    </div>
+  </a>
+</div>
 </section>
+<section id="амьдрах-чадвар" class="level2 mt-group column-page">
+<h2 class="mt-group anchored" data-anchor-id="амьдрах-чадвар">Амьдрах чадвар</h2>
+<div class="mt-grid">
+  <a class="mt-card" href="methods/survival-analysis.html" style="--mt-accent:#0f766e">
+    <div class="mt-cover"><span class="mt-num">10</span><span class="mt-symbol" aria-hidden="true">S(t)</span></div>
+    <div class="mt-body">
+      <p class="mt-cat"><i class="bi bi-hourglass-split"></i> Амьдрах чадвар</p>
+      <h3 class="anchored">Амьдрах чадварын шинжилгээ</h3>
+      <p class="mt-card-en" lang="en">Kaplan–Meier &amp; log-rank test</p>
+      <p>Үйл явдал хүртэлх хугацааг цензурыг тооцож шинжилж, бүлгүүдийн муруйг харьцуулна.</p>
+      <div class="mt-tags"><span>Хугацаа + үйл явдал</span><span>Цензур</span><span><code>survfit()</code></span></div>
+      <span class="mt-go">Дэлгэрэнгүй →</span>
+    </div>
+  </a>
+  <a class="mt-card" href="methods/cox-regression.html" style="--mt-accent:#15803d">
+    <div class="mt-cover"><span class="mt-num">11</span><span class="mt-symbol" aria-hidden="true">HR</span></div>
+    <div class="mt-body">
+      <p class="mt-cat"><i class="bi bi-hourglass-split"></i> Амьдрах чадвар</p>
+      <h3 class="anchored">Коксын регресс</h3>
+      <p class="mt-card-en" lang="en">Cox proportional hazards regression</p>
+      <p>Үйл явдал хүртэлх хугацаанд олон хувьсагчийн нөлөөг залруулж hazard ratio тооцно.</p>
+      <div class="mt-tags"><span>Хугацаа + үйл явдал</span><span>HR</span><span><code>coxph()</code></span></div>
+      <span class="mt-go">Дэлгэрэнгүй →</span>
+    </div>
+  </a>
+</div>
 </section>
-<section id="epidemiological-research" class="level2">
-<h2 class="anchored" data-anchor-id="epidemiological-research">Epidemiological Research</h2>
-<p>Тархвар судлалын судалгаанд өвчний тархалт, эрсдэлт хүчин зүйл болон хүн амын эрүүл мэндийн үзүүлэлтүүдийг статистикийн аргаар судална.</p>
+<section id="давтан-хэмжилт-ба-кластер" class="level2 mt-group column-page">
+<h2 class="mt-group anchored" data-anchor-id="давтан-хэмжилт-ба-кластер">Давтан хэмжилт ба кластер</h2>
+<div class="mt-grid">
+  <a class="mt-card" href="methods/gee.html" style="--mt-accent:#4338ca">
+    <div class="mt-cover"><span class="mt-num">12</span><span class="mt-symbol" aria-hidden="true">GEE</span></div>
+    <div class="mt-body">
+      <p class="mt-cat"><i class="bi bi-diagram-3"></i> Давтан хэмжилт ба кластер</p>
+      <h3 class="anchored">Ерөнхийлсөн үнэлгээний тэгшитгэл (GEE)</h3>
+      <p class="mt-card-en" lang="en">Generalized estimating equations</p>
+      <p>Давтан хэмжилт эсвэл кластерласан өгөгдлийн хүн амын түвшний нөлөөг үнэлнэ.</p>
+      <div class="mt-tags"><span>Давтан хэмжилт</span><span>Тасралтгүй / 0-1 / тоо</span><span><code>geeglm()</code></span></div>
+      <span class="mt-go">Дэлгэрэнгүй →</span>
+    </div>
+  </a>
+</div>
 </section>
-<section id="statistical-modelling" class="level2">
-<h2 class="anchored" data-anchor-id="statistical-modelling">Statistical Modelling</h2>
-<p>Статистикийн загварчлал ашиглан судалгааны өгөгдлөөс хамаарал, холбоо болон таамаглалыг шинжилж болно.</p>
-<p>Жишээлбэл:</p>
-<ul>
-<li>Linear regression</li>
-<li>Logistic regression</li>
-<li>Cox regression</li>
-<li>Mixed-effects models</li>
-</ul>
+<section id="аль-аргыг-сонгох-вэ" class="level2 mt-chooser column-page">
+<h2 class="anchored" data-anchor-id="аль-аргыг-сонгох-вэ">Аль аргыг сонгох вэ?</h2>
+<p>Үр дагаврын хувьсагчийн төрөл болон бүлгийн бүтцээс эхэлнэ.</p>
+<div class="mt-table-wrap">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Үр дагавар</th>
+<th>Харьцуулах / асуулт</th>
+<th>Параметр арга</th>
+<th>Непараметр / өөр хувилбар</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Тасралтгүй</td>
+<td>1 бүлэг ба жишиг утга</td>
+<td><a href="methods/one-sample-t-test.html">Нэг түүврийн t-тест</a></td>
+<td>Уилкоксоны тэмдэгт эрэмбийн тест</td>
+</tr>
+<tr class="even">
+<td>Тасралтгүй</td>
+<td>2 хамааралгүй бүлэг</td>
+<td><a href="methods/independent-t-test.html">Хамааралгүй түүврийн t-тест</a></td>
+<td>Манн-Уитнигийн U тест</td>
+</tr>
+<tr class="odd">
+<td>Тасралтгүй</td>
+<td>Нэг хүний 2 хэмжилт</td>
+<td><a href="methods/paired-t-test.html">Хосолсон t-тест</a></td>
+<td>Уилкоксоны тэмдэгт эрэмбийн тест</td>
+</tr>
+<tr class="even">
+<td>Тасралтгүй</td>
+<td>≥ 3 хамааралгүй бүлэг</td>
+<td><a href="methods/anova.html">ANOVA</a></td>
+<td>Крускал-Уоллисын тест</td>
+</tr>
+<tr class="odd">
+<td>Тасралтгүй</td>
+<td>Бүлэг + суурь утгаар залруулах</td>
+<td><a href="methods/ancova.html">ANCOVA</a></td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td>≥ 2 тасралтгүй</td>
+<td>Бүлгүүдийг хамтад нь</td>
+<td><a href="methods/manova.html">MANOVA</a></td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td>2 тоон хувьсагч</td>
+<td>Хамаарлын хүч</td>
+<td><a href="methods/correlation.html">Пирсоны корреляци</a></td>
+<td><a href="methods/correlation.html">Спирмены корреляци</a></td>
+</tr>
+<tr class="even">
+<td>Тасралтгүй</td>
+<td>Олон хүчин зүйлийн нөлөө</td>
+<td><a href="methods/linear-regression.html">Шугаман регресс</a></td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td>Хоёр утгат (0/1)</td>
+<td>Олон хүчин зүйлийн нөлөө</td>
+<td><a href="methods/logistic-regression.html">Логистик регресс</a></td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td>Хугацаа + үйл явдал</td>
+<td>Бүлгүүдийн муруй</td>
+<td><a href="methods/survival-analysis.html">Каплан-Майер, лог-ранк</a></td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td>Хугацаа + үйл явдал</td>
+<td>Олон хүчин зүйлийн нөлөө</td>
+<td><a href="methods/cox-regression.html">Коксын регресс</a></td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td>Давтан / кластер</td>
+<td>Хүн амын дундаж нөлөө</td>
+<td><a href="methods/gee.html">GEE</a></td>
+<td>Холимог нөлөөний загвар</td>
+</tr>
+</tbody>
+</table>
+</div>
 </section>
-<section id="reproducible-research" class="level2">
-<h2 class="anchored" data-anchor-id="reproducible-research">Reproducible Research</h2>
-<p>R болон Quarto ашиглан судалгааны код, өгөгдлийн боловсруулалт, үр дүн болон тайланг нэг дор нэгтгэж, дахин давтагдахуйц судалгааны орчин бүрдүүлж болно.</p>
+<div class="column-page callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Хэрхэн ашиглах вэ?</strong> Карт дээр дарж аргын хуудсыг нээнэ. Хуудас бүрийн төгсгөлд тухайн аргад хэрэгтэй нэр томьёонууд байгаа. Бүх нэр томьёог <a href="glossary.html">Нэр томьёоны толь</a>-оос хайж болно. Хуудсан дахь тоон жишээнүүд зохиомол бөгөөд тайлагнах хэлбэрийг харуулах зорилготой.</p>
+</div>
+</div>
+</div>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

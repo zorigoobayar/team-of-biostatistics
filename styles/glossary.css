@@ -1,0 +1,291 @@
+/* =========================================================
+   НЭР ТОМЬЁОНЫ КАРТ (glossary.qmd + methods/*.qmd)
+   ========================================================= */
+
+.glossary-app,
+.glossary-embed {
+  --gl-ink: #0f172a;
+  --gl-muted: #475569;
+  --gl-line: #e2e8f0;
+  --gl-brand: #4338ca;
+  --gl-soft: #eef2ff;
+}
+
+/* ---------- Toolbar ---------- */
+
+.gl-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  margin: 0 0 0.9rem;
+}
+
+.gl-search {
+  position: relative;
+  flex: 1 1 320px;
+  margin: 0;
+}
+
+.gl-search i {
+  position: absolute;
+  top: 50%;
+  left: 0.9rem;
+  transform: translateY(-50%);
+  color: #94a3b8;
+}
+
+.gl-search input {
+  width: 100%;
+  padding: 0.7rem 1rem 0.7rem 2.5rem;
+  border: 1px solid var(--gl-line);
+  border-radius: 12px;
+  background: #fff;
+  font-size: 1rem;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+}
+
+.gl-search input:focus {
+  outline: none;
+  border-color: var(--gl-brand);
+  box-shadow: 0 0 0 3px rgba(67, 56, 202, 0.15);
+}
+
+.gl-sort {
+  display: inline-flex;
+  padding: 3px;
+  border: 1px solid var(--gl-line);
+  border-radius: 12px;
+  background: #fff;
+}
+
+.gl-sort button {
+  padding: 0.4rem 0.8rem;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--gl-muted);
+  font-size: 0.88rem;
+}
+
+.gl-sort button.is-active {
+  background: var(--gl-brand);
+  color: #fff;
+}
+
+.gl-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.75rem;
+}
+
+.gl-chip {
+  padding: 0.3rem 0.75rem;
+  border: 1px solid var(--gl-line);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--gl-ink);
+  font-size: 0.85rem;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.gl-chip span {
+  margin-left: 0.2rem;
+  color: #94a3b8;
+  font-size: 0.75rem;
+}
+
+.gl-chip:hover {
+  border-color: var(--gl-brand);
+}
+
+.gl-chip.is-active {
+  border-color: var(--gl-brand);
+  background: var(--gl-brand);
+  color: #fff;
+}
+
+.gl-chip.is-active span {
+  color: #c7d2fe;
+}
+
+.gl-count {
+  margin: 0 0 0.5rem;
+  font-size: 0.85rem;
+  color: var(--gl-muted);
+}
+
+.gl-loading,
+.gl-empty {
+  padding: 2rem 1rem;
+  text-align: center;
+  color: var(--gl-muted);
+}
+
+/* ---------- List ---------- */
+
+.gl-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  align-items: start;
+}
+
+.gl-letter {
+  grid-column: 1 / -1;
+  margin: 1.25rem 0 0 !important;
+  padding: 0 0 0.25rem !important;
+  border-bottom: 2px solid var(--gl-soft) !important;
+  font-size: 1.3rem !important;
+  color: var(--gl-brand);
+}
+
+@media (max-width: 760px) {
+  .gl-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ---------- Card ---------- */
+
+.gl-card {
+  min-width: 0;
+  padding: 1.1rem 1.2rem 0.9rem;
+  border: 1px solid var(--gl-line);
+  border-left: 4px solid var(--gl-brand);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05);
+  scroll-margin-top: 90px;
+}
+
+.gl-card.gl-flash {
+  animation: gl-flash 1.6s ease;
+}
+
+@keyframes gl-flash {
+  0%, 40% { box-shadow: 0 0 0 4px rgba(67, 56, 202, 0.35); }
+  100% { box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05); }
+}
+
+.gl-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.15rem 0.6rem;
+  margin-bottom: 0.35rem;
+}
+
+.gl-card h3.gl-mn {
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  font-size: 1.08rem !important;
+  color: var(--gl-ink);
+}
+
+.gl-en {
+  margin: 0;
+  font-size: 0.88rem;
+  font-style: italic;
+  color: var(--gl-brand);
+}
+
+.gl-alt {
+  margin: 0 0 0.35rem;
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+.gl-def {
+  margin: 0 0 0.5rem;
+  font-size: 0.94rem;
+  line-height: 1.6;
+  color: #1e293b;
+}
+
+.gl-more {
+  margin: 0 0 0.5rem;
+  font-size: 0.9rem;
+}
+
+.gl-more summary {
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--gl-brand);
+}
+
+.gl-row {
+  margin-top: 0.55rem;
+}
+
+.gl-row p {
+  margin: 0.15rem 0 0;
+  line-height: 1.55;
+  color: var(--gl-muted);
+}
+
+.gl-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #334155;
+}
+
+.gl-pitfall p {
+  padding: 0.4rem 0.6rem;
+  border-radius: 8px;
+  background: #fff7ed;
+  color: #9a3412;
+}
+
+.gl-row pre {
+  margin: 0.25rem 0 0;
+  padding: 0.5rem 0.7rem;
+  border-radius: 8px;
+  background: #f1f5f9;
+  font-size: 0.8rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.gl-related a {
+  display: inline-block;
+  margin: 0 0.3rem 0.3rem 0;
+  padding: 0.1rem 0.55rem;
+  border-radius: 999px;
+  background: var(--gl-soft);
+  color: var(--gl-brand);
+  font-size: 0.82rem;
+  text-decoration: none;
+}
+
+.gl-related a:hover {
+  background: #e0e7ff;
+}
+
+.gl-topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.gl-topic {
+  padding: 0.05rem 0.5rem;
+  border-radius: 6px;
+  background: #f1f5f9;
+  color: #475569;
+  font-size: 0.72rem;
+}
+
+.gl-embed-more {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gl-card.gl-flash { animation: none; }
+}
