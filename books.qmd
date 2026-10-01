@@ -1,24 +1,33 @@
 ---
 title: "Biostatistics Books"
+
 format:
   html:
     body-classes: page-books
 ---
 
+<div class="page-hero">
+
 # Biostatistics Books
 
-## Биостатистикийн номууд
+### Биостатистикийн номууд
 
-Энэ хэсэгт биостатистик, статистик, тархвар судлал
-болон өгөгдлийн шинжлэх ухааны чиглэлээр суралцахад
-ашигтай ном, сурах бичгүүдийг танилцуулна.
+Биостатистик, статистик, тархвар судлал болон өгөгдлийн
+шинжлэх ухааны чиглэлээр суралцахад ашигтай ном,
+сурах бичгүүдийг танилцуулна.
 
-## Biostatistics
+</div>
+
+<div class="resource-grid">
+
+<div class="resource-card">
+
+### 📊 Biostatistics
 
 Биостатистикийн үндсэн ойлголт, статистикийн арга
 зүйг сурахад зориулсан номууд.
 
-### Үндсэн сэдвүүд
+**Үндсэн сэдвүүд**
 
 - Descriptive statistics
 - Probability
@@ -27,14 +36,16 @@ format:
 - Regression
 - Survival analysis
 
----
+</div>
 
-## Epidemiology
+<div class="resource-card">
+
+### 🦠 Epidemiology
 
 Тархвар судлалын үндсэн ойлголт болон судалгааны
 арга зүйг сурахад зориулсан номууд.
 
-### Үндсэн сэдвүүд
+**Үндсэн сэдвүүд**
 
 - Study design
 - Disease frequency
@@ -42,14 +53,16 @@ format:
 - Bias and confounding
 - Epidemiological methods
 
----
+</div>
 
-## Statistical Programming
+<div class="resource-card">
+
+### 💻 Statistical Programming
 
 R болон статистикийн программчлал сурахад
 зориулсан номууд.
 
-### Сурах зүйлс
+**Сурах зүйлс**
 
 - R programming
 - Data manipulation
@@ -57,11 +70,13 @@ R болон статистикийн программчлал сурахад
 - Statistical modelling
 - Reproducible research
 
----
+</div>
 
-## Recommended Reading
+<div class="resource-card">
 
-Энд бид цаашдаа ном бүрийн:
+### 📚 Recommended Reading
+
+Цаашдаа энд ном бүрийн дараах мэдээллийг оруулна:
 
 - Нэр
 - Зохиогч
@@ -70,4 +85,6 @@ R болон статистикийн программчлал сурахад
 - Номын зураг
 - Албан ёсны холбоос
 
-зэргийг оруулна.
+</div>
+
+</div>

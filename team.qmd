@@ -1,23 +1,22 @@
 ---
 title: "Our Team"
+
 format:
   html:
     body-classes: page-team
 ---
 
+<div class="page-hero">
+
 # Our Team
 
-<div class="team-intro">
-
-## Манай баг
+### Манай баг
 
 Манай баг нь биостатистик, тархвар судлал,
 эрүүл мэндийн судалгаа болон өгөгдлийн шинжлэх
 ухааны чиглэлээр ажилладаг.
 
 </div>
-
----
 
 ## Our Expertise
 
@@ -39,19 +38,32 @@ format:
 
 </div>
 
-<div class="team-card">
+<div class="team-card team-profile">
 
-### 🔬 Epidemiologist
+<img src="images/b.batzorig.JPG"
+     class="team-photo"
+     alt="Б.Батзориг">
 
-Өвчний тархалт, эрсдэлт хүчин зүйл,
-хүн амын эрүүл мэндийн үзүүлэлтүүдийг
-судална.
+<h3>Б.Батзориг</h3>
 
-**Focus**
+<p class="team-degree">НЭМУ-ны доктор</p>
 
-- Epidemiology
-- Study design
-- Public health
+<p>
+Бакалавр: Хэрэглээний математикч (Applied Mathematician),
+Магистр:  Хэрэглээний статистикч (Applied Statistician),
+Доктор: Нийгмийн эрүүл мэндийн ухаан (Phd in Public Health)
+</p>
+
+<strong>Focus</strong>
+
+<ul>
+<li>Биостатистик (Biostatistics)</li>
+<li>Статистийн загварчлал (Statistical modelling)</li>
+<li>Хэтийн төлөв (Forecasting)</li>
+<li>Түүвэрлэлтийн асуудал (Sampling issues)</li>
+<li>Клиникийн судалгаа (Clinical research)</li>
+<li>Чанарын судалгаа (Qualitative research)</li>
+</ul>
 
 </div>
 
@@ -89,9 +101,9 @@ format:
 
 </div>
 
----
-
 ## What We Work On
+
+<div class="resource-card">
 
 Манай баг дараах чиглэлүүдээр судалгаа,
 сургалт болон хамтын ажиллагаа явуулна.
@@ -103,3 +115,5 @@ format:
 - R программчлал
 - Өгөгдлийн дүрслэл
 - Дахин давтагдахуйц судалгаа
+
+</div>
