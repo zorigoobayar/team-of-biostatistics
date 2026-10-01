@@ -24,7 +24,7 @@ format:
 
 <!-- Б.Батзориг -->
 
-<details class="member-profile" open>
+<details class="member-profile">
 
 <summary>
 
