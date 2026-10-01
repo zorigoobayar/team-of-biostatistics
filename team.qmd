@@ -40,7 +40,7 @@ format:
 
 <div class="team-card team-profile">
 
-<img src="images/b.batzorig.JPG"
+<img src="images/b.batzorig.jpg"
      class="team-photo"
      alt="Б.Батзориг">
 
