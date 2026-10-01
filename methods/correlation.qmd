@@ -1,0 +1,100 @@
+---
+title: "Корреляцийн шинжилгээ"
+description: "Хоёр тоон хувьсагчийн хамаарлын хүч ба чиглэлийг −1-ээс +1 хооронд хэмжинэ."
+format:
+  html:
+    body-classes: page-methods
+    css:
+      - ../styles.css
+      - ../styles/methods.css
+      - ../styles/glossary.css
+    include-after-body:
+      text: |
+        <script src="../assets/js/js-yaml.min.js"></script>
+        <script src="../assets/js/glossary.js"></script>
+---
+
+```{=html}
+<header class="mt-hero" style="--mt-accent:#ea580c">
+  <p class="mt-eyebrow"><a href="../methods.html">Data Analysis Methods</a> · Хамаарал ба регресс</p>
+  <h1>Корреляцийн шинжилгээ</h1>
+  <p class="mt-en" lang="en">Correlation analysis</p>
+  <p class="mt-lead">Хоёр хувьсагч хамтдаа хэр өөрчлөгдөж байгааг тодорхойлно. Пирсоны r нь шугаман хамаарлыг, Спирменийн ρ нь эрэмбийн (монотон) хамаарлыг хэмжинэ.</p>
+  <ul class="mt-badges"><li>2 тоон хувьсагч</li><li>Пирсон / Спирмен</li><li><code>cor.test()</code></li></ul>
+</header>
+```
+
+## Товч мэдээлэл
+
+```{=html}
+<div class="mt-facts"><div><span>Хувьсагч</span><strong>2 тасралтгүй эсвэл эрэмбэт</strong></div><div><span>Хэмжүүр</span><strong>r эсвэл ρ, −1…+1</strong></div><div><span>Тэг таамаглал</span><strong>ρ = 0</strong></div><div><span>Непараметр хувилбар</span><strong>Спирмен</strong></div></div>
+```
+
+## Хэзээ хэрэглэх вэ?
+
+Хоёр хувьсагчийн хамаарлын хүчийг тодорхойлох, аль нь шалтгаан болох нь чухал биш бол.
+
+::: {.callout-tip appearance="simple" icon="false"}
+**Жишээ судалгааны асуулт:** Насанд хүрэгчдийн биеийн жингийн индекс ба систолын даралт хоорондоо хамааралтай юу?
+:::
+
+## Таамаглалууд
+
+Шинжилгээ хийхээс өмнө шалгана:
+
+- [ ] Пирсон: хоёр хувьсагч тасралтгүй, хамаарал шугаман, онцгой утгагүй, ойролцоогоор хэвийн тархалттай.
+- [ ] Спирмен: эрэмбэт эсвэл хазгай тархалттай өгөгдөл, монотон хамаарал.
+- [ ] Ажиглалтууд хоорондоо хамааралгүй.
+
+## R дээр хийх
+
+```r
+# Эхлээд заавал график
+plot(df$bmi, df$sbp)
+
+cor.test(df$bmi, df$sbp)                        # Пирсон
+cor.test(df$bmi, df$sbp, method = "spearman")   # Спирмен
+
+# Олон хувьсагчийн корреляцийн матриц
+cor(df[, c("age", "bmi", "sbp", "glucose")], use = "complete.obs")
+```
+
+## Үр дүнг тайлбарлах
+
+- **r (cor)** — 0–0.3 сул, 0.3–0.7 дунд, > 0.7 хүчтэй (ойролцоо босго, салбараас хамаарна).
+- **Тэмдэг** — эерэг бол хамт өсдөг, сөрөг бол нэг нь өсөхөд нөгөө нь буурдаг.
+- **95% CI** — корреляцийн коэффициентийн итгэх интервал.
+- **r²** — нэг хувьсагчийн хэлбэлзлийн хэдэн хувийг нөгөө нь «тайлбарлах».
+
+## Тайлагнах жишээ
+
+::: {.callout-note appearance="simple" icon="false"}
+Биеийн жингийн индекс ба систолын даралт дунд зэргийн эерэг хамааралтай байв (Пирсоны r = 0.42, 95% CI 0.33; 0.50, p < 0.001, n = 412).
+
+<small>Тоонууд зохиомол бөгөөд тайлагнах хэлбэрийг харуулах зорилготой.</small>
+:::
+
+## Түгээмэл алдаа
+
+::: {.callout-warning appearance="simple" icon="false"}
+- Корреляцийг учир шалтгаан гэж тайлбарлах.
+- Тархалтын графикгүйгээр r-ийг тайлбарлах. Муруй хамаарал эсвэл ганц онцгой утга r-ийг эрс өөрчилнө.
+- Хоёр аргыг тохирлоор нь харьцуулахад корреляци хэрэглэх. Bland–Altman шинжилгээ хэрэглэнэ.
+:::
+
+## Өөр аргууд
+
+- [Шугаман регресс](linear-regression.html) — Тасралтгүй үр дагаврыг нэг буюу олон тайлбарлагч хувьсагчаар загварчилна.
+
+## Холбогдох нэр томьёо
+
+```{=html}
+<div class="glossary-embed"
+     data-src="../glossary/terms.yml"
+     data-glossary-url="../glossary.html"
+     data-terms="pearson-correlation,spearman-correlation,causation,confounding,outlier,r-squared,continuous-variable,ordinal-variable">
+  <p class="gl-loading">Нэр томьёог ачаалж байна…</p>
+</div>
+
+<nav class="mt-pager" aria-label="Аргууд хооронд шилжих"><a href="manova.html">← Олон хэмжээст дисперсийн шинжилгээ (MANOVA)</a><a href="linear-regression.html">Шугаман регресс →</a></nav>
+```

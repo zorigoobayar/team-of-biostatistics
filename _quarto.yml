@@ -1,5 +1,8 @@
 project:
   type: website
+  resources:
+    - glossary/terms.yml
+    - assets/js/*.js
 
 website:
   title: "Team of Biostatistics"
@@ -23,6 +26,9 @@ website:
 
       - href: cheatsheet.qmd
         text: Cheat sheet
+
+      - href: methods.qmd
+        text: Data Analysis Methods
 
       - href: contact.qmd
         text: Contact

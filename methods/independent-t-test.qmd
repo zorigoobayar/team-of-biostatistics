@@ -1,0 +1,104 @@
+---
+title: "Хамааралгүй түүврийн t-тест"
+description: "Хоёр хамааралгүй бүлгийн тасралтгүй хувьсагчийн дундажийг харьцуулна."
+format:
+  html:
+    body-classes: page-methods
+    css:
+      - ../styles.css
+      - ../styles/methods.css
+      - ../styles/glossary.css
+    include-after-body:
+      text: |
+        <script src="../assets/js/js-yaml.min.js"></script>
+        <script src="../assets/js/glossary.js"></script>
+---
+
+```{=html}
+<header class="mt-hero" style="--mt-accent:#0891b2">
+  <p class="mt-eyebrow"><a href="../methods.html">Data Analysis Methods</a> · Дундаж харьцуулах</p>
+  <h1>Хамааралгүй түүврийн t-тест</h1>
+  <p class="mt-en" lang="en">Independent samples t-test</p>
+  <p class="mt-lead">Хоорондоо хамааралгүй хоёр бүлгийн (жишээ нь эмчилгээ ба хяналт, эрэгтэй ба эмэгтэй) тасралтгүй хувьсагчийн дундаж ялгаатай эсэхийг шалгана.</p>
+  <ul class="mt-badges"><li>Тасралтгүй</li><li>2 бүлэг</li><li><code>t.test(y ~ g)</code></li></ul>
+</header>
+```
+
+## Товч мэдээлэл
+
+```{=html}
+<div class="mt-facts"><div><span>Үр дагавар</span><strong>Тасралтгүй</strong></div><div><span>Бүлэг</span><strong>2, хамааралгүй</strong></div><div><span>Тэг таамаглал</span><strong>μ₁ = μ₂</strong></div><div><span>Непараметр хувилбар</span><strong>Манн-Уитнигийн U тест</strong></div></div>
+```
+
+## Хэзээ хэрэглэх вэ?
+
+Хоёр өөр хүмүүсийн бүлгийн дундажийг харьцуулах бол. Хүн бүр зөвхөн нэг бүлэгт хамаарна.
+
+::: {.callout-tip appearance="simple" icon="false"}
+**Жишээ судалгааны асуулт:** Шинэ эм уусан бүлгийн 8 дахь долоо хоногийн систолын даралт плацебо бүлгийнхээс бага байна уу?
+:::
+
+## Таамаглалууд
+
+Шинжилгээ хийхээс өмнө шалгана:
+
+- [ ] Хоёр бүлгийн ажиглалтууд хоорондоо хамааралгүй.
+- [ ] Бүлэг тус бүрт хувьсагч ойролцоогоор хэвийн тархалттай (бүлэг бүрт n ≥ 30 бол суларна).
+- [ ] Дисперс тэнцүү байх шаардлагагүй, хэрэв Welch-ийн t-тест хэрэглэвэл (санал болгож буй сонголт).
+
+## R дээр хийх
+
+```r
+# Өгөгдөл: df$sbp (мм м.у.б), df$group ("Эм", "Плацебо")
+tapply(df$sbp, df$group, shapiro.test)   # бүлэг тус бүрт хэвийн тархалт
+t.test(sbp ~ group, data = df)           # Welch t-тест (R-ийн анхдагч)
+t.test(sbp ~ group, data = df, var.equal = TRUE)  # Стьюдентийн t-тест
+
+# Нөлөөний хэмжээ (Cohen's d)
+effectsize::cohens_d(sbp ~ group, data = df)
+
+# Хэвийн тархалтгүй бол:
+wilcox.test(sbp ~ group, data = df)
+```
+
+## Үр дүнг тайлбарлах
+
+- **t, df, p-value** — дундаж ижил гэсэн тэг таамаглалын эсрэг нотолгоо. Welch тестэд df бутархай байж болно.
+- **95% CI** — хоёр бүлгийн дунджийн зөрүүний итгэх интервал. 0-ийг агуулахгүй бол p < 0.05.
+- **mean in group** — бүлэг тус бүрийн дундаж.
+- **Cohen's d** — нөлөөний хэмжээ: ≈0.2 бага, ≈0.5 дунд, ≈0.8 их.
+
+## Тайлагнах жишээ
+
+::: {.callout-note appearance="simple" icon="false"}
+8 дахь долоо хоногт эмийн бүлгийн систолын даралт (128.4 ± 12.1 мм м.у.б) плацебо бүлгийнхээс (135.9 ± 13.0) статистик ач холбогдолтой бага байв (Welch t(117.6) = −3.27, p = 0.001; дунджийн зөрүү −7.5 мм м.у.б, 95% CI −12.0; −3.0).
+
+<small>Тоонууд зохиомол бөгөөд тайлагнах хэлбэрийг харуулах зорилготой.</small>
+:::
+
+## Түгээмэл алдаа
+
+::: {.callout-warning appearance="simple" icon="false"}
+- Нэг хүнээс хоёр удаа авсан хэмжилтэд (өмнө/дараа) хамааралгүй t-тест хэрэглэх. Энэ тохиолдолд хосолсон t-тест хэрэглэнэ.
+- Гурав ба түүнээс дээш бүлгийг хосоор нь олон t-тестээр харьцуулах. ANOVA хэрэглэнэ.
+- Зөвхөн p-утга тайлагнаж, дунджийн зөрүү ба CI-г орхих.
+:::
+
+## Өөр аргууд
+
+- [Хосолсон t-тест](paired-t-test.html) — Нэг хүнээс авсан хоёр хэмжилтийн (өмнө/дараа) дундаж зөрүүг шалгана.
+- [Дисперсийн шинжилгээ (ANOVA)](anova.html) — Гурав ба түүнээс дээш хамааралгүй бүлгийн дундажийг нэг дор харьцуулна.
+- [Ковариацын шинжилгээ (ANCOVA)](ancova.html) — Бүлгүүдийн дундажийг суурь утга зэрэг тасралтгүй ковариатаар залруулж харьцуулна.
+
+## Холбогдох нэр томьёо
+
+```{=html}
+<div class="glossary-embed"
+     data-src="../glossary/terms.yml"
+     data-glossary-url="../glossary.html"
+     data-terms="t-test,mean,standard-deviation,confidence-interval,p-value,effect-size,levene-test,shapiro-wilk,mann-whitney,parametric-test,type-i-error">
+  <p class="gl-loading">Нэр томьёог ачаалж байна…</p>
+</div>
+
+<nav class="mt-pager" aria-label="Аргууд хооронд шилжих"><a href="one-sample-t-test.html">← Нэг түүврийн t-тест</a><a href="paired-t-test.html">Хосолсон t-тест →</a></nav>
+```
