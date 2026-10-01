@@ -77,7 +77,7 @@ format:
 
 <div class="member-summary">
 
-<img src="images/serod.jpg"
+<img src="images/serod.JPG"
      class="team-photo"
      alt="Х.Сэр-Од">
 
@@ -123,7 +123,7 @@ format:
 
 <div class="member-summary">
 
-<img src="images/erke.jpg"
+<img src="images/erke.JPG"
      class="team-photo"
      alt="М.Эркебулан">
 
