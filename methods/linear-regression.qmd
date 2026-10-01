@@ -20,7 +20,7 @@ format:
   <h1>Шугаман регресс</h1>
   <p class="mt-en" lang="en">Linear regression</p>
   <p class="mt-lead">Тасралтгүй үр дагавар ба тайлбарлагч хувьсагчдын хамаарлыг шулуун шугамын тэгшитгэлээр илэрхийлж, хувьсагч бүрийн нөлөөг бусдаар нь залруулж тооцно.</p>
-  <ul class="mt-badges"><li>Тасралтгүй үр дагавар</li><li>Олон хувьсагч</li><li><code>lm()</code></li></ul>
+  <ul class="mt-badges"><li>Тасралтгүй үр дагавар</li><li>Олон хувьсагч</li><li><code>lm()</code></li><li><span class="vc" data-vc-href=""></span></li></ul>
 </header>
 ```
 

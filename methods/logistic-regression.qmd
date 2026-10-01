@@ -20,7 +20,7 @@ format:
   <h1>Логистик регресс</h1>
   <p class="mt-en" lang="en">Logistic regression</p>
   <p class="mt-lead">Үр дагавар хоёр утгатай (өвчтэй/эрүүл, нас барсан/амьд) үед тайлбарлагч хувьсагчдын нөлөөг сондгойн харьцаа (OR)-аар илэрхийлж, confounder-аар залруулна.</p>
-  <ul class="mt-badges"><li>Хоёр утгат үр дагавар</li><li>OR</li><li><code>glm(binomial)</code></li></ul>
+  <ul class="mt-badges"><li>Хоёр утгат үр дагавар</li><li>OR</li><li><code>glm(binomial)</code></li><li><span class="vc" data-vc-href=""></span></li></ul>
 </header>
 ```
 

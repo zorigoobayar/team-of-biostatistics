@@ -38,3 +38,4 @@ format:
     theme: cosmo
     toc: true
     css: styles.css
+    include-in-header: assets/views-include.html

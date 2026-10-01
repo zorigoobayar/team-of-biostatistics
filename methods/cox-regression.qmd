@@ -20,7 +20,7 @@ format:
   <h1>Коксын регресс</h1>
   <p class="mt-en" lang="en">Cox proportional hazards regression</p>
   <p class="mt-lead">Амьдрах чадварын өгөгдөлд олон тайлбарлагч хувьсагчийн нөлөөг зэрэг тооцож, хор аюулын харьцаа (HR)-аар илэрхийлнэ. Каплан-Майерын олон хувьсагчийн өргөтгөл.</p>
-  <ul class="mt-badges"><li>Хугацаа + үйл явдал</li><li>HR</li><li><code>coxph()</code></li></ul>
+  <ul class="mt-badges"><li>Хугацаа + үйл явдал</li><li>HR</li><li><code>coxph()</code></li><li><span class="vc" data-vc-href=""></span></li></ul>
 </header>
 ```
 

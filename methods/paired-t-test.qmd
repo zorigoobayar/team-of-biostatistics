@@ -20,7 +20,7 @@ format:
   <h1>Хамааралт түүврийн t тест</h1>
   <p class="mt-en" lang="en">Paired t-test</p>
   <p class="mt-lead">Нэг хүмүүсээс хоёр удаа (жишээ нь эмчилгээний өмнө ба дараа) эсвэл хосолсон хүмүүсээс авсан хэмжилтийн дундаж зөрүү тэгээс ялгаатай эсэхийг шалгана.</p>
-  <ul class="mt-badges"><li>Тасралтгүй</li><li>2 хэмжилт</li><li><code>t.test(paired = TRUE)</code></li></ul>
+  <ul class="mt-badges"><li>Тасралтгүй</li><li>2 хэмжилт</li><li><code>t.test(paired = TRUE)</code></li><li><span class="vc" data-vc-href=""></span></li></ul>
 </header>
 ```
 
