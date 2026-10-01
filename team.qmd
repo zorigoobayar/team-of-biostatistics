@@ -18,88 +18,192 @@ format:
 
 </div>
 
-## Our Expertise
+## Our Team
 
-<div class="team-grid">
+<div class="interactive-team">
 
-<div class="team-card">
+<!-- Б.Батзориг -->
 
-### 📊 Biostatistician
+<details class="member-profile" open>
 
-Эрүүл мэнд, анагаах ухааны судалгаанд
-статистикийн арга зүй, загварчлал болон
-өгөгдлийн шинжилгээг хэрэгжүүлнэ.
+<summary>
 
-**Focus**
-
-- Biostatistics
-- Statistical modelling
-- Clinical research
-
-</div>
-
-<div class="team-card team-profile">
+<div class="member-summary">
 
 <img src="images/b.batzorig.jpg"
      class="team-photo"
      alt="Б.Батзориг">
 
+<div>
 <h3>Б.Батзориг</h3>
+<p>НЭМУ-ны доктор</p>
+</div>
 
-<p class="team-degree">НЭМУ-ны доктор</p>
+</div>
 
-<p>
-Бакалавр: Хэрэглээний математикч (Applied Mathematician),
-Магистр:  Хэрэглээний статистикч (Applied Statistician),
-Доктор: Нийгмийн эрүүл мэндийн ухаан (Phd in Public Health)
-</p>
+</summary>
 
-<strong>Focus</strong>
+<div class="member-details">
+
+<h4>Боловсрол</h4>
 
 <ul>
-<li>Биостатистик (Biostatistics)</li>
-<li>Статистийн загварчлал (Statistical modelling)</li>
-<li>Хэтийн төлөв (Forecasting)</li>
-<li>Түүвэрлэлтийн асуудал (Sampling issues)</li>
-<li>Клиникийн судалгаа (Clinical research)</li>
-<li>Чанарын судалгаа (Qualitative research)</li>
+  <li><strong>Бакалавр:</strong> Хэрэглээний математикч (Applied Mathematician)</li>
+  <li><strong>Магистр:</strong> Хэрэглээний статистикч (Applied Statistician)</li>
+  <li><strong>Доктор:</strong> Нийгмийн эрүүл мэндийн ухаан (PhD in Public Health)</li>
+</ul>
+
+<h4>Focus</h4>
+
+<ul>
+  <li>Биостатистик (Biostatistics)</li>
+  <li>Статистийн загварчлал (Statistical modelling)</li>
+  <li>Хэтийн төлөв (Forecasting)</li>
+  <li>Түүвэрлэлтийн асуудал (Sampling issues)</li>
+  <li>Клиникийн судалгаа (Clinical research)</li>
+  <li>Чанарын судалгаа (Qualitative research)</li>
 </ul>
 
 </div>
 
-<div class="team-card">
+</details>
 
-### 💻 Data Scientist
 
-Өгөгдөл боловсруулах, программчлал,
-статистикийн тооцоолол болон өгөгдлийн
-дүрслэл дээр ажиллана.
+<!-- Х.Сэр-Од -->
 
-**Focus**
+<details class="member-profile">
 
-- R programming
-- Data science
-- Data visualization
+<summary>
+
+<div class="member-summary">
+
+<img src="images/serod.jpg"
+     class="team-photo"
+     alt="Х.Сэр-Од">
+
+<div>
+<h3>Х.Сэр-Од</h3>
+<p>Хэрэглээний статистикч</p>
+</div>
 
 </div>
 
-<div class="team-card">
+</summary>
 
-### 🎓 Research Students
+<div class="member-details">
 
+<h4>Боловсрол</h4>
+
+<ul>
+  <li><strong>Бакалавр:</strong> Хэрэглээний статистикч (Applied Statistician)</li>
+  <li><strong>Магистр:</strong> Хэрэглээний статистик (Applied Statistics)</li>
+</ul>
+
+<h4>Focus</h4>
+
+<ul>
+  <li>Биостатистик (Biostatistics)</li>
+  <li>Статистийн загварчлал (Statistical modelling)</li>
+  <li>Хэтийн төлөв (Forecasting)</li>
+  <li>Түүвэрлэлтийн асуудал (Sampling issues)</li>
+  <li>Клиникийн судалгаа (Clinical research)</li>
+  <li>Чанарын судалгаа (Qualitative research)</li>
+</ul>
+
+</div>
+
+</details>
+
+
+<!-- М.Эркебулан -->
+
+<details class="member-profile">
+
+<summary>
+
+<div class="member-summary">
+
+<img src="images/erke.jpg"
+     class="team-photo"
+     alt="М.Эркебулан">
+
+<div>
+<h3>М.Эркебулан</h3>
+<p>Хэрэглээний статистикч</p>
+</div>
+
+</div>
+
+</summary>
+
+<div class="member-details">
+
+<h4>Боловсрол</h4>
+
+<ul>
+  <li><strong>Бакалавр:</strong> Математикч (Mathematician)</li>
+  <li><strong>Магистр:</strong> Хэрэглээний статистикч (Applied Statistician)</li>
+</ul>
+
+<h4>Focus</h4>
+
+<ul>
+  <li>Биостатистик (Biostatistics)</li>
+  <li>Статистийн загварчлал (Statistical modelling)</li>
+  <li>Хэтийн төлөв (Forecasting)</li>
+  <li>Түүвэрлэлтийн асуудал (Sampling issues)</li>
+  <li>Клиникийн судалгаа (Clinical research)</li>
+  <li>Чанарын судалгаа (Qualitative research)</li>
+</ul>
+
+</div>
+
+</details>
+
+
+<!-- Research Students -->
+
+<details class="member-profile">
+
+<summary>
+
+<div class="member-summary">
+
+<div class="team-photo-placeholder">
+🎓
+</div>
+
+<div>
+<h3>Research Students</h3>
+<p>Судлаач оюутнууд</p>
+</div>
+
+</div>
+
+</summary>
+
+<div class="member-details">
+
+<p>
 Судлаач оюутнууд биостатистик,
 тархвар судлал болон статистикийн
 арга зүйгээр суралцаж, судалгаа хийж байна.
+</p>
 
-**Focus**
+<h4>Focus</h4>
 
-- Biostatistics
-- Epidemiology
-- Research
+<ul>
+  <li>Biostatistics</li>
+  <li>Epidemiology</li>
+  <li>Research</li>
+</ul>
 
 </div>
 
+</details>
+
 </div>
+
 
 ## What We Work On
 
@@ -108,12 +212,14 @@ format:
 Манай баг дараах чиглэлүүдээр судалгаа,
 сургалт болон хамтын ажиллагаа явуулна.
 
-- Биостатистикийн арга зүй
-- Эмнэлзүйн судалгаа
-- Тархвар судлал
-- Статистикийн загварчлал
-- R программчлал
-- Өгөгдлийн дүрслэл
-- Дахин давтагдахуйц судалгаа
+<ul>
+  <li>Биостатистикийн арга зүй</li>
+  <li>Эмнэлзүйн судалгаа</li>
+  <li>Тархвар судлал</li>
+  <li>Статистикийн загварчлал</li>
+  <li>R программчлал</li>
+  <li>Өгөгдлийн дүрслэл</li>
+  <li>Дахин давтагдахуйц судалгаа</li>
+</ul>
 
 </div>

@@ -319,14 +319,14 @@
     "href": "team.html#our-expertise",
     "title": "Our Team",
     "section": "Our Expertise",
-    "text": "Our Expertise\n\n\n📊 Biostatistician\nЭрүүл мэнд, анагаах ухааны судалгаанд статистикийн арга зүй, загварчлал болон өгөгдлийн шинжилгээг хэрэгжүүлнэ.\nFocus\n\nBiostatistics\nStatistical modelling\nClinical research\n\n\n\n\n\nБ.Батзориг\n\n\nНЭМУ-ны доктор\n\n\nБакалавр: Хэрэглээний математикч (Applied Mathematician), Магистр: Хэрэглээний статистикч (Applied Statistician), Доктор: Нийгмийн эрүүл мэндийн ухаан (Phd in Public Health)\n\nFocus\n\n\nБиостатистик (Biostatistics)\n\n\nСтатистийн загварчлал (Statistical modelling)\n\n\nХэтийн төлөв (Forecasting)\n\n\nТүүвэрлэлтийн асуудал (Sampling issues)\n\n\nКлиникийн судалгаа (Clinical research)\n\n\nЧанарын судалгаа (Qualitative research)\n\n\n\n\n💻 Data Scientist\nӨгөгдөл боловсруулах, программчлал, статистикийн тооцоолол болон өгөгдлийн дүрслэл дээр ажиллана.\nFocus\n\nR programming\nData science\nData visualization\n\n\n\n🎓 Research Students\nСудлаач оюутнууд биостатистик, тархвар судлал болон статистикийн арга зүйгээр суралцаж, судалгаа хийж байна.\nFocus\n\nBiostatistics\nEpidemiology\nResearch"
+    "text": "Our Expertise\n\n\n📊 Biostatistician\nЭрүүл мэнд, анагаах ухааны судалгаанд статистикийн арга зүй, загварчлал болон өгөгдлийн шинжилгээг хэрэгжүүлнэ.\nFocus\n\nBiostatistics\nStatistical modelling\nClinical research\n\n\n\n\n\nБ.Батзориг\n\n\nНЭМУ-ны доктор\n\n\n\nБакалавр: Хэрэглээний математикч (Applied Mathematician)\n\n\nМагистр: Хэрэглээний статистикч (Applied Statistician)\n\n\nДоктор: Нийгмийн эрүүл мэндийн ухаан (PhD in Public Health)\n\n\nFocus\n\n\nБиостатистик (Biostatistics)\n\n\nСтатистийн загварчлал (Statistical modelling)\n\n\nХэтийн төлөв (Forecasting)\n\n\nТүүвэрлэлтийн асуудал (Sampling issues)\n\n\nКлиникийн судалгаа (Clinical research)\n\n\nЧанарын судалгаа (Qualitative research)\n\n\n\n\n💻 Data Scientist\nӨгөгдөл боловсруулах, программчлал, статистикийн тооцоолол болон өгөгдлийн дүрслэл дээр ажиллана.\nFocus\n\nR programming\nData science\nData visualization\n\n\n\n🎓 Research Students\nСудлаач оюутнууд биостатистик, тархвар судлал болон статистикийн арга зүйгээр суралцаж, судалгаа хийж байна.\nFocus\n\nBiostatistics\nEpidemiology\nResearch"
   },
   {
     "objectID": "team.html#what-we-work-on",
     "href": "team.html#what-we-work-on",
     "title": "Our Team",
     "section": "What We Work On",
-    "text": "What We Work On\n\nМанай баг дараах чиглэлүүдээр судалгаа, сургалт болон хамтын ажиллагаа явуулна.\n\nБиостатистикийн арга зүй\nЭмнэлзүйн судалгаа\nТархвар судлал\nСтатистикийн загварчлал\nR программчлал\nӨгөгдлийн дүрслэл\nДахин давтагдахуйц судалгаа"
+    "text": "What We Work On\n\nМанай баг дараах чиглэлүүдээр судалгаа, сургалт болон хамтын ажиллагаа явуулна.\n\n\nБиостатистикийн арга зүй\n\n\nЭмнэлзүйн судалгаа\n\n\nТархвар судлал\n\n\nСтатистикийн загварчлал\n\n\nR программчлал\n\n\nӨгөгдлийн дүрслэл\n\n\nДахин давтагдахуйц судалгаа"
   },
   {
     "objectID": "cheatsheet.html#r-болон-өгөгдлийн-шинжилгээний-гарын-авлага",
@@ -341,5 +341,208 @@
     "title": "Cheatsheet",
     "section": "",
     "text": "R программчлалын үндсэн ойлголт, команд болон функцүүдийн товч гарын авлага.\n 📄 Open PDF \n\n\n\nRStudio IDE-ийн үндсэн орчин, цонхнууд болон ашиглах үндсэн үйлдлүүд.\n 📄 Open PDF \n\n\n\nreadr package ашиглан өгөгдөл унших болон импортлох үндсэн аргууд.\n 📄 Open PDF \n\n\n\ndplyr package ашиглан өгөгдөл шүүх, сонгох, эрэмбэлэх болон хувиргах.\n 📄 Open PDF \n\n\n\ntidyr package ашиглан өгөгдлийн бүтцийг цэгцлэх үндсэн аргууд.\n 📄 Open PDF \n\n\n\nggplot2 ашиглан өгөгдлийг график, зураглал хэлбэрээр дүрслэх үндсэн аргууд.\n 📄 Open PDF"
+  },
+  {
+    "objectID": "team.html#our-team-1",
+    "href": "team.html#our-team-1",
+    "title": "Our Team",
+    "section": "Our Team",
+    "text": "Our Team\n\n\n\n\n\n\n\n\nБ.Батзориг\n\n\nНЭМУ-ны доктор\n\n\n\n\n\n\nБоловсрол\n\n\n\nБакалавр: Хэрэглээний математикч (Applied Mathematician)\n\n\nМагистр: Хэрэглээний статистикч (Applied Statistician)\n\n\nДоктор: Нийгмийн эрүүл мэндийн ухаан (PhD in Public Health)\n\n\n\nFocus\n\n\n\nБиостатистик (Biostatistics)\n\n\nСтатистийн загварчлал (Statistical modelling)\n\n\nХэтийн төлөв (Forecasting)\n\n\nТүүвэрлэлтийн асуудал (Sampling issues)\n\n\nКлиникийн судалгаа (Clinical research)\n\n\nЧанарын судалгаа (Qualitative research)\n\n\n\n\n\n\n\n\n\n\n\nХ.Сэр-Од\n\n\nХэрэглээний статистикч\n\n\n\n\n\n\nБоловсрол\n\n\n\nБакалавр: Хэрэглээний статистикч (Applied Statistician)\n\n\nМагистр: Хэрэглээний статистик (Applied Statistics)\n\n\n\nFocus\n\n\n\nБиостатистик (Biostatistics)\n\n\nСтатистийн загварчлал (Statistical modelling)\n\n\nХэтийн төлөв (Forecasting)\n\n\nТүүвэрлэлтийн асуудал (Sampling issues)\n\n\nКлиникийн судалгаа (Clinical research)\n\n\nЧанарын судалгаа (Qualitative research)\n\n\n\n\n\n\n\n\n\n\n\nМ.Эркебулан\n\n\nХэрэглээний статистикч\n\n\n\n\n\n\nБоловсрол\n\n\n\nБакалавр: Математикч (Mathematician)\n\n\nМагистр: Хэрэглээний статистикч (Applied Statistician)\n\n\n\nFocus\n\n\n\nБиостатистик (Biostatistics)\n\n\nСтатистийн загварчлал (Statistical modelling)\n\n\nХэтийн төлөв (Forecasting)\n\n\nТүүвэрлэлтийн асуудал (Sampling issues)\n\n\nКлиникийн судалгаа (Clinical research)\n\n\nЧанарын судалгаа (Qualitative research)\n\n\n\n\n\n\n\n\n\n🎓\n\n\n\nResearch Students\n\n\nСудлаач оюутнууд\n\n\n\n\n\n\nСудлаач оюутнууд биостатистик, тархвар судлал болон статистикийн арга зүйгээр суралцаж, судалгаа хийж байна.\n\n\nFocus\n\n\n\nBiostatistics\n\n\nEpidemiology\n\n\nResearch"
+  },
+  {
+    "objectID": "team-of-biostatistics/team.html",
+    "href": "team-of-biostatistics/team.html",
+    "title": "Our Team",
+    "section": "",
+    "text": "Манай баг нь биостатистик, тархвар судлал, эрүүл мэндийн судалгаа болон өгөгдлийн шинжлэх ухааны чиглэлээр ажилладаг."
+  },
+  {
+    "objectID": "team-of-biostatistics/team.html#our-expertise",
+    "href": "team-of-biostatistics/team.html#our-expertise",
+    "title": "Our Team",
+    "section": "Our Expertise",
+    "text": "Our Expertise\n\n\n📊 Biostatistician\nЭрүүл мэнд, анагаах ухааны судалгаанд статистикийн арга зүй, загварчлал болон өгөгдлийн шинжилгээг хэрэгжүүлнэ.\nFocus\n\nBiostatistics\nStatistical modelling\nClinical research\n\n\n\n\n\nБ.Батзориг\n\n\nНЭМУ-ны доктор\n\n\nБакалавр: Хэрэглээний математикч (Applied Mathematician), Магистр: Хэрэглээний статистикч (Applied Statistician), Доктор: Нийгмийн эрүүл мэндийн ухаан (Phd in Public Health)\n\nFocus\n\n\nБиостатистик (Biostatistics)\n\n\nСтатистийн загварчлал (Statistical modelling)\n\n\nХэтийн төлөв (Forecasting)\n\n\nТүүвэрлэлтийн асуудал (Sampling issues)\n\n\nКлиникийн судалгаа (Clinical research)\n\n\nЧанарын судалгаа (Qualitative research)\n\n\n\n\n💻 Data Scientist\nӨгөгдөл боловсруулах, программчлал, статистикийн тооцоолол болон өгөгдлийн дүрслэл дээр ажиллана.\nFocus\n\nR programming\nData science\nData visualization\n\n\n\n🎓 Research Students\nСудлаач оюутнууд биостатистик, тархвар судлал болон статистикийн арга зүйгээр суралцаж, судалгаа хийж байна.\nFocus\n\nBiostatistics\nEpidemiology\nResearch"
+  },
+  {
+    "objectID": "team-of-biostatistics/team.html#what-we-work-on",
+    "href": "team-of-biostatistics/team.html#what-we-work-on",
+    "title": "Our Team",
+    "section": "What We Work On",
+    "text": "What We Work On\n\nМанай баг дараах чиглэлүүдээр судалгаа, сургалт болон хамтын ажиллагаа явуулна.\n\nБиостатистикийн арга зүй\nЭмнэлзүйн судалгаа\nТархвар судлал\nСтатистикийн загварчлал\nR программчлал\nӨгөгдлийн дүрслэл\nДахин давтагдахуйц судалгаа"
+  },
+  {
+    "objectID": "team-of-biostatistics/research.html",
+    "href": "team-of-biostatistics/research.html",
+    "title": "Interesting Research",
+    "section": "",
+    "text": "Энэ хэсэгт биостатистик, тархвар судлал, эмнэлзүйн судалгаа болон эрүүл мэндийн өгөгдлийн шинжилгээтэй холбоотой сонирхолтой судалгаануудыг танилцуулна."
+  },
+  {
+    "objectID": "team-of-biostatistics/research.html#сонирхолтой-судалгаанууд",
+    "href": "team-of-biostatistics/research.html#сонирхолтой-судалгаанууд",
+    "title": "Interesting Research",
+    "section": "",
+    "text": "Энэ хэсэгт биостатистик, тархвар судлал, эмнэлзүйн судалгаа болон эрүүл мэндийн өгөгдлийн шинжилгээтэй холбоотой сонирхолтой судалгаануудыг танилцуулна."
+  },
+  {
+    "objectID": "team-of-biostatistics/research.html#clinical-research",
+    "href": "team-of-biostatistics/research.html#clinical-research",
+    "title": "Interesting Research",
+    "section": "Clinical Research",
+    "text": "Clinical Research\nЭмнэлзүйн судалгаанд статистикийн арга зүй нь эмчилгээний үр нөлөө, аюулгүй байдал болон судалгааны үр дүнг үнэлэхэд чухал ач холбогдолтой.\n\nСудалгаанд ашиглагддаг аргууд\n\nDescriptive statistics\nHypothesis testing\nConfidence intervals\nRegression analysis\nSurvival analysis\nSample size calculation"
+  },
+  {
+    "objectID": "team-of-biostatistics/research.html#epidemiological-research",
+    "href": "team-of-biostatistics/research.html#epidemiological-research",
+    "title": "Interesting Research",
+    "section": "Epidemiological Research",
+    "text": "Epidemiological Research\nТархвар судлалын судалгаанд өвчний тархалт, эрсдэлт хүчин зүйл болон хүн амын эрүүл мэндийн үзүүлэлтүүдийг статистикийн аргаар судална."
+  },
+  {
+    "objectID": "team-of-biostatistics/research.html#statistical-modelling",
+    "href": "team-of-biostatistics/research.html#statistical-modelling",
+    "title": "Interesting Research",
+    "section": "Statistical Modelling",
+    "text": "Statistical Modelling\nСтатистикийн загварчлал ашиглан судалгааны өгөгдлөөс хамаарал, холбоо болон таамаглалыг шинжилж болно.\nЖишээлбэл:\n\nLinear regression\nLogistic regression\nCox regression\nMixed-effects models"
+  },
+  {
+    "objectID": "team-of-biostatistics/research.html#reproducible-research",
+    "href": "team-of-biostatistics/research.html#reproducible-research",
+    "title": "Interesting Research",
+    "section": "Reproducible Research",
+    "text": "Reproducible Research\nR болон Quarto ашиглан судалгааны код, өгөгдлийн боловсруулалт, үр дүн болон тайланг нэг дор нэгтгэж, дахин давтагдахуйц судалгааны орчин бүрдүүлж болно."
+  },
+  {
+    "objectID": "team-of-biostatistics/contact.html",
+    "href": "team-of-biostatistics/contact.html",
+    "title": "Contact",
+    "section": "",
+    "text": "Биостатистикийн багтай холбоо барих, судалгааны хамтын ажиллагаа болон статистикийн зөвлөгөөтэй холбоотой мэдээллийг энд байршуулна."
+  },
+  {
+    "objectID": "team-of-biostatistics/contact.html#холбоо-барих",
+    "href": "team-of-biostatistics/contact.html#холбоо-барих",
+    "title": "Contact",
+    "section": "",
+    "text": "Биостатистикийн багтай холбоо барих, судалгааны хамтын ажиллагаа болон статистикийн зөвлөгөөтэй холбоотой мэдээллийг энд байршуулна."
+  },
+  {
+    "objectID": "team-of-biostatistics/contact.html#email",
+    "href": "team-of-biostatistics/contact.html#email",
+    "title": "Contact",
+    "section": "Email",
+    "text": "Email\nEmail: biostatistics@example.com"
+  },
+  {
+    "objectID": "team-of-biostatistics/contact.html#research-collaboration",
+    "href": "team-of-biostatistics/contact.html#research-collaboration",
+    "title": "Contact",
+    "section": "Research Collaboration",
+    "text": "Research Collaboration\nДараах чиглэлээр хамтран ажиллах боломжтой:\n\nБиостатистикийн зөвлөгөө\nСудалгааны дизайн\nӨгөгдлийн шинжилгээ\nСтатистикийн загварчлал\nR программчлал"
+  },
+  {
+    "objectID": "team-of-biostatistics/books.html",
+    "href": "team-of-biostatistics/books.html",
+    "title": "Biostatistics Books",
+    "section": "",
+    "text": "Biostatistics Books\n\nБиостатистикийн номууд\nБиостатистик, статистик, тархвар судлал болон өгөгдлийн шинжлэх ухааны чиглэлээр суралцахад ашигтай ном, сурах бичгүүдийг танилцуулна.\n\n\n\n\n📊 Biostatistics\nБиостатистикийн үндсэн ойлголт, статистикийн арга зүйг сурахад зориулсан номууд.\nҮндсэн сэдвүүд\n\nDescriptive statistics\nProbability\nStatistical inference\nHypothesis testing\nRegression\nSurvival analysis\n\n\n\n🦠 Epidemiology\nТархвар судлалын үндсэн ойлголт болон судалгааны арга зүйг сурахад зориулсан номууд.\nҮндсэн сэдвүүд\n\nStudy design\nDisease frequency\nRisk and association\nBias and confounding\nEpidemiological methods\n\n\n\n💻 Statistical Programming\nR болон статистикийн программчлал сурахад зориулсан номууд.\nСурах зүйлс\n\nR programming\nData manipulation\nData visualization\nStatistical modelling\nReproducible research\n\n\n\n📚 Recommended Reading\nЦаашдаа энд ном бүрийн дараах мэдээллийг оруулна:\n\nНэр\nЗохиогч\nХэвлэгдсэн он\nТовч тайлбар\nНомын зураг\nАлбан ёсны холбоос"
+  },
+  {
+    "objectID": "team-of-biostatistics/cheatsheet.html",
+    "href": "team-of-biostatistics/cheatsheet.html",
+    "title": "Cheatsheet",
+    "section": "",
+    "text": "Гарын авлага\n  R ба өгөгдлийн шинжилгээний cheatsheet\n  \n    R программчлал, өгөгдөл импортлох, хувиргах, цэгцлэх, дүрслэх үндсэн\n    функцуудыг нэг хуудсанд багтаасан товч гарын авлагууд. Бүгд монгол хэл\n    дээр, A4 хэвтээ хэлбэрээр хэвлэхэд бэлэн.\n  \n  \n    6 гарын авлага\n    PDF · A4 хэвтээ\n    Үнэгүй · CC BY-SA 4.0\n  \n\n\n\n  Санал болгох дараалал\n  \n    01 R-ийн үндэс\n    02 RStudio\n    03 Импортлох\n    04 Хувиргах\n    05 Цэгцлэх\n    06 Дүрслэх\n  \n\n\n\n\n  \n    \n      \n      01\n    \n    \n      Эхлэл\n      R-ийн үндэс\n      base R\n      Вектор, жагсаалт, матриц, data frame, фактор зэрэг өгөгдлийн төрөл; функц бичих, нөхцөл ба давталт. Нэмэлт багц суулгалгүйгээр хийж болох үндсэн командууд.\n       2 хуудас · 300 KB\n      \n         Нээх\n         Татах\n      \n    \n  \n\n  \n    \n      \n      02\n    \n    \n      Эхлэл\n      RStudio IDE\n      RStudio\n      Цонхнуудын бүтэц, код бичих, ажиллуулах, алдаа засах. Хамгийн хэрэгтэй гарын товчлолууд, файл ба сесс, кодын snippet.\n       2 хуудас · 356 KB\n      \n         Нээх\n         Татах\n      \n    \n  \n\n\n  \n    \n      \n      03\n    \n    \n      Өгөгдөлтэй ажиллах\n      Өгөгдөл импортлох\n      readr readxl\n      CSV, Excel, Google Sheets-ээс өгөгдөл унших, баганын төрлийг (col_types) тохируулах, үр дүнгээ файлд хадгалах.\n       2 хуудас · 304 KB\n      \n         Нээх\n         Татах\n      \n    \n  \n\n  \n    \n      \n      04\n    \n    \n      Өгөгдөлтэй ажиллах\n      Өгөгдөл хувиргах\n      dplyr\n      Мөр шүүх, багана сонгох, шинэ хувьсагч үүсгэх, бүлэглэж хураангуйлах, хүснэгт нэгтгэх: filter(), mutate(), summarise(), group_by().\n       2 хуудас · 292 KB\n      \n         Нээх\n         Татах\n      \n    \n  \n\n  \n    \n      \n      05\n    \n    \n      Өгөгдөлтэй ажиллах\n      Өгөгдөл цэгцлэх\n      tidyr\n      Tidy өгөгдлийн зарчим, өргөн ба урт хэлбэр хооронд хувиргах (pivot_longer, pivot_wider), багана салгах, нийлүүлэх, дутуу утгатай ажиллах.\n       2 хуудас · 296 KB\n      \n         Нээх\n         Татах\n      \n    \n  \n\n\n  \n    \n      \n      06\n    \n    \n      Дүрслэл\n      Өгөгдөл дүрслэх\n      ggplot2\n      Графикийн дүрэм: геом (цэг, шугам, багана, гистограмм, violin), өнгө ба масштаб, facet-ээр хуваах, гарчиг ба загвар (theme).\n       3 хуудас · 608 KB\n      \n         Нээх\n         Татах\n      \n    \n  \n\n\n\n\n\n  \n     Удахгүй\n    Дараагийн гарын авлагууд\n    Статистикийн тест сонгох, регрессийн загвар, амьдрах чадварын шинжилгээ зэрэг сэдвүүдийг нэмэхээр төлөвлөж байна.\n  \n   Сэдэв санал болгох\n\n\n\n\n\n\n\nЭх сурвалж ба лиценз. Эдгээр гарын авлагыг Posit-ийн албан ёсны cheatsheet-үүдэд үндэслэн монгол хэлнээ орчуулж, найруулав. CC BY-SA 4.0 лицензийн дагуу чөлөөтэй хуваалцаж, ашиглаж болно. Орчуулгын алдаа олсон бол GitHub дээр мэдэгдээрэй."
+  },
+  {
+    "objectID": "team-of-biostatistics/index.html",
+    "href": "team-of-biostatistics/index.html",
+    "title": "Home",
+    "section": "",
+    "text": "Манай Биостатистикийн багийн цахим хуудсанд тавтай морилно уу.\nБид статистик, биостатистик болон өгөгдлийн шинжлэх ухааны аргыг эрүүл мэнд, анагаах ухаан, тархвар судлалын судалгаанд ашигладаг."
+  },
+  {
+    "objectID": "team-of-biostatistics/index.html#statistics-health-research-data-science",
+    "href": "team-of-biostatistics/index.html#statistics-health-research-data-science",
+    "title": "Home",
+    "section": "",
+    "text": "Манай Биостатистикийн багийн цахим хуудсанд тавтай морилно уу.\nБид статистик, биостатистик болон өгөгдлийн шинжлэх ухааны аргыг эрүүл мэнд, анагаах ухаан, тархвар судлалын судалгаанд ашигладаг."
+  },
+  {
+    "objectID": "team-of-biostatistics/index.html#what-we-do",
+    "href": "team-of-biostatistics/index.html#what-we-do",
+    "title": "Home",
+    "section": "What We Do",
+    "text": "What We Do\n\n\n📊 Biostatistics\nЭрүүл мэндийн судалгаанд статистикийн арга, шинжилгээ болон загварчлалыг ашиглана.\n\n\n🔬 Epidemiology\nӨвчний тархалт, эрсдэлт хүчин зүйл болон хүн амын эрүүл мэндийн асуудлыг судална.\n\n\n💻 R Programming\nR ашиглан өгөгдөл боловсруулах, шинжлэх болон дүрслэх жишээнүүдийг үзүүлнэ.\n\n\n📈 Data Science\nӨгөгдөлд суурилсан шинжилгээ, статистикийн загварчлал болон дүрслэл хийнэ."
+  },
+  {
+    "objectID": "team-of-biostatistics/index.html#explore-our-resources",
+    "href": "team-of-biostatistics/index.html#explore-our-resources",
+    "title": "Home",
+    "section": "Explore Our Resources",
+    "text": "Explore Our Resources\n\n\nStatistical Software\nR, Python, SAS, SPSS болон бусад статистикийн програмуудын талаар.\n\n\nInteresting Research\nБиостатистик болон эрүүл мэндийн судалгааны сонирхолтой жишээнүүд.\n\n\nBiostatistics Books\nБиостатистик, тархвар судлал болон статистикийн ном, сурах бичгүүд.\n\n\nCheatsheet\nСтатистикийн томьёо, арга болон R кодын товч гарын авлага."
+  },
+  {
+    "objectID": "team-of-biostatistics/index.html#our-mission",
+    "href": "team-of-biostatistics/index.html#our-mission",
+    "title": "Home",
+    "section": "Our Mission",
+    "text": "Our Mission\nСтатистикийн мэдлэг, судалгааны арга зүй болон өгөгдөлд суурилсан шийдвэр гаргалтыг оюутан, судлаач болон эрүүл мэндийн мэргэжилтнүүдэд ойлгомжтой, хүртээмжтэй хүргэх нь бидний зорилго юм."
+  },
+  {
+    "objectID": "team-of-biostatistics/software.html",
+    "href": "team-of-biostatistics/software.html",
+    "title": "Statistical Software",
+    "section": "",
+    "text": "Статистикийн судалгаа, өгөгдлийн шинжилгээ болон дүрслэлд ашиглагддаг програмуудын талаар энд танилцуулна."
+  },
+  {
+    "objectID": "team-of-biostatistics/software.html#статистикийн-програмууд",
+    "href": "team-of-biostatistics/software.html#статистикийн-програмууд",
+    "title": "Statistical Software",
+    "section": "",
+    "text": "Статистикийн судалгаа, өгөгдлийн шинжилгээ болон дүрслэлд ашиглагддаг програмуудын талаар энд танилцуулна."
+  },
+  {
+    "objectID": "team-of-biostatistics/software.html#r",
+    "href": "team-of-biostatistics/software.html#r",
+    "title": "Statistical Software",
+    "section": "R",
+    "text": "R\nR нь статистикийн тооцоолол, өгөгдлийн шинжилгээ, график дүрслэл болон статистикийн загварчлалд өргөн ашиглагддаг програмчлалын хэл юм.\n\nҮндсэн хэрэглээ\n\nӨгөгдөл боловсруулах\nСтатистикийн шинжилгээ\nГрафик дүрслэл\nРегрессийн загвар\nМашин сургалт\nДахин давтагдахуйц судалгаа"
+  },
+  {
+    "objectID": "team-of-biostatistics/software.html#python",
+    "href": "team-of-biostatistics/software.html#python",
+    "title": "Statistical Software",
+    "section": "Python",
+    "text": "Python\nPython нь өгөгдлийн шинжлэх ухаан, статистик, машин сургалт болон програмчлалд өргөн хэрэглэгддэг.\n\nҮндсэн хэрэглээ\n\nӨгөгдөл боловсруулах\nМашин сургалт\nӨгөгдлийн дүрслэл\nАвтоматжуулалт"
+  },
+  {
+    "objectID": "team-of-biostatistics/software.html#sas",
+    "href": "team-of-biostatistics/software.html#sas",
+    "title": "Statistical Software",
+    "section": "SAS",
+    "text": "SAS\nSAS нь эмнэлзүйн судалгаа, эм зүйн салбар болон том хэмжээний өгөгдлийн статистикийн шинжилгээнд өргөн хэрэглэгддэг."
+  },
+  {
+    "objectID": "team-of-biostatistics/software.html#spss",
+    "href": "team-of-biostatistics/software.html#spss",
+    "title": "Statistical Software",
+    "section": "SPSS",
+    "text": "SPSS\nSPSS нь статистикийн шинжилгээг график интерфейсээр хийх боломжтой бөгөөд нийгмийн шинжлэх ухаан, эрүүл мэндийн судалгаанд өргөн хэрэглэгддэг."
+  },
+  {
+    "objectID": "team-of-biostatistics/software.html#stata",
+    "href": "team-of-biostatistics/software.html#stata",
+    "title": "Statistical Software",
+    "section": "Stata",
+    "text": "Stata\nStata нь эдийн засаг, тархвар судлал болон нийгмийн шинжлэх ухааны судалгаанд өргөн ашиглагддаг статистикийн програм юм."
+  },
+  {
+    "objectID": "team-of-biostatistics/software.html#аль-програмыг-сонгох-вэ",
+    "href": "team-of-biostatistics/software.html#аль-програмыг-сонгох-вэ",
+    "title": "Statistical Software",
+    "section": "Аль програмыг сонгох вэ?",
+    "text": "Аль програмыг сонгох вэ?\nСудалгааны зорилго, өгөгдлийн бүтэц, хэрэглэгчийн туршлага болон шаардлагатай статистикийн аргуудаас хамаарч програмын сонголт өөр байна.\nМанай баг R-ийг статистикийн тооцоолол, өгөгдлийн дүрслэл болон дахин давтагдахуйц судалгаанд түлхүү ашиглана."
   }
 ]
