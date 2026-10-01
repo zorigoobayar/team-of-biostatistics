@@ -74,6 +74,69 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<!--
+  Үзэлтийн тоо (GoatCounter) — бүх хуудсанд _quarto.yml-ээр орно.
+  GoatCounter-ийн код солих бол доорх GC_CODE-г өөрчилнө.
+
+  Хэрэглээ (HTML дотор):
+    <span class="vc" data-vc-href="methods/anova.html"></span>   → тухайн хуудасны үзэлт
+    <span class="vc" data-vc-href=""></span>                     → одоогийн хуудасны үзэлт
+    <span class="vc" data-vc-event="cs-01-open"></span>          → товч дарсан тоо (event)
+    <a data-goatcounter-click="cs-01-open" ...>                  → дарахад event бүртгэнэ
+-->
+<script>
+(function () {
+  var GC_CODE = "teambiostat";
+  var GC = "https://" + GC_CODE + ".goatcounter.com";
+
+  // /x/ → /x/index.html, /x/page → /x/page.html  (нэг хуудас нэг л замаар тоологдоно)
+  function norm(p) {
+    p = p.split("?")[0].split("#")[0];
+    if (p.slice(-1) === "/") p += "index.html";
+    else if (!/\.[a-z0-9]+$/i.test(p)) p += ".html";
+    return p;
+  }
+  window.goatcounter = { path: function (p) { return norm(p); } };
+
+  function fmt(n) {
+    if (n >= 1e6) return (n / 1e6).toFixed(n < 1e7 ? 1 : 0).replace(/\.0$/, "") + "M";
+    if (n >= 1e3) return (n / 1e3).toFixed(n < 1e4 ? 1 : 0).replace(/\.0$/, "") + "K";
+    return String(n);
+  }
+
+  function fetchCount(path) {
+    return fetch(GC + "/counter/" + encodeURIComponent(path) + ".json")
+      .then(function (r) { return r.ok ? r.json() : { count: "0" }; })
+      .then(function (d) { return parseInt(String(d.count).replace(/[^0-9]/g, ""), 10) || 0; })
+      .catch(function () { return null; });
+  }
+
+  function run() {
+    document.querySelectorAll(".vc").forEach(function (el) {
+      var path;
+      if (el.hasAttribute("data-vc-event")) path = el.getAttribute("data-vc-event");
+      else path = norm(new URL(el.getAttribute("data-vc-href") || location.pathname, location.href).pathname);
+      var icon = el.getAttribute("data-vc-icon") || "bi-eye";
+      var label = el.getAttribute("data-vc-label") || "үзсэн";
+      el.innerHTML = '<i class="bi ' + icon + '"></i> <b>…</b> ' + label;
+      fetchCount(path).then(function (n) {
+        if (n === null) { el.style.display = "none"; return; }
+        el.querySelector("b").textContent = fmt(n);
+        el.title = n.toLocaleString("en-US") + " " + label;
+      });
+    });
+  }
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", run);
+  else run();
+})();
+</script>
+<script data-goatcounter="https://teambiostat.goatcounter.com/count" async="" src="https://gc.zgo.at/count.js"></script>
+<style>
+  .vc { display: inline-flex; align-items: center; gap: 0.25rem; font-size: 0.82rem; color: #64748b; white-space: nowrap; }
+  .vc b { font-weight: 600; color: #334155; }
+  .vc-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem 0.9rem; margin-top: 0.6rem; }
+</style>
 
 
 <link rel="stylesheet" href="styles.css">
@@ -180,6 +243,7 @@ ul.task-list li input[type="checkbox"] {
     <li><strong>12</strong> арга</li>
     <li><strong>R</strong> кодын жишээ</li>
     <li><strong>Монгол</strong> нэр томьёо</li>
+    <li><span class="vc" data-vc-href=""></span></li>
   </ul>
   <div class="mt-actions">
     <a class="btn btn-primary btn-sm" href="#аль-аргыг-сонгох-вэ"><i class="bi bi-signpost-split"></i> Аль аргыг сонгох вэ?</a>
@@ -197,7 +261,7 @@ ul.task-list li input[type="checkbox"] {
       <p class="mt-card-en" lang="en">One-sample t-test</p>
       <p>Нэг бүлгийн дундажийг норм, жишиг эсвэл онолын утгатай харьцуулна.</p>
       <div class="mt-tags"><span>Тасралтгүй</span><span>1 бүлэг</span><span><code>t.test(x, mu = )</code></span></div>
-      <span class="mt-go">Дэлгэрэнгүй →</span>
+      <div class="vc-row" style="justify-content:space-between"><span class="mt-go">Дэлгэрэнгүй →</span><span class="vc" data-vc-href="methods/one-sample-t-test.html"></span></div>
     </div>
   </a>
   <a class="mt-card" href="methods/independent-t-test.html" style="--mt-accent:#0891b2">
@@ -208,7 +272,7 @@ ul.task-list li input[type="checkbox"] {
       <p class="mt-card-en" lang="en">Independent samples t-test</p>
       <p>Хоёр хамааралгүй бүлгийн тасралтгүй хувьсагчийн дундажийг харьцуулна.</p>
       <div class="mt-tags"><span>Тасралтгүй</span><span>2 бүлэг</span><span><code>t.test(y ~ g)</code></span></div>
-      <span class="mt-go">Дэлгэрэнгүй →</span>
+      <div class="vc-row" style="justify-content:space-between"><span class="mt-go">Дэлгэрэнгүй →</span><span class="vc" data-vc-href="methods/independent-t-test.html"></span></div>
     </div>
   </a>
   <a class="mt-card" href="methods/paired-t-test.html" style="--mt-accent:#059669">
@@ -219,7 +283,7 @@ ul.task-list li input[type="checkbox"] {
       <p class="mt-card-en" lang="en">Paired t-test</p>
       <p>Нэг хүнээс авсан хоёр хэмжилтийн (өмнө/дараа) дундаж зөрүүг шалгана.</p>
       <div class="mt-tags"><span>Тасралтгүй</span><span>2 хэмжилт</span><span><code>t.test(paired = TRUE)</code></span></div>
-      <span class="mt-go">Дэлгэрэнгүй →</span>
+      <div class="vc-row" style="justify-content:space-between"><span class="mt-go">Дэлгэрэнгүй →</span><span class="vc" data-vc-href="methods/paired-t-test.html"></span></div>
     </div>
   </a>
   <a class="mt-card" href="methods/anova.html" style="--mt-accent:#7c3aed">
@@ -230,7 +294,7 @@ ul.task-list li input[type="checkbox"] {
       <p class="mt-card-en" lang="en">One-way analysis of variance</p>
       <p>Гурав ба түүнээс дээш хамааралгүй бүлгийн дундажийг нэг дор харьцуулна.</p>
       <div class="mt-tags"><span>Тасралтгүй</span><span>≥ 3 бүлэг</span><span><code>aov()</code></span></div>
-      <span class="mt-go">Дэлгэрэнгүй →</span>
+      <div class="vc-row" style="justify-content:space-between"><span class="mt-go">Дэлгэрэнгүй →</span><span class="vc" data-vc-href="methods/anova.html"></span></div>
     </div>
   </a>
   <a class="mt-card" href="methods/ancova.html" style="--mt-accent:#c026d3">
@@ -241,7 +305,7 @@ ul.task-list li input[type="checkbox"] {
       <p class="mt-card-en" lang="en">Analysis of covariance</p>
       <p>Бүлгүүдийн дундажийг суурь утга зэрэг тасралтгүй ковариатаар залруулж харьцуулна.</p>
       <div class="mt-tags"><span>Тасралтгүй</span><span>≥ 2 бүлэг + ковариат</span><span><code>lm(y ~ g + x)</code></span></div>
-      <span class="mt-go">Дэлгэрэнгүй →</span>
+      <div class="vc-row" style="justify-content:space-between"><span class="mt-go">Дэлгэрэнгүй →</span><span class="vc" data-vc-href="methods/ancova.html"></span></div>
     </div>
   </a>
   <a class="mt-card" href="methods/manova.html" style="--mt-accent:#db2777">
@@ -252,7 +316,7 @@ ul.task-list li input[type="checkbox"] {
       <p class="mt-card-en" lang="en">Multivariate analysis of variance</p>
       <p>Хоёр ба түүнээс дээш хамааралтай үр дагаврыг бүлгүүдийн хооронд зэрэг харьцуулна.</p>
       <div class="mt-tags"><span>≥ 2 тасралтгүй үр дагавар</span><span>≥ 2 бүлэг</span><span><code>manova()</code></span></div>
-      <span class="mt-go">Дэлгэрэнгүй →</span>
+      <div class="vc-row" style="justify-content:space-between"><span class="mt-go">Дэлгэрэнгүй →</span><span class="vc" data-vc-href="methods/manova.html"></span></div>
     </div>
   </a>
 </div>
@@ -268,7 +332,7 @@ ul.task-list li input[type="checkbox"] {
       <p class="mt-card-en" lang="en">Correlation analysis</p>
       <p>Хоёр тоон хувьсагчийн хамаарлын хүч ба чиглэлийг −1-ээс +1 хооронд хэмжинэ.</p>
       <div class="mt-tags"><span>2 тоон хувьсагч</span><span>Пирсон / Спирмен</span><span><code>cor.test()</code></span></div>
-      <span class="mt-go">Дэлгэрэнгүй →</span>
+      <div class="vc-row" style="justify-content:space-between"><span class="mt-go">Дэлгэрэнгүй →</span><span class="vc" data-vc-href="methods/correlation.html"></span></div>
     </div>
   </a>
   <a class="mt-card" href="methods/linear-regression.html" style="--mt-accent:#dc2626">
@@ -279,7 +343,7 @@ ul.task-list li input[type="checkbox"] {
       <p class="mt-card-en" lang="en">Linear regression</p>
       <p>Тасралтгүй үр дагаврыг нэг буюу олон тайлбарлагч хувьсагчаар загварчилна.</p>
       <div class="mt-tags"><span>Тасралтгүй үр дагавар</span><span>Олон хувьсагч</span><span><code>lm()</code></span></div>
-      <span class="mt-go">Дэлгэрэнгүй →</span>
+      <div class="vc-row" style="justify-content:space-between"><span class="mt-go">Дэлгэрэнгүй →</span><span class="vc" data-vc-href="methods/linear-regression.html"></span></div>
     </div>
   </a>
   <a class="mt-card" href="methods/logistic-regression.html" style="--mt-accent:#b45309">
@@ -290,7 +354,7 @@ ul.task-list li input[type="checkbox"] {
       <p class="mt-card-en" lang="en">Logistic regression</p>
       <p>Хоёр утгат (тийм/үгүй) үр дагаврын odds-ийг олон хувьсагчаар загварчилж OR тооцно.</p>
       <div class="mt-tags"><span>Хоёр утгат үр дагавар</span><span>OR</span><span><code>glm(binomial)</code></span></div>
-      <span class="mt-go">Дэлгэрэнгүй →</span>
+      <div class="vc-row" style="justify-content:space-between"><span class="mt-go">Дэлгэрэнгүй →</span><span class="vc" data-vc-href="methods/logistic-regression.html"></span></div>
     </div>
   </a>
 </div>
@@ -306,7 +370,7 @@ ul.task-list li input[type="checkbox"] {
       <p class="mt-card-en" lang="en">Kaplan–Meier &amp; log-rank test</p>
       <p>Үйл явдал хүртэлх хугацааг цензурыг тооцож шинжилж, бүлгүүдийн муруйг харьцуулна.</p>
       <div class="mt-tags"><span>Хугацаа + үйл явдал</span><span>Цензур</span><span><code>survfit()</code></span></div>
-      <span class="mt-go">Дэлгэрэнгүй →</span>
+      <div class="vc-row" style="justify-content:space-between"><span class="mt-go">Дэлгэрэнгүй →</span><span class="vc" data-vc-href="methods/survival-analysis.html"></span></div>
     </div>
   </a>
   <a class="mt-card" href="methods/cox-regression.html" style="--mt-accent:#15803d">
@@ -317,7 +381,7 @@ ul.task-list li input[type="checkbox"] {
       <p class="mt-card-en" lang="en">Cox proportional hazards regression</p>
       <p>Үйл явдал хүртэлх хугацаанд олон хувьсагчийн нөлөөг залруулж hazard ratio тооцно.</p>
       <div class="mt-tags"><span>Хугацаа + үйл явдал</span><span>HR</span><span><code>coxph()</code></span></div>
-      <span class="mt-go">Дэлгэрэнгүй →</span>
+      <div class="vc-row" style="justify-content:space-between"><span class="mt-go">Дэлгэрэнгүй →</span><span class="vc" data-vc-href="methods/cox-regression.html"></span></div>
     </div>
   </a>
 </div>
@@ -333,7 +397,7 @@ ul.task-list li input[type="checkbox"] {
       <p class="mt-card-en" lang="en">Generalized estimating equations</p>
       <p>Давтан хэмжилт эсвэл кластерласан өгөгдлийн хүн амын түвшний нөлөөг үнэлнэ.</p>
       <div class="mt-tags"><span>Давтан хэмжилт</span><span>Тасралтгүй / 0-1 / тоо</span><span><code>geeglm()</code></span></div>
-      <span class="mt-go">Дэлгэрэнгүй →</span>
+      <div class="vc-row" style="justify-content:space-between"><span class="mt-go">Дэлгэрэнгүй →</span><span class="vc" data-vc-href="methods/gee.html"></span></div>
     </div>
   </a>
 </div>

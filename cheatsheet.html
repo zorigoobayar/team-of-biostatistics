@@ -74,6 +74,69 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<!--
+  Үзэлтийн тоо (GoatCounter) — бүх хуудсанд _quarto.yml-ээр орно.
+  GoatCounter-ийн код солих бол доорх GC_CODE-г өөрчилнө.
+
+  Хэрэглээ (HTML дотор):
+    <span class="vc" data-vc-href="methods/anova.html"></span>   → тухайн хуудасны үзэлт
+    <span class="vc" data-vc-href=""></span>                     → одоогийн хуудасны үзэлт
+    <span class="vc" data-vc-event="cs-01-open"></span>          → товч дарсан тоо (event)
+    <a data-goatcounter-click="cs-01-open" ...>                  → дарахад event бүртгэнэ
+-->
+<script>
+(function () {
+  var GC_CODE = "teambiostat";
+  var GC = "https://" + GC_CODE + ".goatcounter.com";
+
+  // /x/ → /x/index.html, /x/page → /x/page.html  (нэг хуудас нэг л замаар тоологдоно)
+  function norm(p) {
+    p = p.split("?")[0].split("#")[0];
+    if (p.slice(-1) === "/") p += "index.html";
+    else if (!/\.[a-z0-9]+$/i.test(p)) p += ".html";
+    return p;
+  }
+  window.goatcounter = { path: function (p) { return norm(p); } };
+
+  function fmt(n) {
+    if (n >= 1e6) return (n / 1e6).toFixed(n < 1e7 ? 1 : 0).replace(/\.0$/, "") + "M";
+    if (n >= 1e3) return (n / 1e3).toFixed(n < 1e4 ? 1 : 0).replace(/\.0$/, "") + "K";
+    return String(n);
+  }
+
+  function fetchCount(path) {
+    return fetch(GC + "/counter/" + encodeURIComponent(path) + ".json")
+      .then(function (r) { return r.ok ? r.json() : { count: "0" }; })
+      .then(function (d) { return parseInt(String(d.count).replace(/[^0-9]/g, ""), 10) || 0; })
+      .catch(function () { return null; });
+  }
+
+  function run() {
+    document.querySelectorAll(".vc").forEach(function (el) {
+      var path;
+      if (el.hasAttribute("data-vc-event")) path = el.getAttribute("data-vc-event");
+      else path = norm(new URL(el.getAttribute("data-vc-href") || location.pathname, location.href).pathname);
+      var icon = el.getAttribute("data-vc-icon") || "bi-eye";
+      var label = el.getAttribute("data-vc-label") || "үзсэн";
+      el.innerHTML = '<i class="bi ' + icon + '"></i> <b>…</b> ' + label;
+      fetchCount(path).then(function (n) {
+        if (n === null) { el.style.display = "none"; return; }
+        el.querySelector("b").textContent = fmt(n);
+        el.title = n.toLocaleString("en-US") + " " + label;
+      });
+    });
+  }
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", run);
+  else run();
+})();
+</script>
+<script data-goatcounter="https://teambiostat.goatcounter.com/count" async="" src="https://gc.zgo.at/count.js"></script>
+<style>
+  .vc { display: inline-flex; align-items: center; gap: 0.25rem; font-size: 0.82rem; color: #64748b; white-space: nowrap; }
+  .vc b { font-weight: 600; color: #334155; }
+  .vc-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem 0.9rem; margin-top: 0.6rem; }
+</style>
 
 
 <link rel="stylesheet" href="styles.css">
@@ -180,6 +243,7 @@ ul.task-list li input[type="checkbox"] {
     <li><strong>6</strong> гарын авлага</li>
     <li><strong>PDF</strong> · A4 хэвтээ</li>
     <li><strong>Үнэгүй</strong> · CC BY-SA 4.0</li>
+    <li><span class="vc" data-vc-href="" data-vc-label="үзсэн"></span></li>
   </ul>
 </header>
 
@@ -198,7 +262,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="cs-grid column-page">
 
   <article class="cs-card" id="cs-01" style="--cs-accent:#2563eb">
-    <a class="cs-thumb" href="01_R-iin_undes_base-R.pdf" target="_blank" rel="noopener" aria-label="R-ийн үндэс PDF нээх">
+    <a class="cs-thumb" data-goatcounter-click="cs-01-open" href="01_R-iin_undes_base-R.pdf" target="_blank" rel="noopener" aria-label="R-ийн үндэс PDF нээх">
       <img src="resources/cheatsheets/thumbs/01_R-iin_undes_base-R.jpg" alt="R-ийн үндэс cheatsheet-ийн эхний хуудас" loading="lazy" width="720" height="509">
       <span class="cs-num">01</span>
     </a>
@@ -209,14 +273,15 @@ ul.task-list li input[type="checkbox"] {
       <p>Вектор, жагсаалт, матриц, data frame, фактор зэрэг өгөгдлийн төрөл; функц бичих, нөхцөл ба давталт. Нэмэлт багц суулгалгүйгээр хийж болох үндсэн командууд.</p>
       <p class="cs-meta"><i class="bi bi-file-earmark-pdf"></i> 2 хуудас · 300 KB</p>
       <div class="cs-actions">
-        <a class="btn btn-primary btn-sm" href="01_R-iin_undes_base-R.pdf" target="_blank" rel="noopener"><i class="bi bi-eye"></i> Нээх</a>
-        <a class="btn btn-outline-secondary btn-sm" href="01_R-iin_undes_base-R.pdf" download=""><i class="bi bi-download"></i> Татах</a>
+        <a class="btn btn-primary btn-sm" data-goatcounter-click="cs-01-open" href="01_R-iin_undes_base-R.pdf" target="_blank" rel="noopener"><i class="bi bi-eye"></i> Нээх</a>
+        <a class="btn btn-outline-secondary btn-sm" data-goatcounter-click="cs-01-download" href="01_R-iin_undes_base-R.pdf" download=""><i class="bi bi-download"></i> Татах</a>
       </div>
+      <div class="vc-row"><span class="vc" data-vc-event="cs-01-open" data-vc-label="үзсэн"></span><span class="vc" data-vc-event="cs-01-download" data-vc-icon="bi-download" data-vc-label="татсан"></span></div>
     </div>
   </article>
 
   <article class="cs-card" id="cs-02" style="--cs-accent:#0891b2">
-    <a class="cs-thumb" href="02_RStudio_IDE.pdf" target="_blank" rel="noopener" aria-label="RStudio IDE PDF нээх">
+    <a class="cs-thumb" data-goatcounter-click="cs-02-open" href="02_RStudio_IDE.pdf" target="_blank" rel="noopener" aria-label="RStudio IDE PDF нээх">
       <img src="resources/cheatsheets/thumbs/02_RStudio_IDE.jpg" alt="RStudio IDE cheatsheet-ийн эхний хуудас" loading="lazy" width="720" height="509">
       <span class="cs-num">02</span>
     </a>
@@ -227,15 +292,16 @@ ul.task-list li input[type="checkbox"] {
       <p>Цонхнуудын бүтэц, код бичих, ажиллуулах, алдаа засах. Хамгийн хэрэгтэй гарын товчлолууд, файл ба сесс, кодын snippet.</p>
       <p class="cs-meta"><i class="bi bi-file-earmark-pdf"></i> 2 хуудас · 356 KB</p>
       <div class="cs-actions">
-        <a class="btn btn-primary btn-sm" href="02_RStudio_IDE.pdf" target="_blank" rel="noopener"><i class="bi bi-eye"></i> Нээх</a>
-        <a class="btn btn-outline-secondary btn-sm" href="02_RStudio_IDE.pdf" download=""><i class="bi bi-download"></i> Татах</a>
+        <a class="btn btn-primary btn-sm" data-goatcounter-click="cs-02-open" href="02_RStudio_IDE.pdf" target="_blank" rel="noopener"><i class="bi bi-eye"></i> Нээх</a>
+        <a class="btn btn-outline-secondary btn-sm" data-goatcounter-click="cs-02-download" href="02_RStudio_IDE.pdf" download=""><i class="bi bi-download"></i> Татах</a>
       </div>
+      <div class="vc-row"><span class="vc" data-vc-event="cs-02-open" data-vc-label="үзсэн"></span><span class="vc" data-vc-event="cs-02-download" data-vc-icon="bi-download" data-vc-label="татсан"></span></div>
     </div>
   </article>
 
 
   <article class="cs-card" id="cs-03" style="--cs-accent:#059669">
-    <a class="cs-thumb" href="03_Ogogdol_importloh_readr.pdf" target="_blank" rel="noopener" aria-label="Өгөгдөл импортлох PDF нээх">
+    <a class="cs-thumb" data-goatcounter-click="cs-03-open" href="03_Ogogdol_importloh_readr.pdf" target="_blank" rel="noopener" aria-label="Өгөгдөл импортлох PDF нээх">
       <img src="resources/cheatsheets/thumbs/03_Ogogdol_importloh_readr.jpg" alt="Өгөгдөл импортлох cheatsheet-ийн эхний хуудас" loading="lazy" width="720" height="509">
       <span class="cs-num">03</span>
     </a>
@@ -246,14 +312,15 @@ ul.task-list li input[type="checkbox"] {
       <p>CSV, Excel, Google Sheets-ээс өгөгдөл унших, баганын төрлийг (<code>col_types</code>) тохируулах, үр дүнгээ файлд хадгалах.</p>
       <p class="cs-meta"><i class="bi bi-file-earmark-pdf"></i> 2 хуудас · 304 KB</p>
       <div class="cs-actions">
-        <a class="btn btn-primary btn-sm" href="03_Ogogdol_importloh_readr.pdf" target="_blank" rel="noopener"><i class="bi bi-eye"></i> Нээх</a>
-        <a class="btn btn-outline-secondary btn-sm" href="03_Ogogdol_importloh_readr.pdf" download=""><i class="bi bi-download"></i> Татах</a>
+        <a class="btn btn-primary btn-sm" data-goatcounter-click="cs-03-open" href="03_Ogogdol_importloh_readr.pdf" target="_blank" rel="noopener"><i class="bi bi-eye"></i> Нээх</a>
+        <a class="btn btn-outline-secondary btn-sm" data-goatcounter-click="cs-03-download" href="03_Ogogdol_importloh_readr.pdf" download=""><i class="bi bi-download"></i> Татах</a>
       </div>
+      <div class="vc-row"><span class="vc" data-vc-event="cs-03-open" data-vc-label="үзсэн"></span><span class="vc" data-vc-event="cs-03-download" data-vc-icon="bi-download" data-vc-label="татсан"></span></div>
     </div>
   </article>
 
   <article class="cs-card" id="cs-04" style="--cs-accent:#dc2626">
-    <a class="cs-thumb" href="04_Ogogdol_huvirgah_dplyr.pdf" target="_blank" rel="noopener" aria-label="Өгөгдөл хувиргах PDF нээх">
+    <a class="cs-thumb" data-goatcounter-click="cs-04-open" href="04_Ogogdol_huvirgah_dplyr.pdf" target="_blank" rel="noopener" aria-label="Өгөгдөл хувиргах PDF нээх">
       <img src="resources/cheatsheets/thumbs/04_Ogogdol_huvirgah_dplyr.jpg" alt="Өгөгдөл хувиргах cheatsheet-ийн эхний хуудас" loading="lazy" width="720" height="509">
       <span class="cs-num">04</span>
     </a>
@@ -264,14 +331,15 @@ ul.task-list li input[type="checkbox"] {
       <p>Мөр шүүх, багана сонгох, шинэ хувьсагч үүсгэх, бүлэглэж хураангуйлах, хүснэгт нэгтгэх: <code>filter()</code>, <code>mutate()</code>, <code>summarise()</code>, <code>group_by()</code>.</p>
       <p class="cs-meta"><i class="bi bi-file-earmark-pdf"></i> 2 хуудас · 292 KB</p>
       <div class="cs-actions">
-        <a class="btn btn-primary btn-sm" href="04_Ogogdol_huvirgah_dplyr.pdf" target="_blank" rel="noopener"><i class="bi bi-eye"></i> Нээх</a>
-        <a class="btn btn-outline-secondary btn-sm" href="04_Ogogdol_huvirgah_dplyr.pdf" download=""><i class="bi bi-download"></i> Татах</a>
+        <a class="btn btn-primary btn-sm" data-goatcounter-click="cs-04-open" href="04_Ogogdol_huvirgah_dplyr.pdf" target="_blank" rel="noopener"><i class="bi bi-eye"></i> Нээх</a>
+        <a class="btn btn-outline-secondary btn-sm" data-goatcounter-click="cs-04-download" href="04_Ogogdol_huvirgah_dplyr.pdf" download=""><i class="bi bi-download"></i> Татах</a>
       </div>
+      <div class="vc-row"><span class="vc" data-vc-event="cs-04-open" data-vc-label="үзсэн"></span><span class="vc" data-vc-event="cs-04-download" data-vc-icon="bi-download" data-vc-label="татсан"></span></div>
     </div>
   </article>
 
   <article class="cs-card" id="cs-05" style="--cs-accent:#7c3aed">
-    <a class="cs-thumb" href="05_Ogogdol_tsegtsleh_tidyr.pdf" target="_blank" rel="noopener" aria-label="Өгөгдөл цэгцлэх PDF нээх">
+    <a class="cs-thumb" data-goatcounter-click="cs-05-open" href="05_Ogogdol_tsegtsleh_tidyr.pdf" target="_blank" rel="noopener" aria-label="Өгөгдөл цэгцлэх PDF нээх">
       <img src="resources/cheatsheets/thumbs/05_Ogogdol_tsegtsleh_tidyr.jpg" alt="Өгөгдөл цэгцлэх cheatsheet-ийн эхний хуудас" loading="lazy" width="720" height="509">
       <span class="cs-num">05</span>
     </a>
@@ -282,15 +350,16 @@ ul.task-list li input[type="checkbox"] {
       <p>Tidy өгөгдлийн зарчим, өргөн ба урт хэлбэр хооронд хувиргах (<code>pivot_longer</code>, <code>pivot_wider</code>), багана салгах, нийлүүлэх, дутуу утгатай ажиллах.</p>
       <p class="cs-meta"><i class="bi bi-file-earmark-pdf"></i> 2 хуудас · 296 KB</p>
       <div class="cs-actions">
-        <a class="btn btn-primary btn-sm" href="05_Ogogdol_tsegtsleh_tidyr.pdf" target="_blank" rel="noopener"><i class="bi bi-eye"></i> Нээх</a>
-        <a class="btn btn-outline-secondary btn-sm" href="05_Ogogdol_tsegtsleh_tidyr.pdf" download=""><i class="bi bi-download"></i> Татах</a>
+        <a class="btn btn-primary btn-sm" data-goatcounter-click="cs-05-open" href="05_Ogogdol_tsegtsleh_tidyr.pdf" target="_blank" rel="noopener"><i class="bi bi-eye"></i> Нээх</a>
+        <a class="btn btn-outline-secondary btn-sm" data-goatcounter-click="cs-05-download" href="05_Ogogdol_tsegtsleh_tidyr.pdf" download=""><i class="bi bi-download"></i> Татах</a>
       </div>
+      <div class="vc-row"><span class="vc" data-vc-event="cs-05-open" data-vc-label="үзсэн"></span><span class="vc" data-vc-event="cs-05-download" data-vc-icon="bi-download" data-vc-label="татсан"></span></div>
     </div>
   </article>
 
 
   <article class="cs-card" id="cs-06" style="--cs-accent:#ea580c">
-    <a class="cs-thumb" href="06_Ogogdol_durslekh_ggplot2.pdf" target="_blank" rel="noopener" aria-label="Өгөгдөл дүрслэх PDF нээх">
+    <a class="cs-thumb" data-goatcounter-click="cs-06-open" href="06_Ogogdol_durslekh_ggplot2.pdf" target="_blank" rel="noopener" aria-label="Өгөгдөл дүрслэх PDF нээх">
       <img src="resources/cheatsheets/thumbs/06_Ogogdol_durslekh_ggplot2.jpg" alt="Өгөгдөл дүрслэх cheatsheet-ийн эхний хуудас" loading="lazy" width="720" height="509">
       <span class="cs-num">06</span>
     </a>
@@ -301,9 +370,10 @@ ul.task-list li input[type="checkbox"] {
       <p>Графикийн дүрэм: геом (цэг, шугам, багана, гистограмм, violin), өнгө ба масштаб, facet-ээр хуваах, гарчиг ба загвар (theme).</p>
       <p class="cs-meta"><i class="bi bi-file-earmark-pdf"></i> 3 хуудас · 608 KB</p>
       <div class="cs-actions">
-        <a class="btn btn-primary btn-sm" href="06_Ogogdol_durslekh_ggplot2.pdf" target="_blank" rel="noopener"><i class="bi bi-eye"></i> Нээх</a>
-        <a class="btn btn-outline-secondary btn-sm" href="06_Ogogdol_durslekh_ggplot2.pdf" download=""><i class="bi bi-download"></i> Татах</a>
+        <a class="btn btn-primary btn-sm" data-goatcounter-click="cs-06-open" href="06_Ogogdol_durslekh_ggplot2.pdf" target="_blank" rel="noopener"><i class="bi bi-eye"></i> Нээх</a>
+        <a class="btn btn-outline-secondary btn-sm" data-goatcounter-click="cs-06-download" href="06_Ogogdol_durslekh_ggplot2.pdf" download=""><i class="bi bi-download"></i> Татах</a>
       </div>
+      <div class="vc-row"><span class="vc" data-vc-event="cs-06-open" data-vc-label="үзсэн"></span><span class="vc" data-vc-event="cs-06-download" data-vc-icon="bi-download" data-vc-label="татсан"></span></div>
     </div>
   </article>
 
