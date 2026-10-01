@@ -1,0 +1,102 @@
+---
+title: "Амьдрах чадварын шинжилгээ"
+description: "Үйл явдал хүртэлх хугацааг цензурыг тооцож шинжилж, бүлгүүдийн муруйг харьцуулна."
+format:
+  html:
+    body-classes: page-methods
+    css:
+      - ../styles.css
+      - ../styles/methods.css
+      - ../styles/glossary.css
+    include-after-body:
+      text: |
+        <script src="../assets/js/js-yaml.min.js"></script>
+        <script src="../assets/js/glossary.js"></script>
+---
+
+```{=html}
+<header class="mt-hero" style="--mt-accent:#0f766e">
+  <p class="mt-eyebrow"><a href="../methods.html">Data Analysis Methods</a> · Амьдрах чадвар</p>
+  <h1>Амьдрах чадварын шинжилгээ</h1>
+  <p class="mt-en" lang="en">Kaplan–Meier &amp; log-rank test</p>
+  <p class="mt-lead">Нас баралт, дахилт зэрэг үйл явдал тохиолдох хүртэлх хугацааг шинжилнэ. Каплан-Майерын муруйгаар амьдрах магадлалыг харуулж, лог-ранк тестээр бүлгүүдийг харьцуулна.</p>
+  <ul class="mt-badges"><li>Хугацаа + үйл явдал</li><li>Цензур</li><li><code>survfit()</code></li></ul>
+</header>
+```
+
+## Товч мэдээлэл
+
+```{=html}
+<div class="mt-facts"><div><span>Үр дагавар</span><strong>Хугацаа + үйл явдал (0/1)</strong></div><div><span>Онцлог</span><strong>Цензурлагдсан өгөгдөл</strong></div><div><span>Үр дүн</span><strong>S(t), медиан хугацаа</strong></div><div><span>Бүлгийн харьцуулалт</span><strong>Лог-ранк тест</strong></div></div>
+```
+
+## Хэзээ хэрэглэх вэ?
+
+Үр дагавар нь «тохиолдсон эсэх» төдийгүй «хэзээ тохиолдсон» нь чухал, зарим хүний дагалт үйл явдалгүй дууссан бол.
+
+::: {.callout-tip appearance="simple" icon="false"}
+**Жишээ судалгааны асуулт:** Хорт хавдрын шинэ ба стандарт эмчилгээ хийлгэсэн өвчтөнүүдийн 3 жилийн амьдрах чадвар ялгаатай юу?
+:::
+
+## Таамаглалууд
+
+Шинжилгээ хийхээс өмнө шалгана:
+
+- [ ] Цензур нь мэдээлэлгүй (non-informative): дагалтаас гарах шалтгаан үйл явдлын эрсдэлтэй холбоогүй.
+- [ ] Судалгааны туршид элссэн хүмүүсийн амьдрах чадвар ижил (элсэлтийн хугацааны нөлөөгүй).
+- [ ] Үйл явдлын хугацаа нарийн бүртгэгдсэн.
+
+## R дээр хийх
+
+```r
+library(survival)
+# time: хугацаа (сар), status: 1 = үйл явдал, 0 = цензур
+fit <- survfit(Surv(time, status) ~ group, data = df)
+summary(fit, times = c(12, 24, 36))   # 1, 2, 3 жилийн амьдрах чадвар
+print(fit)                            # медиан хугацаа ба 95% CI
+
+survdiff(Surv(time, status) ~ group, data = df)   # лог-ранк тест
+
+# График (эрсдэлийн хүснэгттэй)
+survminer::ggsurvplot(fit, risk.table = TRUE, conf.int = TRUE)
+```
+
+## Үр дүнг тайлбарлах
+
+- **S(t)** — t хугацаанд үйл явдалгүй үлдэх магадлал.
+- **median** — тал хувьд нь үйл явдал тохиолдох хүртэлх хугацаа (муруй 50%-д хүрээгүй бол NA).
+- **n.risk** — тухайн хугацаанд эрсдэлд байгаа хүний тоо. Муруйн сүүл хэсэгт цөөн бол найдвар муу.
+- **Chisq, p (survdiff)** — бүлгүүдийн муруй бүхэлдээ ялгаатай эсэх.
+
+## Тайлагнах жишээ
+
+::: {.callout-note appearance="simple" icon="false"}
+3 жилийн амьдрах чадвар шинэ эмчилгээний бүлэгт 68% (95% CI 61; 75), стандарт бүлэгт 54% (95% CI 47; 62) байв. Медиан амьдрах хугацаа стандарт бүлэгт 41 сар, шинэ бүлэгт хүрээгүй (лог-ранк χ² = 7.9, p = 0.005).
+
+<small>Тоонууд зохиомол бөгөөд тайлагнах хэлбэрийг харуулах зорилготой.</small>
+:::
+
+## Түгээмэл алдаа
+
+::: {.callout-warning appearance="simple" icon="false"}
+- Цензурлагдсан хүмүүсийг хасах эсвэл «амьд» гэж логистик регрессээр шинжлэх.
+- Муруйн сүүл хэсгийг (эрсдэлд цөөн хүн үлдсэн) хэт итгэлтэй тайлбарлах.
+- Эмчилгээ эхэлсний дараах хувьсагчаар бүлэглэх (immortal time bias).
+:::
+
+## Өөр аргууд
+
+- [Коксын регресс](cox-regression.html) — Үйл явдал хүртэлх хугацаанд олон хувьсагчийн нөлөөг залруулж hazard ratio тооцно.
+
+## Холбогдох нэр томьёо
+
+```{=html}
+<div class="glossary-embed"
+     data-src="../glossary/terms.yml"
+     data-glossary-url="../glossary.html"
+     data-terms="survival-analysis,censoring,kaplan-meier,median-survival,log-rank-test,hazard,person-time,loss-to-follow-up">
+  <p class="gl-loading">Нэр томьёог ачаалж байна…</p>
+</div>
+
+<nav class="mt-pager" aria-label="Аргууд хооронд шилжих"><a href="logistic-regression.html">← Логистик регресс</a><a href="cox-regression.html">Коксын регресс →</a></nav>
+```

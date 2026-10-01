@@ -1,0 +1,37 @@
+---
+title: "Нэр томьёоны толь"
+description: "Анагаах ухааны статистик, эпидемиологийн нэр томьёоны монгол-англи толь: тодорхойлолт, жишээ, түгээмэл алдаа, R код."
+toc: false
+format:
+  html:
+    body-classes: page-methods
+    css:
+      - styles.css
+      - styles/methods.css
+      - styles/glossary.css
+    include-after-body:
+      text: |
+        <script src="assets/js/js-yaml.min.js"></script>
+        <script src="assets/js/glossary.js"></script>
+---
+
+```{=html}
+<header class="mt-hero column-page">
+  <p class="mt-eyebrow"><a href="methods.html">Data Analysis Methods</a> · Толь</p>
+  <h1>Нэр томьёоны толь</h1>
+  <p class="mt-lead">
+    Анагаах ухааны статистик, эпидемиологийн түгээмэл нэр томьёо монгол, англи
+    хэлээр. Нэр томьёо бүрт товч тодорхойлолт, эмнэлзүйн жишээ, түгээмэл алдаа,
+    R код болон холбоотой нэр томьёо багтсан.
+  </p>
+</header>
+
+<div class="glossary-app column-page" data-src="glossary/terms.yml">
+  <p class="gl-loading">Нэр томьёог ачаалж байна…</p>
+</div>
+<noscript><p>Толийг харахын тулд JavaScript идэвхжүүлнэ үү.</p></noscript>
+```
+
+::: {.callout-note appearance="simple" icon="false" .column-page}
+**Эх сурвалж ба зохиогчийн эрх.** Тодорхойлолт, жишээг Team of Biostatistics баг өөрсдийн үгээр бичсэн бөгөөд аль нэг номоос хуулж, орчуулаагүй. Цааш унших: Everitt B.S. *Medical Statistics from A to Z* (Cambridge University Press); Kirkwood B.R., Sterne J.A.C. *Essential Medical Statistics* (Blackwell). Алдаа олсон эсвэл нэр томьёо нэмэх санал байвал [GitHub дээр мэдэгдээрэй](https://github.com/zorigoobayar/team-of-biostatistics/issues/new).
+:::

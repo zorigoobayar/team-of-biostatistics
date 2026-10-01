@@ -1,0 +1,1529 @@
+# =================================================================
+#  НЭР ТОМЬЁОНЫ ТОЛЬ — Team of Biostatistics
+# =================================================================
+#  Энэ файл бол сайтын бүх нэр томьёоны ЦОРЫН ГАНЦ эх сурвалж.
+#  «Нэр томьёоны толь» хуудас болон «Data Analysis Methods» хуудсууд
+#  бүгд эндээс уншина. Нэг газар засахад бүх хуудсанд шинэчлэгдэнэ.
+#
+#  ШИНЭ НЭР ТОМЬЁО НЭМЭХ:
+#   - Доорх загварыг хуулж, тохирох сэдвийн хэсэгт нэмнэ.
+#   - id: зөвхөн жижиг латин үсэг, тоо, зураас (давтагдахгүй).
+#   - topics: descriptive, probability, inference, tests, design, epi,
+#             bias, regression, survival, diagnostic, trials, meta
+#   - related: бусад нэр томьёоны id (заавал байгаа id байх ёстой).
+#   - Тайлбарыг ӨӨРСДИЙН ҮГЭЭР бичнэ. Ном, вэбээс хуулж/орчуулж болохгүй
+#     (зохиогчийн эрх).
+#
+#  - id: example-term
+#    en: English term
+#    mn: Монгол нэр
+#    alt: [Өөр нэр 1, Өөр нэр 2]        # заавал биш
+#    topics: [inference]
+#    def: "1–2 өгүүлбэр тодорхойлолт, томьёогүй."
+#    example: "Эмнэлзүйн жишээ."         # заавал биш
+#    pitfall: "Түгээмэл алдаа."           # заавал биш
+#    related: [p-value]                   # заавал биш
+#    r: "R код"                           # заавал биш
+# =================================================================
+# ---------------------------------------------------------------
+# ТОДОРХОЙЛОХ СТАТИСТИК
+# ---------------------------------------------------------------
+
+- id: variable
+  en: Variable
+  mn: Хувьсагч
+  topics: [descriptive]
+  def: "Судалгаанд оролцогч бүрт хэмжиж, бүртгэдэг, хүн бүрт өөр утгатай байж болох шинж чанар."
+  example: "Нас, хүйс, систолын даралт, цусны бүлэг зэрэг нь бүгд хувьсагч юм."
+  related: [categorical-variable, continuous-variable, ordinal-variable]
+
+- id: categorical-variable
+  en: Categorical variable
+  mn: Ангиллын хувьсагч
+  alt: [Нэрлэсэн хувьсагч, Nominal variable]
+  topics: [descriptive]
+  def: "Утга нь тоон хэмжээ биш, харин дараалалгүй бүлэг, ангиллыг илэрхийлдэг хувьсагч."
+  example: "Хүйс (эрэгтэй/эмэгтэй), цусны бүлэг (A, B, AB, O), аймаг."
+  pitfall: "Ангиллыг 1, 2, 3 гэж кодолсон ч дундажийг нь бодох нь утгагүй. Давтамж, хувиар тайлбарлана."
+  related: [ordinal-variable, proportion, chi-square-test]
+
+- id: ordinal-variable
+  en: Ordinal variable
+  mn: Эрэмбэт хувьсагч
+  topics: [descriptive]
+  def: "Ангиллууд нь тодорхой дараалалтай боловч ангилал хоорондын зай тэнцүү гэж үзэх боломжгүй хувьсагч."
+  example: "Хорт хавдрын үе шат (I–IV), өвдөлтийн зэрэг (бага, дунд, хүчтэй), боловсролын түвшин."
+  pitfall: "Эрэмбэт хувьсагчийг тасралтгүй гэж үзэж t-тест хийх нь ихэнхдээ тохиромжгүй. Непараметр тест эсвэл эрэмбэт регресс ашиглана."
+  related: [categorical-variable, mann-whitney, spearman-correlation]
+
+- id: continuous-variable
+  en: Continuous variable
+  mn: Тасралтгүй хувьсагч
+  alt: [Тоон хувьсагч]
+  topics: [descriptive]
+  def: "Тодорхой мужид дурын утга (бутархай ч байж болно) авах боломжтой тоон хувьсагч."
+  example: "Биеийн жин (кг), цусан дахь глюкоз (ммоль/л), гемоглобин (г/л)."
+  pitfall: "Тасралтгүй хувьсагчийг «хэвийн/хэвийн бус» гэж хоёр бүлэгт хувааж шинжлэхэд мэдээлэл алдагдаж, судалгааны чадал буурдаг."
+  related: [mean, standard-deviation, normal-distribution]
+
+- id: mean
+  en: Mean
+  mn: Дундаж
+  alt: [Арифметик дундаж]
+  topics: [descriptive]
+  def: "Бүх утгын нийлбэрийг тэдгээрийн тоонд хуваасан утга. Өгөгдлийн төвийн байрлалыг илэрхийлнэ."
+  example: "5 өвчтөний гемоглобин 120, 130, 125, 140, 135 г/л бол дундаж нь 130 г/л."
+  pitfall: "Хэт өндөр, нам утгад (outlier) мэдрэг тул хазгай тархалттай өгөгдөлд медианыг хэрэглэх нь зүйтэй."
+  related: [median, standard-deviation, outlier]
+  r: "mean(x, na.rm = TRUE)"
+
+- id: median
+  en: Median
+  mn: Медиан
+  alt: [Голч]
+  topics: [descriptive]
+  def: "Өгөгдлийг өсөх дарааллаар байрлуулахад яг голд нь байрлах утга. Өгөгдлийн тал нь түүнээс бага, тал нь их байна."
+  example: "Эмнэлэгт хэвтсэн хоногийн тоо 2, 3, 3, 4, 21 бол медиан нь 3 хоног, харин дундаж нь 6.6 хоног."
+  related: [mean, interquartile-range, skewness]
+  r: "median(x, na.rm = TRUE)"
+
+- id: mode
+  en: Mode
+  mn: Моод
+  alt: [Хамгийн түгээмэл утга]
+  topics: [descriptive]
+  def: "Өгөгдөлд хамгийн олон удаа давтагдсан утга."
+  example: "Яаралтай тусламжийн тасагт хамгийн олон ирдэг өвчтөний нас 25 бол моод нь 25."
+  related: [mean, median]
+
+- id: range
+  en: Range
+  mn: Далайц
+  alt: [Хэлбэлзлийн муж]
+  topics: [descriptive]
+  def: "Хамгийн их ба хамгийн бага утгын зөрүү. Ихэвчлэн «хамгийн бага – хамгийн их» хэлбэрээр тайлагнана."
+  example: "Оролцогчдын нас 18–76 насны хооронд байв."
+  pitfall: "Зөвхөн хоёр туйлын утгаас хамаардаг тул ганц outlier-т маш мэдрэг."
+  related: [interquartile-range, standard-deviation]
+
+- id: interquartile-range
+  en: Interquartile range (IQR)
+  mn: Квартил хоорондын далайц
+  topics: [descriptive]
+  def: "Гуравдугаар квартил (75-р перцентиль) ба нэгдүгээр квартил (25-р перцентиль)-ын зөрүү. Өгөгдлийн голын 50%-ийн тархалтыг илэрхийлнэ."
+  example: "Хэвтсэн хоног: медиан 5 (IQR 3–8) хоног."
+  related: [median, percentile, box-plot]
+  r: "IQR(x); quantile(x, c(0.25, 0.75))"
+
+- id: percentile
+  en: Percentile
+  mn: Перцентиль
+  alt: [Хувьт тоо]
+  topics: [descriptive]
+  def: "Өгөгдлийн тодорхой хувь нь түүнээс бага байх утга. Жишээ нь 90-р перцентилээс өгөгдлийн 90% нь бага байна."
+  example: "Хүүхдийн жин насныхаа 3-р перцентилээс доогуур бол туранхай гэж үнэлдэг."
+  related: [interquartile-range, median]
+  r: "quantile(x, 0.9)"
+
+- id: variance
+  en: Variance
+  mn: Дисперс
+  alt: [Вариац]
+  topics: [descriptive]
+  def: "Утга бүр дунджаас хэр зөрж байгааг хэмжих үзүүлэлт: зөрүүний квадратуудын дундаж. Нэгж нь анхны хэмжүүрийн квадрат."
+  example: "Жингийн дисперс кг² нэгжтэй гардаг тул тайлбарлахад стандарт хазайлтыг илүү хэрэглэдэг."
+  related: [standard-deviation, anova]
+  r: "var(x)"
+
+- id: standard-deviation
+  en: Standard deviation (SD)
+  mn: Стандарт хазайлт
+  topics: [descriptive]
+  def: "Дисперсийн квадрат язгуур. Утгууд дунджийн орчим хэр тархсаныг анхны хэмжүүрийн нэгжээр илэрхийлнэ."
+  example: "Систолын даралт 128 ± 15 мм м.у.б (дундаж ± SD)."
+  pitfall: "SD нь хүмүүсийн хоорондын хэлбэлзлийг, стандарт алдаа (SE) нь дунджийн тооцооны нарийвчлалыг илэрхийлнэ. Хоёрыг андуурч болохгүй."
+  related: [variance, standard-error, normal-distribution]
+  r: "sd(x, na.rm = TRUE)"
+
+- id: coefficient-of-variation
+  en: Coefficient of variation (CV)
+  mn: Вариацын коэффициент
+  topics: [descriptive]
+  def: "Стандарт хазайлтыг дундажид харьцуулсан хувь (SD / дундаж × 100%). Өөр нэгжтэй эсвэл өөр түвшний хэмжүүрүүдийн хэлбэлзлийг харьцуулахад хэрэглэнэ."
+  example: "Лабораторийн шинжилгээний давталтын CV 5%-иас бага бол нарийвчлал сайн гэж үздэг."
+  related: [standard-deviation, mean]
+
+- id: skewness
+  en: Skewness
+  mn: Хазгай байдал
+  alt: [Тэгш бус байдал]
+  topics: [descriptive]
+  def: "Тархалт тэгш хэмгүй, нэг тийшээ урт «сүүл»-тэй байх шинж. Баруун тийш хазгай бол дундаж медианаас их байдаг."
+  example: "Орлого, эмнэлэгт хэвтсэн хоног, CRP зэрэг нь ихэвчлэн баруун тийш хазгай тархалттай."
+  related: [median, normal-distribution, log-transformation]
+
+- id: outlier
+  en: Outlier
+  mn: Онцгой утга
+  alt: [Хэт гажсан утга]
+  topics: [descriptive]
+  def: "Бусад утгуудаас эрс өөр, хэт их эсвэл хэт бага утга."
+  example: "Насанд хүрэгчдийн өндрийн өгөгдөлд 17 см гэсэн утга нь оруулахдаа гарсан алдаа байж болно."
+  pitfall: "Онцгой утгыг шалтгаангүйгээр хасаж болохгүй. Эхлээд өгөгдөл оруулалтын алдаа эсэхийг шалгаж, хассан бол тайландаа дурдана."
+  related: [box-plot, mean, median]
+
+- id: frequency-distribution
+  en: Frequency distribution
+  mn: Давтамжийн тархалт
+  topics: [descriptive]
+  def: "Хувьсагчийн утга эсвэл бүлэг бүрт хэдэн тохиолдол байгааг харуулсан хүснэгт эсвэл график."
+  example: "Цусны бүлгээр ангилсан 200 донорын тоо, хувийг харуулсан хүснэгт."
+  related: [histogram, proportion]
+  r: "table(x); prop.table(table(x))"
+
+- id: proportion
+  en: Proportion
+  mn: Эзлэх хувь
+  alt: [Хувь, Харьцаа]
+  topics: [descriptive]
+  def: "Нийт тохиолдлын дотор тодорхой шинжтэй тохиолдлын эзлэх хэсэг. 0–1 эсвэл 0–100% хооронд утгатай."
+  example: "300 өвчтөнөөс 75 нь чихрийн шижинтэй бол эзлэх хувь 0.25 буюу 25%."
+  related: [prevalence, confidence-interval, chi-square-test]
+
+- id: histogram
+  en: Histogram
+  mn: Гистограмм
+  topics: [descriptive]
+  def: "Тасралтгүй хувьсагчийг тэнцүү интервалуудад хувааж, интервал бүрийн давтамжийг багана хэлбэрээр харуулсан график."
+  example: "Оюутнуудын биеийн жингийн индексийн тархалтыг гистограммаар харж хэвийн тархалттай эсэхийг шалгана."
+  related: [frequency-distribution, normal-distribution, skewness]
+  r: "hist(x); ggplot(df, aes(x)) + geom_histogram()"
+
+- id: box-plot
+  en: Box plot
+  mn: Хайрцган график
+  alt: [Box-and-whisker plot]
+  topics: [descriptive]
+  def: "Медиан, квартилууд, сахал (whisker) болон онцгой утгуудыг нэг дор харуулдаг график. Бүлгүүдийг харьцуулахад тохиромжтой."
+  example: "Гурван эмчилгээний бүлгийн HbA1c-ийн тархалтыг хайрцган графикаар харьцуулах."
+  related: [median, interquartile-range, outlier]
+  r: "ggplot(df, aes(group, y)) + geom_boxplot()"
+
+- id: missing-data
+  en: Missing data
+  mn: Дутуу өгөгдөл
+  topics: [descriptive, bias]
+  def: "Тодорхой оролцогчийн тодорхой хувьсагчийн утга бүртгэгдээгүй байх. Дутсан шалтгаанаас хамаарч үр дүнд хазайлт үүсгэж болно."
+  example: "Хүнд өвчтэй оролцогчид дагалтын үзлэгт ирээгүйгээс сүүлийн хэмжилт дутуу болсон."
+  pitfall: "Дутуу утгатай мөрүүдийг шууд хасах (complete-case) нь дутсан шалтгаан санамсаргүй биш үед хазайлт үүсгэдэг. Олон дахин нөхөх (multiple imputation) аргыг авч үзнэ."
+  related: [bias, loss-to-follow-up, intention-to-treat]
+  r: "sum(is.na(x)); mice::mice(df)"
+
+# ---------------------------------------------------------------
+# МАГАДЛАЛ БА ТАРХАЛТ
+# ---------------------------------------------------------------
+
+- id: probability
+  en: Probability
+  mn: Магадлал
+  topics: [probability]
+  def: "Тодорхой үзэгдэл тохиолдох боломжийн хэмжүүр. 0 (хэзээ ч тохиолдохгүй)-ээс 1 (заавал тохиолдоно)-ийн хооронд утгатай."
+  example: "Тухайн эмчилгээний дараа хүндрэл гарах магадлал 0.05 буюу 100 хүн тутмын 5-д."
+  related: [odds, independence]
+
+- id: independence
+  en: Independence
+  mn: Хамааралгүй байдал
+  alt: [Үл хамаарах байдал]
+  topics: [probability, inference]
+  def: "Нэг үзэгдэл тохиолдсон эсэх нь нөгөө үзэгдлийн магадлалд нөлөөлөхгүй байх. Ихэнх тестийн үндсэн таамаглал бол ажиглалтууд хоорондоо хамааралгүй байх явдал."
+  example: "Нэг өвчтөнөөс давтан авсан хэмжилтүүд хоорондоо хамааралтай тул тэдгээрийг өөр өөр хүн гэж тооцож болохгүй."
+  related: [paired-t-test, mixed-model, repeated-measures-anova]
+
+- id: normal-distribution
+  en: Normal distribution
+  mn: Хэвийн тархалт
+  alt: [Гауссын тархалт]
+  topics: [probability]
+  def: "Дунджийн хоёр талд тэгш хэмтэй, хонх хэлбэртэй тасралтгүй тархалт. Утгуудын ойролцоогоор 68% нь дундаж ± 1 SD, 95% нь дундаж ± 1.96 SD дотор оршино."
+  example: "Эрүүл насанд хүрэгчдийн өндөр ойролцоогоор хэвийн тархалттай."
+  pitfall: "Олон параметр тест өгөгдөл биш, харин загварын үлдэгдэл эсвэл бүлгийн дундаж хэвийн тархалттай байхыг шаарддаг. Том түүвэрт энэ шаардлага сулардаг."
+  related: [standard-deviation, z-score, central-limit-theorem, shapiro-wilk]
+  r: "qqnorm(x); qqline(x)"
+
+- id: z-score
+  en: z-score
+  mn: z-оноо
+  alt: [Стандартчилсан утга]
+  topics: [probability]
+  def: "Тухайн утга дунджаас хэдэн стандарт хазайлтаар зөрж байгааг илэрхийлсэн тоо: (утга − дундаж) / SD."
+  example: "Хүүхдийн өндрийн насны z-оноо −2-оос бага бол өсөлтийн хоцрогдолтой гэж үнэлдэг."
+  related: [normal-distribution, standard-deviation]
+  r: "scale(x)"
+
+- id: binomial-distribution
+  en: Binomial distribution
+  mn: Бином тархалт
+  topics: [probability]
+  def: "Хоорондоо хамааралгүй n туршилтад «амжилт» тохиолдох тооны тархалт. Туршилт бүрт амжилтын магадлал ижил байна."
+  example: "Эдгэрэх магадлал 0.7 бол 10 өвчтөнөөс яг 8 нь эдгэрэх магадлалыг бином тархалтаар тооцно."
+  related: [probability, proportion, logistic-regression]
+  r: "dbinom(8, size = 10, prob = 0.7)"
+
+- id: poisson-distribution
+  en: Poisson distribution
+  mn: Пуассоны тархалт
+  topics: [probability]
+  def: "Тодорхой хугацаа эсвэл орон зайд ховор үзэгдэл хэдэн удаа тохиолдохыг загварчилдаг тархалт. Дундаж ба дисперс нь тэнцүү."
+  example: "Нэг эмнэлэгт өдөрт ирэх зүрхний шигдээсийн тохиолдлын тоо."
+  related: [poisson-regression, incidence-rate]
+  r: "dpois(3, lambda = 2)"
+
+- id: central-limit-theorem
+  en: Central limit theorem
+  mn: Төвийн хязгаарын теорем
+  topics: [probability, inference]
+  def: "Түүврийн хэмжээ хангалттай том үед түүврийн дундажуудын тархалт нь анхны өгөгдөл ямар тархалттай байхаас үл хамааран хэвийн тархалтад ойртдог гэсэн зарчим."
+  example: "Хэвтсэн хоног хазгай тархалттай ч 100 өвчтөний түүврийн дундаж ойролцоогоор хэвийн тархалттай."
+  related: [normal-distribution, standard-error, sample]
+
+- id: log-transformation
+  en: Log transformation
+  mn: Логарифм хувиргалт
+  topics: [probability, regression]
+  def: "Баруун тийш хазгай өгөгдлийг логарифмаар хувиргаж тэгш хэмтэй болгох арга. Үр дүнг буцааж хувиргахад геометр дундаж гарна."
+  example: "Вирусын ачааллыг log10 хувиргаж шинжилдэг."
+  related: [skewness, normal-distribution]
+  r: "log(x); log10(x)"
+
+# ---------------------------------------------------------------
+# СТАТИСТИК ДҮГНЭЛТ БА ТААМАГЛАЛ ШАЛГАХ
+# ---------------------------------------------------------------
+
+- id: population
+  en: Population
+  mn: Эх олонлог
+  alt: [Хүн ам]
+  topics: [inference]
+  def: "Судалгааны дүгнэлтийг хамааруулах гэж буй бүх бодгалийн цогц."
+  example: "«Монголын 40-өөс дээш насны бүх хүн» бол эх олонлог, харин судалгаанд хамрагдсан 1200 хүн бол түүвэр."
+  related: [sample, random-sampling]
+
+- id: sample
+  en: Sample
+  mn: Түүвэр
+  topics: [inference]
+  def: "Эх олонлогоос сонгож, бодитоор хэмжилт хийсэн хэсэг бүлэг."
+  example: "Улаанбаатарын 6 дүүргийн өрхөөс санамсаргүйгээр сонгосон 800 хүүхэд."
+  related: [population, random-sampling, sample-size]
+
+- id: random-sampling
+  en: Random sampling
+  mn: Санамсаргүй түүвэрлэлт
+  topics: [inference, design]
+  def: "Эх олонлогийн гишүүн бүрт түүвэрт орох тодорхой (ихэвчлэн тэнцүү) магадлал олгож сонгох арга. Түүврийг төлөөллийн чадвартай болгоно."
+  example: "Сургуулиудын жагсаалтаас санамсаргүй тоогоор 20 сургууль сонгох (кластер түүвэрлэлт)."
+  pitfall: "Санамсаргүй түүвэрлэлт (хэнийг судлах) ба санамсаргүй хуваарилалт (хэнд ямар эмчилгээ өгөх)-ыг андуурдаг."
+  related: [sample, randomisation, selection-bias]
+
+- id: sampling-error
+  en: Sampling error
+  mn: Түүврийн алдаа
+  topics: [inference]
+  def: "Эх олонлогийн бодит утга ба нэг түүврээс тооцсон утгын хоорондох санамсаргүй зөрүү. Түүврийн хэмжээ өсөх тусам багасна."
+  example: "Өөр өөр 100 хүний түүврээс тооцсон тархалт 18%, 22%, 20% гэх мэт бага зэрэг зөрнө."
+  related: [standard-error, confidence-interval, bias]
+
+- id: standard-error
+  en: Standard error (SE)
+  mn: Стандарт алдаа
+  topics: [inference]
+  def: "Түүврээс тооцсон үзүүлэлт (жишээ нь дундаж) өөр өөр түүвэрт хэр хэлбэлзэхийг илэрхийлсэн хэмжүүр. Дунджийн стандарт алдаа = SD / √n."
+  example: "SD = 12, n = 144 бол дунджийн SE = 12 / 12 = 1."
+  pitfall: "SE нь SD-ээс үргэлж бага тул өгөгдлийн хэлбэлзлийг жижиг харагдуулах гэж SE тайлагнах нь буруу. Өгөгдлийг тодорхойлоход SD, тооцооны нарийвчлалд CI хэрэглэнэ."
+  related: [standard-deviation, confidence-interval, sampling-error]
+
+- id: confidence-interval
+  en: Confidence interval (CI)
+  mn: Итгэх интервал
+  alt: [Итгэлийн завсар]
+  topics: [inference]
+  def: "Эх олонлогийн үл мэдэгдэх утгыг агуулж байх магадлал өндөртэй утгын муж. 95% CI гэдэг нь ийм аргаар олон дахин тооцоход интервалуудын 95% нь бодит утгыг агуулна гэсэн утгатай."
+  example: "Эмчилгээний дараа даралт дунджаар 8 мм м.у.б (95% CI 5–11) буурсан."
+  pitfall: "CI-ийн өргөн нь тооцооны нарийвчлалыг харуулдаг тул p-утгаас илүү мэдээлэлтэй. Харьцааны (OR, RR) 95% CI нь 1-ийг агуулбал p > 0.05 байна."
+  related: [standard-error, p-value, effect-size]
+
+- id: null-hypothesis
+  en: Null hypothesis (H₀)
+  mn: Тэг таамаглал
+  topics: [inference]
+  def: "Бүлгүүдийн хооронд ялгаа, эсвэл хувьсагчдын хооронд хамаарал байхгүй гэсэн таамаглал. Статистик тест энэ таамаглалын эсрэг нотолгоог үнэлнэ."
+  example: "H₀: Шинэ эм ба плацебо бүлгийн дундаж даралт ижил."
+  pitfall: "p > 0.05 гарсан нь H₀ үнэн гэдгийг нотлохгүй. Зөвхөн ялгааг илрүүлэх хангалттай нотолгоо олдсонгүй гэсэн үг."
+  related: [alternative-hypothesis, p-value, type-i-error]
+
+- id: alternative-hypothesis
+  en: Alternative hypothesis (H₁)
+  mn: Альтернатив таамаглал
+  alt: [Эсрэг таамаглал]
+  topics: [inference]
+  def: "Тэг таамаглалын эсрэг, бүлгүүдийн хооронд ялгаа эсвэл хамаарал байна гэсэн таамаглал."
+  example: "H₁: Шинэ эм ба плацебо бүлгийн дундаж даралт ялгаатай."
+  related: [null-hypothesis, one-two-tailed]
+
+- id: p-value
+  en: P-value
+  mn: P-утга
+  topics: [inference]
+  def: "Тэг таамаглал үнэн гэж үзвэл ажигласан үр дүн эсвэл түүнээс ч илүү туйлын үр дүн санамсаргүйгээр гарах магадлал."
+  example: "p = 0.03 бол бодитоор ялгаа байхгүй нөхцөлд ийм буюу үүнээс том ялгаа ажиглагдах магадлал 3% гэсэн үг."
+  pitfall: "P-утга нь тэг таамаглал үнэн байх магадлал биш, нөлөөний хэмжээ эсвэл эмнэлзүйн ач холбогдлыг ч харуулахгүй. Үргэлж нөлөөний хэмжээ ба CI-тай хамт тайлагнана."
+  related: [significance-level, confidence-interval, clinical-significance]
+
+- id: significance-level
+  en: Significance level (α)
+  mn: Ач холбогдлын түвшин
+  topics: [inference]
+  def: "Тэг таамаглалыг няцаах босго магадлал. Судалгаа эхлэхээс өмнө тогтооно. Ихэвчлэн α = 0.05."
+  example: "α = 0.05 гэвэл p < 0.05 үед «статистик ач холбогдолтой» гэж дүгнэнэ."
+  related: [p-value, type-i-error, bonferroni]
+
+- id: type-i-error
+  en: Type I error
+  mn: I төрлийн алдаа
+  alt: [Хуурамч эерэг дүгнэлт]
+  topics: [inference]
+  def: "Бодитоор ялгаа байхгүй байхад тэг таамаглалыг няцааж, ялгаа байна гэж буруу дүгнэх. Магадлал нь α-тай тэнцүү."
+  example: "Үр дүнгүй эмийг үр дүнтэй гэж дүгнэх."
+  related: [type-ii-error, significance-level, multiple-comparisons]
+
+- id: type-ii-error
+  en: Type II error
+  mn: II төрлийн алдаа
+  alt: [Хуурамч сөрөг дүгнэлт]
+  topics: [inference]
+  def: "Бодитоор ялгаа байхад түүнийг илрүүлж чадахгүй, тэг таамаглалыг няцаахгүй үлдээх. Магадлалыг β гэж тэмдэглэнэ."
+  example: "Түүвэр хэт бага байснаас үр дүнтэй эмийн нөлөөг илрүүлж чадаагүй."
+  related: [type-i-error, power, sample-size]
+
+- id: power
+  en: Statistical power
+  mn: Статистик чадал
+  topics: [inference]
+  def: "Бодитоор тодорхой хэмжээний ялгаа байгаа үед түүнийг илрүүлэх магадлал (1 − β). Ихэвчлэн 80% эсвэл 90%-иас багагүй байхаар төлөвлөнө."
+  example: "80% чадалтай судалгаа гэдэг нь бодит нөлөө байгаа бол 10 удаа давтахад 8 удаа нь илрүүлнэ гэсэн үг."
+  related: [sample-size, type-ii-error, effect-size]
+  r: "power.t.test(delta = 5, sd = 10, power = 0.8)"
+
+- id: sample-size
+  en: Sample size calculation
+  mn: Түүврийн хэмжээний тооцоо
+  topics: [inference, design]
+  def: "Хүссэн чадал, ач холбогдлын түвшин, хүлээгдэж буй нөлөөний хэмжээнд үндэслэн шаардлагатай оролцогчийн тоог судалгаа эхлэхээс өмнө тооцох."
+  example: "Даралтын 5 мм м.у.б ялгааг (SD 10) 80% чадал, α = 0.05-аар илрүүлэхэд бүлэг тус бүрт 64 хүн шаардлагатай."
+  pitfall: "Түүврийн хэмжээг дагалтаас гарах (drop-out) хувиар нэмэгдүүлэхээ мартдаг."
+  related: [power, effect-size, pilot-study]
+  r: "pwr::pwr.t.test(d = 0.5, power = 0.8)"
+
+- id: effect-size
+  en: Effect size
+  mn: Нөлөөний хэмжээ
+  topics: [inference]
+  def: "Ялгаа эсвэл хамаарлын бодит хэмжээг илэрхийлэх үзүүлэлт. Дунджийн зөрүү, OR, RR, корреляцийн коэффициент, Cohen-ий d зэрэг."
+  example: "Cohen-ий d = 0.5 бол бүлгүүдийн дундаж хагас стандарт хазайлтаар зөрж байна гэсэн үг (дунд зэргийн нөлөө)."
+  related: [p-value, confidence-interval, clinical-significance]
+
+- id: one-two-tailed
+  en: One-tailed / two-tailed test
+  mn: Нэг талт / хоёр талт тест
+  topics: [inference]
+  def: "Хоёр талт тест нь аль ч чиглэлийн ялгааг, нэг талт тест нь зөвхөн урьдчилан тогтоосон нэг чиглэлийн ялгааг шалгадаг."
+  example: "Шинэ эм илүү ч, муу ч байж болох тул ихэнх эмнэлзүйн судалгаанд хоёр талт тест хэрэглэнэ."
+  pitfall: "Үр дүнг харсны дараа p-утгыг жижигрүүлэх зорилгоор нэг талт тест рүү шилжих нь буруу."
+  related: [alternative-hypothesis, p-value]
+
+- id: multiple-comparisons
+  en: Multiple comparisons
+  mn: Олон дахин харьцуулалт
+  topics: [inference]
+  def: "Нэг судалгаанд олон тест хийхэд дор хаяж нэг нь санамсаргүйгээр «ач холбогдолтой» гарах магадлал өсөх асуудал."
+  example: "20 хамааралгүй тест α = 0.05-аар хийвэл дунджаар 1 нь санамсаргүйгээр ач холбогдолтой гарна."
+  related: [bonferroni, type-i-error, post-hoc-test]
+
+- id: bonferroni
+  en: Bonferroni correction
+  mn: Бонферронийн залруулга
+  topics: [inference]
+  def: "Олон дахин харьцуулалтын үед ач холбогдлын түвшинг тестийн тоонд хуваах (α / k) энгийн залруулга."
+  example: "5 харьцуулалт хийвэл p < 0.01 үед ач холбогдолтой гэж үзнэ."
+  pitfall: "Тестийн тоо их үед хэт хатуу болж чадал алдагддаг. Holm эсвэл FDR аргыг авч үзнэ."
+  related: [multiple-comparisons, post-hoc-test]
+  r: "p.adjust(p, method = \"bonferroni\")"
+
+- id: clinical-significance
+  en: Clinical significance
+  mn: Эмнэлзүйн ач холбогдол
+  topics: [inference]
+  def: "Илэрсэн ялгаа өвчтөнд бодитоор мэдрэгдэх, эмнэлзүйн шийдвэрт нөлөөлөх хэмжээнд хүрсэн эсэх. Статистик ач холбогдлоос өөр ойлголт."
+  example: "10 000 хүний судалгаанд даралт 0.5 мм м.у.б буурсан нь p < 0.001 боловч эмнэлзүйн ач холбогдолгүй."
+  related: [p-value, effect-size, nnt]
+
+- id: degrees-of-freedom
+  en: Degrees of freedom (df)
+  mn: Чөлөөний зэрэг
+  topics: [inference]
+  def: "Статистик тооцоонд чөлөөтэй өөрчлөгдөж болох утгын тоо. t, χ², F тархалтын хэлбэрийг тодорхойлно."
+  example: "Хоёр бүлгийн t-тестэд df = n₁ + n₂ − 2."
+  related: [t-test, chi-square-test]
+
+- id: parametric-test
+  en: Parametric test
+  mn: Параметр тест
+  topics: [inference, tests]
+  def: "Өгөгдөл тодорхой тархалттай (ихэвчлэн хэвийн) гэсэн таамаглалд суурилсан тест. Таамаглал хангагдвал чадал өндөр."
+  example: "t-тест, ANOVA, Пирсоны корреляци."
+  related: [nonparametric-test, normal-distribution]
+
+- id: nonparametric-test
+  en: Nonparametric test
+  mn: Непараметр тест
+  topics: [inference, tests]
+  def: "Өгөгдлийн тархалтын хэлбэрийн талаар хатуу таамаглал шаардахгүй, ихэвчлэн утгуудын эрэмбэд суурилсан тест."
+  example: "Хазгай тархалттай хэвтсэн хоногийг харьцуулахад Манн-Уитнигийн U тест."
+  related: [parametric-test, mann-whitney, wilcoxon, kruskal-wallis]
+
+# ---------------------------------------------------------------
+# СТАТИСТИК ТЕСТҮҮД
+# ---------------------------------------------------------------
+
+- id: t-test
+  en: Independent samples t-test
+  mn: Хамааралгүй түүврийн t-тест
+  alt: [Стьюдентийн t-тест]
+  topics: [tests]
+  def: "Хоёр хамааралгүй бүлгийн тасралтгүй хувьсагчийн дундажийг харьцуулах параметр тест."
+  example: "Эрэгтэй ба эмэгтэй оюутнуудын дундаж систолын даралтыг харьцуулах."
+  pitfall: "Бүлгүүдийн дисперс ялгаатай байж болох тул Welch-ийн t-тестийг үндсэн сонголт болгох нь зүйтэй (R-ийн анхдагч тохиргоо)."
+  related: [paired-t-test, mann-whitney, anova, levene-test]
+  r: "t.test(y ~ group, data = df)"
+
+- id: paired-t-test
+  en: Paired t-test
+  mn: Хосолсон t-тест
+  topics: [tests]
+  def: "Нэг хүнээс хоёр удаа (эсвэл хосолсон хүмүүсээс) авсан хэмжилтийн дунджийн зөрүүг шалгах тест."
+  example: "Ижил өвчтөнүүдийн эмчилгээний өмнөх ба дараах холестеролыг харьцуулах."
+  pitfall: "Давтан хэмжилтийг хамааралгүй хоёр бүлэг мэт үзэж энгийн t-тест хийх нь түгээмэл алдаа."
+  related: [t-test, wilcoxon, independence]
+  r: "t.test(after, before, paired = TRUE)"
+
+- id: anova
+  en: One-way ANOVA
+  mn: Нэг хүчин зүйлийн дисперсийн шинжилгээ
+  alt: [ANOVA]
+  topics: [tests]
+  def: "Гурав ба түүнээс дээш хамааралгүй бүлгийн дундажийг нэг дор харьцуулах тест. Ялгаа байгаа эсэхийг хэлэх ч аль бүлгүүд ялгаатайг заахгүй."
+  example: "Гурван өөр хоолны дэглэмийн дараах жингийн бууралтыг харьцуулах."
+  related: [post-hoc-test, kruskal-wallis, t-test, ancova]
+  r: "aov(y ~ group, data = df)"
+
+- id: post-hoc-test
+  en: Post hoc test
+  mn: Пост хок тест
+  alt: [Дараах харьцуулалт]
+  topics: [tests]
+  def: "ANOVA ялгаа илрүүлсний дараа аль бүлгүүд хоорондоо ялгаатайг тодорхойлох, олон дахин харьцуулалтыг залруулсан хосын харьцуулалт."
+  example: "Tukey HSD тестээр А ба В дэглэм ялгаатай, харин В ба С ялгаагүй болохыг тогтоох."
+  related: [anova, multiple-comparisons, bonferroni]
+  r: "TukeyHSD(aov(y ~ group, data = df))"
+
+- id: repeated-measures-anova
+  en: Repeated measures ANOVA
+  mn: Давтан хэмжилтийн ANOVA
+  topics: [tests]
+  def: "Нэг хүнээс гурав ба түүнээс дээш удаа авсан хэмжилтийн дундажийн өөрчлөлтийг шинжлэх арга."
+  example: "Эмчилгээний 0, 3, 6 дахь сард HbA1c-ийн өөрчлөлтийг шинжлэх."
+  pitfall: "Дутуу хэмжилттэй хүнийг бүхэлд нь хасдаг тул ихэнхдээ холимог загвар (mixed model) илүү тохиромжтой."
+  related: [anova, mixed-model, paired-t-test]
+
+- id: chi-square-test
+  en: Chi-square test
+  mn: Хи-квадрат тест
+  alt: [χ² тест]
+  topics: [tests]
+  def: "Хоёр ангиллын хувьсагчийн хоорондох хамаарлыг давтамжийн хүснэгтээр шалгах тест. Ажигласан давтамжийг хүлээгдэж буй давтамжтай харьцуулна."
+  example: "Тамхи татах эсэх ба уушгины архаг бөглөрөлт өвчний хамаарлыг шалгах."
+  pitfall: "Хүлээгдэж буй давтамж 5-аас бага нүд олон байвал Фишерийн нарийн тестийг хэрэглэнэ."
+  related: [fisher-exact-test, mcnemar-test, categorical-variable]
+  r: "chisq.test(table(df$smoke, df$copd))"
+
+- id: fisher-exact-test
+  en: Fisher's exact test
+  mn: Фишерийн нарийн тест
+  topics: [tests]
+  def: "Түүвэр бага эсвэл хүлээгдэж буй давтамж бага үед хоёр ангиллын хувьсагчийн хамаарлыг шалгах нарийн тест."
+  example: "Ховор хүндрэл (нийт 7 тохиолдол) хоёр мэс заслын аргын хооронд ялгаатай эсэхийг шалгах."
+  related: [chi-square-test]
+  r: "fisher.test(table(df$method, df$complication))"
+
+- id: mcnemar-test
+  en: McNemar test
+  mn: МакНемарын тест
+  topics: [tests]
+  def: "Нэг хүмүүсээс хоёр удаа авсан хоёр утгат (тийм/үгүй) хувьсагчийн өөрчлөлтийг шалгах тест. Хосолсон өгөгдлийн хи-квадрат тест."
+  example: "Сургалтын өмнө ба дараа гар угаах дадалтай эсэхийн өөрчлөлт."
+  related: [chi-square-test, paired-t-test]
+  r: "mcnemar.test(table(df$before, df$after))"
+
+- id: mann-whitney
+  en: Mann–Whitney U test
+  mn: Манн-Уитнигийн U тест
+  alt: [Wilcoxon rank-sum test]
+  topics: [tests]
+  def: "Хоёр хамааралгүй бүлгийг утгуудын эрэмбээр харьцуулах непараметр тест. Хамааралгүй t-тестийн непараметр хувилбар."
+  example: "Хоёр эмнэлгийн өвчтөнүүдийн хэвтсэн хоногийг (хазгай тархалттай) харьцуулах."
+  related: [t-test, wilcoxon, nonparametric-test]
+  r: "wilcox.test(y ~ group, data = df)"
+
+- id: wilcoxon
+  en: Wilcoxon signed-rank test
+  mn: Уилкоксоны тэмдэгт эрэмбийн тест
+  topics: [tests]
+  def: "Хосолсон хэмжилтийн зөрүүг эрэмбээр шалгах непараметр тест. Хосолсон t-тестийн непараметр хувилбар."
+  example: "Эмчилгээний өмнө ба дараах өвдөлтийн оноог (0–10) харьцуулах."
+  related: [paired-t-test, mann-whitney]
+  r: "wilcox.test(after, before, paired = TRUE)"
+
+- id: kruskal-wallis
+  en: Kruskal–Wallis test
+  mn: Крускал-Уоллисын тест
+  topics: [tests]
+  def: "Гурав ба түүнээс дээш хамааралгүй бүлгийг эрэмбээр харьцуулах непараметр тест. Нэг хүчин зүйлийн ANOVA-ийн непараметр хувилбар."
+  example: "Гурван аймгийн хүүхдүүдийн цусан дахь тугалганы түвшинг харьцуулах."
+  related: [anova, mann-whitney]
+  r: "kruskal.test(y ~ group, data = df)"
+
+- id: pearson-correlation
+  en: Pearson correlation coefficient (r)
+  mn: Пирсоны корреляцийн коэффициент
+  topics: [tests, regression]
+  def: "Хоёр тасралтгүй хувьсагчийн шугаман хамаарлын хүч ба чиглэлийг −1-ээс +1 хооронд илэрхийлдэг коэффициент."
+  example: "Биеийн жингийн индекс ба систолын даралтын хооронд r = 0.42 (дунд зэргийн эерэг хамаарал)."
+  pitfall: "Корреляци нь учир шалтгааныг нотлохгүй. Мөн зөвхөн шугаман хамаарлыг хэмждэг тул эхлээд тархалтын графикаа харна."
+  related: [spearman-correlation, linear-regression, causation]
+  r: "cor.test(df$bmi, df$sbp)"
+
+- id: spearman-correlation
+  en: Spearman rank correlation (ρ)
+  mn: Спирмены эрэмбийн корреляци
+  topics: [tests]
+  def: "Хоёр хувьсагчийн эрэмбийн хоорондох монотон хамаарлыг хэмжих непараметр корреляци."
+  example: "Өвчний хүндийн зэрэг (эрэмбэт) ба хэвтсэн хоногийн хамаарал."
+  related: [pearson-correlation, ordinal-variable]
+  r: "cor.test(x, y, method = \"spearman\")"
+
+- id: shapiro-wilk
+  en: Shapiro–Wilk test
+  mn: Шапиро-Уилкийн тест
+  topics: [tests]
+  def: "Өгөгдөл хэвийн тархалттай эсэхийг шалгах тест. p < 0.05 бол хэвийн тархалтаас ялгаатай гэж үзнэ."
+  example: "t-тест хийхээс өмнө бүлэг тус бүрийн хэмжилтийг шалгах."
+  pitfall: "Том түүвэрт өчүүхэн хазайлтыг ч ач холбогдолтой гэж гаргадаг, жижиг түүвэрт эсрэгээрээ. Гистограмм, Q-Q графиктай хамт үнэлнэ."
+  related: [normal-distribution, histogram, parametric-test]
+  r: "shapiro.test(x)"
+
+- id: levene-test
+  en: Levene's test
+  mn: Левенийн тест
+  topics: [tests]
+  def: "Бүлгүүдийн дисперс тэнцүү эсэхийг шалгах тест. t-тест, ANOVA-ийн таамаглалыг шалгахад хэрэглэнэ."
+  example: "Хоёр эмчилгээний бүлгийн холестеролын хэлбэлзэл ижил эсэхийг шалгах."
+  related: [t-test, anova, variance]
+  r: "car::leveneTest(y ~ group, data = df)"
+
+# ---------------------------------------------------------------
+# НЭМЭЛТ: АРГУУДТАЙ ХОЛБООТОЙ
+# ---------------------------------------------------------------
+
+- id: one-sample-t-test
+  en: One-sample t-test
+  mn: Нэг түүврийн t-тест
+  topics: [tests]
+  def: "Нэг бүлгийн дундажийг урьдчилан тогтоосон утга (норм, жишиг утга)-тай харьцуулах параметр тест."
+  example: "Сургуулийн хүүхдүүдийн дундаж гемоглобин 120 г/л-ийн нормоос ялгаатай эсэхийг шалгах."
+  related: [t-test, paired-t-test, confidence-interval]
+  r: "t.test(df$hb, mu = 120)"
+
+- id: manova
+  en: MANOVA
+  mn: Олон хэмжээст дисперсийн шинжилгээ
+  topics: [tests]
+  def: "Хоёр ба түүнээс дээш хамааралтай тасралтгүй үр дагаврын хувьсагчийг бүлгүүдийн хооронд нэгэн зэрэг харьцуулах арга."
+  example: "Гурван дасгалын хөтөлбөрийн систол ба диастолын даралтад үзүүлэх нөлөөг хамтад нь харьцуулах."
+  pitfall: "MANOVA ач холбогдолтой гарвал аль үр дагаварт ялгаа байгааг тусад нь (univariate ANOVA, залруулгатай) шалгана."
+  related: [anova, multiple-comparisons]
+  r: "summary(manova(cbind(sbp, dbp) ~ group, data = df), test = \"Pillai\")"
+
+- id: clustered-data
+  en: Clustered data
+  mn: Кластерласан өгөгдөл
+  alt: [Бүлэглэсэн өгөгдөл]
+  topics: [regression, design]
+  def: "Ажиглалтууд бүлэг (нэг хүн, нэг өрх, нэг эмнэлэг, нэг сургууль) дотроо хоорондоо илүү төстэй байх бүтэцтэй өгөгдөл."
+  example: "20 сургуулийн 1000 сурагч: нэг сургуулийн сурагчид хоорондоо төстэй."
+  pitfall: "Кластерыг үл тоовол стандарт алдаа хэт бага гарч, p-утга буруу жижиг болдог."
+  related: [gee, mixed-model, independence]
+
+- id: gee
+  en: Generalized estimating equations (GEE)
+  mn: Ерөнхийлсөн үнэлгээний тэгшитгэл
+  topics: [regression]
+  def: "Давтан хэмжилт эсвэл кластерласан өгөгдлийн хүн амын түвшний (дундаж) нөлөөг үнэлэх регрессийн арга. Үр дагавар тасралтгүй, хоёр утгат, тоолсон байж болно."
+  example: "Хүүхэд бүрийг 4 удаа үзлэг хийж, амьсгалын замын халдвартай эсэхэд агаарын бохирдлын нөлөөг тооцох."
+  pitfall: "GEE нь хүн амын дундаж нөлөөг, холимог загвар нь хувь хүний түвшний нөлөөг тайлбарладаг. Логистик загварт энэ хоёрын OR ялгаатай гарна."
+  related: [working-correlation, clustered-data, mixed-model, robust-standard-error]
+  r: "geepack::geeglm(y ~ time + group, id = id, family = binomial, corstr = \"exchangeable\", data = df)"
+
+- id: working-correlation
+  en: Working correlation structure
+  mn: Ажлын корреляцийн бүтэц
+  topics: [regression]
+  def: "GEE-д нэг кластер доторх ажиглалтуудын хоорондын хамаарлыг хэрхэн загварчлахыг тодорхойлох таамаглал: independence, exchangeable, AR(1), unstructured."
+  example: "Хэмжилтүүд цаг хугацаагаар ойр байх тусам илүү хамааралтай бол AR(1) бүтэц сонгоно."
+  related: [gee, robust-standard-error]
+
+- id: robust-standard-error
+  en: Robust (sandwich) standard error
+  mn: Бат бөх стандарт алдаа
+  alt: [Сэндвич стандарт алдаа]
+  topics: [regression]
+  def: "Загварын таамаглал (жишээ нь корреляцийн бүтэц) бүрэн зөв биш байсан ч хүчинтэй хэвээр үлддэг стандарт алдааны тооцоо. GEE-д анхдагчаар хэрэглэнэ."
+  example: "Кластер цөөн (< 30–40) үед бат бөх стандарт алдаа бага гарч болох тул залруулга хэрэглэнэ."
+  related: [gee, standard-error]
+
+# ---------------------------------------------------------------
+# ОНОШЛОГООНЫ ТЕСТИЙН ҮНЭЛГЭЭ
+# ---------------------------------------------------------------
+
+- id: sensitivity
+  en: Sensitivity
+  mn: Мэдрэг чанар
+  topics: [diagnostic]
+  def: "Өвчтэй хүмүүсийн дотор тест эерэг гарсан хүмүүсийн эзлэх хувь. Өвчтэй хүнийг зөв илрүүлэх чадвар."
+  example: "Хорт хавдартай 100 эмэгтэйн 85-д нь маммографи эерэг гарсан бол мэдрэг чанар 85%."
+  related: [specificity, npv, roc-curve]
+
+- id: specificity
+  en: Specificity
+  mn: Өвөрмөц чанар
+  topics: [diagnostic]
+  def: "Өвчингүй хүмүүсийн дотор тест сөрөг гарсан хүмүүсийн эзлэх хувь. Эрүүл хүнийг зөв ялгах чадвар."
+  example: "Хорт хавдаргүй 900 эмэгтэйн 810-д тест сөрөг гарсан бол өвөрмөц чанар 90%."
+  related: [sensitivity, ppv, roc-curve]
+
+- id: ppv
+  en: Positive predictive value (PPV)
+  mn: Эерэг таамаглалын үнэ цэнэ
+  topics: [diagnostic]
+  def: "Тест эерэг гарсан хүмүүсийн дотор бодитоор өвчтэй хүмүүсийн эзлэх хувь."
+  example: "Тест эерэг 175 хүнээс 85 нь өвчтэй бол PPV = 49%."
+  pitfall: "PPV, NPV нь өвчний тархалтаас хамаардаг. Ижил тест тархалт бага хүн амд PPV багатай байна."
+  related: [npv, prevalence, sensitivity]
+
+- id: npv
+  en: Negative predictive value (NPV)
+  mn: Сөрөг таамаглалын үнэ цэнэ
+  topics: [diagnostic]
+  def: "Тест сөрөг гарсан хүмүүсийн дотор бодитоор өвчингүй хүмүүсийн эзлэх хувь."
+  example: "Тест сөрөг 825 хүнээс 810 нь өвчингүй бол NPV = 98%."
+  related: [ppv, prevalence, specificity]
+
+- id: likelihood-ratio
+  en: Likelihood ratio (LR)
+  mn: Үнэний магадлалын харьцаа
+  topics: [diagnostic]
+  def: "Тестийн тодорхой үр дүн өвчтэй хүнд өвчингүй хүнээс хэд дахин илүү гарахыг илэрхийлнэ. LR+ = мэдрэг чанар / (1 − өвөрмөц чанар)."
+  example: "LR+ > 10 бол эерэг үр дүн оношийг баттай дэмжинэ."
+  related: [sensitivity, specificity]
+
+- id: roc-curve
+  en: ROC curve
+  mn: ROC муруй
+  topics: [diagnostic, regression]
+  def: "Тасралтгүй тест эсвэл таамаглалын загварын босго утга бүрт мэдрэг чанарыг (1 − өвөрмөц чанар)-тай харьцуулж зурсан муруй."
+  example: "Тропонины өөр өөр босгоор шигдээсийг оношлох чадварыг харуулах."
+  related: [auc, cut-off, logistic-regression]
+  r: "pROC::roc(df$disease, df$marker)"
+
+- id: auc
+  en: Area under the curve (AUC)
+  mn: Муруйн доорх талбай
+  alt: [C-статистик]
+  topics: [diagnostic, regression]
+  def: "ROC муруйн доорх талбай. 0.5 бол санамсаргүй таавартай адил, 1.0 бол төгс ялгах чадвар."
+  example: "AUC = 0.82 (95% CI 0.77–0.87): сайн ялгах чадвар."
+  related: [roc-curve, sensitivity]
+  r: "pROC::auc(roc_obj)"
+
+- id: cut-off
+  en: Cut-off value
+  mn: Босго утга
+  topics: [diagnostic]
+  def: "Тасралтгүй тестийн үр дүнг эерэг/сөрөг гэж ангилах хил утга. Сонголтоос хамааран мэдрэг ба өвөрмөц чанар эсрэгээр өөрчлөгдөнө."
+  example: "HbA1c ≥ 6.5% бол чихрийн шижин гэж оношлох."
+  related: [roc-curve, youden-index]
+
+- id: youden-index
+  en: Youden index
+  mn: Юдены индекс
+  topics: [diagnostic]
+  def: "Мэдрэг чанар + өвөрмөц чанар − 1. Энэ индекс хамгийн их байх цэгийг оновчтой босго гэж сонгох нь түгээмэл."
+  example: "Мэдрэг чанар 0.80, өвөрмөц чанар 0.75 бол Юдены индекс 0.55."
+  related: [cut-off, roc-curve]
+
+- id: gold-standard
+  en: Gold standard
+  mn: Алтан стандарт
+  alt: [Жишиг стандарт]
+  topics: [diagnostic]
+  def: "Тухайн өвчнийг оношлох хамгийн найдвартай гэж хүлээн зөвшөөрөгдсөн арга. Шинэ тестийг түүнтэй харьцуулж үнэлнэ."
+  example: "Хорт хавдрыг оношлоход эдийн шинжилгээ (биопси)."
+  related: [sensitivity, specificity]
+
+- id: kappa
+  en: Cohen's kappa (κ)
+  mn: Коэны каппа
+  topics: [diagnostic]
+  def: "Хоёр үнэлгээчин (эсвэл хоёр арга)-ы ангиллын тохирлыг санамсаргүй тохиролцоог хасаж хэмжих коэффициент."
+  example: "Хоёр рентгенологичийн уушгины хатгалгааны оношийн тохирол κ = 0.68 (сайн)."
+  related: [categorical-variable]
+  r: "irr::kappa2(df[, c(\"rater1\", \"rater2\")])"
+
+# ---------------------------------------------------------------
+# КЛИНИК ТУРШИЛТ
+# ---------------------------------------------------------------
+
+- id: rct
+  en: Randomised controlled trial (RCT)
+  mn: Санамсаргүй хяналттай туршилт
+  topics: [trials, design]
+  def: "Оролцогчдыг эмчилгээ ба хяналтын бүлэгт санамсаргүйгээр хуваарилж, үр дүнг харьцуулдаг туршилтын судалгаа. Эмчилгээний үр нөлөөг үнэлэх хамгийн хүчтэй дизайн."
+  example: "Шинэ даралт бууруулах эмийг плацебо-тай харьцуулсан 12 долоо хоногийн туршилт."
+  related: [randomisation, blinding, consort, intention-to-treat]
+
+- id: randomisation
+  en: Randomisation
+  mn: Санамсаргүй хуваарилалт
+  topics: [trials]
+  def: "Оролцогч бүрийг аль бүлэгт орохыг санамсаргүй байдлаар (жишээ нь компьютерын санамсаргүй тоо) тогтоох. Мэдэгдэж буй ба үл мэдэгдэх confounder-ийг бүлгүүдэд тэнцвэржүүлнэ."
+  example: "4, 6-ийн хэмжээтэй блокоор, хүйсээр давхаргажуулсан санамсаргүй хуваарилалт."
+  related: [rct, allocation-concealment, confounding]
+
+- id: allocation-concealment
+  en: Allocation concealment
+  mn: Хуваарилалтыг нууцлах
+  topics: [trials, bias]
+  def: "Дараагийн оролцогч аль бүлэгт орохыг элсүүлж буй судлаач урьдчилан мэдэх боломжгүй байлгах арга."
+  example: "Төвлөрсөн утас эсвэл вэб систем, битүүмжилсэн дугаартай дугтуй ашиглах."
+  related: [randomisation, selection-bias]
+
+- id: blinding
+  en: Blinding
+  mn: Сохруулалт
+  alt: [Masking]
+  topics: [trials, bias]
+  def: "Оролцогч, эмч, үр дүнг үнэлэгч зэрэг хүмүүс аль бүлэгт хуваарилагдсаныг мэдэхгүй байлгах. Давхар сохор туршилтад оролцогч ба судлаач хоёулаа мэдэхгүй."
+  example: "Эм ба плацебо ижил хэлбэр, өнгө, амттай шахмал хэлбэрээр олгох."
+  related: [placebo, information-bias]
+
+- id: placebo
+  en: Placebo
+  mn: Плацебо
+  topics: [trials]
+  def: "Идэвхтэй бодисгүй, гэхдээ жинхэнэ эмчилгээтэй гадаад төрхөөрөө ижил хуурамч эмчилгээ. Сэтгэл зүйн нөлөөг ялгахад хэрэглэнэ."
+  example: "Витамин D-гийн туршилтад тосон капсулыг плацебо болгох."
+  related: [blinding, rct]
+
+- id: intention-to-treat
+  en: Intention-to-treat (ITT) analysis
+  mn: Эмчлэх зорилгын шинжилгээ
+  topics: [trials]
+  def: "Оролцогч бүрийг эмчилгээгээ бүрэн хийлгэсэн эсэхээс үл хамааран анх хуваарилагдсан бүлэгт нь шинжлэх зарчим. Санамсаргүй хуваарилалтын давуу талыг хадгална."
+  example: "Эмээ ууж дуусгаагүй өвчтөнийг ч эмчилгээний бүлэгт нь тооцох."
+  related: [per-protocol, randomisation, missing-data]
+
+- id: per-protocol
+  en: Per-protocol analysis
+  mn: Протоколын дагуух шинжилгээ
+  topics: [trials]
+  def: "Зөвхөн протоколыг бүрэн дагаж мөрдсөн оролцогчдыг шинжлэх арга. ITT-тэй хамт мэдрэмжийн шинжилгээ болгон тайлагнана."
+  example: "Эмийн 80%-иас доошгүйг уусан оролцогчдыг л шинжлэх."
+  pitfall: "Протоколоос гарсан шалтгаан үр дагавартай холбоотой бол хазайлт үүсгэнэ."
+  related: [intention-to-treat, bias]
+
+- id: primary-endpoint
+  en: Primary endpoint
+  mn: Үндсэн төгсгөлийн цэг
+  alt: [Үндсэн үр дагавар]
+  topics: [trials]
+  def: "Туршилтын гол асуултад хариулах, түүврийн хэмжээг тооцоход үндэслэсэн, урьдчилан нэг тодорхойлсон үр дагавар."
+  example: "12 дахь долоо хоногийн HbA1c-ийн өөрчлөлт."
+  pitfall: "Үр дүнг харсны дараа үндсэн төгсгөлийн цэгийг солих нь ноцтой зөрчил. Протоколыг урьдчилан бүртгэнэ."
+  related: [outcome, sample-size]
+
+- id: non-inferiority
+  en: Non-inferiority trial
+  mn: Дутуугүй байдлын туршилт
+  topics: [trials]
+  def: "Шинэ эмчилгээ стандарт эмчилгээнээс урьдчилан тогтоосон хүлээн зөвшөөрөгдөх хэмжээнээс (margin) илүү муу биш гэдгийг харуулах зорилготой туршилт."
+  example: "Хямд, хэрэглэхэд хялбар антибиотик стандарт эмээс 10%-иас илүү муу биш эсэхийг шалгах."
+  related: [rct, confidence-interval]
+
+- id: crossover-trial
+  en: Crossover trial
+  mn: Солбицсон туршилт
+  topics: [trials]
+  def: "Оролцогч бүр хоёр эмчилгээг санамсаргүй дараалалаар, завсарлагатайгаар хоёуланг нь хийлгэдэг туршилт. Хүн бүр өөрөө өөрийнхөө хяналт болно."
+  example: "Архаг өвдөлтийн хоёр эмийг 4 долоо хоногийн завсарлагатайгаар солих."
+  pitfall: "Эхний эмчилгээний нөлөө удаан үргэлжилбэл (carry-over) үр дүн гажина."
+  related: [paired-t-test, rct]
+
+- id: consort
+  en: CONSORT statement
+  mn: CONSORT удирдамж
+  topics: [trials]
+  def: "Санамсаргүй хяналттай туршилтыг тайлагнахад заавал тусгах зүйлсийн жагсаалт ба оролцогчдын урсгалын диаграм."
+  example: "Сэтгүүлүүд RCT өгүүлэлд CONSORT-ын шалгах хуудас хавсаргахыг шаарддаг."
+  related: [rct, prisma]
+
+# ---------------------------------------------------------------
+# МЕТА-АНАЛИЗ
+# ---------------------------------------------------------------
+
+- id: systematic-review
+  en: Systematic review
+  mn: Системчилсэн тойм
+  topics: [meta]
+  def: "Тодорхой асуултад хамаарах бүх судалгааг урьдчилан тогтоосон, давтагдахуйц аргаар хайж, сонгож, чанарыг үнэлж нэгтгэсэн тойм."
+  example: "PubMed, Embase, Cochrane-д хайлт хийж, шалгуурын дагуу 24 судалгаа сонгох."
+  related: [meta-analysis, prisma, publication-bias]
+
+- id: meta-analysis
+  en: Meta-analysis
+  mn: Мета-анализ
+  topics: [meta]
+  def: "Олон судалгааны үр дүнг статистик аргаар нэгтгэж нэг нийлбэр үнэлгээ гаргах арга."
+  example: "12 RCT-ийн үр дүнг нэгтгэж статины нас баралтад үзүүлэх нийлбэр RR-ийг тооцох."
+  related: [systematic-review, forest-plot, heterogeneity, random-effects]
+  r: "meta::metabin(event.e, n.e, event.c, n.c, data = df)"
+
+- id: forest-plot
+  en: Forest plot
+  mn: Ойн график
+  alt: [Forest plot]
+  topics: [meta]
+  def: "Мета-анализад судалгаа бүрийн нөлөөний хэмжээ ба CI-ийг хэвтээ шугамаар, нийлбэр үнэлгээг алмаазан дүрсээр харуулдаг график."
+  example: "Алмааз 1-ийн шугамыг огтлохгүй бол нийлбэр үр дүн статистик ач холбогдолтой."
+  related: [meta-analysis, confidence-interval]
+  r: "meta::forest(m)"
+
+- id: heterogeneity
+  en: Heterogeneity (I²)
+  mn: Ялгаатай байдал
+  alt: [Гетероген байдал]
+  topics: [meta]
+  def: "Мета-анализад багтсан судалгаануудын үр дүн санамсаргүй хэлбэлзлээс илүү ялгаатай байх. I² нь энэ ялгааны хувийг илэрхийлнэ (25% бага, 50% дунд, 75% өндөр)."
+  example: "I² = 68% бол судалгаануудын үр дүн ихээхэн ялгаатай тул шалтгааныг дэд бүлгийн шинжилгээгээр судална."
+  related: [random-effects, meta-analysis]
+
+- id: random-effects
+  en: Fixed vs random effects model
+  mn: Тогтмол ба санамсаргүй нөлөөний загвар
+  topics: [meta]
+  def: "Тогтмол нөлөөний загвар нь бүх судалгаа нэг бодит нөлөөг үнэлсэн гэж, санамсаргүй нөлөөний загвар нь судалгаа бүрийн бодит нөлөө ялгаатай байж болно гэж үздэг."
+  example: "Ялгаатай байдал өндөр үед санамсаргүй нөлөөний загвар илүү өргөн CI өгнө."
+  related: [heterogeneity, meta-analysis, mixed-model]
+
+- id: publication-bias
+  en: Publication bias
+  mn: Хэвлэлийн хазайлт
+  topics: [meta, bias]
+  def: "Ач холбогдолтой эсвэл эерэг үр дүнтэй судалгаа илүү хэвлэгддэгээс мета-анализын нийлбэр үр дүн хэтрэх хазайлт."
+  example: "Жижиг, сөрөг үр дүнтэй туршилтууд хэвлэгдээгүйгээс эмийн нөлөө хэтэрхий том харагдах."
+  related: [funnel-plot, systematic-review]
+
+- id: funnel-plot
+  en: Funnel plot
+  mn: Юүлүүрийн график
+  topics: [meta]
+  def: "Судалгаа бүрийн нөлөөний хэмжээг нарийвчлал (эсвэл түүврийн хэмжээ)-тай нь харьцуулж зурсан график. Тэгш хэмгүй бол хэвлэлийн хазайлтыг сэжиглэнэ."
+  example: "Жижиг судалгаанууд зөвхөн баруун талд байрласан тэгш бус юүлүүр."
+  related: [publication-bias, meta-analysis]
+  r: "meta::funnel(m)"
+
+- id: prisma
+  en: PRISMA statement
+  mn: PRISMA удирдамж
+  topics: [meta]
+  def: "Системчилсэн тойм ба мета-анализыг тайлагнах олон улсын удирдамж, судалгаа сонголтын урсгалын диаграм."
+  example: "Хайлтаар олдсон 1240 бүтээлээс давхардал, шалгуураар хасаад 24 судалгаа үлдсэнийг диаграмаар харуулах."
+  related: [systematic-review, consort]
+
+# ---------------------------------------------------------------
+# СУДАЛГААНЫ ДИЗАЙН
+# ---------------------------------------------------------------
+
+- id: cross-sectional-study
+  en: Cross-sectional study
+  mn: Агшингийн судалгаа
+  alt: [Хөндлөн огтлолын судалгаа]
+  topics: [design]
+  def: "Нэг цэгийн хугацаанд өртөлт ба үр дагаврыг зэрэг хэмждэг ажиглалтын судалгаа. Тархалтыг тодорхойлоход тохиромжтой."
+  example: "2025 онд Улаанбаатарын 1500 насанд хүрэгчдээс артерийн гипертензийн тархалтыг тогтоох."
+  pitfall: "Өртөлт ба үр дагавар зэрэг хэмжигддэг тул аль нь түрүүлж үүссэнийг тогтоох боломжгүй."
+  related: [prevalence, cohort-study, reverse-causation]
+
+- id: case-control-study
+  en: Case-control study
+  mn: Тохиолдол-хяналтын судалгаа
+  topics: [design]
+  def: "Өвчтэй (тохиолдол) ба өвчингүй (хяналт) бүлгийг сонгож, өмнөх өртөлтийг нь харьцуулдаг ажиглалтын судалгаа. Ховор өвчинд тохиромжтой."
+  example: "Ходоодны хорт хавдартай 200 ба хавдаргүй 400 хүний Helicobacter pylori-ийн халдварыг харьцуулах."
+  pitfall: "Тархалт, ирэлтийг шууд тооцох боломжгүй. Нөлөөний хэмжүүр нь OR. Мөн дурсамжийн хазайлтад өртөмтгий."
+  related: [odds-ratio, recall-bias, matching, cohort-study]
+
+- id: cohort-study
+  en: Cohort study
+  mn: Когорт судалгаа
+  alt: [Бүлгийн хяналтын судалгаа]
+  topics: [design]
+  def: "Өртсөн ба өртөөгүй хүмүүсийг цаг хугацааны турш дагаж, үр дагавар үүсэхийг харьцуулдаг ажиглалтын судалгаа."
+  example: "Тамхи татдаг ба татдаггүй 5000 хүнийг 10 жил дагаж зүрх судасны өвчний ирэлтийг харьцуулах."
+  related: [incidence, relative-risk, prospective-retrospective, loss-to-follow-up]
+
+- id: prospective-retrospective
+  en: Prospective / retrospective study
+  mn: Проспектив / ретроспектив судалгаа
+  alt: [Ирээдүйг чиглэсэн / өнгөрснийг чиглэсэн судалгаа]
+  topics: [design]
+  def: "Проспектив судалгаа нь оролцогчдыг одооноос эхлэн ирээдүйд дагадаг. Ретроспектив судалгаа нь аль хэдийн бүртгэгдсэн, өнгөрсөн мэдээлэлд тулгуурладаг."
+  example: "2015–2020 оны өвчний түүхээс мэдээлэл цуглуулсан бол ретроспектив когорт."
+  related: [cohort-study, information-bias]
+
+- id: ecological-study
+  en: Ecological study
+  mn: Экологийн судалгаа
+  topics: [design]
+  def: "Хувь хүн биш, бүлэг (улс, аймаг, дүүрэг)-ийн түвшний нэгдсэн өгөгдлөөр хамаарлыг судалдаг судалгаа."
+  example: "Аймгуудын агаарын бохирдлын түвшин ба уушгины хатгалгааны түвшинг харьцуулах."
+  pitfall: "Бүлгийн түвшинд илэрсэн хамаарлыг хувь хүнд хамааруулах нь экологийн төөрөгдөл (ecological fallacy)."
+  related: [cross-sectional-study, confounding]
+
+- id: case-series
+  en: Case series
+  mn: Тохиолдлын цуврал
+  topics: [design]
+  def: "Ижил оноштой эсвэл ижил эмчилгээ хийлгэсэн хэсэг өвчтөний шинж тэмдэг, явцыг харьцуулах бүлэггүйгээр тодорхойлсон судалгаа."
+  example: "Шинэ халдварын анхны 15 тохиолдлын эмнэлзүйн шинж тэмдгийн тайлбар."
+  related: [cohort-study, case-control-study]
+
+- id: exposure
+  en: Exposure
+  mn: Өртөлт
+  topics: [design, epi]
+  def: "Үр дагаварт нөлөөлж болзошгүй гэж судалж буй хүчин зүйл: эрсдэлт хүчин зүйл, эмчилгээ, зан үйл, орчны нөлөө зэрэг."
+  example: "Тамхи татах, агаарын бохирдол, тодорхой эм хэрэглэх."
+  related: [outcome, confounding, relative-risk]
+
+- id: outcome
+  en: Outcome
+  mn: Үр дагавар
+  alt: [Гарц, Төгсгөлийн цэг]
+  topics: [design, epi]
+  def: "Судалгаагаар хэмжиж, тайлбарлах гэж буй гол үзүүлэлт эсвэл үйл явдал."
+  example: "Нас баралт, өвчний дахилт, систолын даралтын өөрчлөлт."
+  related: [exposure, primary-endpoint]
+
+- id: inclusion-exclusion
+  en: Inclusion / exclusion criteria
+  mn: Хамруулах / хасах шалгуур
+  topics: [design]
+  def: "Судалгаанд хэн хамрагдах, хэн хамрагдахгүйг урьдчилан тодорхойлсон шалгуурууд."
+  example: "Хамруулах: 18–65 насны, 2-р хэлбэрийн чихрийн шижинтэй. Хасах: жирэмсэн, бөөрний дутагдалтай."
+  pitfall: "Хэт хатуу шалгуур нь үр дүнг бодит эмнэлзүйн өвчтөнд хэрэглэх боломжийг (гадаад хүчинтэй байдал) бууруулдаг."
+  related: [selection-bias, population]
+
+- id: matching
+  en: Matching
+  mn: Тохируулга
+  alt: [Хослуулах]
+  topics: [design, bias]
+  def: "Харьцуулж буй бүлгүүдийг нас, хүйс зэрэг confounder-ээр ижил болгох зорилгоор оролцогчдыг сонгох арга."
+  example: "Тохиолдол бүрт ижил хүйстэй, нас нь ±5 жилийн зөрүүтэй хоёр хяналт сонгох."
+  pitfall: "Тохируулсан судалгааг шинжлэхдээ хосолсон аргыг (жишээ нь нөхцөлт логистик регресс) хэрэглэнэ."
+  related: [case-control-study, confounding]
+
+- id: pilot-study
+  en: Pilot study
+  mn: Туршилтын судалгаа
+  alt: [Пилот судалгаа]
+  topics: [design]
+  def: "Үндсэн судалгааны өмнө аргачлал, асуумж, элсэлтийн хурд зэргийг шалгах зорилгоор жижиг хэмжээнд хийх судалгаа."
+  example: "30 хүнд асуумжийг туршиж, ойлгомжгүй асуултуудыг засах."
+  related: [sample-size]
+
+# ---------------------------------------------------------------
+# ЭПИДЕМИОЛОГИЙН ХЭМЖҮҮР
+# ---------------------------------------------------------------
+
+- id: prevalence
+  en: Prevalence
+  mn: Тархалт
+  alt: [Өвчлөлийн тархалт]
+  topics: [epi]
+  def: "Тодорхой цэгийн хугацаанд (эсвэл хугацааны туршид) хүн амын дунд тухайн өвчтэй байгаа хүмүүсийн эзлэх хувь. Хуучин ба шинэ бүх тохиолдлыг агуулна."
+  example: "1500 хүнээс 405 нь гипертензитэй бол тархалт 27%."
+  related: [incidence, cross-sectional-study, proportion]
+
+- id: incidence
+  en: Incidence
+  mn: Ирэлт
+  alt: [Шинэ тохиолдлын түвшин]
+  topics: [epi]
+  def: "Тодорхой хугацаанд эрсдэлтэй хүмүүсийн дунд шинээр үүссэн тохиолдлын давтамж. Хуримтлагдсан ирэлт эсвэл ирэлтийн түвшингээр илэрхийлнэ."
+  example: "Жилд 100 000 хүн тутамд сүрьеэгийн 400 шинэ тохиолдол бүртгэгдсэн."
+  pitfall: "Тархалт = ирэлт × өвчний үргэлжлэх хугацаа (ойролцоогоор). Удаан үргэлжлэх архаг өвчинд тархалт өндөр ч ирэлт бага байж болно."
+  related: [prevalence, cumulative-incidence, incidence-rate]
+
+- id: cumulative-incidence
+  en: Cumulative incidence (risk)
+  mn: Хуримтлагдсан ирэлт
+  alt: [Эрсдэл]
+  topics: [epi]
+  def: "Эхэндээ өвчингүй байсан хүмүүсийн дотор тодорхой хугацаанд өвчилсөн хүмүүсийн эзлэх хувь."
+  example: "1000 эрүүл хүнээс 5 жилийн дотор 60 нь чихрийн шижин туссан бол 5 жилийн эрсдэл 6%."
+  related: [incidence, relative-risk, incidence-rate]
+
+- id: person-time
+  en: Person-time
+  mn: Хүн-хугацаа
+  alt: [Хүн-жил]
+  topics: [epi, survival]
+  def: "Оролцогч бүрийн ажиглалтад байсан хугацааны нийлбэр. Хүмүүс өөр өөр хугацаанд дагагдсан үед ирэлтийн түвшинг тооцоход хэрэглэнэ."
+  example: "3 жил дагагдсан 100 хүн ба 1 жил дагагдсан 50 хүн = 350 хүн-жил."
+  related: [incidence-rate, censoring]
+
+- id: incidence-rate
+  en: Incidence rate
+  mn: Ирэлтийн түвшин
+  alt: [Ирэлтийн нягтрал]
+  topics: [epi]
+  def: "Шинэ тохиолдлын тоог нийт хүн-хугацаанд хуваасан үзүүлэлт."
+  example: "350 хүн-жилд 7 шинэ тохиолдол бол 1000 хүн-жил тутамд 20."
+  related: [person-time, incidence, poisson-regression]
+
+- id: mortality-rate
+  en: Mortality rate
+  mn: Нас баралтын түвшин
+  topics: [epi]
+  def: "Тодорхой хугацаанд хүн амд ногдох нас баралтын тоо. Ихэвчлэн 1000 эсвэл 100 000 хүн тутамд илэрхийлнэ."
+  example: "Зүрх судасны өвчний нас баралт 100 000 хүн амд 180."
+  related: [case-fatality-rate, standardisation]
+
+- id: case-fatality-rate
+  en: Case fatality rate
+  mn: Өвчний үхлийн хувь
+  alt: [Үхлийн хувь]
+  topics: [epi]
+  def: "Тухайн өвчнөөр оношлогдсон хүмүүсийн дотор тэр өвчнөөр нас барсан хүмүүсийн эзлэх хувь. Өвчний хүндийн хэмжүүр."
+  example: "Тодорхой халдварын 2000 тохиолдлоос 40 нь нас барсан бол үхлийн хувь 2%."
+  related: [mortality-rate, incidence]
+
+- id: standardisation
+  en: Age standardisation
+  mn: Насаар стандартчилах
+  topics: [epi]
+  def: "Насны бүтэц өөр хүн амуудын өвчлөл, нас баралтын түвшинг шударгаар харьцуулахын тулд жишиг хүн амын насны бүтэцтэй адилтгаж тооцох арга."
+  example: "Монгол ба Японы хорт хавдрын нас баралтыг ДЭМБ-ын жишиг хүн амаар стандартчилж харьцуулах."
+  related: [mortality-rate, confounding]
+
+- id: relative-risk
+  en: Relative risk (RR)
+  mn: Харьцангуй эрсдэл
+  alt: [Эрсдэлийн харьцаа]
+  topics: [epi]
+  def: "Өртсөн бүлгийн эрсдэлийг өртөөгүй бүлгийн эрсдэлд хуваасан харьцаа. RR = 1 бол ялгаагүй, RR > 1 бол эрсдэл өндөр."
+  example: "Тамхичдын 10%, тамхи татдаггүйчүүдийн 2%-д өвчин үүссэн бол RR = 5."
+  related: [odds-ratio, risk-difference, cohort-study, hazard-ratio]
+
+- id: odds
+  en: Odds
+  mn: Сондгой
+  alt: [Боломжийн харьцаа]
+  topics: [epi, probability]
+  def: "Үзэгдэл тохиолдох магадлалыг тохиолдохгүй байх магадлалд хуваасан харьцаа: p / (1 − p)."
+  example: "Магадлал 0.2 бол odds = 0.2 / 0.8 = 0.25 (1:4)."
+  related: [probability, odds-ratio]
+
+- id: odds-ratio
+  en: Odds ratio (OR)
+  mn: Сондгойн харьцаа
+  alt: [Магадлалын харьцаа]
+  topics: [epi, regression]
+  def: "Өртсөн бүлгийн odds-ийг өртөөгүй бүлгийн odds-д хуваасан харьцаа. Тохиолдол-хяналтын судалгаа ба логистик регрессийн үндсэн хэмжүүр."
+  example: "OR = 2.5 (95% CI 1.6–3.9): өртсөн хүмүүст өвчлөх odds 2.5 дахин өндөр."
+  pitfall: "Үр дагавар түгээмэл (>10%) үед OR нь RR-ээс эрс том гардаг тул «эрсдэл 2.5 дахин өндөр» гэж тайлбарлах нь буруу."
+  related: [relative-risk, odds, logistic-regression, case-control-study]
+
+- id: risk-difference
+  en: Risk difference (absolute risk reduction)
+  mn: Эрсдэлийн зөрүү
+  alt: [Үнэмлэхүй эрсдэлийн бууралт, ARR]
+  topics: [epi, trials]
+  def: "Хоёр бүлгийн эрсдэлийн хасах зөрүү. Нөлөөний бодит, үнэмлэхүй хэмжээг харуулна."
+  example: "Плацебо бүлэгт 8%, эмчилгээний бүлэгт 5% бол ARR = 3 хувийн пункт."
+  related: [relative-risk, nnt, relative-risk-reduction]
+
+- id: relative-risk-reduction
+  en: Relative risk reduction (RRR)
+  mn: Харьцангуй эрсдэлийн бууралт
+  topics: [epi, trials]
+  def: "Эмчилгээ эрсдэлийг хяналтын бүлгийн эрсдэлтэй харьцуулахад хэдэн хувиар бууруулсныг илэрхийлнэ: (1 − RR) × 100%."
+  example: "Эрсдэл 8%-иас 5% болсон бол RRR = 37.5%, харин ARR нь ердөө 3%."
+  pitfall: "RRR нь ARR-ээс үргэлж том харагддаг тул зөвхөн RRR тайлагнах нь эмчилгээний үр нөлөөг хэтрүүлж харагдуулдаг."
+  related: [risk-difference, relative-risk, nnt]
+
+- id: nnt
+  en: Number needed to treat (NNT)
+  mn: Эмчлэх шаардлагатай тоо
+  topics: [epi, trials]
+  def: "Нэг сөрөг үр дагаврыг нэмж урьдчилан сэргийлэхийн тулд хэдэн өвчтөнийг эмчлэх шаардлагатайг харуулах үзүүлэлт: 1 / ARR."
+  example: "ARR = 0.03 бол NNT = 33: 33 хүнийг эмчилбэл 1 тохиолдлоос сэргийлнэ."
+  related: [risk-difference, clinical-significance]
+
+- id: attributable-risk
+  en: Attributable fraction
+  mn: Хамааруулах хувь
+  alt: [Attributable risk]
+  topics: [epi]
+  def: "Тухайн өртөлтийг арилгавал өвчний хэдэн хувиас урьдчилан сэргийлэх боломжтойг илэрхийлэх хэмжүүр (учир шалтгааны холбоо байгаа гэж үзвэл)."
+  example: "Уушгины хорт хавдрын ихэнх хувь нь тамхинаас шалтгаалдаг гэж тооцоолсон."
+  related: [relative-risk, risk-difference]
+
+# ---------------------------------------------------------------
+# ХАЗАЙЛТ БА CONFOUNDING
+# ---------------------------------------------------------------
+
+- id: bias
+  en: Bias
+  mn: Хазайлт
+  alt: [Системчилсэн алдаа]
+  topics: [bias]
+  def: "Судалгааны дизайн, явц эсвэл шинжилгээний алдаанаас үүдэн үр дүн бодит утгаас нэг чиглэлд системтэйгээр зөрөх. Түүврийг томруулснаар арилахгүй."
+  example: "Зөвхөн эмнэлэгт хэвтсэн өвчтөнүүдийг судалснаар өвчний хүндийг хэтрүүлж үнэлэх."
+  related: [selection-bias, information-bias, confounding, sampling-error]
+
+- id: selection-bias
+  en: Selection bias
+  mn: Сонголтын хазайлт
+  topics: [bias]
+  def: "Судалгаанд хамрагдсан хүмүүс зорилтот хүн амаас өртөлт эсвэл үр дагавартай холбоотойгоор системтэй ялгаатай байснаас үүдэх хазайлт."
+  example: "Сайн дурын үзлэгт эрүүл мэнддээ анхаарал хандуулдаг хүмүүс илүү ирдэг."
+  related: [bias, random-sampling, loss-to-follow-up, healthy-worker-effect]
+
+- id: information-bias
+  en: Information bias
+  mn: Мэдээллийн хазайлт
+  alt: [Хэмжилтийн хазайлт]
+  topics: [bias]
+  def: "Өртөлт эсвэл үр дагаврыг буруу хэмжих, ангилахаас үүдэх хазайлт."
+  example: "Тохируулаагүй даралтын аппаратаар бүх хэмжилтийг 5 мм м.у.б өндөр хэмжих."
+  related: [bias, recall-bias, blinding]
+
+- id: recall-bias
+  en: Recall bias
+  mn: Дурсамжийн хазайлт
+  topics: [bias]
+  def: "Өвчтэй хүмүүс өнгөрсөн өртөлтөө өвчингүй хүмүүсээс илүү нарийн (эсвэл өөрөөр) санаж хэлснээс үүдэх хазайлт."
+  example: "Гажигтай хүүхэд төрүүлсэн эхчүүд жирэмсэн үедээ уусан эмээ илүү сайн санадаг."
+  related: [case-control-study, information-bias]
+
+- id: loss-to-follow-up
+  en: Loss to follow-up
+  mn: Дагалтаас гарах
+  alt: [Drop-out]
+  topics: [bias, trials]
+  def: "Оролцогчид судалгааны явцад холбоо тасарч, үр дагаврыг нь хэмжих боломжгүй болох. Бүлгүүдэд ялгаатай байвал хазайлт үүсгэнэ."
+  example: "Гаж нөлөө ихтэй эмийн бүлгээс илүү олон хүн судалгаанаас гарсан."
+  related: [missing-data, selection-bias, censoring, intention-to-treat]
+
+- id: healthy-worker-effect
+  en: Healthy worker effect
+  mn: Эрүүл ажилчны нөлөө
+  topics: [bias]
+  def: "Ажил эрхэлж буй хүмүүс ерөнхий хүн амаас эрүүл байдаг тул ажилчдыг ерөнхий хүн амтай харьцуулахад мэргэжлийн эрсдэл бага харагдах сонголтын хазайлт."
+  example: "Уурхайчдын нас баралт ерөнхий хүн амынхаас бага гарсан ч энэ нь ажил хамгаалдаг гэсэн үг биш."
+  related: [selection-bias]
+
+- id: confounding
+  en: Confounding
+  mn: Төөрөгдүүлэгч хүчин зүйл
+  alt: [Confounder, Хутгагч хүчин зүйл]
+  topics: [bias]
+  def: "Өртөлт ба үр дагаврын аль алинтай нь холбоотой, учир шалтгааны замд ордоггүй гуравдагч хүчин зүйлээс болж хамаарал гуйвах үзэгдэл."
+  example: "Кофе уух ба уушгины хорт хавдрын хамаарлыг тамхи төөрөгдүүлдэг: кофе уудаг хүмүүс илүү тамхи татдаг."
+  pitfall: "Confounder-ийг зөвхөн шинжилгээнд нэмж залруулах боломжтой, хэмжээгүй confounder-ийг залруулж чадахгүй. Санамсаргүй хуваарилалт л хэмжээгүй confounder-ийг тэнцвэржүүлдэг."
+  related: [adjusted-odds-ratio, effect-modification, randomisation, matching]
+
+- id: effect-modification
+  en: Effect modification
+  mn: Нөлөөний өөрчлөлт
+  alt: [Харилцан үйлчлэл]
+  topics: [bias, regression]
+  def: "Өртөлтийн нөлөө гуравдагч хувьсагчийн түвшнээс хамаарч өөр өөр байх үзэгдэл. Confounding-оос ялгаатай нь залруулах биш, бүлэг тус бүрээр тайлагнах ёстой."
+  example: "Эмийн үр нөлөө эрэгтэйчүүдэд илүү, эмэгтэйчүүдэд бага байх."
+  related: [interaction, confounding]
+
+- id: reverse-causation
+  en: Reverse causation
+  mn: Урвуу учир шалтгаан
+  topics: [bias]
+  def: "Үр дагавар нь өртөлтийг үүсгэсэн байхад өртөлт үр дагаврыг үүсгэсэн мэт харагдах."
+  example: "Бага биеийн жин нас баралттай холбоотой харагдах нь өвчний улмаас жин буурснаас шалтгаалж болно."
+  related: [cross-sectional-study, causation]
+
+- id: causation
+  en: Association vs causation
+  mn: Хамаарал ба учир шалтгаан
+  topics: [bias, inference]
+  def: "Хоёр хувьсагч хамт өөрчлөгдөх (хамаарал) нь нэг нь нөгөөг үүсгэдэг (учир шалтгаан) гэсэн үг биш. Учир шалтгааныг дүгнэхэд Брэдфорд Хиллийн шалгуурууд зэргийг харгалзана."
+  example: "Цаг хугацааны дараалал, тун-хариу урвалын хамаарал, давтагдах чанар, биологийн үндэслэл."
+  related: [confounding, reverse-causation, pearson-correlation]
+
+# ---------------------------------------------------------------
+# РЕГРЕСС БА ЗАГВАРЧЛАЛ
+# ---------------------------------------------------------------
+
+- id: linear-regression
+  en: Linear regression
+  mn: Шугаман регресс
+  topics: [regression]
+  def: "Тасралтгүй үр дагаврын хувьсагчийг нэг буюу хэд хэдэн тайлбарлагч хувьсагчаар шулуун шугамын тэгшитгэлээр загварчлах арга."
+  example: "Систолын даралтыг нас, BMI, хүйсээр тайлбарлах загвар."
+  pitfall: "Таамаглалуудыг (шугаман хамаарал, үлдэгдлийн хэвийн тархалт, тэнцүү дисперс) үлдэгдлийн графикаар шалгана."
+  related: [regression-coefficient, r-squared, residual, multiple-regression]
+  r: "lm(sbp ~ age + bmi + sex, data = df)"
+
+- id: regression-coefficient
+  en: Regression coefficient (β)
+  mn: Регрессийн коэффициент
+  topics: [regression]
+  def: "Бусад хувьсагчийг тогтмол байлгахад тайлбарлагч хувьсагч нэг нэгжээр өөрчлөгдөхөд үр дагаврын хувьсагч дунджаар хэр өөрчлөгдөхийг харуулна."
+  example: "β = 0.8 бол нас нэг жилээр нэмэгдэхэд систолын даралт дунджаар 0.8 мм м.у.б өснө."
+  related: [linear-regression, confidence-interval]
+
+- id: r-squared
+  en: R-squared (R²)
+  mn: Детерминацын коэффициент
+  topics: [regression]
+  def: "Үр дагаврын хувьсагчийн нийт хэлбэлзлийн хэдэн хувийг загвар тайлбарлаж байгааг 0–1 хооронд илэрхийлэх үзүүлэлт."
+  example: "R² = 0.35 бол даралтын хэлбэлзлийн 35%-ийг загварын хувьсагчид тайлбарлана."
+  pitfall: "Хувьсагч нэмэх бүрт R² өсдөг. Олон хувьсагчтай загварыг харьцуулахад adjusted R² хэрэглэнэ."
+  related: [linear-regression, overfitting]
+
+- id: residual
+  en: Residual
+  mn: Үлдэгдэл
+  topics: [regression]
+  def: "Ажигласан утга ба загварын таамагласан утгын зөрүү. Загварын таамаглалыг шалгахад ашиглана."
+  example: "Хүний бодит даралт 140, загварын таамаг 132 бол үлдэгдэл 8."
+  related: [linear-regression, normal-distribution]
+  r: "plot(lm_model)"
+
+- id: multiple-regression
+  en: Multiple (multivariable) regression
+  mn: Олон хувьсагчийн регресс
+  topics: [regression]
+  def: "Үр дагаврыг хэд хэдэн тайлбарлагч хувьсагчаар зэрэг загварчилж, хувьсагч бүрийн нөлөөг бусдаар нь залруулж тооцох регресс."
+  example: "Тамхины нөлөөг нас, хүйс, BMI-гээр залруулж тооцох."
+  pitfall: "«Multivariable» (олон тайлбарлагч) ба «multivariate» (олон үр дагавар) өөр ойлголт."
+  related: [linear-regression, covariate, confounding, multicollinearity]
+
+- id: covariate
+  en: Covariate
+  mn: Ковариат
+  alt: [Тайлбарлагч хувьсагч, Хамааралгүй хувьсагч]
+  topics: [regression]
+  def: "Регрессийн загварт оруулсан, үр дагаварт нөлөөлж болзошгүй тайлбарлагч хувьсагч."
+  example: "Эмчилгээний нөлөөг шинжлэхэд нас ба суурь даралтыг ковариат болгон оруулах."
+  related: [multiple-regression, confounding, ancova]
+
+- id: dummy-variable
+  en: Dummy variable
+  mn: Дамми хувьсагч
+  alt: [Индикатор хувьсагч]
+  topics: [regression]
+  def: "Ангиллын хувьсагчийг регрессэд оруулахын тулд 0/1 утгатай хэд хэдэн хувьсагч болгон хувиргах арга. k ангилалд k − 1 дамми хэрэгтэй."
+  example: "Боловсрол (бага, дунд, дээд)-ыг «дунд» ба «дээд» гэсэн хоёр дамми болгож, «бага»-г жишиг ангилал болгох."
+  related: [categorical-variable, multiple-regression]
+  r: "factor(x); relevel(factor(x), ref = \"бага\")"
+
+- id: logistic-regression
+  en: Logistic regression
+  mn: Логистик регресс
+  topics: [regression]
+  def: "Хоёр утгат (тийм/үгүй) үр дагаврын магадлалыг тайлбарлагч хувьсагчдаар загварчлах регресс. Коэффициентийг exp() хувиргахад OR гарна."
+  example: "Тамхи, нас, BMI-ээс хамааран гипертензи үүсэх odds-ийг тооцох."
+  pitfall: "Нэг хувьсагч тутамд дор хаяж 10 орчим үр дагаврын тохиолдол (EPV) байх шаардлагатай, эс бөгөөс загвар тогтворгүй болно."
+  related: [odds-ratio, adjusted-odds-ratio, roc-curve]
+  r: "glm(htn ~ smoke + age + bmi, family = binomial, data = df)"
+
+- id: adjusted-odds-ratio
+  en: Adjusted odds ratio (aOR)
+  mn: Залруулсан сондгойн харьцаа
+  topics: [regression, bias]
+  def: "Олон хувьсагчийн логистик регрессээр бусад хувьсагчийн (confounder) нөлөөг залруулж тооцсон OR. Залруулаагүйг нь crude OR гэнэ."
+  example: "Crude OR = 3.1 байсан бол нас, хүйсээр залруулахад aOR = 2.2 болж буурсан нь confounding байгааг харуулна."
+  related: [odds-ratio, confounding, logistic-regression]
+  r: "exp(cbind(OR = coef(m), confint(m)))"
+
+- id: poisson-regression
+  en: Poisson regression
+  mn: Пуассоны регресс
+  topics: [regression]
+  def: "Тоолсон үр дагавар (тохиолдлын тоо) эсвэл түвшинг загварчлах регресс. Коэффициентийг exp() хувиргахад ирэлтийн түвшний харьцаа (IRR) гарна."
+  example: "Дүүргүүдийн астмын хурцдалын тоог агаарын бохирдлоор тайлбарлах, хүн-жилийг offset болгох."
+  pitfall: "Дисперс дунджаас их (overdispersion) байвал сөрөг бином регресс хэрэглэнэ."
+  related: [poisson-distribution, incidence-rate]
+  r: "glm(cases ~ pm25 + offset(log(pyears)), family = poisson, data = df)"
+
+- id: interaction
+  en: Interaction
+  mn: Харилцан үйлчлэл
+  topics: [regression]
+  def: "Нэг хувьсагчийн үр дагаварт үзүүлэх нөлөө нь өөр хувьсагчийн утгаас хамаарч өөрчлөгдөх. Загварт үржвэр гишүүнээр оруулна."
+  example: "Тамхи ба асбестын хамтын нөлөө тус бүрийн нөлөөний нийлбэрээс их."
+  related: [effect-modification, multiple-regression]
+  r: "lm(y ~ smoke * sex, data = df)"
+
+- id: multicollinearity
+  en: Multicollinearity
+  mn: Олон шугамт хамаарал
+  alt: [Мультиколлинеари]
+  topics: [regression]
+  def: "Загварын тайлбарлагч хувьсагчид хоорондоо хүчтэй хамааралтай байх. Коэффициентүүд тогтворгүй, стандарт алдаа нь их болдог."
+  example: "Жин, BMI, бүсэлхийн тойргийг нэг загварт зэрэг оруулах."
+  related: [multiple-regression, covariate]
+  r: "car::vif(model)"
+
+- id: overfitting
+  en: Overfitting
+  mn: Хэт тааруулалт
+  topics: [regression]
+  def: "Загвар өгөгдлийн санамсаргүй шуугианыг хүртэл «сурч», тухайн өгөгдөлд маш сайн ч шинэ өгөгдөлд муу ажиллах байдал."
+  example: "100 өвчтөн, 20 тайлбарлагч хувьсагчтай таамаглалын загвар."
+  related: [r-squared, logistic-regression]
+
+- id: ancova
+  en: ANCOVA
+  mn: Ковариацын шинжилгээ
+  topics: [regression, tests]
+  def: "Бүлгүүдийн дундажийг тасралтгүй ковариат (жишээ нь суурь утга)-аар залруулж харьцуулах арга. ANOVA ба регрессийн хослол."
+  example: "Хоёр эмчилгээний бүлгийн 12 дахь долоо хоногийн жинг суурь жингээр залруулж харьцуулах."
+  related: [anova, covariate, linear-regression]
+  r: "lm(y12 ~ group + y0, data = df)"
+
+- id: mixed-model
+  en: Mixed-effects model
+  mn: Холимог нөлөөний загвар
+  alt: [Олон түвшний загвар]
+  topics: [regression]
+  def: "Тогтмол нөлөө ба санамсаргүй нөлөөг хамтад нь агуулсан загвар. Давтан хэмжилт эсвэл бүлэглэсэн (кластер) өгөгдөлд тохиромжтой."
+  example: "Ижил эмнэлгийн өвчтөнүүд, нэг хүний олон удаагийн хэмжилт хоорондоо хамааралтайг тооцох."
+  related: [repeated-measures-anova, independence]
+  r: "lme4::lmer(y ~ time + group + (1 | id), data = df)"
+
+# ---------------------------------------------------------------
+# АМЬДРАХ ЧАДВАРЫН ШИНЖИЛГЭЭ
+# ---------------------------------------------------------------
+
+- id: survival-analysis
+  en: Survival analysis
+  mn: Амьдрах чадварын шинжилгээ
+  alt: [Үйл явдал хүртэлх хугацааны шинжилгээ]
+  topics: [survival]
+  def: "Тодорхой үйл явдал (нас баралт, дахилт гэх мэт) тохиолдох хүртэлх хугацааг, бүрэн бус ажиглалтыг тооцож шинжлэх аргуудын нэгдэл."
+  example: "Мэс заслын дараа хорт хавдар дахих хүртэлх хугацаа."
+  related: [censoring, kaplan-meier, cox-regression]
+
+- id: censoring
+  en: Censoring
+  mn: Цензур
+  alt: [Бүрэн бус ажиглалт]
+  topics: [survival]
+  def: "Тухайн хүнд үйл явдал тохиолдсон хугацаа тодорхойгүй байх: судалгаа дуусах хүртэл үйл явдал тохиолдоогүй эсвэл дагалтаас гарсан."
+  example: "3 жилийн судалгаанд амьд үлдсэн өвчтөний хугацааг «3 жилээс урт» гэж цензурлана."
+  pitfall: "Цензурлагдсан хүмүүсийг хасах эсвэл үйл явдалгүй гэж логистик регрессээр шинжлэх нь буруу."
+  related: [survival-analysis, loss-to-follow-up, person-time]
+
+- id: kaplan-meier
+  en: Kaplan–Meier estimator
+  mn: Каплан-Майерын үнэлгээ
+  topics: [survival]
+  def: "Цензурлагдсан өгөгдлөөс цаг хугацааны турш амьдрах магадлалыг тооцож, шаталсан муруйгаар харуулах арга."
+  example: "Хоёр эмчилгээний бүлгийн 5 жилийн амьдрах чадварын муруйг харьцуулах."
+  related: [log-rank-test, median-survival, censoring]
+  r: "survival::survfit(Surv(time, status) ~ group, data = df)"
+
+- id: median-survival
+  en: Median survival time
+  mn: Амьдрах хугацааны медиан
+  topics: [survival]
+  def: "Оролцогчдын тал хувьд үйл явдал тохиолдох хүртэлх хугацаа. Каплан-Майерын муруй 50%-д хүрэх цэг."
+  example: "Медиан амьдрах хугацаа 18 сар (95% CI 14–23)."
+  related: [kaplan-meier]
+
+- id: log-rank-test
+  en: Log-rank test
+  mn: Лог-ранк тест
+  topics: [survival]
+  def: "Хоёр ба түүнээс дээш бүлгийн амьдрах чадварын муруйг бүхэлд нь харьцуулах тест."
+  example: "Шинэ ба стандарт химийн эмчилгээний бүлгийн амьдрах чадвар ялгаатай эсэхийг шалгах."
+  related: [kaplan-meier, cox-regression]
+  r: "survival::survdiff(Surv(time, status) ~ group, data = df)"
+
+- id: hazard
+  en: Hazard
+  mn: Хор аюулын түвшин
+  alt: [Hazard rate, Агшин зуурын эрсдэл]
+  topics: [survival]
+  def: "Тухайн хугацаа хүртэл үйл явдал тохиолдоогүй хүнд дараагийн агшинд үйл явдал тохиолдох агшин зуурын түвшин."
+  example: "Мэс заслын дараах эхний сард нас баралтын hazard хамгийн өндөр байдаг."
+  related: [hazard-ratio, cox-regression]
+
+- id: hazard-ratio
+  en: Hazard ratio (HR)
+  mn: Хор аюулын харьцаа
+  alt: [Hazard ratio]
+  topics: [survival]
+  def: "Хоёр бүлгийн hazard-ийн харьцаа. HR < 1 бол тухайн бүлэгт үйл явдал удаан тохиолддог."
+  example: "HR = 0.70 (95% CI 0.55–0.89): шинэ эмчилгээ нас баралтын hazard-ийг 30%-иар бууруулсан."
+  related: [cox-regression, relative-risk, hazard]
+
+- id: cox-regression
+  en: Cox proportional hazards regression
+  mn: Коксын пропорциональ хор аюулын регресс
+  topics: [survival, regression]
+  def: "Үйл явдал хүртэлх хугацааг олон тайлбарлагч хувьсагчаар загварчлах регресс. Коэффициентийг exp() хувиргахад HR гарна."
+  example: "Нас, хавдрын үе шатаар залруулж эмчилгээний HR-ийг тооцох."
+  related: [hazard-ratio, proportional-hazards, kaplan-meier]
+  r: "survival::coxph(Surv(time, status) ~ treat + age + stage, data = df)"
+
+- id: proportional-hazards
+  en: Proportional hazards assumption
+  mn: Пропорциональ хор аюулын таамаглал
+  topics: [survival]
+  def: "Коксын загварын үндсэн таамаглал: бүлгүүдийн hazard-ийн харьцаа цаг хугацааны турш тогтмол байна."
+  example: "Каплан-Майерын муруйнууд огтлолцож байвал энэ таамаглал зөрчигдсөн байж магадгүй."
+  related: [cox-regression]
+  r: "survival::cox.zph(cox_model)"

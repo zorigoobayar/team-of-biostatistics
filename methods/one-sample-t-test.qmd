@@ -1,0 +1,98 @@
+---
+title: "Нэг түүврийн t-тест"
+description: "Нэг бүлгийн дундажийг норм, жишиг эсвэл онолын утгатай харьцуулна."
+format:
+  html:
+    body-classes: page-methods
+    css:
+      - ../styles.css
+      - ../styles/methods.css
+      - ../styles/glossary.css
+    include-after-body:
+      text: |
+        <script src="../assets/js/js-yaml.min.js"></script>
+        <script src="../assets/js/glossary.js"></script>
+---
+
+```{=html}
+<header class="mt-hero" style="--mt-accent:#2563eb">
+  <p class="mt-eyebrow"><a href="../methods.html">Data Analysis Methods</a> · Дундаж харьцуулах</p>
+  <h1>Нэг түүврийн t-тест</h1>
+  <p class="mt-en" lang="en">One-sample t-test</p>
+  <p class="mt-lead">Нэг бүлгийн тасралтгүй хувьсагчийн дундаж урьдчилан мэдэгдэж буй утгаас (норм, үндэсний дундаж, онолын утга) статистик ач холбогдолтой ялгаатай эсэхийг шалгана.</p>
+  <ul class="mt-badges"><li>Тасралтгүй</li><li>1 бүлэг</li><li><code>t.test(x, mu = )</code></li></ul>
+</header>
+```
+
+## Товч мэдээлэл
+
+```{=html}
+<div class="mt-facts"><div><span>Үр дагавар</span><strong>Тасралтгүй</strong></div><div><span>Бүлэг</span><strong>1</strong></div><div><span>Тэг таамаглал</span><strong>μ = μ₀</strong></div><div><span>Непараметр хувилбар</span><strong>Уилкоксоны тэмдэгт эрэмбийн тест</strong></div></div>
+```
+
+## Хэзээ хэрэглэх вэ?
+
+Таны судалгааны асуулт «манай бүлгийн дундаж X-ээс ялгаатай юу?» хэлбэртэй бол.
+
+::: {.callout-tip appearance="simple" icon="false"}
+**Жишээ судалгааны асуулт:** Сумын сургуулийн 9–12 насны хүүхдүүдийн дундаж гемоглобин 120 г/л-ийн доод нормоос ялгаатай юу?
+:::
+
+## Таамаглалууд
+
+Шинжилгээ хийхээс өмнө шалгана:
+
+- [ ] Ажиглалтууд хоорондоо хамааралгүй.
+- [ ] Хувьсагч тасралтгүй.
+- [ ] Өгөгдөл ойролцоогоор хэвийн тархалттай (n ≥ 30 бол энэ шаардлага суларна).
+
+## R дээр хийх
+
+```r
+# Өгөгдөл: df$hb (г/л)
+shapiro.test(df$hb)              # хэвийн тархалтыг шалгах
+t.test(df$hb, mu = 120)          # нэг түүврийн t-тест
+
+# Хэвийн тархалтгүй бол:
+wilcox.test(df$hb, mu = 120)
+```
+
+## Үр дүнг тайлбарлах
+
+- **t ба df** — тестийн статистик ба чөлөөний зэрэг (n − 1).
+- **p-value** — дундаж 120-тай тэнцүү гэсэн тэг таамаглалын эсрэг нотолгоо.
+- **95% CI** — эх олонлогийн дундажийн боломжит муж. 120-ийг агуулахгүй бол p < 0.05.
+- **mean of x** — түүврийн дундаж.
+
+## Тайлагнах жишээ
+
+::: {.callout-note appearance="simple" icon="false"}
+Хүүхдүүдийн дундаж гемоглобин 114.2 ± 11.5 г/л байсан нь 120 г/л-ийн нормоос статистик ач холбогдолтой бага байв (t(84) = −4.65, p < 0.001; дунджийн зөрүү −5.8 г/л, 95% CI −8.3; −3.3).
+
+<small>Тоонууд зохиомол бөгөөд тайлагнах хэлбэрийг харуулах зорилготой.</small>
+:::
+
+## Түгээмэл алдаа
+
+::: {.callout-warning appearance="simple" icon="false"}
+- Жишиг утгыг өгөгдлөө харсны дараа сонгох.
+- Хоёр бүлгийг харьцуулахад нэг бүлгийн дундажийг нөгөөгийн «норм» мэт үзэж нэг түүврийн тест хийх. Хоёр бүлгийг харьцуулахдаа хамааралгүй t-тест хэрэглэнэ.
+:::
+
+## Өөр аргууд
+
+- [Хамааралгүй түүврийн t-тест](independent-t-test.html) — Хоёр хамааралгүй бүлгийн тасралтгүй хувьсагчийн дундажийг харьцуулна.
+- [Хосолсон t-тест](paired-t-test.html) — Нэг хүнээс авсан хоёр хэмжилтийн (өмнө/дараа) дундаж зөрүүг шалгана.
+
+## Холбогдох нэр томьёо
+
+```{=html}
+<div class="glossary-embed"
+     data-src="../glossary/terms.yml"
+     data-glossary-url="../glossary.html"
+     data-terms="one-sample-t-test,mean,standard-deviation,standard-error,confidence-interval,null-hypothesis,p-value,degrees-of-freedom,normal-distribution,shapiro-wilk,wilcoxon">
+  <p class="gl-loading">Нэр томьёог ачаалж байна…</p>
+</div>
+
+<nav class="mt-pager" aria-label="Аргууд хооронд шилжих"><a href="../methods.html">← Бүх аргууд</a><a href="independent-t-test.html">Хамааралгүй түүврийн t-тест →</a></nav>
+```
