@@ -24,6 +24,7 @@ format:
     хэлээр. Нэр томьёо бүрт товч тодорхойлолт, эмнэлзүйн жишээ, түгээмэл алдаа,
     R код болон холбоотой нэр томьёо багтсан.
   </p>
+  <div class="vc-row"><span class="vc" data-vc-href=""></span></div>
 </header>
 
 <div class="glossary-app column-page" data-src="glossary/terms.yml">

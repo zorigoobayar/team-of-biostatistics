@@ -20,7 +20,7 @@ format:
   <h1>Амьдрах чадварын шинжилгээ</h1>
   <p class="mt-en" lang="en">Kaplan–Meier &amp; log-rank test</p>
   <p class="mt-lead">Нас баралт, дахилт зэрэг үйл явдал тохиолдох хүртэлх хугацааг шинжилнэ. Каплан-Майерын муруйгаар амьдрах магадлалыг харуулж, лог-ранк тестээр бүлгүүдийг харьцуулна.</p>
-  <ul class="mt-badges"><li>Хугацаа + үйл явдал</li><li>Цензур</li><li><code>survfit()</code></li></ul>
+  <ul class="mt-badges"><li>Хугацаа + үйл явдал</li><li>Цензур</li><li><code>survfit()</code></li><li><span class="vc" data-vc-href=""></span></li></ul>
 </header>
 ```
 

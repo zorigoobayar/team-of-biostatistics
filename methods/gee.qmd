@@ -20,7 +20,7 @@ format:
   <h1>Ерөнхийлсөн үнэлгээний тэгшитгэл (GEE)</h1>
   <p class="mt-en" lang="en">Generalized estimating equations</p>
   <p class="mt-lead">Нэг хүнээс олон удаа, эсвэл нэг эмнэлэг, сургууль, өрхөөс олон хүн хэмжсэн үед ажиглалтуудын хамаарлыг тооцож, хүн амын дундаж нөлөөг найдвартай стандарт алдаатай үнэлнэ.</p>
-  <ul class="mt-badges"><li>Давтан хэмжилт</li><li>Тасралтгүй / 0-1 / тоо</li><li><code>geeglm()</code></li></ul>
+  <ul class="mt-badges"><li>Давтан хэмжилт</li><li>Тасралтгүй / 0-1 / тоо</li><li><code>geeglm()</code></li><li><span class="vc" data-vc-href=""></span></li></ul>
 </header>
 ```
 

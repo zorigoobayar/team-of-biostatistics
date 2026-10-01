@@ -20,7 +20,7 @@ format:
   <h1>Корреляцийн шинжилгээ</h1>
   <p class="mt-en" lang="en">Correlation analysis</p>
   <p class="mt-lead">Хоёр хувьсагч хамтдаа хэр өөрчлөгдөж байгааг тодорхойлно. Пирсоны r нь шугаман хамаарлыг, Спирменийн ρ нь эрэмбийн (монотон) хамаарлыг хэмжинэ.</p>
-  <ul class="mt-badges"><li>2 тоон хувьсагч</li><li>Пирсон / Спирмен</li><li><code>cor.test()</code></li></ul>
+  <ul class="mt-badges"><li>2 тоон хувьсагч</li><li>Пирсон / Спирмен</li><li><code>cor.test()</code></li><li><span class="vc" data-vc-href=""></span></li></ul>
 </header>
 ```
 

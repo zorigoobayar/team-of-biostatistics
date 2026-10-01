@@ -20,7 +20,7 @@ format:
   <h1>Нэг түүврийн t-тест</h1>
   <p class="mt-en" lang="en">One-sample t-test</p>
   <p class="mt-lead">Нэг бүлгийн тасралтгүй хувьсагчийн дундаж урьдчилан мэдэгдэж буй утгаас (норм, үндэсний дундаж, онолын утга) статистик ач холбогдолтой ялгаатай эсэхийг шалгана.</p>
-  <ul class="mt-badges"><li>Тасралтгүй</li><li>1 бүлэг</li><li><code>t.test(x, mu = )</code></li></ul>
+  <ul class="mt-badges"><li>Тасралтгүй</li><li>1 бүлэг</li><li><code>t.test(x, mu = )</code></li><li><span class="vc" data-vc-href=""></span></li></ul>
 </header>
 ```
 

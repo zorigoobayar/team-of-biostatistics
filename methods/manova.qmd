@@ -20,7 +20,7 @@ format:
   <h1>Олон хэмжээст дисперсийн шинжилгээ (MANOVA)</h1>
   <p class="mt-en" lang="en">Multivariate analysis of variance</p>
   <p class="mt-lead">Хоорондоо хамааралтай хэд хэдэн тасралтгүй үр дагаврын хувьсагчийг нэг дор авч үзэж, бүлгүүд эдгээр хувьсагчдын хослолоор ялгаатай эсэхийг шалгана.</p>
-  <ul class="mt-badges"><li>≥ 2 тасралтгүй үр дагавар</li><li>≥ 2 бүлэг</li><li><code>manova()</code></li></ul>
+  <ul class="mt-badges"><li>≥ 2 тасралтгүй үр дагавар</li><li>≥ 2 бүлэг</li><li><code>manova()</code></li><li><span class="vc" data-vc-href=""></span></li></ul>
 </header>
 ```
 

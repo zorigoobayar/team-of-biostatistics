@@ -20,7 +20,7 @@ format:
   <h1>Дисперсийн шинжилгээ (ANOVA)</h1>
   <p class="mt-en" lang="en">One-way analysis of variance</p>
   <p class="mt-lead">Гурав ба түүнээс дээш хамааралгүй бүлгийн тасралтгүй хувьсагчийн дундаж бүгд ижил эсэхийг нэг тестээр шалгана. Ялгаа илэрвэл аль бүлгүүд ялгаатайг post hoc тестээр тогтооно.</p>
-  <ul class="mt-badges"><li>Тасралтгүй</li><li>≥ 3 бүлэг</li><li><code>aov()</code></li></ul>
+  <ul class="mt-badges"><li>Тасралтгүй</li><li>≥ 3 бүлэг</li><li><code>aov()</code></li><li><span class="vc" data-vc-href=""></span></li></ul>
 </header>
 ```
 

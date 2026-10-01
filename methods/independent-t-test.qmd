@@ -20,7 +20,7 @@ format:
   <h1>Хамааралгүй түүврийн t-тест</h1>
   <p class="mt-en" lang="en">Independent samples t-test</p>
   <p class="mt-lead">Хоорондоо хамааралгүй хоёр бүлгийн (жишээ нь эмчилгээ ба хяналт, эрэгтэй ба эмэгтэй) тасралтгүй хувьсагчийн дундаж ялгаатай эсэхийг шалгана.</p>
-  <ul class="mt-badges"><li>Тасралтгүй</li><li>2 бүлэг</li><li><code>t.test(y ~ g)</code></li></ul>
+  <ul class="mt-badges"><li>Тасралтгүй</li><li>2 бүлэг</li><li><code>t.test(y ~ g)</code></li><li><span class="vc" data-vc-href=""></span></li></ul>
 </header>
 ```
 

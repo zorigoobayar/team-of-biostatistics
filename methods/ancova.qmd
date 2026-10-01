@@ -20,7 +20,7 @@ format:
   <h1>Ковариацын шинжилгээ (ANCOVA)</h1>
   <p class="mt-en" lang="en">Analysis of covariance</p>
   <p class="mt-lead">Бүлгүүдийн дундажийг харьцуулахдаа үр дагаварт нөлөөлдөг тасралтгүй хувьсагч (ковариат)-ийн нөлөөг залруулна. RCT-д суурь утгаар залруулахад хамгийн түгээмэл хэрэглэгддэг.</p>
-  <ul class="mt-badges"><li>Тасралтгүй</li><li>≥ 2 бүлэг + ковариат</li><li><code>lm(y ~ g + x)</code></li></ul>
+  <ul class="mt-badges"><li>Тасралтгүй</li><li>≥ 2 бүлэг + ковариат</li><li><code>lm(y ~ g + x)</code></li><li><span class="vc" data-vc-href=""></span></li></ul>
 </header>
 ```
 
