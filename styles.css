@@ -582,3 +582,34 @@ body.page-team .team-card {
     flex-basis: 75px;
   }
 }
+
+
+
+
+/* Our Team page background */
+body.page-team {
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.78),
+      rgba(255, 255, 255, 0.78)
+    ),
+    url("images/team-background.png");
+
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* Keep content readable */
+body.page-team .page-hero {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(2px);
+  border-radius: 18px;
+}
+
+body.page-team .member-profile,
+body.page-team .resource-card {
+  background: rgba(255, 255, 255, 0.90);
+  backdrop-filter: blur(4px);
+}

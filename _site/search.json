@@ -1,17 +1,493 @@
 [
   {
+    "objectID": "team.html",
+    "href": "team.html",
+    "title": "Our Team",
+    "section": "",
+    "text": "Манай баг нь биостатистик, тархвар судлал, эрүүл мэндийн судалгаа болон өгөгдлийн шинжлэх ухааны чиглэлээр ажилладаг."
+  },
+  {
+    "objectID": "team.html#our-team-1",
+    "href": "team.html#our-team-1",
+    "title": "Our Team",
+    "section": "Our Team",
+    "text": "Our Team\n\n\n\n\n\n\n\n\nБ.Батзориг\n\n\nНЭМУ-ны доктор\n\n\n\n\n\n\nБоловсрол\n\n\n\nБакалавр: Хэрэглээний математикч (Applied Mathematician)\n\n\nМагистр: Хэрэглээний статистикч (Applied Statistician)\n\n\nДоктор: Нийгмийн эрүүл мэндийн ухаан (PhD in Public Health)\n\n\n\nFocus\n\n\n\nБиостатистик (Biostatistics)\n\n\nСтатистийн загварчлал (Statistical modelling)\n\n\nХэтийн төлөв (Forecasting)\n\n\nТүүвэрлэлтийн асуудал (Sampling issues)\n\n\nКлиникийн судалгаа (Clinical research)\n\n\nЧанарын судалгаа (Qualitative research)\n\n\n\n\n\n\n\n\n\n\n\nХ.Сэр-Од\n\n\nХэрэглээний статистикч\n\n\n\n\n\n\nБоловсрол\n\n\n\nБакалавр: Хэрэглээний статистикч (Applied Statistician)\n\n\nМагистр: Хэрэглээний статистик (Applied Statistics)\n\n\n\nFocus\n\n\n\nБиостатистик (Biostatistics)\n\n\nСтатистийн загварчлал (Statistical modelling)\n\n\nХэтийн төлөв (Forecasting)\n\n\nТүүвэрлэлтийн асуудал (Sampling issues)\n\n\nКлиникийн судалгаа (Clinical research)\n\n\nЧанарын судалгаа (Qualitative research)\n\n\n\n\n\n\n\n\n\n\n\nМ.Эркебулан\n\n\nХэрэглээний статистикч\n\n\n\n\n\n\nБоловсрол\n\n\n\nБакалавр: Математикч (Mathematician)\n\n\nМагистр: Хэрэглээний статистикч (Applied Statistician)\n\n\n\nFocus\n\n\n\nБиостатистик (Biostatistics)\n\n\nСтатистийн загварчлал (Statistical modelling)\n\n\nХэтийн төлөв (Forecasting)\n\n\nТүүвэрлэлтийн асуудал (Sampling issues)\n\n\nКлиникийн судалгаа (Clinical research)\n\n\nЧанарын судалгаа (Qualitative research)\n\n\n\n\n\n\n\n\n\n🎓\n\n\n\nResearch Students\n\n\nСудлаач оюутнууд\n\n\n\n\n\n\nСудлаач оюутнууд биостатистик, тархвар судлал болон статистикийн арга зүйгээр суралцаж, судалгаа хийж байна.\n\n\nFocus\n\n\n\nBiostatistics\n\n\nEpidemiology\n\n\nResearch"
+  },
+  {
+    "objectID": "team.html#what-we-work-on",
+    "href": "team.html#what-we-work-on",
+    "title": "Our Team",
+    "section": "What We Work On",
+    "text": "What We Work On\n\nМанай баг дараах чиглэлүүдээр судалгаа, сургалт болон хамтын ажиллагаа явуулна.\n\n\nБиостатистикийн арга зүй\n\n\nЭмнэлзүйн судалгаа\n\n\nТархвар судлал\n\n\nСтатистикийн загварчлал\n\n\nR программчлал\n\n\nӨгөгдлийн дүрслэл\n\n\nДахин давтагдахуйц судалгаа"
+  },
+  {
+    "objectID": "research.html",
+    "href": "research.html",
+    "title": "Interesting Research",
+    "section": "",
+    "text": "Энэ хэсэгт биостатистик, тархвар судлал, эмнэлзүйн судалгаа болон эрүүл мэндийн өгөгдлийн шинжилгээтэй холбоотой сонирхолтой судалгаануудыг танилцуулна."
+  },
+  {
+    "objectID": "research.html#сонирхолтой-судалгаанууд",
+    "href": "research.html#сонирхолтой-судалгаанууд",
+    "title": "Interesting Research",
+    "section": "",
+    "text": "Энэ хэсэгт биостатистик, тархвар судлал, эмнэлзүйн судалгаа болон эрүүл мэндийн өгөгдлийн шинжилгээтэй холбоотой сонирхолтой судалгаануудыг танилцуулна."
+  },
+  {
+    "objectID": "research.html#clinical-research",
+    "href": "research.html#clinical-research",
+    "title": "Interesting Research",
+    "section": "Clinical Research",
+    "text": "Clinical Research\nЭмнэлзүйн судалгаанд статистикийн арга зүй нь эмчилгээний үр нөлөө, аюулгүй байдал болон судалгааны үр дүнг үнэлэхэд чухал ач холбогдолтой.\n\nСудалгаанд ашиглагддаг аргууд\n\nDescriptive statistics\nHypothesis testing\nConfidence intervals\nRegression analysis\nSurvival analysis\nSample size calculation"
+  },
+  {
+    "objectID": "research.html#epidemiological-research",
+    "href": "research.html#epidemiological-research",
+    "title": "Interesting Research",
+    "section": "Epidemiological Research",
+    "text": "Epidemiological Research\nТархвар судлалын судалгаанд өвчний тархалт, эрсдэлт хүчин зүйл болон хүн амын эрүүл мэндийн үзүүлэлтүүдийг статистикийн аргаар судална."
+  },
+  {
+    "objectID": "research.html#statistical-modelling",
+    "href": "research.html#statistical-modelling",
+    "title": "Interesting Research",
+    "section": "Statistical Modelling",
+    "text": "Statistical Modelling\nСтатистикийн загварчлал ашиглан судалгааны өгөгдлөөс хамаарал, холбоо болон таамаглалыг шинжилж болно.\nЖишээлбэл:\n\nLinear regression\nLogistic regression\nCox regression\nMixed-effects models"
+  },
+  {
+    "objectID": "research.html#reproducible-research",
+    "href": "research.html#reproducible-research",
+    "title": "Interesting Research",
+    "section": "Reproducible Research",
+    "text": "Reproducible Research\nR болон Quarto ашиглан судалгааны код, өгөгдлийн боловсруулалт, үр дүн болон тайланг нэг дор нэгтгэж, дахин давтагдахуйц судалгааны орчин бүрдүүлж болно."
+  },
+  {
+    "objectID": "methods/survival-analysis.html",
+    "href": "methods/survival-analysis.html",
+    "title": "Амьдрах чадварын шинжилгээ",
+    "section": "",
+    "text": "Data Analysis Methods · Амьдрах чадвар\n  \n  Kaplan–Meier & log-rank test\n  Нас баралт, дахилт зэрэг үйл явдал тохиолдох хүртэлх хугацааг шинжилнэ. Каплан-Майерын муруйгаар амьдрах магадлалыг харуулж, лог-ранк тестээр бүлгүүдийг харьцуулна.\n  Хугацаа + үйл явдалЦензурsurvfit()"
+  },
+  {
+    "objectID": "methods/survival-analysis.html#товч-мэдээлэл",
+    "href": "methods/survival-analysis.html#товч-мэдээлэл",
+    "title": "Амьдрах чадварын шинжилгээ",
+    "section": "Товч мэдээлэл",
+    "text": "Товч мэдээлэл\nҮр дагаварХугацаа + үйл явдал (0/1)ОнцлогЦензурлагдсан өгөгдөлҮр дүнS(t), медиан хугацааБүлгийн харьцуулалтЛог-ранк тест"
+  },
+  {
+    "objectID": "methods/survival-analysis.html#хэзээ-хэрэглэх-вэ",
+    "href": "methods/survival-analysis.html#хэзээ-хэрэглэх-вэ",
+    "title": "Амьдрах чадварын шинжилгээ",
+    "section": "Хэзээ хэрэглэх вэ?",
+    "text": "Хэзээ хэрэглэх вэ?\nҮр дагавар нь «тохиолдсон эсэх» төдийгүй «хэзээ тохиолдсон» нь чухал, зарим хүний дагалт үйл явдалгүй дууссан бол.\n\n\n\n\n\n\nЖишээ судалгааны асуулт: Хорт хавдрын шинэ ба стандарт эмчилгээ хийлгэсэн өвчтөнүүдийн 3 жилийн амьдрах чадвар ялгаатай юу?"
+  },
+  {
+    "objectID": "methods/survival-analysis.html#таамаглалууд",
+    "href": "methods/survival-analysis.html#таамаглалууд",
+    "title": "Амьдрах чадварын шинжилгээ",
+    "section": "Таамаглалууд",
+    "text": "Таамаглалууд\nШинжилгээ хийхээс өмнө шалгана:\n\nЦензур нь мэдээлэлгүй (non-informative): дагалтаас гарах шалтгаан үйл явдлын эрсдэлтэй холбоогүй.\nСудалгааны туршид элссэн хүмүүсийн амьдрах чадвар ижил (элсэлтийн хугацааны нөлөөгүй).\nҮйл явдлын хугацаа нарийн бүртгэгдсэн."
+  },
+  {
+    "objectID": "methods/survival-analysis.html#r-дээр-хийх",
+    "href": "methods/survival-analysis.html#r-дээр-хийх",
+    "title": "Амьдрах чадварын шинжилгээ",
+    "section": "R дээр хийх",
+    "text": "R дээр хийх\nlibrary(survival)\n# time: хугацаа (сар), status: 1 = үйл явдал, 0 = цензур\nfit &lt;- survfit(Surv(time, status) ~ group, data = df)\nsummary(fit, times = c(12, 24, 36))   # 1, 2, 3 жилийн амьдрах чадвар\nprint(fit)                            # медиан хугацаа ба 95% CI\n\nsurvdiff(Surv(time, status) ~ group, data = df)   # лог-ранк тест\n\n# График (эрсдэлийн хүснэгттэй)\nsurvminer::ggsurvplot(fit, risk.table = TRUE, conf.int = TRUE)"
+  },
+  {
+    "objectID": "methods/survival-analysis.html#үр-дүнг-тайлбарлах",
+    "href": "methods/survival-analysis.html#үр-дүнг-тайлбарлах",
+    "title": "Амьдрах чадварын шинжилгээ",
+    "section": "Үр дүнг тайлбарлах",
+    "text": "Үр дүнг тайлбарлах\n\nS(t) — t хугацаанд үйл явдалгүй үлдэх магадлал.\nmedian — тал хувьд нь үйл явдал тохиолдох хүртэлх хугацаа (муруй 50%-д хүрээгүй бол NA).\nn.risk — тухайн хугацаанд эрсдэлд байгаа хүний тоо. Муруйн сүүл хэсэгт цөөн бол найдвар муу.\nChisq, p (survdiff) — бүлгүүдийн муруй бүхэлдээ ялгаатай эсэх."
+  },
+  {
+    "objectID": "methods/survival-analysis.html#тайлагнах-жишээ",
+    "href": "methods/survival-analysis.html#тайлагнах-жишээ",
+    "title": "Амьдрах чадварын шинжилгээ",
+    "section": "Тайлагнах жишээ",
+    "text": "Тайлагнах жишээ\n\n\n\n\n\n\n3 жилийн амьдрах чадвар шинэ эмчилгээний бүлэгт 68% (95% CI 61; 75), стандарт бүлэгт 54% (95% CI 47; 62) байв. Медиан амьдрах хугацаа стандарт бүлэгт 41 сар, шинэ бүлэгт хүрээгүй (лог-ранк χ² = 7.9, p = 0.005).\nТоонууд зохиомол бөгөөд тайлагнах хэлбэрийг харуулах зорилготой."
+  },
+  {
+    "objectID": "methods/survival-analysis.html#түгээмэл-алдаа",
+    "href": "methods/survival-analysis.html#түгээмэл-алдаа",
+    "title": "Амьдрах чадварын шинжилгээ",
+    "section": "Түгээмэл алдаа",
+    "text": "Түгээмэл алдаа\n\n\n\n\n\n\n\nЦензурлагдсан хүмүүсийг хасах эсвэл «амьд» гэж логистик регрессээр шинжлэх.\nМуруйн сүүл хэсгийг (эрсдэлд цөөн хүн үлдсэн) хэт итгэлтэй тайлбарлах.\nЭмчилгээ эхэлсний дараах хувьсагчаар бүлэглэх (immortal time bias)."
+  },
+  {
+    "objectID": "methods/survival-analysis.html#өөр-аргууд",
+    "href": "methods/survival-analysis.html#өөр-аргууд",
+    "title": "Амьдрах чадварын шинжилгээ",
+    "section": "Өөр аргууд",
+    "text": "Өөр аргууд\n\nКоксын регресс — Үйл явдал хүртэлх хугацаанд олон хувьсагчийн нөлөөг залруулж hazard ratio тооцно."
+  },
+  {
+    "objectID": "methods/survival-analysis.html#холбогдох-нэр-томьёо",
+    "href": "methods/survival-analysis.html#холбогдох-нэр-томьёо",
+    "title": "Амьдрах чадварын шинжилгээ",
+    "section": "Холбогдох нэр томьёо",
+    "text": "Холбогдох нэр томьёо\n\n  Нэр томьёог ачаалж байна…\n\n\n← Логистик регрессКоксын регресс →"
+  },
+  {
+    "objectID": "methods/one-sample-t-test.html",
+    "href": "methods/one-sample-t-test.html",
+    "title": "Нэг түүврийн t-тест",
+    "section": "",
+    "text": "Data Analysis Methods · Дундаж харьцуулах\n  \n  One-sample t-test\n  Нэг бүлгийн тасралтгүй хувьсагчийн дундаж урьдчилан мэдэгдэж буй утгаас (норм, үндэсний дундаж, онолын утга) статистик ач холбогдолтой ялгаатай эсэхийг шалгана.\n  Тасралтгүй1 бүлэгt.test(x, mu = )"
+  },
+  {
+    "objectID": "methods/one-sample-t-test.html#товч-мэдээлэл",
+    "href": "methods/one-sample-t-test.html#товч-мэдээлэл",
+    "title": "Нэг түүврийн t-тест",
+    "section": "Товч мэдээлэл",
+    "text": "Товч мэдээлэл\nҮр дагаварТасралтгүйБүлэг1Тэг таамаглалμ = μ₀Непараметр хувилбарУилкоксоны тэмдэгт эрэмбийн тест"
+  },
+  {
+    "objectID": "methods/one-sample-t-test.html#хэзээ-хэрэглэх-вэ",
+    "href": "methods/one-sample-t-test.html#хэзээ-хэрэглэх-вэ",
+    "title": "Нэг түүврийн t-тест",
+    "section": "Хэзээ хэрэглэх вэ?",
+    "text": "Хэзээ хэрэглэх вэ?\nТаны судалгааны асуулт «манай бүлгийн дундаж X-ээс ялгаатай юу?» хэлбэртэй бол.\n\n\n\n\n\n\nЖишээ судалгааны асуулт: Сумын сургуулийн 9–12 насны хүүхдүүдийн дундаж гемоглобин 120 г/л-ийн доод нормоос ялгаатай юу?"
+  },
+  {
+    "objectID": "methods/one-sample-t-test.html#таамаглалууд",
+    "href": "methods/one-sample-t-test.html#таамаглалууд",
+    "title": "Нэг түүврийн t-тест",
+    "section": "Таамаглалууд",
+    "text": "Таамаглалууд\nШинжилгээ хийхээс өмнө шалгана:\n\nАжиглалтууд хоорондоо хамааралгүй.\nХувьсагч тасралтгүй.\nӨгөгдөл ойролцоогоор хэвийн тархалттай (n ≥ 30 бол энэ шаардлага суларна)."
+  },
+  {
+    "objectID": "methods/one-sample-t-test.html#r-дээр-хийх",
+    "href": "methods/one-sample-t-test.html#r-дээр-хийх",
+    "title": "Нэг түүврийн t-тест",
+    "section": "R дээр хийх",
+    "text": "R дээр хийх\n# Өгөгдөл: df$hb (г/л)\nshapiro.test(df$hb)              # хэвийн тархалтыг шалгах\nt.test(df$hb, mu = 120)          # нэг түүврийн t-тест\n\n# Хэвийн тархалтгүй бол:\nwilcox.test(df$hb, mu = 120)"
+  },
+  {
+    "objectID": "methods/one-sample-t-test.html#үр-дүнг-тайлбарлах",
+    "href": "methods/one-sample-t-test.html#үр-дүнг-тайлбарлах",
+    "title": "Нэг түүврийн t-тест",
+    "section": "Үр дүнг тайлбарлах",
+    "text": "Үр дүнг тайлбарлах\n\nt ба df — тестийн статистик ба чөлөөний зэрэг (n − 1).\np-value — дундаж 120-тай тэнцүү гэсэн тэг таамаглалын эсрэг нотолгоо.\n95% CI — эх олонлогийн дундажийн боломжит муж. 120-ийг агуулахгүй бол p &lt; 0.05.\nmean of x — түүврийн дундаж."
+  },
+  {
+    "objectID": "methods/one-sample-t-test.html#тайлагнах-жишээ",
+    "href": "methods/one-sample-t-test.html#тайлагнах-жишээ",
+    "title": "Нэг түүврийн t-тест",
+    "section": "Тайлагнах жишээ",
+    "text": "Тайлагнах жишээ\n\n\n\n\n\n\nХүүхдүүдийн дундаж гемоглобин 114.2 ± 11.5 г/л байсан нь 120 г/л-ийн нормоос статистик ач холбогдолтой бага байв (t(84) = −4.65, p &lt; 0.001; дунджийн зөрүү −5.8 г/л, 95% CI −8.3; −3.3).\nТоонууд зохиомол бөгөөд тайлагнах хэлбэрийг харуулах зорилготой."
+  },
+  {
+    "objectID": "methods/one-sample-t-test.html#түгээмэл-алдаа",
+    "href": "methods/one-sample-t-test.html#түгээмэл-алдаа",
+    "title": "Нэг түүврийн t-тест",
+    "section": "Түгээмэл алдаа",
+    "text": "Түгээмэл алдаа\n\n\n\n\n\n\n\nЖишиг утгыг өгөгдлөө харсны дараа сонгох.\nХоёр бүлгийг харьцуулахад нэг бүлгийн дундажийг нөгөөгийн «норм» мэт үзэж нэг түүврийн тест хийх. Хоёр бүлгийг харьцуулахдаа хамааралгүй t-тест хэрэглэнэ."
+  },
+  {
+    "objectID": "methods/one-sample-t-test.html#өөр-аргууд",
+    "href": "methods/one-sample-t-test.html#өөр-аргууд",
+    "title": "Нэг түүврийн t-тест",
+    "section": "Өөр аргууд",
+    "text": "Өөр аргууд\n\nХамааралгүй түүврийн t-тест — Хоёр хамааралгүй бүлгийн тасралтгүй хувьсагчийн дундажийг харьцуулна.\nХосолсон t-тест — Нэг хүнээс авсан хоёр хэмжилтийн (өмнө/дараа) дундаж зөрүүг шалгана."
+  },
+  {
+    "objectID": "methods/one-sample-t-test.html#холбогдох-нэр-томьёо",
+    "href": "methods/one-sample-t-test.html#холбогдох-нэр-томьёо",
+    "title": "Нэг түүврийн t-тест",
+    "section": "Холбогдох нэр томьёо",
+    "text": "Холбогдох нэр томьёо\n\n  Нэр томьёог ачаалж байна…\n\n\n← Бүх аргуудХамааралгүй түүврийн t-тест →"
+  },
+  {
+    "objectID": "methods/logistic-regression.html",
+    "href": "methods/logistic-regression.html",
+    "title": "Логистик регресс",
+    "section": "",
+    "text": "Data Analysis Methods · Хамаарал ба регресс\n  \n  Logistic regression\n  Үр дагавар хоёр утгатай (өвчтэй/эрүүл, нас барсан/амьд) үед тайлбарлагч хувьсагчдын нөлөөг сондгойн харьцаа (OR)-аар илэрхийлж, confounder-аар залруулна.\n  Хоёр утгат үр дагаварORglm(binomial)"
+  },
+  {
+    "objectID": "methods/logistic-regression.html#товч-мэдээлэл",
+    "href": "methods/logistic-regression.html#товч-мэдээлэл",
+    "title": "Логистик регресс",
+    "section": "Товч мэдээлэл",
+    "text": "Товч мэдээлэл\nҮр дагаварХоёр утгат (0/1)ТайлбарлагчТоон ба ангиллынҮр дүнOR, aOR, AUCТүүврийн шаардлагаEPV ≥ 10 орчим"
+  },
+  {
+    "objectID": "methods/logistic-regression.html#хэзээ-хэрэглэх-вэ",
+    "href": "methods/logistic-regression.html#хэзээ-хэрэглэх-вэ",
+    "title": "Логистик регресс",
+    "section": "Хэзээ хэрэглэх вэ?",
+    "text": "Хэзээ хэрэглэх вэ?\nХоёр утгат үр дагаврын эрсдэлт хүчин зүйлсийг тодорхойлох, эсвэл тохиолдол-хяналтын судалгааг шинжлэх бол.\n\n\n\n\n\n\nЖишээ судалгааны асуулт: Нас, хүйс, BMI-гээр залруулахад тамхи татах нь артерийн гипертензийн odds-ийг нэмэгдүүлдэг үү?"
+  },
+  {
+    "objectID": "methods/logistic-regression.html#таамаглалууд",
+    "href": "methods/logistic-regression.html#таамаглалууд",
+    "title": "Логистик регресс",
+    "section": "Таамаглалууд",
+    "text": "Таамаглалууд\nШинжилгээ хийхээс өмнө шалгана:\n\nҮр дагавар хоёр утгат.\nАжиглалтууд хоорондоо хамааралгүй.\nТасралтгүй тайлбарлагч ба logit(p)-ийн хамаарал шугаман.\nТайлбарлагч хувьсагч бүрт хангалттай үйл явдал (EPV ≥ 10 орчим), олон шугамт хамааралгүй."
+  },
+  {
+    "objectID": "methods/logistic-regression.html#r-дээр-хийх",
+    "href": "methods/logistic-regression.html#r-дээр-хийх",
+    "title": "Логистик регресс",
+    "section": "R дээр хийх",
+    "text": "R дээр хийх\nm &lt;- glm(htn ~ smoke + age + sex + bmi, family = binomial, data = df)\nsummary(m)\n\n# OR ба 95% CI\nexp(cbind(OR = coef(m), confint(m)))\n\n# Crude ба adjusted OR-ийг нэг хүснэгтэд\ngtsummary::tbl_regression(m, exponentiate = TRUE)\n\n# Ялгах чадвар\npROC::auc(pROC::roc(df$htn, fitted(m)))"
+  },
+  {
+    "objectID": "methods/logistic-regression.html#үр-дүнг-тайлбарлах",
+    "href": "methods/logistic-regression.html#үр-дүнг-тайлбарлах",
+    "title": "Логистик регресс",
+    "section": "Үр дүнг тайлбарлах",
+    "text": "Үр дүнг тайлбарлах\n\nOR = exp(β) — тухайн хувьсагч нэг нэгжээр (эсвэл жишиг ангиллаас) өөрчлөгдөхөд үр дагаврын odds хэд дахин өөрчлөгдөх. OR &gt; 1 эрсдэл нэмэгдүүлнэ.\n95% CI — 1-ийг агуулахгүй бол p &lt; 0.05.\naOR — бусад хувьсагчаар залруулсан OR, crude OR-той харьцуулж confounding-ийг үнэлнэ.\nAUC — загвар өвчтэй ба эрүүл хүмүүсийг ялгах чадвар."
+  },
+  {
+    "objectID": "methods/logistic-regression.html#тайлагнах-жишээ",
+    "href": "methods/logistic-regression.html#тайлагнах-жишээ",
+    "title": "Логистик регресс",
+    "section": "Тайлагнах жишээ",
+    "text": "Тайлагнах жишээ\n\n\n\n\n\n\nНас, хүйс, BMI-гээр залруулахад тамхи татах нь артерийн гипертензийн odds-ийг 1.8 дахин нэмэгдүүлж байв (aOR = 1.82, 95% CI 1.31; 2.53, p &lt; 0.001).\nТоонууд зохиомол бөгөөд тайлагнах хэлбэрийг харуулах зорилготой."
+  },
+  {
+    "objectID": "methods/logistic-regression.html#түгээмэл-алдаа",
+    "href": "methods/logistic-regression.html#түгээмэл-алдаа",
+    "title": "Логистик регресс",
+    "section": "Түгээмэл алдаа",
+    "text": "Түгээмэл алдаа\n\n\n\n\n\n\n\nҮр дагавар түгээмэл үед OR-ийг «эрсдэл X дахин» гэж RR мэт тайлбарлах.\nТайлбарлагч хувьсагч хэт олон, үйл явдал цөөн загвар (EPV бага).\nТасралтгүй хувьсагчийг шалтгаангүйгээр бүлэглэх."
+  },
+  {
+    "objectID": "methods/logistic-regression.html#өөр-аргууд",
+    "href": "methods/logistic-regression.html#өөр-аргууд",
+    "title": "Логистик регресс",
+    "section": "Өөр аргууд",
+    "text": "Өөр аргууд\n\nШугаман регресс — Тасралтгүй үр дагаврыг нэг буюу олон тайлбарлагч хувьсагчаар загварчилна.\nКоксын регресс — Үйл явдал хүртэлх хугацаанд олон хувьсагчийн нөлөөг залруулж hazard ratio тооцно.\nЕрөнхийлсөн үнэлгээний тэгшитгэл (GEE) — Давтан хэмжилт эсвэл кластерласан өгөгдлийн хүн амын түвшний нөлөөг үнэлнэ."
+  },
+  {
+    "objectID": "methods/logistic-regression.html#холбогдох-нэр-томьёо",
+    "href": "methods/logistic-regression.html#холбогдох-нэр-томьёо",
+    "title": "Логистик регресс",
+    "section": "Холбогдох нэр томьёо",
+    "text": "Холбогдох нэр томьёо\n\n  Нэр томьёог ачаалж байна…\n\n\n← Шугаман регрессАмьдрах чадварын шинжилгээ →"
+  },
+  {
+    "objectID": "methods/independent-t-test.html",
+    "href": "methods/independent-t-test.html",
+    "title": "Хамааралгүй түүврийн t-тест",
+    "section": "",
+    "text": "Data Analysis Methods · Дундаж харьцуулах\n  \n  Independent samples t-test\n  Хоорондоо хамааралгүй хоёр бүлгийн (жишээ нь эмчилгээ ба хяналт, эрэгтэй ба эмэгтэй) тасралтгүй хувьсагчийн дундаж ялгаатай эсэхийг шалгана.\n  Тасралтгүй2 бүлэгt.test(y ~ g)"
+  },
+  {
+    "objectID": "methods/independent-t-test.html#товч-мэдээлэл",
+    "href": "methods/independent-t-test.html#товч-мэдээлэл",
+    "title": "Хамааралгүй түүврийн t-тест",
+    "section": "Товч мэдээлэл",
+    "text": "Товч мэдээлэл\nҮр дагаварТасралтгүйБүлэг2, хамааралгүйТэг таамаглалμ₁ = μ₂Непараметр хувилбарМанн-Уитнигийн U тест"
+  },
+  {
+    "objectID": "methods/independent-t-test.html#хэзээ-хэрэглэх-вэ",
+    "href": "methods/independent-t-test.html#хэзээ-хэрэглэх-вэ",
+    "title": "Хамааралгүй түүврийн t-тест",
+    "section": "Хэзээ хэрэглэх вэ?",
+    "text": "Хэзээ хэрэглэх вэ?\nХоёр өөр хүмүүсийн бүлгийн дундажийг харьцуулах бол. Хүн бүр зөвхөн нэг бүлэгт хамаарна.\n\n\n\n\n\n\nЖишээ судалгааны асуулт: Шинэ эм уусан бүлгийн 8 дахь долоо хоногийн систолын даралт плацебо бүлгийнхээс бага байна уу?"
+  },
+  {
+    "objectID": "methods/independent-t-test.html#таамаглалууд",
+    "href": "methods/independent-t-test.html#таамаглалууд",
+    "title": "Хамааралгүй түүврийн t-тест",
+    "section": "Таамаглалууд",
+    "text": "Таамаглалууд\nШинжилгээ хийхээс өмнө шалгана:\n\nХоёр бүлгийн ажиглалтууд хоорондоо хамааралгүй.\nБүлэг тус бүрт хувьсагч ойролцоогоор хэвийн тархалттай (бүлэг бүрт n ≥ 30 бол суларна).\nДисперс тэнцүү байх шаардлагагүй, хэрэв Welch-ийн t-тест хэрэглэвэл (санал болгож буй сонголт)."
+  },
+  {
+    "objectID": "methods/independent-t-test.html#r-дээр-хийх",
+    "href": "methods/independent-t-test.html#r-дээр-хийх",
+    "title": "Хамааралгүй түүврийн t-тест",
+    "section": "R дээр хийх",
+    "text": "R дээр хийх\n# Өгөгдөл: df$sbp (мм м.у.б), df$group (\"Эм\", \"Плацебо\")\ntapply(df$sbp, df$group, shapiro.test)   # бүлэг тус бүрт хэвийн тархалт\nt.test(sbp ~ group, data = df)           # Welch t-тест (R-ийн анхдагч)\nt.test(sbp ~ group, data = df, var.equal = TRUE)  # Стьюдентийн t-тест\n\n# Нөлөөний хэмжээ (Cohen's d)\neffectsize::cohens_d(sbp ~ group, data = df)\n\n# Хэвийн тархалтгүй бол:\nwilcox.test(sbp ~ group, data = df)"
+  },
+  {
+    "objectID": "methods/independent-t-test.html#үр-дүнг-тайлбарлах",
+    "href": "methods/independent-t-test.html#үр-дүнг-тайлбарлах",
+    "title": "Хамааралгүй түүврийн t-тест",
+    "section": "Үр дүнг тайлбарлах",
+    "text": "Үр дүнг тайлбарлах\n\nt, df, p-value — дундаж ижил гэсэн тэг таамаглалын эсрэг нотолгоо. Welch тестэд df бутархай байж болно.\n95% CI — хоёр бүлгийн дунджийн зөрүүний итгэх интервал. 0-ийг агуулахгүй бол p &lt; 0.05.\nmean in group — бүлэг тус бүрийн дундаж.\nCohen’s d — нөлөөний хэмжээ: ≈0.2 бага, ≈0.5 дунд, ≈0.8 их."
+  },
+  {
+    "objectID": "methods/independent-t-test.html#тайлагнах-жишээ",
+    "href": "methods/independent-t-test.html#тайлагнах-жишээ",
+    "title": "Хамааралгүй түүврийн t-тест",
+    "section": "Тайлагнах жишээ",
+    "text": "Тайлагнах жишээ\n\n\n\n\n\n\n8 дахь долоо хоногт эмийн бүлгийн систолын даралт (128.4 ± 12.1 мм м.у.б) плацебо бүлгийнхээс (135.9 ± 13.0) статистик ач холбогдолтой бага байв (Welch t(117.6) = −3.27, p = 0.001; дунджийн зөрүү −7.5 мм м.у.б, 95% CI −12.0; −3.0).\nТоонууд зохиомол бөгөөд тайлагнах хэлбэрийг харуулах зорилготой."
+  },
+  {
+    "objectID": "methods/independent-t-test.html#түгээмэл-алдаа",
+    "href": "methods/independent-t-test.html#түгээмэл-алдаа",
+    "title": "Хамааралгүй түүврийн t-тест",
+    "section": "Түгээмэл алдаа",
+    "text": "Түгээмэл алдаа\n\n\n\n\n\n\n\nНэг хүнээс хоёр удаа авсан хэмжилтэд (өмнө/дараа) хамааралгүй t-тест хэрэглэх. Энэ тохиолдолд хосолсон t-тест хэрэглэнэ.\nГурав ба түүнээс дээш бүлгийг хосоор нь олон t-тестээр харьцуулах. ANOVA хэрэглэнэ.\nЗөвхөн p-утга тайлагнаж, дунджийн зөрүү ба CI-г орхих."
+  },
+  {
+    "objectID": "methods/independent-t-test.html#өөр-аргууд",
+    "href": "methods/independent-t-test.html#өөр-аргууд",
+    "title": "Хамааралгүй түүврийн t-тест",
+    "section": "Өөр аргууд",
+    "text": "Өөр аргууд\n\nХосолсон t-тест — Нэг хүнээс авсан хоёр хэмжилтийн (өмнө/дараа) дундаж зөрүүг шалгана.\nДисперсийн шинжилгээ (ANOVA) — Гурав ба түүнээс дээш хамааралгүй бүлгийн дундажийг нэг дор харьцуулна.\nКовариацын шинжилгээ (ANCOVA) — Бүлгүүдийн дундажийг суурь утга зэрэг тасралтгүй ковариатаар залруулж харьцуулна."
+  },
+  {
+    "objectID": "methods/independent-t-test.html#холбогдох-нэр-томьёо",
+    "href": "methods/independent-t-test.html#холбогдох-нэр-томьёо",
+    "title": "Хамааралгүй түүврийн t-тест",
+    "section": "Холбогдох нэр томьёо",
+    "text": "Холбогдох нэр томьёо\n\n  Нэр томьёог ачаалж байна…\n\n\n← Нэг түүврийн t-тестХосолсон t-тест →"
+  },
+  {
+    "objectID": "methods/cox-regression.html",
+    "href": "methods/cox-regression.html",
+    "title": "Коксын регресс",
+    "section": "",
+    "text": "Data Analysis Methods · Амьдрах чадвар\n  \n  Cox proportional hazards regression\n  Амьдрах чадварын өгөгдөлд олон тайлбарлагч хувьсагчийн нөлөөг зэрэг тооцож, хор аюулын харьцаа (HR)-аар илэрхийлнэ. Каплан-Майерын олон хувьсагчийн өргөтгөл.\n  Хугацаа + үйл явдалHRcoxph()"
+  },
+  {
+    "objectID": "methods/cox-regression.html#товч-мэдээлэл",
+    "href": "methods/cox-regression.html#товч-мэдээлэл",
+    "title": "Коксын регресс",
+    "section": "Товч мэдээлэл",
+    "text": "Товч мэдээлэл\nҮр дагаварХугацаа + үйл явдалТайлбарлагчТоон ба ангиллынҮр дүнHR, aHRГол таамаглалПропорциональ хор аюул"
+  },
+  {
+    "objectID": "methods/cox-regression.html#хэзээ-хэрэглэх-вэ",
+    "href": "methods/cox-regression.html#хэзээ-хэрэглэх-вэ",
+    "title": "Коксын регресс",
+    "section": "Хэзээ хэрэглэх вэ?",
+    "text": "Хэзээ хэрэглэх вэ?\nҮйл явдал хүртэлх хугацаанд нөлөөлөх хүчин зүйлсийг confounder-аар залруулж үнэлэх бол.\n\n\n\n\n\n\nЖишээ судалгааны асуулт: Нас, хавдрын үе шатаар залруулахад шинэ эмчилгээ нас баралтын эрсдэлийг бууруулдаг уу?"
+  },
+  {
+    "objectID": "methods/cox-regression.html#таамаглалууд",
+    "href": "methods/cox-regression.html#таамаглалууд",
+    "title": "Коксын регресс",
+    "section": "Таамаглалууд",
+    "text": "Таамаглалууд\nШинжилгээ хийхээс өмнө шалгана:\n\nПропорциональ хор аюул: HR цаг хугацааны турш тогтмол (cox.zph-ээр шалгана).\nЦензур мэдээлэлгүй.\nТасралтгүй хувьсагчийн log-hazard-тай хамаарал шугаман.\nТайлбарлагч бүрт хангалттай үйл явдал (EPV ≥ 10 орчим)."
+  },
+  {
+    "objectID": "methods/cox-regression.html#r-дээр-хийх",
+    "href": "methods/cox-regression.html#r-дээр-хийх",
+    "title": "Коксын регресс",
+    "section": "R дээр хийх",
+    "text": "R дээр хийх\nlibrary(survival)\nm &lt;- coxph(Surv(time, status) ~ treat + age + stage, data = df)\nsummary(m)                 # exp(coef) = HR, 95% CI\n\ncox.zph(m)                 # пропорциональ хор аюулын шалгалт\nplot(cox.zph(m))\n\ngtsummary::tbl_regression(m, exponentiate = TRUE)"
+  },
+  {
+    "objectID": "methods/cox-regression.html#үр-дүнг-тайлбарлах",
+    "href": "methods/cox-regression.html#үр-дүнг-тайлбарлах",
+    "title": "Коксын регресс",
+    "section": "Үр дүнг тайлбарлах",
+    "text": "Үр дүнг тайлбарлах\n\nexp(coef) = HR — HR &lt; 1 бол үйл явдал удаан тохиолддог (хамгаалах), HR &gt; 1 бол эрсдэл өндөр.\nlower/upper .95 — HR-ийн 95% CI. 1-ийг агуулахгүй бол p &lt; 0.05.\nConcordance — загварын ялгах чадвар (AUC-тай төстэй).\ncox.zph p &lt; 0.05 — тухайн хувьсагчид пропорциональ хор аюулын таамаглал зөрчигдсөн байж болзошгүй."
+  },
+  {
+    "objectID": "methods/cox-regression.html#тайлагнах-жишээ",
+    "href": "methods/cox-regression.html#тайлагнах-жишээ",
+    "title": "Коксын регресс",
+    "section": "Тайлагнах жишээ",
+    "text": "Тайлагнах жишээ\n\n\n\n\n\n\nНас, хавдрын үе шатаар залруулахад шинэ эмчилгээ нас баралтын эрсдэлийг 32%-иар бууруулсан (aHR = 0.68, 95% CI 0.52; 0.89, p = 0.005). Пропорциональ хор аюулын таамаглал хангагдсан (глобал тест p = 0.41).\nТоонууд зохиомол бөгөөд тайлагнах хэлбэрийг харуулах зорилготой."
+  },
+  {
+    "objectID": "methods/cox-regression.html#түгээмэл-алдаа",
+    "href": "methods/cox-regression.html#түгээмэл-алдаа",
+    "title": "Коксын регресс",
+    "section": "Түгээмэл алдаа",
+    "text": "Түгээмэл алдаа\n\n\n\n\n\n\n\nHR-ийг «нас барах магадлал 32%-иар бага» гэж тайлбарлах. HR нь агшин зуурын түвшний харьцаа.\nПропорциональ хор аюулын таамаглалыг шалгахгүй орхих. Муруйнууд огтлолцвол ялангуяа анхаарна.\nХугацаанаас хамаарч өөрчлөгддөг хувьсагчийг суурь утгаар нь л оруулах."
+  },
+  {
+    "objectID": "methods/cox-regression.html#өөр-аргууд",
+    "href": "methods/cox-regression.html#өөр-аргууд",
+    "title": "Коксын регресс",
+    "section": "Өөр аргууд",
+    "text": "Өөр аргууд\n\nАмьдрах чадварын шинжилгээ — Үйл явдал хүртэлх хугацааг цензурыг тооцож шинжилж, бүлгүүдийн муруйг харьцуулна.\nЛогистик регресс — Хоёр утгат (тийм/үгүй) үр дагаврын odds-ийг олон хувьсагчаар загварчилж OR тооцно."
+  },
+  {
+    "objectID": "methods/cox-regression.html#холбогдох-нэр-томьёо",
+    "href": "methods/cox-regression.html#холбогдох-нэр-томьёо",
+    "title": "Коксын регресс",
+    "section": "Холбогдох нэр томьёо",
+    "text": "Холбогдох нэр томьёо\n\n  Нэр томьёог ачаалж байна…\n\n\n← Амьдрах чадварын шинжилгээЕрөнхийлсөн үнэлгээний тэгшитгэл (GEE) →"
+  },
+  {
+    "objectID": "methods/anova.html",
+    "href": "methods/anova.html",
+    "title": "Дисперсийн шинжилгээ (ANOVA)",
+    "section": "",
+    "text": "Data Analysis Methods · Дундаж харьцуулах\n  \n  One-way analysis of variance\n  Гурав ба түүнээс дээш хамааралгүй бүлгийн тасралтгүй хувьсагчийн дундаж бүгд ижил эсэхийг нэг тестээр шалгана. Ялгаа илэрвэл аль бүлгүүд ялгаатайг post hoc тестээр тогтооно.\n  Тасралтгүй≥ 3 бүлэгaov()"
+  },
+  {
+    "objectID": "methods/anova.html#товч-мэдээлэл",
+    "href": "methods/anova.html#товч-мэдээлэл",
+    "title": "Дисперсийн шинжилгээ (ANOVA)",
+    "section": "Товч мэдээлэл",
+    "text": "Товч мэдээлэл\nҮр дагаварТасралтгүйБүлэг≥ 3, хамааралгүйТэг таамаглалμ₁ = μ₂ = … = μₖНепараметр хувилбарКрускал-Уоллисын тест"
+  },
+  {
+    "objectID": "methods/anova.html#хэзээ-хэрэглэх-вэ",
+    "href": "methods/anova.html#хэзээ-хэрэглэх-вэ",
+    "title": "Дисперсийн шинжилгээ (ANOVA)",
+    "section": "Хэзээ хэрэглэх вэ?",
+    "text": "Хэзээ хэрэглэх вэ?\nНэг ангиллын хүчин зүйл (3+ түвшинтэй)-ийн бүлгүүдийн дундажийг харьцуулах бол.\n\n\n\n\n\n\nЖишээ судалгааны асуулт: Гурван өөр хоолны дэглэм (бага нүүрс ус, бага өөх тос, Газрын дундад тэнгисийн)-ийн 6 сарын дараах жингийн бууралт ялгаатай юу?"
+  },
+  {
+    "objectID": "methods/anova.html#таамаглалууд",
+    "href": "methods/anova.html#таамаглалууд",
+    "title": "Дисперсийн шинжилгээ (ANOVA)",
+    "section": "Таамаглалууд",
+    "text": "Таамаглалууд\nШинжилгээ хийхээс өмнө шалгана:\n\nАжиглалтууд хоорондоо хамааралгүй.\nБүлэг тус бүрийн үлдэгдэл ойролцоогоор хэвийн тархалттай.\nБүлгүүдийн дисперс ойролцоогоор тэнцүү (Левенийн тест). Зөрчигдвөл Welch ANOVA."
+  },
+  {
+    "objectID": "methods/anova.html#r-дээр-хийх",
+    "href": "methods/anova.html#r-дээр-хийх",
+    "title": "Дисперсийн шинжилгээ (ANOVA)",
+    "section": "R дээр хийх",
+    "text": "R дээр хийх\n# Өгөгдөл: df$loss (кг), df$diet (3 түвшинтэй factor)\nm &lt;- aov(loss ~ diet, data = df)\nsummary(m)                        # F, df, p\ncar::leveneTest(loss ~ diet, data = df)\nshapiro.test(residuals(m))\nTukeyHSD(m)                       # хосын харьцуулалт\n\n# Дисперс тэнцүү биш бол:\noneway.test(loss ~ diet, data = df)   # Welch ANOVA\n# Хэвийн тархалтгүй бол:\nkruskal.test(loss ~ diet, data = df)"
+  },
+  {
+    "objectID": "methods/anova.html#үр-дүнг-тайлбарлах",
+    "href": "methods/anova.html#үр-дүнг-тайлбарлах",
+    "title": "Дисперсийн шинжилгээ (ANOVA)",
+    "section": "Үр дүнг тайлбарлах",
+    "text": "Үр дүнг тайлбарлах\n\nF value, Pr(&gt;F) — бүх бүлгийн дундаж ижил гэсэн тэг таамаглалын тест. Ач холбогдолтой гарвал дор хаяж нэг бүлэг ялгаатай.\nDf — бүлгийн хоорондох (k − 1) ба бүлгийн доторх (N − k) чөлөөний зэрэг.\nTukeyHSD — хос бүрийн дунджийн зөрүү, олон харьцуулалтаар залруулсан CI ба p.\nη² (eta squared) — нийт хэлбэлзлийн хэдэн хувийг бүлэг тайлбарлаж байгааг харуулах нөлөөний хэмжээ."
+  },
+  {
+    "objectID": "methods/anova.html#тайлагнах-жишээ",
+    "href": "methods/anova.html#тайлагнах-жишээ",
+    "title": "Дисперсийн шинжилгээ (ANOVA)",
+    "section": "Тайлагнах жишээ",
+    "text": "Тайлагнах жишээ\n\n\n\n\n\n\nГурван дэглэмийн жингийн бууралт ялгаатай байв (F(2, 147) = 6.21, p = 0.003, η² = 0.08). Tukey тестээр бага нүүрс устай дэглэм бага өөх тостой дэглэмээс 2.1 кг (95% CI 0.6; 3.6) илүү бууралттай байв.\nТоонууд зохиомол бөгөөд тайлагнах хэлбэрийг харуулах зорилготой."
+  },
+  {
+    "objectID": "methods/anova.html#түгээмэл-алдаа",
+    "href": "methods/anova.html#түгээмэл-алдаа",
+    "title": "Дисперсийн шинжилгээ (ANOVA)",
+    "section": "Түгээмэл алдаа",
+    "text": "Түгээмэл алдаа\n\n\n\n\n\n\n\nANOVA ач холбогдолгүй гарсан ч post hoc тестээр ялгаа хайх.\nБүлэг бүрийг хосоор нь залруулгагүй t-тестээр харьцуулах.\nДавтан хэмжилтэд (нэг хүн бүх бүлэгт) энгийн ANOVA хэрэглэх."
+  },
+  {
+    "objectID": "methods/anova.html#өөр-аргууд",
+    "href": "methods/anova.html#өөр-аргууд",
+    "title": "Дисперсийн шинжилгээ (ANOVA)",
+    "section": "Өөр аргууд",
+    "text": "Өөр аргууд\n\nКовариацын шинжилгээ (ANCOVA) — Бүлгүүдийн дундажийг суурь утга зэрэг тасралтгүй ковариатаар залруулж харьцуулна.\nОлон хэмжээст дисперсийн шинжилгээ (MANOVA) — Хоёр ба түүнээс дээш хамааралтай үр дагаврыг бүлгүүдийн хооронд зэрэг харьцуулна.\nХамааралгүй түүврийн t-тест — Хоёр хамааралгүй бүлгийн тасралтгүй хувьсагчийн дундажийг харьцуулна."
+  },
+  {
+    "objectID": "methods/anova.html#холбогдох-нэр-томьёо",
+    "href": "methods/anova.html#холбогдох-нэр-томьёо",
+    "title": "Дисперсийн шинжилгээ (ANOVA)",
+    "section": "Холбогдох нэр томьёо",
+    "text": "Холбогдох нэр томьёо\n\n  Нэр томьёог ачаалж байна…\n\n\n← Хосолсон t-тестКовариацын шинжилгээ (ANCOVA) →"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Home",
     "section": "",
     "text": "Манай Биостатистикийн багийн цахим хуудсанд тавтай морилно уу.\nБид статистик, биостатистик болон өгөгдлийн шинжлэх ухааны аргыг эрүүл мэнд, анагаах ухаан, тархвар судлалын судалгаанд ашигладаг."
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site"
   },
   {
     "objectID": "index.html#statistics-health-research-data-science",
@@ -42,25 +518,515 @@
     "text": "Our Mission\nСтатистикийн мэдлэг, судалгааны арга зүй болон өгөгдөлд суурилсан шийдвэр гаргалтыг оюутан, судлаач болон эрүүл мэндийн мэргэжилтнүүдэд ойлгомжтой, хүртээмжтэй хүргэх нь бидний зорилго юм."
   },
   {
-    "objectID": "index.html#welcome",
-    "href": "index.html#welcome",
-    "title": "Team of Biostatistics",
+    "objectID": "contact.html",
+    "href": "contact.html",
+    "title": "Contact",
     "section": "",
-    "text": "Whether you are learning biostatistics, conducting research, or interested in data science, we hope you find something useful here."
+    "text": "Биостатистикийн багтай холбоо барих, судалгааны хамтын ажиллагаа болон статистикийн зөвлөгөөтэй холбоотой мэдээллийг энд байршуулна."
   },
   {
-    "objectID": "team.html",
-    "href": "team.html",
-    "title": "Our Team",
+    "objectID": "contact.html#холбоо-барих",
+    "href": "contact.html#холбоо-барих",
+    "title": "Contact",
     "section": "",
-    "text": "Манай баг нь биостатистик, тархвар судлал, эрүүл мэндийн судалгаа болон өгөгдлийн шинжлэх ухааны чиглэлээр ажилладаг."
+    "text": "Биостатистикийн багтай холбоо барих, судалгааны хамтын ажиллагаа болон статистикийн зөвлөгөөтэй холбоотой мэдээллийг энд байршуулна."
   },
   {
-    "objectID": "team.html#манай-баг",
-    "href": "team.html#манай-баг",
-    "title": "Our Team",
+    "objectID": "contact.html#email",
+    "href": "contact.html#email",
+    "title": "Contact",
+    "section": "Email",
+    "text": "Email\nEmail: biostatistics@example.com"
+  },
+  {
+    "objectID": "contact.html#research-collaboration",
+    "href": "contact.html#research-collaboration",
+    "title": "Contact",
+    "section": "Research Collaboration",
+    "text": "Research Collaboration\nДараах чиглэлээр хамтран ажиллах боломжтой:\n\nБиостатистикийн зөвлөгөө\nСудалгааны дизайн\nӨгөгдлийн шинжилгээ\nСтатистикийн загварчлал\nR программчлал"
+  },
+  {
+    "objectID": "books.html",
+    "href": "books.html",
+    "title": "Biostatistics Books",
     "section": "",
-    "text": "Манай баг нь биостатистик, тархвар судлал, эрүүл мэндийн судалгаа болон өгөгдлийн шинжлэх ухааны чиглэлээр ажилладаг."
+    "text": "Biostatistics Books\n\nБиостатистикийн номууд\nБиостатистик, статистик, тархвар судлал болон өгөгдлийн шинжлэх ухааны чиглэлээр суралцахад ашигтай ном, сурах бичгүүдийг танилцуулна.\n\n\n\n\n📊 Biostatistics\nБиостатистикийн үндсэн ойлголт, статистикийн арга зүйг сурахад зориулсан номууд.\nҮндсэн сэдвүүд\n\nDescriptive statistics\nProbability\nStatistical inference\nHypothesis testing\nRegression\nSurvival analysis\n\n\n\n🦠 Epidemiology\nТархвар судлалын үндсэн ойлголт болон судалгааны арга зүйг сурахад зориулсан номууд.\nҮндсэн сэдвүүд\n\nStudy design\nDisease frequency\nRisk and association\nBias and confounding\nEpidemiological methods\n\n\n\n💻 Statistical Programming\nR болон статистикийн программчлал сурахад зориулсан номууд.\nСурах зүйлс\n\nR programming\nData manipulation\nData visualization\nStatistical modelling\nReproducible research\n\n\n\n📚 Recommended Reading\nЦаашдаа энд ном бүрийн дараах мэдээллийг оруулна:\n\nНэр\nЗохиогч\nХэвлэгдсэн он\nТовч тайлбар\nНомын зураг\nАлбан ёсны холбоос"
+  },
+  {
+    "objectID": "cheatsheet.html",
+    "href": "cheatsheet.html",
+    "title": "Cheatsheet",
+    "section": "",
+    "text": "Гарын авлага\n  R ба өгөгдлийн шинжилгээний cheatsheet\n  \n    R программчлал, өгөгдөл импортлох, хувиргах, цэгцлэх, дүрслэх үндсэн\n    функцуудыг нэг хуудсанд багтаасан товч гарын авлагууд. Бүгд монгол хэл\n    дээр, A4 хэвтээ хэлбэрээр хэвлэхэд бэлэн.\n  \n  \n    6 гарын авлага\n    PDF · A4 хэвтээ\n    Үнэгүй · CC BY-SA 4.0\n  \n\n\n\n  Санал болгох дараалал\n  \n    01 R-ийн үндэс\n    02 RStudio\n    03 Импортлох\n    04 Хувиргах\n    05 Цэгцлэх\n    06 Дүрслэх\n  \n\n\n\n\n  \n    \n      \n      01\n    \n    \n      Эхлэл\n      R-ийн үндэс\n      base R\n      Вектор, жагсаалт, матриц, data frame, фактор зэрэг өгөгдлийн төрөл; функц бичих, нөхцөл ба давталт. Нэмэлт багц суулгалгүйгээр хийж болох үндсэн командууд.\n       2 хуудас · 300 KB\n      \n         Нээх\n         Татах\n      \n    \n  \n\n  \n    \n      \n      02\n    \n    \n      Эхлэл\n      RStudio IDE\n      RStudio\n      Цонхнуудын бүтэц, код бичих, ажиллуулах, алдаа засах. Хамгийн хэрэгтэй гарын товчлолууд, файл ба сесс, кодын snippet.\n       2 хуудас · 356 KB\n      \n         Нээх\n         Татах\n      \n    \n  \n\n\n  \n    \n      \n      03\n    \n    \n      Өгөгдөлтэй ажиллах\n      Өгөгдөл импортлох\n      readr readxl\n      CSV, Excel, Google Sheets-ээс өгөгдөл унших, баганын төрлийг (col_types) тохируулах, үр дүнгээ файлд хадгалах.\n       2 хуудас · 304 KB\n      \n         Нээх\n         Татах\n      \n    \n  \n\n  \n    \n      \n      04\n    \n    \n      Өгөгдөлтэй ажиллах\n      Өгөгдөл хувиргах\n      dplyr\n      Мөр шүүх, багана сонгох, шинэ хувьсагч үүсгэх, бүлэглэж хураангуйлах, хүснэгт нэгтгэх: filter(), mutate(), summarise(), group_by().\n       2 хуудас · 292 KB\n      \n         Нээх\n         Татах\n      \n    \n  \n\n  \n    \n      \n      05\n    \n    \n      Өгөгдөлтэй ажиллах\n      Өгөгдөл цэгцлэх\n      tidyr\n      Tidy өгөгдлийн зарчим, өргөн ба урт хэлбэр хооронд хувиргах (pivot_longer, pivot_wider), багана салгах, нийлүүлэх, дутуу утгатай ажиллах.\n       2 хуудас · 296 KB\n      \n         Нээх\n         Татах\n      \n    \n  \n\n\n  \n    \n      \n      06\n    \n    \n      Дүрслэл\n      Өгөгдөл дүрслэх\n      ggplot2\n      Графикийн дүрэм: геом (цэг, шугам, багана, гистограмм, violin), өнгө ба масштаб, facet-ээр хуваах, гарчиг ба загвар (theme).\n       3 хуудас · 608 KB\n      \n         Нээх\n         Татах\n      \n    \n  \n\n\n\n\n\n  \n     Удахгүй\n    Дараагийн гарын авлагууд\n    Статистикийн тест сонгох, регрессийн загвар, амьдрах чадварын шинжилгээ зэрэг сэдвүүдийг нэмэхээр төлөвлөж байна.\n  \n   Сэдэв санал болгох\n\n\n\n\n\n\n\nЭх сурвалж ба лиценз. Эдгээр гарын авлагыг Posit-ийн албан ёсны cheatsheet-үүдэд үндэслэн монгол хэлнээ орчуулж, найруулав. CC BY-SA 4.0 лицензийн дагуу чөлөөтэй хуваалцаж, ашиглаж болно. Орчуулгын алдаа олсон бол GitHub дээр мэдэгдээрэй."
+  },
+  {
+    "objectID": "glossary.html",
+    "href": "glossary.html",
+    "title": "Нэр томьёоны толь",
+    "section": "",
+    "text": "Data Analysis Methods · Толь\n  Нэр томьёоны толь\n  \n    Анагаах ухааны статистик, эпидемиологийн түгээмэл нэр томьёо монгол, англи\n    хэлээр. Нэр томьёо бүрт товч тодорхойлолт, эмнэлзүйн жишээ, түгээмэл алдаа,\n    R код болон холбоотой нэр томьёо багтсан.\n  \n\n\n\n  Нэр томьёог ачаалж байна…\n\nТолийг харахын тулд JavaScript идэвхжүүлнэ үү.\n\n\n\n\n\n\nЭх сурвалж ба зохиогчийн эрх. Тодорхойлолт, жишээг Team of Biostatistics баг өөрсдийн үгээр бичсэн бөгөөд аль нэг номоос хуулж, орчуулаагүй. Цааш унших: Everitt B.S. Medical Statistics from A to Z (Cambridge University Press); Kirkwood B.R., Sterne J.A.C. Essential Medical Statistics (Blackwell). Алдаа олсон эсвэл нэр томьёо нэмэх санал байвал GitHub дээр мэдэгдээрэй."
+  },
+  {
+    "objectID": "methods/ancova.html",
+    "href": "methods/ancova.html",
+    "title": "Ковариацын шинжилгээ (ANCOVA)",
+    "section": "",
+    "text": "Data Analysis Methods · Дундаж харьцуулах\n  \n  Analysis of covariance\n  Бүлгүүдийн дундажийг харьцуулахдаа үр дагаварт нөлөөлдөг тасралтгүй хувьсагч (ковариат)-ийн нөлөөг залруулна. RCT-д суурь утгаар залруулахад хамгийн түгээмэл хэрэглэгддэг.\n  Тасралтгүй≥ 2 бүлэг + ковариатlm(y ~ g + x)"
+  },
+  {
+    "objectID": "methods/ancova.html#товч-мэдээлэл",
+    "href": "methods/ancova.html#товч-мэдээлэл",
+    "title": "Ковариацын шинжилгээ (ANCOVA)",
+    "section": "Товч мэдээлэл",
+    "text": "Товч мэдээлэл\nҮр дагаварТасралтгүйБүлэг≥ 2 + ковариатҮр дүнЗалруулсан дунджийн зөрүүХолбоотойШугаман регресс"
+  },
+  {
+    "objectID": "methods/ancova.html#хэзээ-хэрэглэх-вэ",
+    "href": "methods/ancova.html#хэзээ-хэрэглэх-вэ",
+    "title": "Ковариацын шинжилгээ (ANCOVA)",
+    "section": "Хэзээ хэрэглэх вэ?",
+    "text": "Хэзээ хэрэглэх вэ?\nБүлгүүд суурь түвшиндээ ялгаатай байж болох, эсвэл суурь утгаар залруулж нарийвчлалаа сайжруулах бол.\n\n\n\n\n\n\nЖишээ судалгааны асуулт: Суурь жинг харгалзан үзвэл 12 дахь долоо хоногт эмийн бүлгийн жин плацебо бүлгийнхээс бага байна уу?"
+  },
+  {
+    "objectID": "methods/ancova.html#таамаглалууд",
+    "href": "methods/ancova.html#таамаглалууд",
+    "title": "Ковариацын шинжилгээ (ANCOVA)",
+    "section": "Таамаглалууд",
+    "text": "Таамаглалууд\nШинжилгээ хийхээс өмнө шалгана:\n\nANOVA-ийн бүх таамаглал (хамааралгүй байдал, үлдэгдлийн хэвийн тархалт, дисперсийн тэнцүү байдал).\nКовариат ба үр дагаврын хамаарал шугаман.\nРегрессийн налуу бүлгүүдэд ижил (бүлэг × ковариат харилцан үйлчлэл ач холбогдолгүй).\nКовариат нь бүлгийн хуваарилалтаас хамаарахгүй (эмчилгээ эхлэхээс өмнө хэмжигдсэн)."
+  },
+  {
+    "objectID": "methods/ancova.html#r-дээр-хийх",
+    "href": "methods/ancova.html#r-дээр-хийх",
+    "title": "Ковариацын шинжилгээ (ANCOVA)",
+    "section": "R дээр хийх",
+    "text": "R дээр хийх\n# Өгөгдөл: df$wt12 (12 дахь долоо хоног), df$wt0 (суурь), df$group\nm &lt;- lm(wt12 ~ group + wt0, data = df)\nsummary(m)          # group-ийн коэффициент = залруулсан зөрүү\nconfint(m)\n\n# Налуу ижил эсэхийг шалгах\nanova(lm(wt12 ~ group * wt0, data = df))\n\n# Залруулсан дундаж (estimated marginal means)\nemmeans::emmeans(m, ~ group)"
+  },
+  {
+    "objectID": "methods/ancova.html#үр-дүнг-тайлбарлах",
+    "href": "methods/ancova.html#үр-дүнг-тайлбарлах",
+    "title": "Ковариацын шинжилгээ (ANCOVA)",
+    "section": "Үр дүнг тайлбарлах",
+    "text": "Үр дүнг тайлбарлах\n\ngroup коэффициент — суурь утгыг ижил байлгахад бүлгүүдийн дунджийн зөрүү.\nwt0 коэффициент — суурь жин 1 кг өндөр байхад 12 дахь долоо хоногийн жин хэр өндөр байх.\nemmeans — бүлэг тус бүрийн залруулсан дундаж ба CI."
+  },
+  {
+    "objectID": "methods/ancova.html#тайлагнах-жишээ",
+    "href": "methods/ancova.html#тайлагнах-жишээ",
+    "title": "Ковариацын шинжилгээ (ANCOVA)",
+    "section": "Тайлагнах жишээ",
+    "text": "Тайлагнах жишээ\n\n\n\n\n\n\nСуурь жингээр залруулахад 12 дахь долоо хоногт эмийн бүлгийн жин плацебо бүлгийнхээс 2.4 кг (95% CI 1.1; 3.7, p &lt; 0.001) бага байв (ANCOVA).\nТоонууд зохиомол бөгөөд тайлагнах хэлбэрийг харуулах зорилготой."
+  },
+  {
+    "objectID": "methods/ancova.html#түгээмэл-алдаа",
+    "href": "methods/ancova.html#түгээмэл-алдаа",
+    "title": "Ковариацын шинжилгээ (ANCOVA)",
+    "section": "Түгээмэл алдаа",
+    "text": "Түгээмэл алдаа\n\n\n\n\n\n\n\nӨөрчлөлтийн оноо (дараа − өмнө)-г t-тестээр харьцуулах нь ANCOVA-аас чадал багатай, суурь ялгаатай үед хазайлттай байж болно.\nЭмчилгээний дараа хэмжигдсэн, эмчилгээнд өртсөн хувьсагчаар залруулах."
+  },
+  {
+    "objectID": "methods/ancova.html#өөр-аргууд",
+    "href": "methods/ancova.html#өөр-аргууд",
+    "title": "Ковариацын шинжилгээ (ANCOVA)",
+    "section": "Өөр аргууд",
+    "text": "Өөр аргууд\n\nДисперсийн шинжилгээ (ANOVA) — Гурав ба түүнээс дээш хамааралгүй бүлгийн дундажийг нэг дор харьцуулна.\nШугаман регресс — Тасралтгүй үр дагаврыг нэг буюу олон тайлбарлагч хувьсагчаар загварчилна."
+  },
+  {
+    "objectID": "methods/ancova.html#холбогдох-нэр-томьёо",
+    "href": "methods/ancova.html#холбогдох-нэр-томьёо",
+    "title": "Ковариацын шинжилгээ (ANCOVA)",
+    "section": "Холбогдох нэр томьёо",
+    "text": "Холбогдох нэр томьёо\n\n  Нэр томьёог ачаалж байна…\n\n\n← Дисперсийн шинжилгээ (ANOVA)Олон хэмжээст дисперсийн шинжилгээ (MANOVA) →"
+  },
+  {
+    "objectID": "methods/correlation.html",
+    "href": "methods/correlation.html",
+    "title": "Корреляцийн шинжилгээ",
+    "section": "",
+    "text": "Data Analysis Methods · Хамаарал ба регресс\n  \n  Correlation analysis\n  Хоёр хувьсагч хамтдаа хэр өөрчлөгдөж байгааг тодорхойлно. Пирсоны r нь шугаман хамаарлыг, Спирменийн ρ нь эрэмбийн (монотон) хамаарлыг хэмжинэ.\n  2 тоон хувьсагчПирсон / Спирменcor.test()"
+  },
+  {
+    "objectID": "methods/correlation.html#товч-мэдээлэл",
+    "href": "methods/correlation.html#товч-мэдээлэл",
+    "title": "Корреляцийн шинжилгээ",
+    "section": "Товч мэдээлэл",
+    "text": "Товч мэдээлэл\nХувьсагч2 тасралтгүй эсвэл эрэмбэтХэмжүүрr эсвэл ρ, −1…+1Тэг таамаглалρ = 0Непараметр хувилбарСпирмен"
+  },
+  {
+    "objectID": "methods/correlation.html#хэзээ-хэрэглэх-вэ",
+    "href": "methods/correlation.html#хэзээ-хэрэглэх-вэ",
+    "title": "Корреляцийн шинжилгээ",
+    "section": "Хэзээ хэрэглэх вэ?",
+    "text": "Хэзээ хэрэглэх вэ?\nХоёр хувьсагчийн хамаарлын хүчийг тодорхойлох, аль нь шалтгаан болох нь чухал биш бол.\n\n\n\n\n\n\nЖишээ судалгааны асуулт: Насанд хүрэгчдийн биеийн жингийн индекс ба систолын даралт хоорондоо хамааралтай юу?"
+  },
+  {
+    "objectID": "methods/correlation.html#таамаглалууд",
+    "href": "methods/correlation.html#таамаглалууд",
+    "title": "Корреляцийн шинжилгээ",
+    "section": "Таамаглалууд",
+    "text": "Таамаглалууд\nШинжилгээ хийхээс өмнө шалгана:\n\nПирсон: хоёр хувьсагч тасралтгүй, хамаарал шугаман, онцгой утгагүй, ойролцоогоор хэвийн тархалттай.\nСпирмен: эрэмбэт эсвэл хазгай тархалттай өгөгдөл, монотон хамаарал.\nАжиглалтууд хоорондоо хамааралгүй."
+  },
+  {
+    "objectID": "methods/correlation.html#r-дээр-хийх",
+    "href": "methods/correlation.html#r-дээр-хийх",
+    "title": "Корреляцийн шинжилгээ",
+    "section": "R дээр хийх",
+    "text": "R дээр хийх\n# Эхлээд заавал график\nplot(df$bmi, df$sbp)\n\ncor.test(df$bmi, df$sbp)                        # Пирсон\ncor.test(df$bmi, df$sbp, method = \"spearman\")   # Спирмен\n\n# Олон хувьсагчийн корреляцийн матриц\ncor(df[, c(\"age\", \"bmi\", \"sbp\", \"glucose\")], use = \"complete.obs\")"
+  },
+  {
+    "objectID": "methods/correlation.html#үр-дүнг-тайлбарлах",
+    "href": "methods/correlation.html#үр-дүнг-тайлбарлах",
+    "title": "Корреляцийн шинжилгээ",
+    "section": "Үр дүнг тайлбарлах",
+    "text": "Үр дүнг тайлбарлах\n\nr (cor) — 0–0.3 сул, 0.3–0.7 дунд, &gt; 0.7 хүчтэй (ойролцоо босго, салбараас хамаарна).\nТэмдэг — эерэг бол хамт өсдөг, сөрөг бол нэг нь өсөхөд нөгөө нь буурдаг.\n95% CI — корреляцийн коэффициентийн итгэх интервал.\nr² — нэг хувьсагчийн хэлбэлзлийн хэдэн хувийг нөгөө нь «тайлбарлах»."
+  },
+  {
+    "objectID": "methods/correlation.html#тайлагнах-жишээ",
+    "href": "methods/correlation.html#тайлагнах-жишээ",
+    "title": "Корреляцийн шинжилгээ",
+    "section": "Тайлагнах жишээ",
+    "text": "Тайлагнах жишээ\n\n\n\n\n\n\nБиеийн жингийн индекс ба систолын даралт дунд зэргийн эерэг хамааралтай байв (Пирсоны r = 0.42, 95% CI 0.33; 0.50, p &lt; 0.001, n = 412).\nТоонууд зохиомол бөгөөд тайлагнах хэлбэрийг харуулах зорилготой."
+  },
+  {
+    "objectID": "methods/correlation.html#түгээмэл-алдаа",
+    "href": "methods/correlation.html#түгээмэл-алдаа",
+    "title": "Корреляцийн шинжилгээ",
+    "section": "Түгээмэл алдаа",
+    "text": "Түгээмэл алдаа\n\n\n\n\n\n\n\nКорреляцийг учир шалтгаан гэж тайлбарлах.\nТархалтын графикгүйгээр r-ийг тайлбарлах. Муруй хамаарал эсвэл ганц онцгой утга r-ийг эрс өөрчилнө.\nХоёр аргыг тохирлоор нь харьцуулахад корреляци хэрэглэх. Bland–Altman шинжилгээ хэрэглэнэ."
+  },
+  {
+    "objectID": "methods/correlation.html#өөр-аргууд",
+    "href": "methods/correlation.html#өөр-аргууд",
+    "title": "Корреляцийн шинжилгээ",
+    "section": "Өөр аргууд",
+    "text": "Өөр аргууд\n\nШугаман регресс — Тасралтгүй үр дагаврыг нэг буюу олон тайлбарлагч хувьсагчаар загварчилна."
+  },
+  {
+    "objectID": "methods/correlation.html#холбогдох-нэр-томьёо",
+    "href": "methods/correlation.html#холбогдох-нэр-томьёо",
+    "title": "Корреляцийн шинжилгээ",
+    "section": "Холбогдох нэр томьёо",
+    "text": "Холбогдох нэр томьёо\n\n  Нэр томьёог ачаалж байна…\n\n\n← Олон хэмжээст дисперсийн шинжилгээ (MANOVA)Шугаман регресс →"
+  },
+  {
+    "objectID": "methods/gee.html",
+    "href": "methods/gee.html",
+    "title": "Ерөнхийлсөн үнэлгээний тэгшитгэл (GEE)",
+    "section": "",
+    "text": "Data Analysis Methods · Давтан хэмжилт ба кластер\n  \n  Generalized estimating equations\n  Нэг хүнээс олон удаа, эсвэл нэг эмнэлэг, сургууль, өрхөөс олон хүн хэмжсэн үед ажиглалтуудын хамаарлыг тооцож, хүн амын дундаж нөлөөг найдвартай стандарт алдаатай үнэлнэ.\n  Давтан хэмжилтТасралтгүй / 0-1 / тооgeeglm()"
+  },
+  {
+    "objectID": "methods/gee.html#товч-мэдээлэл",
+    "href": "methods/gee.html#товч-мэдээлэл",
+    "title": "Ерөнхийлсөн үнэлгээний тэгшитгэл (GEE)",
+    "section": "Товч мэдээлэл",
+    "text": "Товч мэдээлэл\nҮр дагаварТасралтгүй, хоёр утгат, тоолсонӨгөгдлийн бүтэцДавтан хэмжилт / кластерҮр дүнβ, OR, IRR (хүн амын түвшин)Гол сонголтКорреляцийн бүтэц"
+  },
+  {
+    "objectID": "methods/gee.html#хэзээ-хэрэглэх-вэ",
+    "href": "methods/gee.html#хэзээ-хэрэглэх-вэ",
+    "title": "Ерөнхийлсөн үнэлгээний тэгшитгэл (GEE)",
+    "section": "Хэзээ хэрэглэх вэ?",
+    "text": "Хэзээ хэрэглэх вэ?\nАжиглалтууд хамааралтай (нэг хүний олон хэмжилт, нэг кластерын олон хүн) бөгөөд хүн амын дундаж нөлөө сонирхолтой бол.\n\n\n\n\n\n\nЖишээ судалгааны асуулт: Хүүхдүүдийг 4 улиралд давтан үзлэг хийхэд PM2.5-ын түвшин амьсгалын замын халдвартай байх odds-той хамааралтай юу?"
+  },
+  {
+    "objectID": "methods/gee.html#таамаглалууд",
+    "href": "methods/gee.html#таамаглалууд",
+    "title": "Ерөнхийлсөн үнэлгээний тэгшитгэл (GEE)",
+    "section": "Таамаглалууд",
+    "text": "Таамаглалууд\nШинжилгээ хийхээс өмнө шалгана:\n\nКластерууд хоорондоо хамааралгүй (кластер доторх хамаарлыг загвар тооцно).\nҮр дагаврын тархалтын төрөл (family) ба холбоос функц зөв сонгогдсон.\nКластерын тоо хангалттай (ойролцоогоор 30–40-өөс дээш), эс бөгөөс жижиг түүврийн залруулга хэрэгтэй.\nДутуу өгөгдөл бүрэн санамсаргүй (MCAR), эсвэл жинлэсэн GEE хэрэглэнэ."
+  },
+  {
+    "objectID": "methods/gee.html#r-дээр-хийх",
+    "href": "methods/gee.html#r-дээр-хийх",
+    "title": "Ерөнхийлсөн үнэлгээний тэгшитгэл (GEE)",
+    "section": "R дээр хийх",
+    "text": "R дээр хийх\nlibrary(geepack)\n# Урт хэлбэрийн өгөгдөл: нэг мөр = нэг хүүхдийн нэг үзлэг\ndf &lt;- df[order(df$id, df$visit), ]     # id-аар эрэмбэлсэн байх ёстой\n\nm &lt;- geeglm(infection ~ pm25 + age + sex + visit,\n            id = id, family = binomial,\n            corstr = \"exchangeable\", data = df)\nsummary(m)                     # robust SE ашигласан Wald тест\n\n# OR ба 95% CI\nbroom::tidy(m, conf.int = TRUE, exponentiate = TRUE)"
+  },
+  {
+    "objectID": "methods/gee.html#үр-дүнг-тайлбарлах",
+    "href": "methods/gee.html#үр-дүнг-тайлбарлах",
+    "title": "Ерөнхийлсөн үнэлгээний тэгшитгэл (GEE)",
+    "section": "Үр дүнг тайлбарлах",
+    "text": "Үр дүнг тайлбарлах\n\nEstimate — хүн амын түвшний дундаж нөлөө (logit холбоостой бол exp() хувиргаж OR).\nStd.err — бат бөх (sandwich) стандарт алдаа: корреляцийн бүтэц буруу сонгогдсон ч хүчинтэй.\nWald, Pr(&gt;|W|) — коэффициент тус бүрийн тест.\nCorrelation (alpha) — кластер доторх тооцоолсон хамаарал."
+  },
+  {
+    "objectID": "methods/gee.html#тайлагнах-жишээ",
+    "href": "methods/gee.html#тайлагнах-жишээ",
+    "title": "Ерөнхийлсөн үнэлгээний тэгшитгэл (GEE)",
+    "section": "Тайлагнах жишээ",
+    "text": "Тайлагнах жишээ\n\n\n\n\n\n\nНас, хүйс, улирлаар залруулахад PM2.5 10 мкг/м³-аар өсөхөд амьсгалын замын халдвартай байх odds 1.12 дахин нэмэгдэж байв (OR = 1.12, 95% CI 1.05; 1.19; GEE, exchangeable бүтэц, 312 хүүхдийн 1186 үзлэг).\nТоонууд зохиомол бөгөөд тайлагнах хэлбэрийг харуулах зорилготой."
+  },
+  {
+    "objectID": "methods/gee.html#түгээмэл-алдаа",
+    "href": "methods/gee.html#түгээмэл-алдаа",
+    "title": "Ерөнхийлсөн үнэлгээний тэгшитгэл (GEE)",
+    "section": "Түгээмэл алдаа",
+    "text": "Түгээмэл алдаа\n\n\n\n\n\n\n\nДавтан хэмжилтийг хамааралгүй мэт энгийн регрессээр шинжлэх. Стандарт алдаа хэт бага гарна.\nGEE-ийн OR-ийг холимог загварын (хувь хүний түвшний) OR-той шууд харьцуулах.\nКластер цөөн үед robust SE-д залруулга хийхгүй орхих."
+  },
+  {
+    "objectID": "methods/gee.html#өөр-аргууд",
+    "href": "methods/gee.html#өөр-аргууд",
+    "title": "Ерөнхийлсөн үнэлгээний тэгшитгэл (GEE)",
+    "section": "Өөр аргууд",
+    "text": "Өөр аргууд\n\nХосолсон t-тест — Нэг хүнээс авсан хоёр хэмжилтийн (өмнө/дараа) дундаж зөрүүг шалгана.\nШугаман регресс — Тасралтгүй үр дагаврыг нэг буюу олон тайлбарлагч хувьсагчаар загварчилна.\nЛогистик регресс — Хоёр утгат (тийм/үгүй) үр дагаврын odds-ийг олон хувьсагчаар загварчилж OR тооцно."
+  },
+  {
+    "objectID": "methods/gee.html#холбогдох-нэр-томьёо",
+    "href": "methods/gee.html#холбогдох-нэр-томьёо",
+    "title": "Ерөнхийлсөн үнэлгээний тэгшитгэл (GEE)",
+    "section": "Холбогдох нэр томьёо",
+    "text": "Холбогдох нэр томьёо\n\n  Нэр томьёог ачаалж байна…\n\n\n← Коксын регрессБүх аргууд →"
+  },
+  {
+    "objectID": "methods/linear-regression.html",
+    "href": "methods/linear-regression.html",
+    "title": "Шугаман регресс",
+    "section": "",
+    "text": "Data Analysis Methods · Хамаарал ба регресс\n  \n  Linear regression\n  Тасралтгүй үр дагавар ба тайлбарлагч хувьсагчдын хамаарлыг шулуун шугамын тэгшитгэлээр илэрхийлж, хувьсагч бүрийн нөлөөг бусдаар нь залруулж тооцно.\n  Тасралтгүй үр дагаварОлон хувьсагчlm()"
+  },
+  {
+    "objectID": "methods/linear-regression.html#товч-мэдээлэл",
+    "href": "methods/linear-regression.html#товч-мэдээлэл",
+    "title": "Шугаман регресс",
+    "section": "Товч мэдээлэл",
+    "text": "Товч мэдээлэл\nҮр дагаварТасралтгүйТайлбарлагчТоон ба ангиллынҮр дүнβ коэффициент, R²Таамаглал шалгахҮлдэгдлийн график"
+  },
+  {
+    "objectID": "methods/linear-regression.html#хэзээ-хэрэглэх-вэ",
+    "href": "methods/linear-regression.html#хэзээ-хэрэглэх-вэ",
+    "title": "Шугаман регресс",
+    "section": "Хэзээ хэрэглэх вэ?",
+    "text": "Хэзээ хэрэглэх вэ?\nТасралтгүй үр дагаврыг таамаглах, эсвэл confounder-аар залруулсан хамаарлыг тооцох бол.\n\n\n\n\n\n\nЖишээ судалгааны асуулт: Нас, хүйс, BMI-гээр залруулахад тамхи татах нь систолын даралттай хамааралтай юу?"
+  },
+  {
+    "objectID": "methods/linear-regression.html#таамаглалууд",
+    "href": "methods/linear-regression.html#таамаглалууд",
+    "title": "Шугаман регресс",
+    "section": "Таамаглалууд",
+    "text": "Таамаглалууд\nШинжилгээ хийхээс өмнө шалгана:\n\nТайлбарлагч ба үр дагаврын хамаарал шугаман.\nАжиглалтууд хоорондоо хамааралгүй.\nҮлдэгдэл ойролцоогоор хэвийн тархалттай.\nҮлдэгдлийн дисперс тогтмол (homoscedasticity).\nТайлбарлагч хувьсагчид хэт хүчтэй хамааралгүй (VIF &lt; 5–10)."
+  },
+  {
+    "objectID": "methods/linear-regression.html#r-дээр-хийх",
+    "href": "methods/linear-regression.html#r-дээр-хийх",
+    "title": "Шугаман регресс",
+    "section": "R дээр хийх",
+    "text": "R дээр хийх\nm &lt;- lm(sbp ~ smoke + age + sex + bmi, data = df)\nsummary(m)          # β, SE, t, p, R²\nconfint(m)          # β-ийн 95% CI\n\npar(mfrow = c(2, 2)); plot(m)   # үлдэгдлийн оношлогоо\ncar::vif(m)                     # олон шугамт хамаарал\n\n# Хүснэгт гаргах\ngtsummary::tbl_regression(m)"
+  },
+  {
+    "objectID": "methods/linear-regression.html#үр-дүнг-тайлбарлах",
+    "href": "methods/linear-regression.html#үр-дүнг-тайлбарлах",
+    "title": "Шугаман регресс",
+    "section": "Үр дүнг тайлбарлах",
+    "text": "Үр дүнг тайлбарлах\n\nEstimate (β) — бусад хувьсагчийг тогтмол байлгахад тухайн хувьсагч нэг нэгжээр (эсвэл жишиг ангиллаас) өөрчлөгдөхөд үр дагаврын дундаж өөрчлөлт.\n(Intercept) — бүх тайлбарлагч 0 эсвэл жишиг ангилалд байх үеийн дундаж (ихэвчлэн шууд утгагүй).\nPr(&gt;|t|), 95% CI — коэффициент тус бүрийн ач холбогдол ба нарийвчлал.\nR², adjusted R² — загвар үр дагаврын хэлбэлзлийн хэдэн хувийг тайлбарлаж байгаа."
+  },
+  {
+    "objectID": "methods/linear-regression.html#тайлагнах-жишээ",
+    "href": "methods/linear-regression.html#тайлагнах-жишээ",
+    "title": "Шугаман регресс",
+    "section": "Тайлагнах жишээ",
+    "text": "Тайлагнах жишээ\n\n\n\n\n\n\nНас, хүйс, BMI-гээр залруулахад тамхи татдаг хүмүүсийн систолын даралт татдаггүй хүмүүсийнхээс дунджаар 4.3 мм м.у.б (95% CI 1.8; 6.8, p = 0.001) өндөр байв. Загвар даралтын хэлбэлзлийн 29%-ийг тайлбарлав (adjusted R² = 0.29).\nТоонууд зохиомол бөгөөд тайлагнах хэлбэрийг харуулах зорилготой."
+  },
+  {
+    "objectID": "methods/linear-regression.html#түгээмэл-алдаа",
+    "href": "methods/linear-regression.html#түгээмэл-алдаа",
+    "title": "Шугаман регресс",
+    "section": "Түгээмэл алдаа",
+    "text": "Түгээмэл алдаа\n\n\n\n\n\n\n\nАнгиллын хувьсагчийг (1, 2, 3 кодтой) тоон мэт оруулах. factor() болгоно.\nХувьсагчийг зөвхөн p-утгаар (stepwise) сонгох. Онол, урьдчилсан мэдлэгт тулгуурлана.\nӨгөгдлийн мужаас гадуур таамаглал хийх."
+  },
+  {
+    "objectID": "methods/linear-regression.html#өөр-аргууд",
+    "href": "methods/linear-regression.html#өөр-аргууд",
+    "title": "Шугаман регресс",
+    "section": "Өөр аргууд",
+    "text": "Өөр аргууд\n\nКорреляцийн шинжилгээ — Хоёр тоон хувьсагчийн хамаарлын хүч ба чиглэлийг −1-ээс +1 хооронд хэмжинэ.\nКовариацын шинжилгээ (ANCOVA) — Бүлгүүдийн дундажийг суурь утга зэрэг тасралтгүй ковариатаар залруулж харьцуулна.\nЛогистик регресс — Хоёр утгат (тийм/үгүй) үр дагаврын odds-ийг олон хувьсагчаар загварчилж OR тооцно.\nЕрөнхийлсөн үнэлгээний тэгшитгэл (GEE) — Давтан хэмжилт эсвэл кластерласан өгөгдлийн хүн амын түвшний нөлөөг үнэлнэ."
+  },
+  {
+    "objectID": "methods/linear-regression.html#холбогдох-нэр-томьёо",
+    "href": "methods/linear-regression.html#холбогдох-нэр-томьёо",
+    "title": "Шугаман регресс",
+    "section": "Холбогдох нэр томьёо",
+    "text": "Холбогдох нэр томьёо\n\n  Нэр томьёог ачаалж байна…\n\n\n← Корреляцийн шинжилгээЛогистик регресс →"
+  },
+  {
+    "objectID": "methods/manova.html",
+    "href": "methods/manova.html",
+    "title": "Олон хэмжээст дисперсийн шинжилгээ (MANOVA)",
+    "section": "",
+    "text": "Data Analysis Methods · Дундаж харьцуулах\n  \n  Multivariate analysis of variance\n  Хоорондоо хамааралтай хэд хэдэн тасралтгүй үр дагаврын хувьсагчийг нэг дор авч үзэж, бүлгүүд эдгээр хувьсагчдын хослолоор ялгаатай эсэхийг шалгана.\n  ≥ 2 тасралтгүй үр дагавар≥ 2 бүлэгmanova()"
+  },
+  {
+    "objectID": "methods/manova.html#товч-мэдээлэл",
+    "href": "methods/manova.html#товч-мэдээлэл",
+    "title": "Олон хэмжээст дисперсийн шинжилгээ (MANOVA)",
+    "section": "Товч мэдээлэл",
+    "text": "Товч мэдээлэл\nҮр дагавар≥ 2 тасралтгүйБүлэг≥ 2Тестийн статистикPillai, Wilks' ΛДараагийн алхамҮр дагавар тус бүрийн ANOVA"
+  },
+  {
+    "objectID": "methods/manova.html#хэзээ-хэрэглэх-вэ",
+    "href": "methods/manova.html#хэзээ-хэрэглэх-вэ",
+    "title": "Олон хэмжээст дисперсийн шинжилгээ (MANOVA)",
+    "section": "Хэзээ хэрэглэх вэ?",
+    "text": "Хэзээ хэрэглэх вэ?\nҮр дагаврууд онолын хувьд нэг цогц ойлголтыг илэрхийлж, хоорондоо дунд зэрэг хамааралтай бол.\n\n\n\n\n\n\nЖишээ судалгааны асуулт: Гурван дасгалын хөтөлбөр систол ба диастолын даралтад хамтдаа ялгаатай нөлөөлөх үү?"
+  },
+  {
+    "objectID": "methods/manova.html#таамаглалууд",
+    "href": "methods/manova.html#таамаглалууд",
+    "title": "Олон хэмжээст дисперсийн шинжилгээ (MANOVA)",
+    "section": "Таамаглалууд",
+    "text": "Таамаглалууд\nШинжилгээ хийхээс өмнө шалгана:\n\nАжиглалтууд хоорондоо хамааралгүй.\nҮр дагаврууд бүлэг бүрт олон хэмжээст хэвийн тархалттай.\nКовариацын матрицууд бүлгүүдэд ижил (Box-ийн M тест).\nҮр дагаврууд дунд зэрэг хамааралтай (хэт өндөр биш, хэт бага биш)."
+  },
+  {
+    "objectID": "methods/manova.html#r-дээр-хийх",
+    "href": "methods/manova.html#r-дээр-хийх",
+    "title": "Олон хэмжээст дисперсийн шинжилгээ (MANOVA)",
+    "section": "R дээр хийх",
+    "text": "R дээр хийх\n# Өгөгдөл: df$sbp, df$dbp, df$program (3 түвшин)\nm &lt;- manova(cbind(sbp, dbp) ~ program, data = df)\nsummary(m, test = \"Pillai\")      # олон хэмжээст тест\nsummary.aov(m)                   # үр дагавар тус бүрийн ANOVA"
+  },
+  {
+    "objectID": "methods/manova.html#үр-дүнг-тайлбарлах",
+    "href": "methods/manova.html#үр-дүнг-тайлбарлах",
+    "title": "Олон хэмжээст дисперсийн шинжилгээ (MANOVA)",
+    "section": "Үр дүнг тайлбарлах",
+    "text": "Үр дүнг тайлбарлах\n\nPillai’s trace — хамгийн бат бөх тестийн статистик (таамаглал бага зэрэг зөрчигдсөн ч найдвартай).\napprox F, Pr(&gt;F) — бүлгүүд үр дагаврын хослолоор ялгаатай эсэх.\nsummary.aov — аль үр дагаварт ялгаа байгааг тус тусад нь харуулна (олон харьцуулалтын залруулга хийнэ)."
+  },
+  {
+    "objectID": "methods/manova.html#тайлагнах-жишээ",
+    "href": "methods/manova.html#тайлагнах-жишээ",
+    "title": "Олон хэмжээст дисперсийн шинжилгээ (MANOVA)",
+    "section": "Тайлагнах жишээ",
+    "text": "Тайлагнах жишээ\n\n\n\n\n\n\nДасгалын хөтөлбөрүүд систол ба диастолын даралтад хамтдаа ялгаатай нөлөөлсөн (Pillai’s trace = 0.11, F(4, 294) = 4.27, p = 0.002). Тус тусын ANOVA-аар ялгаа систолын даралтад илэрсэн.\nТоонууд зохиомол бөгөөд тайлагнах хэлбэрийг харуулах зорилготой."
+  },
+  {
+    "objectID": "methods/manova.html#түгээмэл-алдаа",
+    "href": "methods/manova.html#түгээмэл-алдаа",
+    "title": "Олон хэмжээст дисперсийн шинжилгээ (MANOVA)",
+    "section": "Түгээмэл алдаа",
+    "text": "Түгээмэл алдаа\n\n\n\n\n\n\n\nХамааралгүй, онолын холбоогүй олон үр дагаврыг MANOVA-д хийх.\nMANOVA-г «олон тест хийхээс зайлсхийх» хамгаалалт гэж үзэх. Үр дагавар тус бүрийн дараах тестэд залруулга хэрэгтэй хэвээр."
+  },
+  {
+    "objectID": "methods/manova.html#өөр-аргууд",
+    "href": "methods/manova.html#өөр-аргууд",
+    "title": "Олон хэмжээст дисперсийн шинжилгээ (MANOVA)",
+    "section": "Өөр аргууд",
+    "text": "Өөр аргууд\n\nДисперсийн шинжилгээ (ANOVA) — Гурав ба түүнээс дээш хамааралгүй бүлгийн дундажийг нэг дор харьцуулна.\nШугаман регресс — Тасралтгүй үр дагаврыг нэг буюу олон тайлбарлагч хувьсагчаар загварчилна."
+  },
+  {
+    "objectID": "methods/manova.html#холбогдох-нэр-томьёо",
+    "href": "methods/manova.html#холбогдох-нэр-томьёо",
+    "title": "Олон хэмжээст дисперсийн шинжилгээ (MANOVA)",
+    "section": "Холбогдох нэр томьёо",
+    "text": "Холбогдох нэр томьёо\n\n  Нэр томьёог ачаалж байна…\n\n\n← Ковариацын шинжилгээ (ANCOVA)Корреляцийн шинжилгээ →"
+  },
+  {
+    "objectID": "methods/paired-t-test.html",
+    "href": "methods/paired-t-test.html",
+    "title": "Хосолсон t-тест",
+    "section": "",
+    "text": "Data Analysis Methods · Дундаж харьцуулах\n  \n  Paired t-test\n  Нэг хүмүүсээс хоёр удаа (жишээ нь эмчилгээний өмнө ба дараа) эсвэл хосолсон хүмүүсээс авсан хэмжилтийн дундаж зөрүү тэгээс ялгаатай эсэхийг шалгана.\n  Тасралтгүй2 хэмжилтt.test(paired = TRUE)"
+  },
+  {
+    "objectID": "methods/paired-t-test.html#товч-мэдээлэл",
+    "href": "methods/paired-t-test.html#товч-мэдээлэл",
+    "title": "Хосолсон t-тест",
+    "section": "Товч мэдээлэл",
+    "text": "Товч мэдээлэл\nҮр дагаварТасралтгүйБүлэг1 бүлэг, 2 хэмжилтТэг таамаглалЗөрүүний дундаж = 0Непараметр хувилбарУилкоксоны тэмдэгт эрэмбийн тест"
+  },
+  {
+    "objectID": "methods/paired-t-test.html#хэзээ-хэрэглэх-вэ",
+    "href": "methods/paired-t-test.html#хэзээ-хэрэглэх-вэ",
+    "title": "Хосолсон t-тест",
+    "section": "Хэзээ хэрэглэх вэ?",
+    "text": "Хэзээ хэрэглэх вэ?\nХэмжилтүүд хосоороо холбоотой бол: нэг хүний өмнө/дараах утга, баруун/зүүн нүд, ихрүүд, тохируулсан хосууд.\n\n\n\n\n\n\nЖишээ судалгааны асуулт: Гурван сарын хөдөлгөөний хөтөлбөрийн дараа оролцогчдын HbA1c буурсан уу?"
+  },
+  {
+    "objectID": "methods/paired-t-test.html#таамаглалууд",
+    "href": "methods/paired-t-test.html#таамаглалууд",
+    "title": "Хосолсон t-тест",
+    "section": "Таамаглалууд",
+    "text": "Таамаглалууд\nШинжилгээ хийхээс өмнө шалгана:\n\nХос бүрийн зөрүүг тооцох боломжтой (хоёр хэмжилт хоёулаа байгаа).\nХосууд хоорондоо хамааралгүй.\nЗөрүүнүүд ойролцоогоор хэвийн тархалттай (анхны утгууд биш, зөрүү)."
+  },
+  {
+    "objectID": "methods/paired-t-test.html#r-дээр-хийх",
+    "href": "methods/paired-t-test.html#r-дээр-хийх",
+    "title": "Хосолсон t-тест",
+    "section": "R дээр хийх",
+    "text": "R дээр хийх\n# Өгөгдөл: df$hba1c_0 (өмнө), df$hba1c_3 (3 сарын дараа)\ndiff &lt;- df$hba1c_3 - df$hba1c_0\nshapiro.test(diff)                         # зөрүүний хэвийн тархалт\nt.test(df$hba1c_3, df$hba1c_0, paired = TRUE)\n\n# Хэвийн тархалтгүй бол:\nwilcox.test(df$hba1c_3, df$hba1c_0, paired = TRUE)"
+  },
+  {
+    "objectID": "methods/paired-t-test.html#үр-дүнг-тайлбарлах",
+    "href": "methods/paired-t-test.html#үр-дүнг-тайлбарлах",
+    "title": "Хосолсон t-тест",
+    "section": "Үр дүнг тайлбарлах",
+    "text": "Үр дүнг тайлбарлах\n\nmean difference — хос бүрийн зөрүүний дундаж (дараа − өмнө).\n95% CI — дундаж өөрчлөлтийн итгэх интервал. 0-ийг агуулахгүй бол p &lt; 0.05.\ndf — хосын тоо − 1."
+  },
+  {
+    "objectID": "methods/paired-t-test.html#тайлагнах-жишээ",
+    "href": "methods/paired-t-test.html#тайлагнах-жишээ",
+    "title": "Хосолсон t-тест",
+    "section": "Тайлагнах жишээ",
+    "text": "Тайлагнах жишээ\n\n\n\n\n\n\nХөтөлбөрийн дараа HbA1c дунджаар 0.42% (95% CI 0.25; 0.59) буурсан нь статистик ач холбогдолтой байв (хосолсон t(61) = −4.98, p &lt; 0.001).\nТоонууд зохиомол бөгөөд тайлагнах хэлбэрийг харуулах зорилготой."
+  },
+  {
+    "objectID": "methods/paired-t-test.html#түгээмэл-алдаа",
+    "href": "methods/paired-t-test.html#түгээмэл-алдаа",
+    "title": "Хосолсон t-тест",
+    "section": "Түгээмэл алдаа",
+    "text": "Түгээмэл алдаа\n\n\n\n\n\n\n\nӨмнө/дараах хэмжилтэд хамааралгүй t-тест хэрэглэх. Ингэвэл хүн хоорондын хэлбэлзлийг тооцоогүйгээс чадал эрс буурна.\nХяналтын бүлэггүй өмнө/дараах судалгаанд өөрчлөлтийг эмчилгээний нөлөө гэж дүгнэх. Цаг хугацааны нөлөө, регрессийн дундаж руу буцах үзэгдэл зэрэг өөр тайлбар байж болно.\nГурав ба түүнээс дээш удаагийн хэмжилтэд олон хосолсон t-тест хийх. Давтан хэмжилтийн ANOVA эсвэл холимог загвар, GEE хэрэглэнэ."
+  },
+  {
+    "objectID": "methods/paired-t-test.html#өөр-аргууд",
+    "href": "methods/paired-t-test.html#өөр-аргууд",
+    "title": "Хосолсон t-тест",
+    "section": "Өөр аргууд",
+    "text": "Өөр аргууд\n\nХамааралгүй түүврийн t-тест — Хоёр хамааралгүй бүлгийн тасралтгүй хувьсагчийн дундажийг харьцуулна.\nЕрөнхийлсөн үнэлгээний тэгшитгэл (GEE) — Давтан хэмжилт эсвэл кластерласан өгөгдлийн хүн амын түвшний нөлөөг үнэлнэ."
+  },
+  {
+    "objectID": "methods/paired-t-test.html#холбогдох-нэр-томьёо",
+    "href": "methods/paired-t-test.html#холбогдох-нэр-томьёо",
+    "title": "Хосолсон t-тест",
+    "section": "Холбогдох нэр томьёо",
+    "text": "Холбогдох нэр томьёо\n\n  Нэр томьёог ачаалж байна…\n\n\n← Хамааралгүй түүврийн t-тестДисперсийн шинжилгээ (ANOVA) →"
+  },
+  {
+    "objectID": "methods.html",
+    "href": "methods.html",
+    "title": "Data Analysis Methods",
+    "section": "",
+    "text": "Шинжилгээний аргууд\n  \n  \n    Анагаах ухааны судалгаанд хамгийн түгээмэл хэрэглэгддэг статистик аргууд.\n    Арга бүрийн хуудсанд хэзээ хэрэглэх, таамаглал, R код, үр дүнг тайлбарлах,\n    тайлагнах загвар болон холбогдох нэр томьёо багтсан.\n  \n  \n    12 арга\n    R кодын жишээ\n    Монгол нэр томьёо\n  \n  \n     Аль аргыг сонгох вэ?\n     Нэр томьёоны толь"
+  },
+  {
+    "objectID": "methods.html#дундаж-харьцуулах",
+    "href": "methods.html#дундаж-харьцуулах",
+    "title": "Data Analysis Methods",
+    "section": "Дундаж харьцуулах",
+    "text": "Дундаж харьцуулах\n\n  \n    01t\n    \n       Дундаж харьцуулах\n      Нэг түүврийн t-тест\n      One-sample t-test\n      Нэг бүлгийн дундажийг норм, жишиг эсвэл онолын утгатай харьцуулна.\n      Тасралтгүй1 бүлэгt.test(x, mu = )\n      Дэлгэрэнгүй →\n    \n  \n  \n    02t\n    \n       Дундаж харьцуулах\n      Хамааралгүй түүврийн t-тест\n      Independent samples t-test\n      Хоёр хамааралгүй бүлгийн тасралтгүй хувьсагчийн дундажийг харьцуулна.\n      Тасралтгүй2 бүлэгt.test(y ~ g)\n      Дэлгэрэнгүй →\n    \n  \n  \n    03t\n    \n       Дундаж харьцуулах\n      Хосолсон t-тест\n      Paired t-test\n      Нэг хүнээс авсан хоёр хэмжилтийн (өмнө/дараа) дундаж зөрүүг шалгана.\n      Тасралтгүй2 хэмжилтt.test(paired = TRUE)\n      Дэлгэрэнгүй →\n    \n  \n  \n    04F\n    \n       Дундаж харьцуулах\n      Дисперсийн шинжилгээ (ANOVA)\n      One-way analysis of variance\n      Гурав ба түүнээс дээш хамааралгүй бүлгийн дундажийг нэг дор харьцуулна.\n      Тасралтгүй≥ 3 бүлэгaov()\n      Дэлгэрэнгүй →\n    \n  \n  \n    05F\n    \n       Дундаж харьцуулах\n      Ковариацын шинжилгээ (ANCOVA)\n      Analysis of covariance\n      Бүлгүүдийн дундажийг суурь утга зэрэг тасралтгүй ковариатаар залруулж харьцуулна.\n      Тасралтгүй≥ 2 бүлэг + ковариатlm(y ~ g + x)\n      Дэлгэрэнгүй →\n    \n  \n  \n    06Λ\n    \n       Дундаж харьцуулах\n      Олон хэмжээст дисперсийн шинжилгээ (MANOVA)\n      Multivariate analysis of variance\n      Хоёр ба түүнээс дээш хамааралтай үр дагаврыг бүлгүүдийн хооронд зэрэг харьцуулна.\n      ≥ 2 тасралтгүй үр дагавар≥ 2 бүлэгmanova()\n      Дэлгэрэнгүй →"
+  },
+  {
+    "objectID": "methods.html#хамаарал-ба-регресс",
+    "href": "methods.html#хамаарал-ба-регресс",
+    "title": "Data Analysis Methods",
+    "section": "Хамаарал ба регресс",
+    "text": "Хамаарал ба регресс\n\n  \n    07r\n    \n       Хамаарал ба регресс\n      Корреляцийн шинжилгээ\n      Correlation analysis\n      Хоёр тоон хувьсагчийн хамаарлын хүч ба чиглэлийг −1-ээс +1 хооронд хэмжинэ.\n      2 тоон хувьсагчПирсон / Спирменcor.test()\n      Дэлгэрэнгүй →\n    \n  \n  \n    08β\n    \n       Хамаарал ба регресс\n      Шугаман регресс\n      Linear regression\n      Тасралтгүй үр дагаврыг нэг буюу олон тайлбарлагч хувьсагчаар загварчилна.\n      Тасралтгүй үр дагаварОлон хувьсагчlm()\n      Дэлгэрэнгүй →\n    \n  \n  \n    09OR\n    \n       Хамаарал ба регресс\n      Логистик регресс\n      Logistic regression\n      Хоёр утгат (тийм/үгүй) үр дагаврын odds-ийг олон хувьсагчаар загварчилж OR тооцно.\n      Хоёр утгат үр дагаварORglm(binomial)\n      Дэлгэрэнгүй →"
+  },
+  {
+    "objectID": "methods.html#амьдрах-чадвар",
+    "href": "methods.html#амьдрах-чадвар",
+    "title": "Data Analysis Methods",
+    "section": "Амьдрах чадвар",
+    "text": "Амьдрах чадвар\n\n  \n    10S(t)\n    \n       Амьдрах чадвар\n      Амьдрах чадварын шинжилгээ\n      Kaplan–Meier & log-rank test\n      Үйл явдал хүртэлх хугацааг цензурыг тооцож шинжилж, бүлгүүдийн муруйг харьцуулна.\n      Хугацаа + үйл явдалЦензурsurvfit()\n      Дэлгэрэнгүй →\n    \n  \n  \n    11HR\n    \n       Амьдрах чадвар\n      Коксын регресс\n      Cox proportional hazards regression\n      Үйл явдал хүртэлх хугацаанд олон хувьсагчийн нөлөөг залруулж hazard ratio тооцно.\n      Хугацаа + үйл явдалHRcoxph()\n      Дэлгэрэнгүй →"
+  },
+  {
+    "objectID": "methods.html#давтан-хэмжилт-ба-кластер",
+    "href": "methods.html#давтан-хэмжилт-ба-кластер",
+    "title": "Data Analysis Methods",
+    "section": "Давтан хэмжилт ба кластер",
+    "text": "Давтан хэмжилт ба кластер\n\n  \n    12GEE\n    \n       Давтан хэмжилт ба кластер\n      Ерөнхийлсөн үнэлгээний тэгшитгэл (GEE)\n      Generalized estimating equations\n      Давтан хэмжилт эсвэл кластерласан өгөгдлийн хүн амын түвшний нөлөөг үнэлнэ.\n      Давтан хэмжилтТасралтгүй / 0-1 / тооgeeglm()\n      Дэлгэрэнгүй →"
+  },
+  {
+    "objectID": "methods.html#аль-аргыг-сонгох-вэ",
+    "href": "methods.html#аль-аргыг-сонгох-вэ",
+    "title": "Data Analysis Methods",
+    "section": "Аль аргыг сонгох вэ?",
+    "text": "Аль аргыг сонгох вэ?\nҮр дагаврын хувьсагчийн төрөл болон бүлгийн бүтцээс эхэлнэ.\n\n\n\n\nҮр дагавар\nХарьцуулах / асуулт\nПараметр арга\nНепараметр / өөр хувилбар\n\n\n\n\nТасралтгүй\n1 бүлэг ба жишиг утга\nНэг түүврийн t-тест\nУилкоксоны тэмдэгт эрэмбийн тест\n\n\nТасралтгүй\n2 хамааралгүй бүлэг\nХамааралгүй түүврийн t-тест\nМанн-Уитнигийн U тест\n\n\nТасралтгүй\nНэг хүний 2 хэмжилт\nХосолсон t-тест\nУилкоксоны тэмдэгт эрэмбийн тест\n\n\nТасралтгүй\n≥ 3 хамааралгүй бүлэг\nANOVA\nКрускал-Уоллисын тест\n\n\nТасралтгүй\nБүлэг + суурь утгаар залруулах\nANCOVA\n—\n\n\n≥ 2 тасралтгүй\nБүлгүүдийг хамтад нь\nMANOVA\n—\n\n\n2 тоон хувьсагч\nХамаарлын хүч\nПирсоны корреляци\nСпирмены корреляци\n\n\nТасралтгүй\nОлон хүчин зүйлийн нөлөө\nШугаман регресс\n—\n\n\nХоёр утгат (0/1)\nОлон хүчин зүйлийн нөлөө\nЛогистик регресс\n—\n\n\nХугацаа + үйл явдал\nБүлгүүдийн муруй\nКаплан-Майер, лог-ранк\n—\n\n\nХугацаа + үйл явдал\nОлон хүчин зүйлийн нөлөө\nКоксын регресс\n—\n\n\nДавтан / кластер\nХүн амын дундаж нөлөө\nGEE\nХолимог нөлөөний загвар"
   },
   {
     "objectID": "software.html",
@@ -114,433 +1080,6 @@
   {
     "objectID": "software.html#аль-програмыг-сонгох-вэ",
     "href": "software.html#аль-програмыг-сонгох-вэ",
-    "title": "Statistical Software",
-    "section": "Аль програмыг сонгох вэ?",
-    "text": "Аль програмыг сонгох вэ?\nСудалгааны зорилго, өгөгдлийн бүтэц, хэрэглэгчийн туршлага болон шаардлагатай статистикийн аргуудаас хамаарч програмын сонголт өөр байна.\nМанай баг R-ийг статистикийн тооцоолол, өгөгдлийн дүрслэл болон дахин давтагдахуйц судалгаанд түлхүү ашиглана."
-  },
-  {
-    "objectID": "team.html#team-members",
-    "href": "team.html#team-members",
-    "title": "Our Team",
-    "section": "",
-    "text": "Биостатистикчид эрүүл мэнд, анагаах ухааны судалгаанд статистикийн арга зүйг боловсруулж, хэрэглэнэ.\n\n\n\nТархвар судлаачид өвчний тархалт, эрсдэлт хүчин зүйл болон хүн амын эрүүл мэндийн асуудлыг судална.\n\n\n\nСудлаач оюутнууд:\n\nБиостатистик\nТархвар судлал\nR программчлал\nСтатистикийн загварчлал\nӨгөгдлийн дүрслэл\n\nчиглэлээр суралцаж, судалгаа хийж байна."
-  },
-  {
-    "objectID": "book.html",
-    "href": "book.html",
-    "title": "Biostatistics Books",
-    "section": "",
-    "text": "Энэ хэсэгт биостатистик, статистик, тархвар судлал болон өгөгдлийн шинжлэх ухааны чиглэлээр суралцахад ашигтай ном, сурах бичгүүдийг танилцуулна.\n\n\n\nБиостатистикийн үндсэн ойлголт, статистикийн арга зүйг сурахад зориулсан номууд.\n\n\n\nDescriptive statistics\nProbability\nStatistical inference\nHypothesis testing\nRegression\nSurvival analysis\n\n\n\n\n\n\nТархвар судлалын үндсэн ойлголт болон судалгааны арга зүйг сурахад зориулсан номууд.\n\n\n\nStudy design\nDisease frequency\nRisk and association\nBias and confounding\nEpidemiological methods\n\n\n\n\n\n\nR болон статистикийн программчлал сурахад зориулсан номууд.\n\n\n\nR programming\nData manipulation\nData visualization\nStatistical modelling\nReproducible research\n\n\n\n\n\n\nЭнд бид цаашдаа ном бүрийн:\n\nНэр\nЗохиогч\nХэвлэгдсэн он\nТовч тайлбар\nНомын зураг\nАлбан ёсны холбоос\n\nзэргийг оруулна."
-  },
-  {
-    "objectID": "book.html#биостатистикийн-номууд",
-    "href": "book.html#биостатистикийн-номууд",
-    "title": "Biostatistics Books",
-    "section": "",
-    "text": "Энэ хэсэгт биостатистик, статистик, тархвар судлал болон өгөгдлийн шинжлэх ухааны чиглэлээр суралцахад ашигтай ном, сурах бичгүүдийг танилцуулна."
-  },
-  {
-    "objectID": "book.html#biostatistics",
-    "href": "book.html#biostatistics",
-    "title": "Biostatistics Books",
-    "section": "",
-    "text": "Биостатистикийн үндсэн ойлголт, статистикийн арга зүйг сурахад зориулсан номууд.\n\n\n\nDescriptive statistics\nProbability\nStatistical inference\nHypothesis testing\nRegression\nSurvival analysis"
-  },
-  {
-    "objectID": "book.html#epidemiology",
-    "href": "book.html#epidemiology",
-    "title": "Biostatistics Books",
-    "section": "",
-    "text": "Тархвар судлалын үндсэн ойлголт болон судалгааны арга зүйг сурахад зориулсан номууд.\n\n\n\nStudy design\nDisease frequency\nRisk and association\nBias and confounding\nEpidemiological methods"
-  },
-  {
-    "objectID": "book.html#statistical-programming",
-    "href": "book.html#statistical-programming",
-    "title": "Biostatistics Books",
-    "section": "",
-    "text": "R болон статистикийн программчлал сурахад зориулсан номууд.\n\n\n\nR programming\nData manipulation\nData visualization\nStatistical modelling\nReproducible research"
-  },
-  {
-    "objectID": "book.html#recommended-reading",
-    "href": "book.html#recommended-reading",
-    "title": "Biostatistics Books",
-    "section": "",
-    "text": "Энд бид цаашдаа ном бүрийн:\n\nНэр\nЗохиогч\nХэвлэгдсэн он\nТовч тайлбар\nНомын зураг\nАлбан ёсны холбоос\n\nзэргийг оруулна."
-  },
-  {
-    "objectID": "research.html",
-    "href": "research.html",
-    "title": "Interesting Research",
-    "section": "",
-    "text": "Энэ хэсэгт биостатистик, тархвар судлал, эмнэлзүйн судалгаа болон эрүүл мэндийн өгөгдлийн шинжилгээтэй холбоотой сонирхолтой судалгаануудыг танилцуулна."
-  },
-  {
-    "objectID": "research.html#сонирхолтой-судалгаанууд",
-    "href": "research.html#сонирхолтой-судалгаанууд",
-    "title": "Interesting Research",
-    "section": "",
-    "text": "Энэ хэсэгт биостатистик, тархвар судлал, эмнэлзүйн судалгаа болон эрүүл мэндийн өгөгдлийн шинжилгээтэй холбоотой сонирхолтой судалгаануудыг танилцуулна."
-  },
-  {
-    "objectID": "research.html#clinical-research",
-    "href": "research.html#clinical-research",
-    "title": "Interesting Research",
-    "section": "Clinical Research",
-    "text": "Clinical Research\nЭмнэлзүйн судалгаанд статистикийн арга зүй нь эмчилгээний үр нөлөө, аюулгүй байдал болон судалгааны үр дүнг үнэлэхэд чухал ач холбогдолтой.\n\nСудалгаанд ашиглагддаг аргууд\n\nDescriptive statistics\nHypothesis testing\nConfidence intervals\nRegression analysis\nSurvival analysis\nSample size calculation"
-  },
-  {
-    "objectID": "research.html#epidemiological-research",
-    "href": "research.html#epidemiological-research",
-    "title": "Interesting Research",
-    "section": "Epidemiological Research",
-    "text": "Epidemiological Research\nТархвар судлалын судалгаанд өвчний тархалт, эрсдэлт хүчин зүйл болон хүн амын эрүүл мэндийн үзүүлэлтүүдийг статистикийн аргаар судална."
-  },
-  {
-    "objectID": "research.html#statistical-modelling",
-    "href": "research.html#statistical-modelling",
-    "title": "Interesting Research",
-    "section": "Statistical Modelling",
-    "text": "Statistical Modelling\nСтатистикийн загварчлал ашиглан судалгааны өгөгдлөөс хамаарал, холбоо болон таамаглалыг шинжилж болно.\nЖишээлбэл:\n\nLinear regression\nLogistic regression\nCox regression\nMixed-effects models"
-  },
-  {
-    "objectID": "research.html#reproducible-research",
-    "href": "research.html#reproducible-research",
-    "title": "Interesting Research",
-    "section": "Reproducible Research",
-    "text": "Reproducible Research\nR болон Quarto ашиглан судалгааны код, өгөгдлийн боловсруулалт, үр дүн болон тайланг нэг дор нэгтгэж, дахин давтагдахуйц судалгааны орчин бүрдүүлж болно."
-  },
-  {
-    "objectID": "cheatsheet.html",
-    "href": "cheatsheet.html",
-    "title": "Cheatsheet",
-    "section": "",
-    "text": "Энэ хэсэгт R программчлал, өгөгдөл боловсруулах, өгөгдлийн дүрслэл болон статистикийн шинжилгээний товч гарын авлагуудыг байршууллаа."
-  },
-  {
-    "objectID": "cheatsheet.html#статистикийн-товч-гарын-авлага",
-    "href": "cheatsheet.html#статистикийн-товч-гарын-авлага",
-    "title": "Cheatsheet",
-    "section": "",
-    "text": "Энэ хэсэгт статистик болон биостатистикийн түгээмэл ойлголт, томьёо, шинжилгээний аргуудыг товч бөгөөд ойлгомжтой байдлаар нэгтгэнэ."
-  },
-  {
-    "objectID": "cheatsheet.html#descriptive-statistics",
-    "href": "cheatsheet.html#descriptive-statistics",
-    "title": "Cheatsheet",
-    "section": "",
-    "text": "Дундаж утга:\n\\[\n\\bar{x} = \\frac{1}{n}\\sum_{i=1}^{n}x_i\n\\]\n\n\n\nӨгөгдлийг эрэмбэлсний дараах дундах утга.\n\n\n\nӨгөгдлийн тархалтыг хэмжих үзүүлэлт.\n\n\n\n\\[\nIQR = Q_3 - Q_1\n\\]"
-  },
-  {
-    "objectID": "cheatsheet.html#statistical-tests",
-    "href": "cheatsheet.html#statistical-tests",
-    "title": "Cheatsheet",
-    "section": "",
-    "text": "Судалгааны зорилго\nТүгээмэл арга\n\n\n\n\nХоёр дундаж харьцуулах\nt-test\n\n\nГурваас олон дундаж харьцуулах\nANOVA\n\n\nАнгиллын хувьсагч\nChi-square test\n\n\nХоёр тоон хувьсагчийн хамаарал\nCorrelation\n\n\nХамаарлыг загварчлах\nRegression\n\n\nЦаг хугацаа хүртэлх үр дүн\nSurvival analysis"
-  },
-  {
-    "objectID": "cheatsheet.html#regression",
-    "href": "cheatsheet.html#regression",
-    "title": "Cheatsheet",
-    "section": "",
-    "text": "Тасралтгүй үр дүнгийн хувьсагчийг тайлбарлахад ашиглана.\n```text Y = β₀ + β₁X + ε"
-  },
-  {
-    "objectID": "books.html",
-    "href": "books.html",
-    "title": "Biostatistics Books",
-    "section": "",
-    "text": "Biostatistics Books\n\nБиостатистикийн номууд\nБиостатистик, статистик, тархвар судлал болон өгөгдлийн шинжлэх ухааны чиглэлээр суралцахад ашигтай ном, сурах бичгүүдийг танилцуулна.\n\n\n\n\n📊 Biostatistics\nБиостатистикийн үндсэн ойлголт, статистикийн арга зүйг сурахад зориулсан номууд.\nҮндсэн сэдвүүд\n\nDescriptive statistics\nProbability\nStatistical inference\nHypothesis testing\nRegression\nSurvival analysis\n\n\n\n🦠 Epidemiology\nТархвар судлалын үндсэн ойлголт болон судалгааны арга зүйг сурахад зориулсан номууд.\nҮндсэн сэдвүүд\n\nStudy design\nDisease frequency\nRisk and association\nBias and confounding\nEpidemiological methods\n\n\n\n💻 Statistical Programming\nR болон статистикийн программчлал сурахад зориулсан номууд.\nСурах зүйлс\n\nR programming\nData manipulation\nData visualization\nStatistical modelling\nReproducible research\n\n\n\n📚 Recommended Reading\nЦаашдаа энд ном бүрийн дараах мэдээллийг оруулна:\n\nНэр\nЗохиогч\nХэвлэгдсэн он\nТовч тайлбар\nНомын зураг\nАлбан ёсны холбоос"
-  },
-  {
-    "objectID": "books.html#биостатистикийн-номууд",
-    "href": "books.html#биостатистикийн-номууд",
-    "title": "Biostatistics Books",
-    "section": "",
-    "text": "Энэ хэсэгт биостатистик, статистик, тархвар судлал болон өгөгдлийн шинжлэх ухааны чиглэлээр суралцахад ашигтай ном, сурах бичгүүдийг танилцуулна."
-  },
-  {
-    "objectID": "books.html#biostatistics",
-    "href": "books.html#biostatistics",
-    "title": "Biostatistics Books",
-    "section": "",
-    "text": "Биостатистикийн үндсэн ойлголт, статистикийн арга зүйг сурахад зориулсан номууд.\n\n\n\nDescriptive statistics\nProbability\nStatistical inference\nHypothesis testing\nRegression\nSurvival analysis"
-  },
-  {
-    "objectID": "books.html#epidemiology",
-    "href": "books.html#epidemiology",
-    "title": "Biostatistics Books",
-    "section": "",
-    "text": "Тархвар судлалын үндсэн ойлголт болон судалгааны арга зүйг сурахад зориулсан номууд.\n\n\n\nStudy design\nDisease frequency\nRisk and association\nBias and confounding\nEpidemiological methods"
-  },
-  {
-    "objectID": "books.html#statistical-programming",
-    "href": "books.html#statistical-programming",
-    "title": "Biostatistics Books",
-    "section": "",
-    "text": "R болон статистикийн программчлал сурахад зориулсан номууд.\n\n\n\nR programming\nData manipulation\nData visualization\nStatistical modelling\nReproducible research"
-  },
-  {
-    "objectID": "books.html#recommended-reading",
-    "href": "books.html#recommended-reading",
-    "title": "Biostatistics Books",
-    "section": "",
-    "text": "Энд бид цаашдаа ном бүрийн:\n\nНэр\nЗохиогч\nХэвлэгдсэн он\nТовч тайлбар\nНомын зураг\nАлбан ёсны холбоос\n\nзэргийг оруулна."
-  },
-  {
-    "objectID": "contact.html",
-    "href": "contact.html",
-    "title": "Contact",
-    "section": "",
-    "text": "Биостатистикийн багтай холбоо барих, судалгааны хамтын ажиллагаа болон статистикийн зөвлөгөөтэй холбоотой мэдээллийг энд байршуулна."
-  },
-  {
-    "objectID": "contact.html#холбоо-барих",
-    "href": "contact.html#холбоо-барих",
-    "title": "Contact",
-    "section": "",
-    "text": "Биостатистикийн багтай холбоо барих, судалгааны хамтын ажиллагаа болон статистикийн зөвлөгөөтэй холбоотой мэдээллийг энд байршуулна."
-  },
-  {
-    "objectID": "contact.html#email",
-    "href": "contact.html#email",
-    "title": "Contact",
-    "section": "Email",
-    "text": "Email\nEmail: biostatistics@example.com"
-  },
-  {
-    "objectID": "contact.html#research-collaboration",
-    "href": "contact.html#research-collaboration",
-    "title": "Contact",
-    "section": "Research Collaboration",
-    "text": "Research Collaboration\nДараах чиглэлээр хамтран ажиллах боломжтой:\n\nБиостатистикийн зөвлөгөө\nСудалгааны дизайн\nӨгөгдлийн шинжилгээ\nСтатистикийн загварчлал\nR программчлал"
-  },
-  {
-    "objectID": "team.html#our-expertise",
-    "href": "team.html#our-expertise",
-    "title": "Our Team",
-    "section": "Our Expertise",
-    "text": "Our Expertise\n\n\n📊 Biostatistician\nЭрүүл мэнд, анагаах ухааны судалгаанд статистикийн арга зүй, загварчлал болон өгөгдлийн шинжилгээг хэрэгжүүлнэ.\nFocus\n\nBiostatistics\nStatistical modelling\nClinical research\n\n\n\n\n\nБ.Батзориг\n\n\nНЭМУ-ны доктор\n\n\n\nБакалавр: Хэрэглээний математикч (Applied Mathematician)\n\n\nМагистр: Хэрэглээний статистикч (Applied Statistician)\n\n\nДоктор: Нийгмийн эрүүл мэндийн ухаан (PhD in Public Health)\n\n\nFocus\n\n\nБиостатистик (Biostatistics)\n\n\nСтатистийн загварчлал (Statistical modelling)\n\n\nХэтийн төлөв (Forecasting)\n\n\nТүүвэрлэлтийн асуудал (Sampling issues)\n\n\nКлиникийн судалгаа (Clinical research)\n\n\nЧанарын судалгаа (Qualitative research)\n\n\n\n\n💻 Data Scientist\nӨгөгдөл боловсруулах, программчлал, статистикийн тооцоолол болон өгөгдлийн дүрслэл дээр ажиллана.\nFocus\n\nR programming\nData science\nData visualization\n\n\n\n🎓 Research Students\nСудлаач оюутнууд биостатистик, тархвар судлал болон статистикийн арга зүйгээр суралцаж, судалгаа хийж байна.\nFocus\n\nBiostatistics\nEpidemiology\nResearch"
-  },
-  {
-    "objectID": "team.html#what-we-work-on",
-    "href": "team.html#what-we-work-on",
-    "title": "Our Team",
-    "section": "What We Work On",
-    "text": "What We Work On\n\nМанай баг дараах чиглэлүүдээр судалгаа, сургалт болон хамтын ажиллагаа явуулна.\n\n\nБиостатистикийн арга зүй\n\n\nЭмнэлзүйн судалгаа\n\n\nТархвар судлал\n\n\nСтатистикийн загварчлал\n\n\nR программчлал\n\n\nӨгөгдлийн дүрслэл\n\n\nДахин давтагдахуйц судалгаа"
-  },
-  {
-    "objectID": "cheatsheet.html#r-болон-өгөгдлийн-шинжилгээний-гарын-авлага",
-    "href": "cheatsheet.html#r-болон-өгөгдлийн-шинжилгээний-гарын-авлага",
-    "title": "Cheatsheet",
-    "section": "",
-    "text": "Энэ хэсэгт R программчлал, өгөгдөл боловсруулах, өгөгдлийн дүрслэл болон статистикийн шинжилгээний товч гарын авлагуудыг байршууллаа."
-  },
-  {
-    "objectID": "cheatsheet.html#r-cheatsheets",
-    "href": "cheatsheet.html#r-cheatsheets",
-    "title": "Cheatsheet",
-    "section": "",
-    "text": "R программчлалын үндсэн ойлголт, команд болон функцүүдийн товч гарын авлага.\n 📄 Open PDF \n\n\n\nRStudio IDE-ийн үндсэн орчин, цонхнууд болон ашиглах үндсэн үйлдлүүд.\n 📄 Open PDF \n\n\n\nreadr package ашиглан өгөгдөл унших болон импортлох үндсэн аргууд.\n 📄 Open PDF \n\n\n\ndplyr package ашиглан өгөгдөл шүүх, сонгох, эрэмбэлэх болон хувиргах.\n 📄 Open PDF \n\n\n\ntidyr package ашиглан өгөгдлийн бүтцийг цэгцлэх үндсэн аргууд.\n 📄 Open PDF \n\n\n\nggplot2 ашиглан өгөгдлийг график, зураглал хэлбэрээр дүрслэх үндсэн аргууд.\n 📄 Open PDF"
-  },
-  {
-    "objectID": "team.html#our-team-1",
-    "href": "team.html#our-team-1",
-    "title": "Our Team",
-    "section": "Our Team",
-    "text": "Our Team\n\n\n\n\n\n\n\n\nБ.Батзориг\n\n\nНЭМУ-ны доктор\n\n\n\n\n\n\nБоловсрол\n\n\n\nБакалавр: Хэрэглээний математикч (Applied Mathematician)\n\n\nМагистр: Хэрэглээний статистикч (Applied Statistician)\n\n\nДоктор: Нийгмийн эрүүл мэндийн ухаан (PhD in Public Health)\n\n\n\nFocus\n\n\n\nБиостатистик (Biostatistics)\n\n\nСтатистийн загварчлал (Statistical modelling)\n\n\nХэтийн төлөв (Forecasting)\n\n\nТүүвэрлэлтийн асуудал (Sampling issues)\n\n\nКлиникийн судалгаа (Clinical research)\n\n\nЧанарын судалгаа (Qualitative research)\n\n\n\n\n\n\n\n\n\n\n\nХ.Сэр-Од\n\n\nХэрэглээний статистикч\n\n\n\n\n\n\nБоловсрол\n\n\n\nБакалавр: Хэрэглээний статистикч (Applied Statistician)\n\n\nМагистр: Хэрэглээний статистик (Applied Statistics)\n\n\n\nFocus\n\n\n\nБиостатистик (Biostatistics)\n\n\nСтатистийн загварчлал (Statistical modelling)\n\n\nХэтийн төлөв (Forecasting)\n\n\nТүүвэрлэлтийн асуудал (Sampling issues)\n\n\nКлиникийн судалгаа (Clinical research)\n\n\nЧанарын судалгаа (Qualitative research)\n\n\n\n\n\n\n\n\n\n\n\nМ.Эркебулан\n\n\nХэрэглээний статистикч\n\n\n\n\n\n\nБоловсрол\n\n\n\nБакалавр: Математикч (Mathematician)\n\n\nМагистр: Хэрэглээний статистикч (Applied Statistician)\n\n\n\nFocus\n\n\n\nБиостатистик (Biostatistics)\n\n\nСтатистийн загварчлал (Statistical modelling)\n\n\nХэтийн төлөв (Forecasting)\n\n\nТүүвэрлэлтийн асуудал (Sampling issues)\n\n\nКлиникийн судалгаа (Clinical research)\n\n\nЧанарын судалгаа (Qualitative research)\n\n\n\n\n\n\n\n\n\n🎓\n\n\n\nResearch Students\n\n\nСудлаач оюутнууд\n\n\n\n\n\n\nСудлаач оюутнууд биостатистик, тархвар судлал болон статистикийн арга зүйгээр суралцаж, судалгаа хийж байна.\n\n\nFocus\n\n\n\nBiostatistics\n\n\nEpidemiology\n\n\nResearch"
-  },
-  {
-    "objectID": "team-of-biostatistics/team.html",
-    "href": "team-of-biostatistics/team.html",
-    "title": "Our Team",
-    "section": "",
-    "text": "Манай баг нь биостатистик, тархвар судлал, эрүүл мэндийн судалгаа болон өгөгдлийн шинжлэх ухааны чиглэлээр ажилладаг."
-  },
-  {
-    "objectID": "team-of-biostatistics/team.html#our-expertise",
-    "href": "team-of-biostatistics/team.html#our-expertise",
-    "title": "Our Team",
-    "section": "Our Expertise",
-    "text": "Our Expertise\n\n\n📊 Biostatistician\nЭрүүл мэнд, анагаах ухааны судалгаанд статистикийн арга зүй, загварчлал болон өгөгдлийн шинжилгээг хэрэгжүүлнэ.\nFocus\n\nBiostatistics\nStatistical modelling\nClinical research\n\n\n\n\n\nБ.Батзориг\n\n\nНЭМУ-ны доктор\n\n\nБакалавр: Хэрэглээний математикч (Applied Mathematician), Магистр: Хэрэглээний статистикч (Applied Statistician), Доктор: Нийгмийн эрүүл мэндийн ухаан (Phd in Public Health)\n\nFocus\n\n\nБиостатистик (Biostatistics)\n\n\nСтатистийн загварчлал (Statistical modelling)\n\n\nХэтийн төлөв (Forecasting)\n\n\nТүүвэрлэлтийн асуудал (Sampling issues)\n\n\nКлиникийн судалгаа (Clinical research)\n\n\nЧанарын судалгаа (Qualitative research)\n\n\n\n\n💻 Data Scientist\nӨгөгдөл боловсруулах, программчлал, статистикийн тооцоолол болон өгөгдлийн дүрслэл дээр ажиллана.\nFocus\n\nR programming\nData science\nData visualization\n\n\n\n🎓 Research Students\nСудлаач оюутнууд биостатистик, тархвар судлал болон статистикийн арга зүйгээр суралцаж, судалгаа хийж байна.\nFocus\n\nBiostatistics\nEpidemiology\nResearch"
-  },
-  {
-    "objectID": "team-of-biostatistics/team.html#what-we-work-on",
-    "href": "team-of-biostatistics/team.html#what-we-work-on",
-    "title": "Our Team",
-    "section": "What We Work On",
-    "text": "What We Work On\n\nМанай баг дараах чиглэлүүдээр судалгаа, сургалт болон хамтын ажиллагаа явуулна.\n\nБиостатистикийн арга зүй\nЭмнэлзүйн судалгаа\nТархвар судлал\nСтатистикийн загварчлал\nR программчлал\nӨгөгдлийн дүрслэл\nДахин давтагдахуйц судалгаа"
-  },
-  {
-    "objectID": "team-of-biostatistics/research.html",
-    "href": "team-of-biostatistics/research.html",
-    "title": "Interesting Research",
-    "section": "",
-    "text": "Энэ хэсэгт биостатистик, тархвар судлал, эмнэлзүйн судалгаа болон эрүүл мэндийн өгөгдлийн шинжилгээтэй холбоотой сонирхолтой судалгаануудыг танилцуулна."
-  },
-  {
-    "objectID": "team-of-biostatistics/research.html#сонирхолтой-судалгаанууд",
-    "href": "team-of-biostatistics/research.html#сонирхолтой-судалгаанууд",
-    "title": "Interesting Research",
-    "section": "",
-    "text": "Энэ хэсэгт биостатистик, тархвар судлал, эмнэлзүйн судалгаа болон эрүүл мэндийн өгөгдлийн шинжилгээтэй холбоотой сонирхолтой судалгаануудыг танилцуулна."
-  },
-  {
-    "objectID": "team-of-biostatistics/research.html#clinical-research",
-    "href": "team-of-biostatistics/research.html#clinical-research",
-    "title": "Interesting Research",
-    "section": "Clinical Research",
-    "text": "Clinical Research\nЭмнэлзүйн судалгаанд статистикийн арга зүй нь эмчилгээний үр нөлөө, аюулгүй байдал болон судалгааны үр дүнг үнэлэхэд чухал ач холбогдолтой.\n\nСудалгаанд ашиглагддаг аргууд\n\nDescriptive statistics\nHypothesis testing\nConfidence intervals\nRegression analysis\nSurvival analysis\nSample size calculation"
-  },
-  {
-    "objectID": "team-of-biostatistics/research.html#epidemiological-research",
-    "href": "team-of-biostatistics/research.html#epidemiological-research",
-    "title": "Interesting Research",
-    "section": "Epidemiological Research",
-    "text": "Epidemiological Research\nТархвар судлалын судалгаанд өвчний тархалт, эрсдэлт хүчин зүйл болон хүн амын эрүүл мэндийн үзүүлэлтүүдийг статистикийн аргаар судална."
-  },
-  {
-    "objectID": "team-of-biostatistics/research.html#statistical-modelling",
-    "href": "team-of-biostatistics/research.html#statistical-modelling",
-    "title": "Interesting Research",
-    "section": "Statistical Modelling",
-    "text": "Statistical Modelling\nСтатистикийн загварчлал ашиглан судалгааны өгөгдлөөс хамаарал, холбоо болон таамаглалыг шинжилж болно.\nЖишээлбэл:\n\nLinear regression\nLogistic regression\nCox regression\nMixed-effects models"
-  },
-  {
-    "objectID": "team-of-biostatistics/research.html#reproducible-research",
-    "href": "team-of-biostatistics/research.html#reproducible-research",
-    "title": "Interesting Research",
-    "section": "Reproducible Research",
-    "text": "Reproducible Research\nR болон Quarto ашиглан судалгааны код, өгөгдлийн боловсруулалт, үр дүн болон тайланг нэг дор нэгтгэж, дахин давтагдахуйц судалгааны орчин бүрдүүлж болно."
-  },
-  {
-    "objectID": "team-of-biostatistics/contact.html",
-    "href": "team-of-biostatistics/contact.html",
-    "title": "Contact",
-    "section": "",
-    "text": "Биостатистикийн багтай холбоо барих, судалгааны хамтын ажиллагаа болон статистикийн зөвлөгөөтэй холбоотой мэдээллийг энд байршуулна."
-  },
-  {
-    "objectID": "team-of-biostatistics/contact.html#холбоо-барих",
-    "href": "team-of-biostatistics/contact.html#холбоо-барих",
-    "title": "Contact",
-    "section": "",
-    "text": "Биостатистикийн багтай холбоо барих, судалгааны хамтын ажиллагаа болон статистикийн зөвлөгөөтэй холбоотой мэдээллийг энд байршуулна."
-  },
-  {
-    "objectID": "team-of-biostatistics/contact.html#email",
-    "href": "team-of-biostatistics/contact.html#email",
-    "title": "Contact",
-    "section": "Email",
-    "text": "Email\nEmail: biostatistics@example.com"
-  },
-  {
-    "objectID": "team-of-biostatistics/contact.html#research-collaboration",
-    "href": "team-of-biostatistics/contact.html#research-collaboration",
-    "title": "Contact",
-    "section": "Research Collaboration",
-    "text": "Research Collaboration\nДараах чиглэлээр хамтран ажиллах боломжтой:\n\nБиостатистикийн зөвлөгөө\nСудалгааны дизайн\nӨгөгдлийн шинжилгээ\nСтатистикийн загварчлал\nR программчлал"
-  },
-  {
-    "objectID": "team-of-biostatistics/books.html",
-    "href": "team-of-biostatistics/books.html",
-    "title": "Biostatistics Books",
-    "section": "",
-    "text": "Biostatistics Books\n\nБиостатистикийн номууд\nБиостатистик, статистик, тархвар судлал болон өгөгдлийн шинжлэх ухааны чиглэлээр суралцахад ашигтай ном, сурах бичгүүдийг танилцуулна.\n\n\n\n\n📊 Biostatistics\nБиостатистикийн үндсэн ойлголт, статистикийн арга зүйг сурахад зориулсан номууд.\nҮндсэн сэдвүүд\n\nDescriptive statistics\nProbability\nStatistical inference\nHypothesis testing\nRegression\nSurvival analysis\n\n\n\n🦠 Epidemiology\nТархвар судлалын үндсэн ойлголт болон судалгааны арга зүйг сурахад зориулсан номууд.\nҮндсэн сэдвүүд\n\nStudy design\nDisease frequency\nRisk and association\nBias and confounding\nEpidemiological methods\n\n\n\n💻 Statistical Programming\nR болон статистикийн программчлал сурахад зориулсан номууд.\nСурах зүйлс\n\nR programming\nData manipulation\nData visualization\nStatistical modelling\nReproducible research\n\n\n\n📚 Recommended Reading\nЦаашдаа энд ном бүрийн дараах мэдээллийг оруулна:\n\nНэр\nЗохиогч\nХэвлэгдсэн он\nТовч тайлбар\nНомын зураг\nАлбан ёсны холбоос"
-  },
-  {
-    "objectID": "team-of-biostatistics/cheatsheet.html",
-    "href": "team-of-biostatistics/cheatsheet.html",
-    "title": "Cheatsheet",
-    "section": "",
-    "text": "Гарын авлага\n  R ба өгөгдлийн шинжилгээний cheatsheet\n  \n    R программчлал, өгөгдөл импортлох, хувиргах, цэгцлэх, дүрслэх үндсэн\n    функцуудыг нэг хуудсанд багтаасан товч гарын авлагууд. Бүгд монгол хэл\n    дээр, A4 хэвтээ хэлбэрээр хэвлэхэд бэлэн.\n  \n  \n    6 гарын авлага\n    PDF · A4 хэвтээ\n    Үнэгүй · CC BY-SA 4.0\n  \n\n\n\n  Санал болгох дараалал\n  \n    01 R-ийн үндэс\n    02 RStudio\n    03 Импортлох\n    04 Хувиргах\n    05 Цэгцлэх\n    06 Дүрслэх\n  \n\n\n\n\n  \n    \n      \n      01\n    \n    \n      Эхлэл\n      R-ийн үндэс\n      base R\n      Вектор, жагсаалт, матриц, data frame, фактор зэрэг өгөгдлийн төрөл; функц бичих, нөхцөл ба давталт. Нэмэлт багц суулгалгүйгээр хийж болох үндсэн командууд.\n       2 хуудас · 300 KB\n      \n         Нээх\n         Татах\n      \n    \n  \n\n  \n    \n      \n      02\n    \n    \n      Эхлэл\n      RStudio IDE\n      RStudio\n      Цонхнуудын бүтэц, код бичих, ажиллуулах, алдаа засах. Хамгийн хэрэгтэй гарын товчлолууд, файл ба сесс, кодын snippet.\n       2 хуудас · 356 KB\n      \n         Нээх\n         Татах\n      \n    \n  \n\n\n  \n    \n      \n      03\n    \n    \n      Өгөгдөлтэй ажиллах\n      Өгөгдөл импортлох\n      readr readxl\n      CSV, Excel, Google Sheets-ээс өгөгдөл унших, баганын төрлийг (col_types) тохируулах, үр дүнгээ файлд хадгалах.\n       2 хуудас · 304 KB\n      \n         Нээх\n         Татах\n      \n    \n  \n\n  \n    \n      \n      04\n    \n    \n      Өгөгдөлтэй ажиллах\n      Өгөгдөл хувиргах\n      dplyr\n      Мөр шүүх, багана сонгох, шинэ хувьсагч үүсгэх, бүлэглэж хураангуйлах, хүснэгт нэгтгэх: filter(), mutate(), summarise(), group_by().\n       2 хуудас · 292 KB\n      \n         Нээх\n         Татах\n      \n    \n  \n\n  \n    \n      \n      05\n    \n    \n      Өгөгдөлтэй ажиллах\n      Өгөгдөл цэгцлэх\n      tidyr\n      Tidy өгөгдлийн зарчим, өргөн ба урт хэлбэр хооронд хувиргах (pivot_longer, pivot_wider), багана салгах, нийлүүлэх, дутуу утгатай ажиллах.\n       2 хуудас · 296 KB\n      \n         Нээх\n         Татах\n      \n    \n  \n\n\n  \n    \n      \n      06\n    \n    \n      Дүрслэл\n      Өгөгдөл дүрслэх\n      ggplot2\n      Графикийн дүрэм: геом (цэг, шугам, багана, гистограмм, violin), өнгө ба масштаб, facet-ээр хуваах, гарчиг ба загвар (theme).\n       3 хуудас · 608 KB\n      \n         Нээх\n         Татах\n      \n    \n  \n\n\n\n\n\n  \n     Удахгүй\n    Дараагийн гарын авлагууд\n    Статистикийн тест сонгох, регрессийн загвар, амьдрах чадварын шинжилгээ зэрэг сэдвүүдийг нэмэхээр төлөвлөж байна.\n  \n   Сэдэв санал болгох\n\n\n\n\n\n\n\nЭх сурвалж ба лиценз. Эдгээр гарын авлагыг Posit-ийн албан ёсны cheatsheet-үүдэд үндэслэн монгол хэлнээ орчуулж, найруулав. CC BY-SA 4.0 лицензийн дагуу чөлөөтэй хуваалцаж, ашиглаж болно. Орчуулгын алдаа олсон бол GitHub дээр мэдэгдээрэй."
-  },
-  {
-    "objectID": "team-of-biostatistics/index.html",
-    "href": "team-of-biostatistics/index.html",
-    "title": "Home",
-    "section": "",
-    "text": "Манай Биостатистикийн багийн цахим хуудсанд тавтай морилно уу.\nБид статистик, биостатистик болон өгөгдлийн шинжлэх ухааны аргыг эрүүл мэнд, анагаах ухаан, тархвар судлалын судалгаанд ашигладаг."
-  },
-  {
-    "objectID": "team-of-biostatistics/index.html#statistics-health-research-data-science",
-    "href": "team-of-biostatistics/index.html#statistics-health-research-data-science",
-    "title": "Home",
-    "section": "",
-    "text": "Манай Биостатистикийн багийн цахим хуудсанд тавтай морилно уу.\nБид статистик, биостатистик болон өгөгдлийн шинжлэх ухааны аргыг эрүүл мэнд, анагаах ухаан, тархвар судлалын судалгаанд ашигладаг."
-  },
-  {
-    "objectID": "team-of-biostatistics/index.html#what-we-do",
-    "href": "team-of-biostatistics/index.html#what-we-do",
-    "title": "Home",
-    "section": "What We Do",
-    "text": "What We Do\n\n\n📊 Biostatistics\nЭрүүл мэндийн судалгаанд статистикийн арга, шинжилгээ болон загварчлалыг ашиглана.\n\n\n🔬 Epidemiology\nӨвчний тархалт, эрсдэлт хүчин зүйл болон хүн амын эрүүл мэндийн асуудлыг судална.\n\n\n💻 R Programming\nR ашиглан өгөгдөл боловсруулах, шинжлэх болон дүрслэх жишээнүүдийг үзүүлнэ.\n\n\n📈 Data Science\nӨгөгдөлд суурилсан шинжилгээ, статистикийн загварчлал болон дүрслэл хийнэ."
-  },
-  {
-    "objectID": "team-of-biostatistics/index.html#explore-our-resources",
-    "href": "team-of-biostatistics/index.html#explore-our-resources",
-    "title": "Home",
-    "section": "Explore Our Resources",
-    "text": "Explore Our Resources\n\n\nStatistical Software\nR, Python, SAS, SPSS болон бусад статистикийн програмуудын талаар.\n\n\nInteresting Research\nБиостатистик болон эрүүл мэндийн судалгааны сонирхолтой жишээнүүд.\n\n\nBiostatistics Books\nБиостатистик, тархвар судлал болон статистикийн ном, сурах бичгүүд.\n\n\nCheatsheet\nСтатистикийн томьёо, арга болон R кодын товч гарын авлага."
-  },
-  {
-    "objectID": "team-of-biostatistics/index.html#our-mission",
-    "href": "team-of-biostatistics/index.html#our-mission",
-    "title": "Home",
-    "section": "Our Mission",
-    "text": "Our Mission\nСтатистикийн мэдлэг, судалгааны арга зүй болон өгөгдөлд суурилсан шийдвэр гаргалтыг оюутан, судлаач болон эрүүл мэндийн мэргэжилтнүүдэд ойлгомжтой, хүртээмжтэй хүргэх нь бидний зорилго юм."
-  },
-  {
-    "objectID": "team-of-biostatistics/software.html",
-    "href": "team-of-biostatistics/software.html",
-    "title": "Statistical Software",
-    "section": "",
-    "text": "Статистикийн судалгаа, өгөгдлийн шинжилгээ болон дүрслэлд ашиглагддаг програмуудын талаар энд танилцуулна."
-  },
-  {
-    "objectID": "team-of-biostatistics/software.html#статистикийн-програмууд",
-    "href": "team-of-biostatistics/software.html#статистикийн-програмууд",
-    "title": "Statistical Software",
-    "section": "",
-    "text": "Статистикийн судалгаа, өгөгдлийн шинжилгээ болон дүрслэлд ашиглагддаг програмуудын талаар энд танилцуулна."
-  },
-  {
-    "objectID": "team-of-biostatistics/software.html#r",
-    "href": "team-of-biostatistics/software.html#r",
-    "title": "Statistical Software",
-    "section": "R",
-    "text": "R\nR нь статистикийн тооцоолол, өгөгдлийн шинжилгээ, график дүрслэл болон статистикийн загварчлалд өргөн ашиглагддаг програмчлалын хэл юм.\n\nҮндсэн хэрэглээ\n\nӨгөгдөл боловсруулах\nСтатистикийн шинжилгээ\nГрафик дүрслэл\nРегрессийн загвар\nМашин сургалт\nДахин давтагдахуйц судалгаа"
-  },
-  {
-    "objectID": "team-of-biostatistics/software.html#python",
-    "href": "team-of-biostatistics/software.html#python",
-    "title": "Statistical Software",
-    "section": "Python",
-    "text": "Python\nPython нь өгөгдлийн шинжлэх ухаан, статистик, машин сургалт болон програмчлалд өргөн хэрэглэгддэг.\n\nҮндсэн хэрэглээ\n\nӨгөгдөл боловсруулах\nМашин сургалт\nӨгөгдлийн дүрслэл\nАвтоматжуулалт"
-  },
-  {
-    "objectID": "team-of-biostatistics/software.html#sas",
-    "href": "team-of-biostatistics/software.html#sas",
-    "title": "Statistical Software",
-    "section": "SAS",
-    "text": "SAS\nSAS нь эмнэлзүйн судалгаа, эм зүйн салбар болон том хэмжээний өгөгдлийн статистикийн шинжилгээнд өргөн хэрэглэгддэг."
-  },
-  {
-    "objectID": "team-of-biostatistics/software.html#spss",
-    "href": "team-of-biostatistics/software.html#spss",
-    "title": "Statistical Software",
-    "section": "SPSS",
-    "text": "SPSS\nSPSS нь статистикийн шинжилгээг график интерфейсээр хийх боломжтой бөгөөд нийгмийн шинжлэх ухаан, эрүүл мэндийн судалгаанд өргөн хэрэглэгддэг."
-  },
-  {
-    "objectID": "team-of-biostatistics/software.html#stata",
-    "href": "team-of-biostatistics/software.html#stata",
-    "title": "Statistical Software",
-    "section": "Stata",
-    "text": "Stata\nStata нь эдийн засаг, тархвар судлал болон нийгмийн шинжлэх ухааны судалгаанд өргөн ашиглагддаг статистикийн програм юм."
-  },
-  {
-    "objectID": "team-of-biostatistics/software.html#аль-програмыг-сонгох-вэ",
-    "href": "team-of-biostatistics/software.html#аль-програмыг-сонгох-вэ",
     "title": "Statistical Software",
     "section": "Аль програмыг сонгох вэ?",
     "text": "Аль програмыг сонгох вэ?\nСудалгааны зорилго, өгөгдлийн бүтэц, хэрэглэгчийн туршлага болон шаардлагатай статистикийн аргуудаас хамаарч програмын сонголт өөр байна.\nМанай баг R-ийг статистикийн тооцоолол, өгөгдлийн дүрслэл болон дахин давтагдахуйц судалгаанд түлхүү ашиглана."
