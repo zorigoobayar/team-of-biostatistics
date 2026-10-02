@@ -878,3 +878,119 @@ body.page-team .resource-card {
   object-fit: contain;
 }
 
+
+
+
+/* =========================================================
+   CONTACT PAGE BACKGROUND
+   ========================================================= */
+
+body.page-contact {
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.72),
+      rgba(255, 255, 255, 0.72)
+    ),
+    url("images/contact-background.png");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* Contact content */
+
+body.page-contact .page-hero {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(4px);
+  border-radius: 20px;
+}
+
+body.page-contact .resource-card {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(6px);
+  border-radius: 20px;
+}
+
+
+
+/* =========================================================
+   CONTACT CARDS
+   ========================================================= */
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+
+  max-width: 1000px;
+  margin: 2rem auto 4rem;
+}
+
+.contact-card {
+  padding: 2rem;
+
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(8px);
+
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+
+  box-shadow: 0 8px 25px rgba(15, 23, 42, 0.08);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(15, 23, 42, 0.12);
+}
+
+.contact-icon {
+  font-size: 2.2rem;
+  margin-bottom: 0.8rem;
+}
+
+.contact-card h3 {
+  margin-top: 0;
+  color: #166b4e;
+  font-size: 1.3rem;
+}
+
+.contact-card a {
+  color: #16805d;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.contact-card a:hover {
+  text-decoration: underline;
+}
+
+.contact-description {
+  color: #64748b;
+  line-height: 1.7;
+}
+
+.contact-card ul {
+  color: #475569;
+  line-height: 1.8;
+}
+
+
+/* Mobile */
+
+@media (max-width: 700px) {
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-card {
+    padding: 1.5rem;
+  }
+
+}
