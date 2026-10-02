@@ -1,25 +1,64 @@
 ---
 title: "Contact"
+
+format:
+  html:
+    body-classes: page-contact
 ---
 
+<div class="page-hero">
 
-
-## Холбоо барих
+# Холбоо барих
 
 Биостатистикийн багтай холбоо барих, судалгааны
 хамтын ажиллагаа болон статистикийн зөвлөгөөтэй
 холбоотой мэдээллийг энд байршуулна.
 
-## Email
+</div>
 
-**Email:** biostatistics@example.com
 
-## Research Collaboration
+<div class="contact-grid">
 
+<div class="contact-card">
+
+<div class="contact-icon">✉</div>
+
+<h3>Email</h3>
+
+<p>
+<a href="mailto:teamofbiostatistics@gmail.com">
+teamofbiostatistics@gmail.com
+</a>
+</p>
+
+<p class="contact-description">
+Судалгааны хамтын ажиллагаа, статистикийн зөвлөгөө,
+сургалт болон бусад асуултаар бидэнтэй холбогдоно уу.
+</p>
+
+</div>
+
+
+<div class="contact-card">
+
+<div class="contact-icon">📊</div>
+
+<h3>Research Collaboration</h3>
+
+<p class="contact-description">
 Дараах чиглэлээр хамтран ажиллах боломжтой:
+</p>
 
-- Биостатистикийн зөвлөгөө
-- Судалгааны дизайн
-- Өгөгдлийн шинжилгээ
-- Статистикийн загварчлал
-- R программчлал
+<ul>
+<li>Биостатистикийн зөвлөгөө</li>
+<li>Түүвэрлэлт</li>
+<li>Судалгааны дизайн</li>
+<li>Өгөгдлийн шинжилгээ</li>
+<li>Статистикийн загварчлал</li>
+<li>Өгүүлэл, диссертацийн үр дүн</li>
+<li>R программчлал</li>
+</ul>
+
+</div>
+
+</div>
