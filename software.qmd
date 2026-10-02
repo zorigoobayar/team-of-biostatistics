@@ -1,21 +1,49 @@
 ---
 title: "Statistical Software"
+
 format:
   html:
     body-classes: page-software
 ---
 
+<div class="page-hero">
+
+# Statistical Software
+
+### Статистикийн програмууд
+
+Статистикийн судалгаа, өгөгдлийн шинжилгээ,
+дүрслэл болон загварчлалд ашиглагддаг
+програмуудтай танилцана уу.
+
+</div>
 
 
 ## Статистикийн програмууд
 
-Статистикийн судалгаа, өгөгдлийн шинжилгээ болон
-дүрслэлд ашиглагддаг програмуудын талаар энд
-танилцуулна.
+<div class="software-grid">
 
----
 
-## R
+<!-- R -->
+
+<details class="software-card">
+
+<summary>
+
+<span class="software-icon software-r">
+  <img src="images/R logo.png" alt="R logo">
+</span>
+
+<span class="software-title">
+<strong>R</strong>
+<small>Статистик ба өгөгдлийн шинжилгээ</small>
+</span>
+
+<span class="software-arrow">＋</span>
+
+</summary>
+
+<div class="software-content">
 
 R нь статистикийн тооцоолол, өгөгдлийн шинжилгээ,
 график дүрслэл болон статистикийн загварчлалд
@@ -30,9 +58,108 @@ R нь статистикийн тооцоолол, өгөгдлийн шинж�
 - Машин сургалт
 - Дахин давтагдахуйц судалгаа
 
----
+</div>
 
-## Python
+</details>
+
+
+<!-- Stata -->
+
+<details class="software-card">
+
+<summary>
+
+<span class="software-icon software-stata">
+<img src="images/stata logo.png" alt="Stata logo">
+</span>
+
+<span class="software-title">
+<strong>Stata</strong>
+<small>Data analysis ба statistical software</small>
+</span>
+
+<span class="software-arrow">＋</span>
+
+</summary>
+
+<div class="software-content">
+
+Stata нь эдийн засаг, тархвар судлал болон
+нийгмийн шинжлэх ухааны судалгаанд өргөн
+ашиглагддаг статистикийн програм юм.
+
+### Үндсэн хэрэглээ
+
+- Өгөгдлийн шинжилгээ
+- Тархвар судлал
+- Регрессийн загвар
+- Панел өгөгдөл
+- Нийгмийн шинжлэх ухааны судалгаа
+
+</div>
+
+</details>
+
+
+<!-- SPSS -->
+
+<details class="software-card">
+
+<summary>
+
+<span class="software-icon software-spss">
+  <img src="images/spss logo.png" alt="SPSS logo">
+</span>
+
+<span class="software-title">
+<strong>SPSS</strong>
+<small>Graphical Statistical Analysis</small>
+</span>
+
+<span class="software-arrow">＋</span>
+
+</summary>
+
+<div class="software-content">
+
+SPSS нь статистикийн шинжилгээг график
+интерфейсээр хийх боломжтой бөгөөд нийгмийн
+шинжлэх ухаан, эрүүл мэндийн судалгаанд
+өргөн хэрэглэгддэг.
+
+### Үндсэн хэрэглээ
+
+- Дүрслэх статистик
+- Таамаглалын шалгалт
+- Регрессийн шинжилгээ
+- Судалгааны өгөгдөл
+- Эрүүл мэндийн судалгаа
+
+</div>
+
+</details>
+
+
+<!-- Python -->
+
+<details class="software-card">
+
+<summary>
+
+<span class="software-icon software-python">
+  <img src="images/python logo.jpeg" alt="Python logo">
+</span>
+
+<span class="software-title">
+<strong>Python</strong>
+<small>Data Science ба Machine Learning</small>
+</span>
+
+<span class="software-arrow">＋</span>
+
+</summary>
+
+<div class="software-content">
 
 Python нь өгөгдлийн шинжлэх ухаан, статистик,
 машин сургалт болон програмчлалд өргөн хэрэглэгддэг.
@@ -42,40 +169,59 @@ Python нь өгөгдлийн шинжлэх ухаан, статистик,
 - Өгөгдөл боловсруулах
 - Машин сургалт
 - Өгөгдлийн дүрслэл
+- Статистик тооцоолол
 - Автоматжуулалт
 
----
+</div>
 
-## SAS
+</details>
 
-SAS нь эмнэлзүйн судалгаа, эм зүйн салбар болон
-том хэмжээний өгөгдлийн статистикийн шинжилгээнд
-өргөн хэрэглэгддэг.
 
----
 
-## SPSS
+</div>
 
-SPSS нь статистикийн шинжилгээг график интерфейсээр
-хийх боломжтой бөгөөд нийгмийн шинжлэх ухаан,
-эрүүл мэндийн судалгаанд өргөн хэрэглэгддэг.
-
----
-
-## Stata
-
-Stata нь эдийн засаг, тархвар судлал болон
-нийгмийн шинжлэх ухааны судалгаанд өргөн
-ашиглагддаг статистикийн програм юм.
-
----
 
 ## Аль програмыг сонгох вэ?
 
+<div class="resource-card software-choice">
+
+<h3>Судалгааны зорилгодоо тохируулан сонгох</h3>
+
+<p>
 Судалгааны зорилго, өгөгдлийн бүтэц, хэрэглэгчийн
 туршлага болон шаардлагатай статистикийн аргуудаас
 хамаарч програмын сонголт өөр байна.
+</p>
 
-Манай баг R-ийг статистикийн тооцоолол,
-өгөгдлийн дүрслэл болон дахин давтагдахуйц
-судалгаанд түлхүү ашиглана.
+<div class="choice-grid">
+
+<div>
+<strong>R</strong>
+<span>Статистик, график дүрслэл, дахин давтагдахуйц судалгаа</span>
+</div>
+
+<div>
+<strong>Python</strong>
+<span>Data Science, Machine Learning, автоматжуулалт</span>
+</div>
+
+<div>
+<strong>SPSS</strong>
+<span>График интерфейсээр статистикийн шинжилгээ</span>
+</div>
+
+<div>
+<strong>Stata</strong>
+<span>Тархвар судлал, эдийн засаг, нийгмийн судалгаа</span>
+</div>
+
+</div>
+
+<p class="software-note">
+<strong>Манай баг R, Stata, SPSS, Python - ийг </strong>
+статистикийн тооцоолол, өгөгдлийн дүрслэл болон
+эмнэлзүй, нийгмийн эрүүл мэндийн судалгаанд
+түлхүү ашиглана.
+</p>
+
+</div>
