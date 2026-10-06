@@ -1,0 +1,9 @@
+# Cloudflare Worker-ийн тохиргоо — заавар: README.md
+name = "paper-explainer"
+main = "worker.js"
+compatibility_date = "2025-01-01"
+
+[vars]
+# Энэ серверийг ашиглахыг зөвшөөрөх сайтууд (таслалаар тусгаарлана)
+ALLOWED_ORIGINS = "https://zorigoobayar.github.io"
+# AI_MODEL = "claude-haiku-4-5-20251001"

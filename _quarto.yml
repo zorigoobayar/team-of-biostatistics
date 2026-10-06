@@ -30,6 +30,9 @@ website:
       - href: methods.qmd
         text: Data Analysis Methods
 
+      - href: paper-explainer.qmd
+        text: Paper Explainer
+
       - href: contact.qmd
         text: Contact
 
