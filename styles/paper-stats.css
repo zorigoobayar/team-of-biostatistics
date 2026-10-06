@@ -329,8 +329,28 @@ body.page-paper .mt-lead { max-width: 90ch; margin-bottom: 0.9rem; font-size: 0.
 
 .ps-head-links a { text-decoration: none; font-weight: 600; color: var(--ps-brand); }
 .ps-head-links a:hover { text-decoration: underline; }
-.ps-idx { color: #64748b; }
-.ps-idx a { font-weight: 500; }
+
+/* Сэтгүүлийн индекс: Scopus-ын хариу хуудсандаа, Web of Science нь холбоосоор */
+.ps-idx {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.3rem 1.1rem;
+  margin-top: 0.65rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--ps-line);
+  border-radius: 10px;
+  background: #f8fafc;
+  font-size: 0.82rem;
+  color: var(--ps-muted);
+}
+
+.ps-idx-t { font-weight: 700; color: var(--ps-ink); }
+.ps-idx-row b { font-weight: 600; color: var(--ps-ink); }
+.ps-idx-row a { text-decoration: none; font-weight: 500; color: var(--ps-brand); }
+.ps-idx-row a:hover { text-decoration: underline; }
+.ps-idx-v.is-yes { font-weight: 600; color: #047857; }
+.ps-idx-v.is-no { font-weight: 600; color: #b45309; }
 
 .ps-wait { margin: 1.5rem 0; color: var(--ps-muted); }
 
