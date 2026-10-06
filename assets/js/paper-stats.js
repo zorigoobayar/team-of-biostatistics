@@ -1,6 +1,7 @@
 /* =========================================================
    Paper Stats Explainer — paper-stats.qmd
-   Зүүн тал: PubMed / Scopus / Web of Science-ээс нийтлэл хайна.
+   Зүүн тал: PubMed болон АШУҮИС-ийн «Эрүүл мэндийн шинжлэх ухаан»
+   (ЭМШУ) сэтгүүлээс нийтлэл хайна.
    Баруун тал: сонгосон нийтлэлийн статистик арга зүйг энгийн
    монгол хэлээр тайлбарлана.
 
@@ -12,8 +13,10 @@
    data-api  — _backend/worker.js-ийг байршуулсан хаяг
                (жишээ нь https://paper-stats.xxx.workers.dev).
                Хоосон бол: PubMed хайлт + бэлэн тайлбарын сан.
-               Заасан бол: AI тайлбар, Web of Science, Scopus
-               (серверт түлхүүр нь тохируулагдсан хэмжээгээр) асна.
+               Заасан бол: AI тайлбар асна.
+
+   ЭМШУ сэтгүүлийн нийтлэлийн жагсаалт: assets/js/paper-emshu-data.js
+   (ЭМШУ таб анх нээгдэхэд ачаална).
 
    Арга таних толь: assets/js/paper-stats-dict.js
    ========================================================= */
@@ -22,6 +25,7 @@
   "use strict";
 
   var D = window.PS_DICT;
+  var SELF = (typeof document !== "undefined" && document.currentScript && document.currentScript.src) || "";
   var EUTILS = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/";
   var TOOL = "team-of-biostatistics";
   var PAGE = 10;
@@ -328,66 +332,92 @@
     return res;
   }
 
-  /* --- Scopus (Elsevier API) --- */
+  /* --- ЭМШУ: АШУҮИС-ийн «Эрүүл мэндийн шинжлэх ухаан» сэтгүүл ---
+     Номын сангийн каталог (catalog.mnums.edu.mn) өөр сайтаас дуудагдахыг зөвшөөрдөггүй тул
+     нийтлэлийн жагсаалтыг paper-emshu-data.js файлд хадгалж, хайлтыг хөтөч дотор хийнэ.
+     Каталогт хураангуй, бүтэн эх байхгүй: гарчиг, зохиогч, дугаар, хуудас, түлхүүр үг л бий. */
 
-  function scopusKey() {
-    try { return localStorage.getItem("ps-scopus-key") || ""; } catch (e) { return ""; }
+  var EMSHU = {
+    name: "Эрүүл мэндийн шинжлэх ухаан",
+    cat: "https://catalog.mnums.edu.mn/cgi-bin/koha/opac-detail.pl?biblionumber="
+  };
+  var emshuLoad = null, emshuAll = [], emshuNote = "";
+
+  /* Харьцуулахад бэлтгэнэ: жижиг үсэг, ү→у, ө→о, ё→е (гарнаас ү, ө-г у, о-оор
+     бичсэн хайлт болон бичлэгийг ч олохын тулд), тэмдэгтүүдийг зайгаар солино. */
+  function fold(s) {
+    return String(s || "").toLowerCase().replace(/ү/g, "у").replace(/ө/g, "о").replace(/ё/g, "е")
+      .replace(/[^0-9a-zа-я]+/g, " ").trim();
   }
 
-  async function searchScopus(q, f, start) {
-    var id = parseId(q), query;
-    if (id && id.doi) query = "DOI(" + id.doi + ")";
-    else if (id && id.pmid) query = "PMID(" + id.pmid + ")";
-    else {
-      query = "TITLE-ABS-KEY(" + q + ")";
-      if (f.from) query += " AND PUBYEAR > " + (parseInt(f.from, 10) - 1);
-    }
-    var params = { query: query, count: PAGE, start: start, sort: f.sort === "date" ? "-coverDate" : "relevancy" };
-    var r;
-    if (cfg.scopus) r = await fetch(API + "/scopus?" + qs(params));
-    else r = await fetch("https://api.elsevier.com/content/search/scopus?" + qs(params), { headers: { "X-ELS-APIKey": scopusKey(), Accept: "application/json" } });
-    if (r.status === 401 || r.status === 403) throw new Error("Scopus түлхүүр буруу эсвэл энэ сүлжээнээс Scopus-ын эрх нээгдээгүй байна (" + r.status + ").");
-    if (r.status === 429) throw new Error("Scopus-ын хүсэлтийн хязгаарт хүрлээ. Хэсэг хугацааны дараа дахин оролдоно уу.");
-    if (!r.ok) throw new Error("Scopus сервер " + r.status + " алдаа буцаалаа.");
-    var sr = (await r.json())["search-results"] || {};
-    var items = (sr.entry || []).filter(function (e) { return !e.error; }).map(function (e) {
-      var link = (e.link || []).filter(function (l) { return l["@ref"] === "scopus"; })[0];
-      return {
-        key: "scopus:" + (e.eid || e["dc:identifier"]), src: "scopus", pmid: e["pubmed-id"] || "", doi: e["prism:doi"] || "", pmcid: "",
-        title: clean(e["dc:title"]), journal: e["prism:publicationName"] || "", jabbr: e["prism:publicationName"] || "",
-        year: (e["prism:coverDate"] || "").slice(0, 4), authors: e["dc:creator"] ? [e["dc:creator"]] : [], etal: true,
-        pubtypes: e.subtypeDescription ? [e.subtypeDescription] : [], issn: e["prism:issn"] || "", essn: e["prism:eIssn"] || "",
-        cited: e["citedby-count"], url: link ? link["@href"] : ""
-      };
+  function loadEmshu() {
+    if (emshuLoad) return emshuLoad;
+    emshuLoad = new Promise(function (ok, fail) {
+      if (window.PS_EMSHU) { ok(); return; }
+      var sc = document.createElement("script");
+      sc.src = root.getAttribute("data-emshu") || (SELF ? SELF.replace(/[^\/]*$/, "") : "assets/js/") + "paper-emshu-data.js";
+      sc.onload = function () { if (window.PS_EMSHU) ok(); else fail(); };
+      sc.onerror = fail;
+      document.head.appendChild(sc);
+    }).then(function () {
+      var d = window.PS_EMSHU, byIssue = d.issues.map(function () { return []; });
+      /* Нийтлэл: [каталогийн дугаар, дугаарын индекс, гарчиг, [зохиогчид], хуудас, [түлхүүр үг]] */
+      d.articles.forEach(function (a) {
+        var is = d.issues[a[1]] || {};
+        (byIssue[a[1]] || []).push({
+          key: "emshu:" + a[0], src: "emshu", catId: a[0], iss: a[1],
+          title: a[2], authors: a[3] || [], pages: a[4] || "", keywords: a[5] || [],
+          journal: EMSHU.name, jabbr: "ЭМШУ", issue: is.label || "", y: is.year || 0, issueId: is.id || 0, flip: is.flip || "",
+          _t: fold(a[2]), _a: fold((a[3] || []).join(" ")), _k: fold((a[5] || []).join(" ")), _i: fold(is.label)
+        });
+      });
+      /* Жагсаалт: дугаар бүрийн мөр, араас нь тухайн дугаарын нийтлэлүүд (сүүлийн дугаараас эхэлнэ).
+         Каталогт нийтлэл нь тус тусдаа бүртгэгдээгүй дугаар ч өөрийн мөртэй тул олдоно. */
+      var all = [];
+      d.issues.forEach(function (is, i) {
+        all.push({
+          key: "emshu-issue:" + i, src: "emshu", kind: "issue", iss: i, tag: "Дугаар",
+          title: is.label, authors: [], arts: byIssue[i],
+          journal: EMSHU.name, jabbr: "ЭМШУ", issue: byIssue[i].length ? byIssue[i].length + " нийтлэл" : "зөвхөн бүтэн дугаар",
+          label: is.label, y: is.year || 0, issueId: is.id || 0, flip: is.flip || "",
+          _t: "", _a: "", _k: "", _i: fold(is.label)
+        });
+        all = all.concat(byIssue[i]);
+      });
+      all.forEach(function (it, n) { it.ord = n; });
+      emshuAll = all;
+      emshuNote = "ЭМШУ сэтгүүл: " + d.issues.length + " дугаар, " + fmtNum(d.articles.length) + " нийтлэл. Сүүлийн дугаараас эхлэн харуулж байна";
+      return all;
+    }, function () {
+      emshuLoad = null;
+      throw new Error("ЭМШУ сэтгүүлийн жагсаалтыг ачаалж чадсангүй. Хуудсаа дахин ачаалаад үзнэ үү.");
     });
-    return { total: parseInt(sr["opensearch:totalResults"], 10) || 0, items: items };
+    return emshuLoad;
   }
 
-  /* --- Web of Science (Starter API, зөвхөн серверээр дамжина) --- */
+  /* 2 = үгийн эхэнд таарсан, 1 = үгийн дунд, 0 = таараагүй */
+  function foldHit(hay, t) {
+    if (hay.indexOf(t) < 0) return 0;
+    return (" " + hay).indexOf(" " + t) > -1 ? 2 : 1;
+  }
 
-  async function searchWos(q, f, start) {
-    var id = parseId(q), query;
-    if (id && id.doi) query = 'DO=("' + id.doi + '")';
-    else if (id && id.pmid) query = "PMID=(" + id.pmid + ")";
-    else {
-      query = "TS=(" + q + ")";
-      if (f.from) query += " AND PY=(" + f.from + "-" + (new Date().getFullYear() + 1) + ")";
-    }
-    var r = await fetch(API + "/wos?" + qs({ q: query, limit: PAGE, page: Math.floor(start / PAGE) + 1, sortField: f.sort === "date" ? "PY+D" : "RS+D" }));
-    if (r.status === 429) throw new Error("Web of Science-ийн өдрийн хүсэлтийн хязгаарт хүрлээ.");
-    if (!r.ok) throw new Error("Web of Science сервер " + r.status + " алдаа буцаалаа.");
-    var j = await r.json();
-    var items = (j.hits || []).map(function (h) {
-      var s = h.source || {}, idn = h.identifiers || {}, cit = (h.citations || [])[0];
-      return {
-        key: "wos:" + h.uid, src: "wos", pmid: idn.pmid || "", doi: idn.doi || "", pmcid: "",
-        title: clean(h.title), journal: s.sourceTitle || "", jabbr: s.sourceTitle || "", year: s.publishYear ? String(s.publishYear) : "",
-        authors: ((h.names || {}).authors || []).map(function (a) { return a.displayName; }),
-        pubtypes: h.types || [], issn: idn.issn || "", essn: idn.eissn || "",
-        cited: cit ? cit.count : null, url: (h.links || {}).record || ""
-      };
+  /* Хайсан үг бүр гарчиг, түлхүүр үг, зохиогч, дугаарын аль нэгэнд байх ёстой.
+     Монгол үг залгавраар хувирдаг тул үгийн эхний хэсгээр нь тулгана. */
+  async function searchEmshu(q, f, start) {
+    var all = await loadEmshu(), toks = fold(q).split(" ").filter(Boolean), from = parseInt(f.from, 10) || 0, hits = [];
+    all.forEach(function (it) {
+      if (from && it.y < from) return;
+      var score = 0;
+      for (var i = 0; i < toks.length; i++) {
+        var t = toks[i];
+        var s = Math.max(foldHit(it._t, t) * 4, foldHit(it._k, t) * 3, foldHit(it._a, t) * 2, foldHit(it._i, t));
+        if (!s) return;
+        score += s;
+      }
+      hits.push({ it: it, s: score });
     });
-    return { total: (j.metadata || {}).total || 0, items: items };
+    if (toks.length && f.sort !== "date") hits.sort(function (a, b) { return b.s - a.s || a.it.ord - b.it.ord; });
+    return { total: hits.length, items: hits.slice(start, start + PAGE).map(function (h) { return h.it; }), note: toks.length || from ? "" : emshuNote };
   }
 
   /* --- OpenAlex: PubMed-д байхгүй нийтлэлийн хураангуйг DOI-оор авах --- */
@@ -532,15 +562,14 @@
      4. Дэлгэц
      ====================================================== */
 
-  var root, API, cfg = { ai: false, wos: false, scopus: false }, glossary = null;
+  var root, API, cfg = { ai: false }, glossary = null;
   var state = { src: "pubmed", q: "", start: 0, total: 0, items: [], sel: null, busy: false, f: { type: "", full: false, from: "", sort: "rel" } };
   var token = 0, chat = [];
   var el = {};
 
   var SRC = {
-    pubmed: { name: "PubMed", icon: "bi-heart-pulse" },
-    scopus: { name: "Scopus", icon: "bi-journal-bookmark" },
-    wos: { name: "Web of Science", icon: "bi-globe2" }
+    pubmed: { name: "PubMed", icon: "bi-heart-pulse", hint: "Түлхүүр үг, DOI, PMID" },
+    emshu: { name: "ЭМШУ сэтгүүл", icon: "bi-journal-medical", hint: "Гарчиг, зохиогч, түлхүүр үг (монголоор)" }
   };
   var TYPE_LABEL = {
     "Randomized Controlled Trial": "RCT", "Meta-Analysis": "Мета-анализ", "Systematic Review": "Системчилсэн тойм",
@@ -548,19 +577,13 @@
   };
   var EXAMPLES = ["hypertension Mongolia", "vitamin D supplementation randomized trial", "hepatitis B liver cancer cohort", "air pollution children pneumonia"];
 
-  function srcReady(k) {
-    if (k === "pubmed") return true;
-    if (k === "scopus") return cfg.scopus || !!scopusKey();
-    return cfg.wos;
-  }
-
   function build() {
     root.innerHTML =
       '<div class="ps-grid">' +
         '<section class="ps-left" aria-label="Нийтлэл хайх">' +
           '<div class="ps-tabs" role="tablist" aria-label="Эх сурвалж">' +
             Object.keys(SRC).map(function (k) {
-              return '<button type="button" role="tab" data-src="' + k + '"><i class="bi ' + SRC[k].icon + '"></i> ' + SRC[k].name + '<i class="bi bi-lock-fill ps-lock" title="Тохиргоо шаардлагатай"></i></button>';
+              return '<button type="button" role="tab" data-src="' + k + '"><i class="bi ' + SRC[k].icon + '"></i> ' + SRC[k].name + "</button>";
             }).join("") +
           "</div>" +
           '<form class="ps-form" role="search">' +
@@ -574,7 +597,6 @@
               '<label class="ps-check"><input type="checkbox" name="full"> Бүтэн эх нь нээлттэй</label>' +
             "</div>" +
           "</form>" +
-          '<div class="ps-setup" hidden></div>' +
           '<p class="ps-status" aria-live="polite"></p>' +
           '<ol class="ps-list"></ol>' +
           '<button type="button" class="ps-more btn btn-outline-secondary btn-sm" hidden>Дараагийн ' + PAGE + "-ыг харуулах</button>" +
@@ -585,7 +607,6 @@
     el.tabs = root.querySelectorAll(".ps-tabs button");
     el.form = root.querySelector(".ps-form");
     el.q = el.form.elements.q;
-    el.setup = root.querySelector(".ps-setup");
     el.status = root.querySelector(".ps-status");
     el.list = root.querySelector(".ps-list");
     el.more = root.querySelector(".ps-more");
@@ -599,7 +620,7 @@
     el.tabs.forEach(function (b) { b.addEventListener("click", function () { setSrc(b.dataset.src); }); });
     el.form.addEventListener("submit", function (e) { e.preventDefault(); search(true); });
     ["type", "from", "sort", "full"].forEach(function (n) {
-      el.form.elements[n].addEventListener("change", function () { if (state.q) search(true); });
+      el.form.elements[n].addEventListener("change", function () { if (state.q || state.src === "emshu") search(true); });
     });
     el.more.addEventListener("click", function () { search(false); });
     el.list.addEventListener("click", function (e) {
@@ -609,6 +630,11 @@
     el.right.addEventListener("click", function (e) {
       var ex = e.target.closest("[data-example]");
       if (ex) { el.q.value = ex.dataset.example; setSrc("pubmed"); search(true); }
+      var kw = e.target.closest("[data-kw]");
+      if (kw) { el.q.value = kw.dataset.kw; if (state.src === "emshu") search(true); else setSrc("emshu", true); }
+      var art = e.target.closest("[data-emshu]"), iss = e.target.closest("[data-emshu-issue]");
+      if (art) select(emshuAll.filter(function (x) { return String(x.catId) === art.dataset.emshu; })[0], false);
+      if (iss) select(emshuAll.filter(function (x) { return x.kind === "issue" && String(x.iss) === iss.dataset.emshuIssue; })[0], false);
       if (e.target.closest(".ps-back")) root.querySelector(".ps-left").scrollIntoView({ behavior: "smooth" });
     });
     el.right.addEventListener("submit", function (e) {
@@ -619,46 +645,23 @@
     welcome();
   }
 
-  function setSrc(k) {
+  function setSrc(k, keepQuery) {
+    /* PubMed англиар, ЭМШУ монголоор хайдаг тул нөгөө табын хайлтын үгийг авч явахгүй */
+    if (!keepQuery && k !== state.src && (k === "emshu") !== /[а-яёүө]/i.test(el.q.value)) el.q.value = "";
     state.src = k;
     el.tabs.forEach(function (b) {
       var on = b.dataset.src === k;
       b.classList.toggle("is-active", on);
       b.setAttribute("aria-selected", on ? "true" : "false");
-      b.classList.toggle("is-locked", !srcReady(b.dataset.src));
     });
     var pm = k === "pubmed";
     el.form.elements.type.hidden = !pm;
     el.form.elements.full.closest("label").hidden = !pm;
-    renderSetup();
+    el.q.placeholder = SRC[k].hint;
     state.items = []; state.total = 0; state.start = 0;
     el.list.innerHTML = ""; el.more.hidden = true; el.status.textContent = "";
-    if (srcReady(k) && el.q.value.trim()) search(true);
-  }
-
-  /* Scopus / WoS тохируулагдаагүй үед зааварчилгаа */
-  function renderSetup() {
-    var k = state.src;
-    el.setup.hidden = srcReady(k);
-    el.form.querySelector('button[type="submit"]').disabled = !srcReady(k);
-    if (srcReady(k)) { el.setup.innerHTML = ""; return; }
-    if (k === "scopus") {
-      el.setup.innerHTML =
-        '<p><b>Scopus-оос хайхад Elsevier-ийн API түлхүүр хэрэгтэй.</b> Байгууллага тань Scopus-ын эрхтэй бол <a href="https://dev.elsevier.com/" target="_blank" rel="noopener">dev.elsevier.com</a>-оос түлхүүр авч, доор оруулна. Түлхүүр зөвхөн энэ хөтөч дээр хадгалагдана.</p>' +
-        '<form class="ps-key"><input type="password" name="key" autocomplete="off" placeholder="Elsevier API түлхүүр" aria-label="Elsevier API түлхүүр"><button type="submit" class="btn btn-sm btn-primary">Хадгалах</button></form>' +
-        '<p class="ps-hint">Түлхүүргүй бол Scopus-оос олсон нийтлэлийнхээ <b>DOI</b>-г PubMed таб дээр буулгаад тайлбарыг нь авч болно.</p>';
-      el.setup.querySelector(".ps-key").addEventListener("submit", function (e) {
-        e.preventDefault();
-        var v = e.target.elements.key.value.trim();
-        if (!v) return;
-        try { localStorage.setItem("ps-scopus-key", v); } catch (err) { /* хувийн горимд хадгалагдахгүй */ }
-        setSrc("scopus");
-      });
-    } else {
-      el.setup.innerHTML =
-        "<p><b>Web of Science-ийн хайлт одоогоор идэвхжээгүй байна.</b> Clarivate-ийн API нь вэб хуудаснаас шууд дуудагдахыг зөвшөөрдөггүй тул багийн тохируулсан серверээр дамжиж ажиллана.</p>" +
-        '<p class="ps-hint">Одоохондоо Web of Science-ээс олсон нийтлэлийнхээ <b>DOI</b>-г PubMed таб дээр буулгаад тайлбарыг нь авч болно.</p>';
-    }
+    /* ЭМШУ: хайх үггүй үед хамгийн сүүлийн дугаараас эхлэн жагсаана */
+    if (k === "emshu" || el.q.value.trim()) search(true);
   }
 
   function welcome() {
@@ -675,7 +678,7 @@
 
   async function search(fresh) {
     var q = el.q.value.trim();
-    if (!q || state.busy || !srcReady(state.src)) return;
+    if ((!q && state.src !== "emshu") || state.busy) return;
     var f = { type: el.form.elements.type.value, from: el.form.elements.from.value, sort: el.form.elements.sort.value, full: el.form.elements.full.checked };
     var start = fresh ? 0 : state.start + PAGE;
     state.busy = true; state.q = q; state.f = f;
@@ -684,16 +687,18 @@
     if (fresh) el.list.innerHTML = "";
     var src = state.src;
     try {
-      var res = await (src === "pubmed" ? searchPubmed : src === "scopus" ? searchScopus : searchWos)(q, f, start);
+      var res = await (src === "emshu" ? searchEmshu : searchPubmed)(q, f, start);
       if (src !== state.src) return;
       state.items = fresh ? res.items : state.items.concat(res.items);
-      state.total = res.total; state.start = start;
+      state.total = res.total; state.start = start; state.note = res.note || "";
       renderList();
       if (fresh && res.items.length === 1 && parseId(q)) select(res.items[0], false);
     } catch (e) {
       el.status.innerHTML = '<span class="ps-err"><i class="bi bi-exclamation-triangle"></i> ' + esc(e && e.message && !/Failed to fetch|NetworkError|Load failed/i.test(e.message) ? e.message : "Сервертэй холбогдож чадсангүй. Интернэт холболтоо шалгаад дахин оролдоно уу.") + "</span>";
     } finally {
       state.busy = false;
+      /* хайлтын дундуур таб солигдсон бол шинэ эх сурвалжаар дахин хайна */
+      if (src !== state.src && (state.src === "emshu" || el.q.value.trim())) search(true);
     }
   }
 
@@ -705,19 +710,21 @@
 
   function renderList() {
     if (!state.items.length) {
-      el.status.textContent = "Илэрц олдсонгүй. Өөр түлхүүр үгээр (англиар) хайгаад үзээрэй.";
+      el.status.textContent = state.src === "emshu" ? "Илэрц олдсонгүй. Монгол түлхүүр үгээр, үгийн үндсээр нь хайгаад үзээрэй (жишээ нь «даралт»)."
+        : "Илэрц олдсонгүй. Өөр түлхүүр үгээр (англиар) хайгаад үзээрэй.";
       el.list.innerHTML = "";
       return;
     }
-    el.status.textContent = SRC[state.src].name + ": " + fmtNum(state.total) + " илэрцээс " + state.items.length + "-ыг харуулж байна";
+    el.status.textContent = state.note || SRC[state.src].name + ": " + fmtNum(state.total) + " илэрцээс " + state.items.length + "-ыг харуулж байна";
     el.list.innerHTML = state.items.map(function (it, i) {
       var tags = "";
       if (it.pmcid) tags += '<span class="ps-tag ps-tag-full"><i class="bi bi-unlock"></i> Бүтэн эх</span>';
       (it.pubtypes || []).forEach(function (t) { if (TYPE_LABEL[t]) tags += '<span class="ps-tag">' + TYPE_LABEL[t] + "</span>"; });
+      if (it.tag) tags += '<span class="ps-tag">' + esc(it.tag) + "</span>";
       if (it.cited != null && it.cited !== "") tags += '<span class="ps-tag">Иш татагдсан: ' + esc(it.cited) + "</span>";
       return '<li><button type="button" class="ps-item' + (state.sel && state.sel.key === it.key ? " is-active" : "") + '" data-i="' + i + '">' +
         '<span class="ps-item-title">' + esc(it.title || "(гарчиггүй)") + "</span>" +
-        '<span class="ps-item-meta"><em>' + esc(it.jabbr || it.journal) + "</em>" + (it.year ? " · " + esc(it.year) : "") + (authorLine(it) ? " · " + esc(authorLine(it)) : "") + "</span>" +
+        '<span class="ps-item-meta"><em>' + esc(it.jabbr || it.journal) + "</em>" + (it.issue || it.year ? " · " + esc(it.issue || it.year) : "") + (authorLine(it) ? " · " + esc(authorLine(it)) : "") + "</span>" +
         (tags ? '<span class="ps-item-tags">' + tags + "</span>" : "") +
         "</button></li>";
     }).join("");
@@ -738,18 +745,44 @@
     return /^\d{7}[\dX]$/.test(s) ? s.slice(0, 4) + "-" + s.slice(4) : "";
   }
 
-  async function scopusSource(issns) {
+  async function scopusByIssn(issn) {
+    var r = await fetch("https://api.elsevier.com/content/serial/title/issn/" + issn, { headers: { Accept: "application/json" } });
+    if (r.status === 404) return null;
+    if (!r.ok) throw new Error("Scopus " + r.status);
+    var e = (((await r.json())["serial-metadata-response"] || {}).entry || [])[0];
+    if (!e || !e["dc:title"]) throw new Error("Scopus: танигдаагүй хариу");
+    var link = (e.link || []).filter(function (l) { return l["@ref"] === "scopus-source"; })[0];
+    var url = link && /^https:\/\/www\.scopus\.com\//.test(link["@href"] || "") ? link["@href"] : "";
+    return { found: true, title: e["dc:title"], url: url };
+  }
+
+  /* Нэг сэтгүүл хэд хэдэн ISSN-тэй байдаг (хэвлэмэл, цахим, хуучин хувилбарууд).
+     Crossref тухайн сэтгүүлийн бүгдийг нь нэг дор өгдөг. */
+  async function crossrefIssns(issns) {
     for (var i = 0; i < issns.length; i++) {
-      var r = await fetch("https://api.elsevier.com/content/serial/title/issn/" + issns[i], { headers: { Accept: "application/json" } });
-      if (r.status === 404) continue;
-      if (!r.ok) throw new Error("Scopus " + r.status);
-      var e = (((await r.json())["serial-metadata-response"] || {}).entry || [])[0];
-      if (!e || !e["dc:title"]) throw new Error("Scopus: танигдаагүй хариу");
-      var link = (e.link || []).filter(function (l) { return l["@ref"] === "scopus-source"; })[0];
-      var url = link && /^https:\/\/www\.scopus\.com\//.test(link["@href"] || "") ? link["@href"] : "";
-      return { found: true, title: e["dc:title"], url: url };
+      try {
+        var r = await fetch("https://api.crossref.org/journals/" + issns[i]);
+        if (!r.ok) continue;
+        var list = (((await r.json()).message || {}).ISSN || []).map(fmtIssn)
+          .filter(function (s, k, a) { return s && a.indexOf(s) === k && issns.indexOf(s) < 0; });
+        if (list.length) return list;
+      } catch (e) { /* Crossref хариу өгөөгүй бол нэмэлт ISSN-гүйгээр үргэлжилнэ */ }
     }
-    return { found: false };
+    return [];
+  }
+
+  /* PubMed-ийн өгсөн ISSN нь Scopus-д бүртгэгдсэнээс зөрж болно (жишээ нь BMJ: PubMed-д
+     0959-8138 / 1468-5833, Scopus-д 0959-8146 / 1756-1833). Шууд олдохгүй бол сэтгүүлийн
+     бусад ISSN-ээр дахин шалгаж байж «олдсонгүй» гэж хариулна. */
+  async function scopusSource(issns) {
+    var hit, tried = issns.slice(), i;
+    for (i = 0; i < issns.length; i++) if ((hit = await scopusByIssn(issns[i]))) return hit;
+    var more = (await crossrefIssns(issns)).slice(0, 8);
+    for (i = 0; i < more.length; i++) {
+      tried.push(more[i]);
+      if ((hit = await scopusByIssn(more[i]))) return hit;
+    }
+    return { found: false, tried: tried };
   }
 
   function idxBody(issns, st) {
@@ -762,7 +795,8 @@
       sc = '<span class="ps-idx-v is-yes" title="' + esc(st.title) + '"><i class="bi bi-check-circle-fill"></i> бүртгэлтэй</span>' +
         (st.url ? ' · <a href="' + esc(st.url) + '"' + ext + ">Хамрах он, CiteScore</a>" : "");
     } else {
-      sc = '<span class="ps-idx-v is-no" title="ISSN ' + issns.join(", ") + '"><i class="bi bi-x-circle"></i> жагсаалтаас олдсонгүй</span>';
+      sc = '<span class="ps-idx-v is-no" title="Шалгасан ISSN: ' + (st.tried || issns).join(", ") + '"><i class="bi bi-x-circle"></i> ISSN-ээр олдсонгүй</span>' +
+        ' · <a href="https://www.scopus.com/sources"' + ext + ">Scopus-оос нэрээр хайх</a>";
     }
     return '<span class="ps-idx-t">Сэтгүүлийн индекс</span>' +
       '<span class="ps-idx-row"><b>Scopus:</b> ' + sc + "</span>" +
@@ -793,8 +827,6 @@
     if (p.pmid) links.push('<a href="https://pubmed.ncbi.nlm.nih.gov/' + esc(p.pmid) + '/" target="_blank" rel="noopener"><i class="bi bi-box-arrow-up-right"></i> PubMed</a>');
     if (p.pmcid) links.push('<a href="https://pmc.ncbi.nlm.nih.gov/articles/' + esc(p.pmcid) + '/" target="_blank" rel="noopener"><i class="bi bi-unlock"></i> Бүтэн эх (PMC)</a>');
     if (p.doi) links.push('<a href="https://doi.org/' + esc(p.doi) + '" target="_blank" rel="noopener"><i class="bi bi-link-45deg"></i> DOI</a>');
-    if (p.src === "scopus" && p.url) links.push('<a href="' + esc(p.url) + '" target="_blank" rel="noopener">Scopus</a>');
-    if (p.src === "wos" && p.url) links.push('<a href="' + esc(p.url) + '" target="_blank" rel="noopener">Web of Science</a>');
     return '<header class="ps-head">' +
       '<button type="button" class="ps-back"><i class="bi bi-arrow-left"></i> Жагсаалт руу</button>' +
       "<h2>" + esc(p.title) + "</h2>" +
@@ -819,6 +851,13 @@
   function renderExplain(p, a) {
     var base = root.getAttribute("data-base") || "";
     var h = paperHead(p);
+
+    /* Эх хураангуйг тайлбарын өмнө, нээлттэй байдлаар харуулна */
+    if (p.abstract.length) {
+      h += '<details class="ps-abs" open><summary>Нийтлэлийн хураангуй (англи)</summary><div lang="en">' +
+        p.abstract.map(function (s) { return "<p>" + (s.label ? "<b>" + esc(s.label) + ":</b> " : "") + esc(s.text) + "</p>"; }).join("") +
+        "</div></details>";
+    }
 
     /* AI тайлбар (сервер тохируулагдсан үед) */
     if (cfg.ai) {
@@ -873,21 +912,72 @@
         a.cautions.map(function (c) { return "<li>" + c + "</li>"; }).join("") + "</ul></section>";
     }
 
-    if (p.abstract.length) {
-      h += '<details class="ps-abs"><summary>Нийтлэлийн хураангуй (англи)</summary><div lang="en">' +
-        p.abstract.map(function (s) { return "<p>" + (s.label ? "<b>" + esc(s.label) + ":</b> " : "") + esc(s.text) + "</p>"; }).join("") +
-        "</div></details>";
-    }
-
     h += '<p class="ps-disclaimer">Энэ тайлбарыг программ нийтлэлийн бичвэрээс автоматаар гаргасан тул дутуу, алдаатай байж болно. Эмчилгээ, оношилгооны шийдвэр гаргахад ашиглахгүй, эх нийтлэлтэй нь тулгаж уншаарай.</p>';
 
     el.right.innerHTML = h;
+  }
+
+  /* ЭМШУ-ийн нийтлэл: каталогт хураангуй, бүтэн эх байхгүй тул статистикийн тайлбар гаргахгүй,
+     олдсон мэдээллийг харуулж каталог болон дугаарын цахим хувилбар руу холбоно. */
+  function renderEmshu(it) {
+    var ext = ' target="_blank" rel="noopener"';
+    var links = ['<a href="' + EMSHU.cat + it.catId + '"' + ext + '><i class="bi bi-box-arrow-up-right"></i> Номын сангийн каталог</a>'];
+    if (it.flip) links.push('<a href="' + esc(it.flip) + '"' + ext + '><i class="bi bi-book"></i> Дугаарыг цахимаар унших</a>');
+    else if (it.issueId) links.push('<a href="' + EMSHU.cat + it.issueId + '"' + ext + '><i class="bi bi-journal-text"></i> Дугаарын бичлэг</a>');
+    links.push('<button type="button" data-emshu-issue="' + it.iss + '"><i class="bi bi-list-ul"></i> Энэ дугаарын бүх нийтлэл</button>');
+    var where = it.flip ? "дугаарын цахим хувилбараас" : "АШУҮИС-ийн номын сангаас";
+    el.right.innerHTML =
+      '<header class="ps-head">' +
+        '<button type="button" class="ps-back"><i class="bi bi-arrow-left"></i> Жагсаалт руу</button>' +
+        "<h2>" + esc(it.title) + "</h2>" +
+        '<p class="ps-head-meta"><em>' + EMSHU.name + "</em>" + (it.issue ? " · " + esc(it.issue) : "") + (it.pages ? " · хуудас " + esc(it.pages) : "") + "</p>" +
+        '<p class="ps-head-links">' + links.join("") + "</p>" +
+      "</header>" +
+      (it.authors.length ? '<section class="ps-sec"><h3><i class="bi bi-people"></i> Зохиогчид</h3><p class="ps-plain">' + it.authors.map(esc).join(", ") + "</p></section>" : "") +
+      (it.keywords.length ? '<section class="ps-sec"><h3><i class="bi bi-tags"></i> Түлхүүр үг</h3><p class="ps-kw">' +
+        it.keywords.map(function (k) { return '<button type="button" data-kw="' + esc(k) + '" title="Энэ түлхүүр үгээр ЭМШУ сэтгүүлээс хайх">' + esc(k) + "</button>"; }).join("") + "</p></section>" : "") +
+      '<section class="ps-sum"><h3><i class="bi bi-info-circle"></i> Статистикийн тайлбар гараагүй шалтгаан</h3>' +
+        "<p>Номын сангийн каталогт энэ нийтлэлийн гарчиг, зохиогч, түлхүүр үг л бүртгэгдсэн, хураангуй болон бүтэн эх байхгүй. Тиймээс ашигласан статистик аргыг эндээс тайлбарлах боломжгүй.</p>" +
+        "<p>Нийтлэлийг " + where + (it.pages ? " (хуудас " + esc(it.pages) + ")" : "") + " уншина уу.</p></section>";
+  }
+
+  /* ЭМШУ-ийн нэг дугаар: агуулга (каталогт бүртгэгдсэн нийтлэлүүд) ба бүтэн дугаарын холбоос */
+  function renderEmshuIssue(it) {
+    var ext = ' target="_blank" rel="noopener"', links = [];
+    if (it.flip) links.push('<a href="' + esc(it.flip) + '"' + ext + '><i class="bi bi-book"></i> Дугаарыг цахимаар унших</a>');
+    if (it.issueId) links.push('<a href="' + EMSHU.cat + it.issueId + '"' + ext + '><i class="bi bi-box-arrow-up-right"></i> Номын сангийн каталог</a>');
+    var body;
+    if (it.arts.length) {
+      body = '<section class="ps-sec"><h3><i class="bi bi-list-ul"></i> Энэ дугаарын нийтлэлүүд <span>' + it.arts.length + "</span></h3>" +
+        '<ol class="ps-toc">' + it.arts.map(function (a) {
+          return '<li><button type="button" data-emshu="' + a.catId + '">' + esc(a.title) + "</button>" +
+            "<span>" + esc(authorLine(a)) + (a.pages ? (authorLine(a) ? " · " : "") + "хуудас " + esc(a.pages) : "") + "</span></li>";
+        }).join("") + "</ol></section>";
+    } else {
+      body = '<section class="ps-sum"><h3><i class="bi bi-info-circle"></i> Нийтлэлүүд нь тус тусдаа бүртгэгдээгүй</h3>' +
+        "<p>Номын сангийн каталогт энэ дугаар бүтнээрээ л бүртгэгдсэн тул нийтлэлийг нь гарчиг, зохиогчоор хайх боломжгүй. " +
+        (it.flip ? "Дээрх холбоосоор бүтэн дугаарыг цахимаар нээж уншина уу." : "Дугаарыг АШУҮИС-ийн номын сангаас үзнэ үү.") + "</p></section>";
+    }
+    el.right.innerHTML =
+      '<header class="ps-head">' +
+        '<button type="button" class="ps-back"><i class="bi bi-arrow-left"></i> Жагсаалт руу</button>' +
+        "<h2>" + EMSHU.name + "</h2>" +
+        '<p class="ps-head-meta">' + esc(it.label) + "</p>" +
+        (links.length ? '<p class="ps-head-links">' + links.join("") + "</p>" : "") +
+      "</header>" + body;
   }
 
   async function select(item, scroll) {
     var my = ++token;
     state.sel = item; chat = [];
     el.list.querySelectorAll(".ps-item").forEach(function (b) { b.classList.toggle("is-active", state.items[+b.dataset.i] === item); });
+    if (item.src === "emshu") {
+      state.paper = null; state.analysis = null;
+      if (item.kind === "issue") renderEmshuIssue(item); else renderEmshu(item);
+      if (scroll && window.matchMedia("(max-width: 991px)").matches) el.right.scrollIntoView({ behavior: "smooth" });
+      try { history.replaceState(null, "", item.kind === "issue" ? location.pathname + location.search : "#emshu=" + item.catId); } catch (e) { /* noop */ }
+      return;
+    }
     el.right.innerHTML = paperHead(item) + '<p class="ps-wait"><span class="ps-spin"></span> Нийтлэлийн бичвэрийг уншиж байна…</p>';
     if (scroll && window.matchMedia("(max-width: 991px)").matches) el.right.scrollIntoView({ behavior: "smooth" });
     try {
@@ -991,7 +1081,7 @@
   function loadConfig() {
     if (!API) return Promise.resolve();
     return fetch(API + "/config").then(function (r) { return r.ok ? r.json() : {}; }).then(function (c) {
-      cfg.ai = !!c.ai; cfg.wos = !!c.wos; cfg.scopus = !!c.scopus;
+      cfg.ai = !!c.ai;
     }).catch(function () {});
   }
 
@@ -1002,8 +1092,14 @@
     Promise.all([loadGlossary(root.getAttribute("data-glossary")), loadConfig()]).then(function (r) {
       glossary = r[0];
       build();
-      var m = /^#(pmid|doi)=(.+)$/.exec(location.hash);
-      if (m) { el.q.value = (m[1] === "pmid" ? "PMID:" : "") + decodeURIComponent(m[2]); search(true); }
+      var m = /^#(pmid|doi|emshu)=(.+)$/.exec(location.hash);
+      if (m && m[1] === "emshu") {
+        setSrc("emshu");
+        loadEmshu().then(function (all) {
+          var it = all.filter(function (x) { return String(x.catId) === m[2]; })[0]; /* дугаарын мөрөнд catId байхгүй */
+          if (it) select(it, false);
+        }, function () { /* жагсаалт ачаалагдаагүй бол хайлтын мөрөнд алдаа гарна */ });
+      } else if (m) { el.q.value = (m[1] === "pmid" ? "PMID:" : "") + decodeURIComponent(m[2]); search(true); }
     });
   }
 
