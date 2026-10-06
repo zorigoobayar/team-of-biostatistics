@@ -368,7 +368,8 @@
           key: "emshu:" + a[0], src: "emshu", catId: a[0], iss: a[1],
           title: a[2], authors: a[3] || [], pages: a[4] || "", keywords: a[5] || [],
           journal: EMSHU.name, jabbr: "ЭМШУ", issue: is.label || "", y: is.year || 0, issueId: is.id || 0, flip: is.flip || "",
-          _t: fold(a[2]), _a: fold((a[3] || []).join(" ")), _k: fold((a[5] || []).join(" ")), _i: fold(is.label)
+          _t: fold(a[2]), _a: fold((a[3] || []).join(" ")), _a2: fold((a[3] || []).join(" ").replace(/-/g, "")),
+          _k: fold((a[5] || []).join(" ")), _i: fold(is.label)
         });
       });
       /* Жагсаалт: дугаар бүрийн мөр, араас нь тухайн дугаарын нийтлэлүүд (сүүлийн дугаараас эхэлнэ).
@@ -380,7 +381,7 @@
           title: is.label, authors: [], arts: byIssue[i],
           journal: EMSHU.name, jabbr: "ЭМШУ", issue: byIssue[i].length ? byIssue[i].length + " нийтлэл" : "зөвхөн бүтэн дугаар",
           label: is.label, y: is.year || 0, issueId: is.id || 0, flip: is.flip || "",
-          _t: "", _a: "", _k: "", _i: fold(is.label)
+          _t: "", _a: "", _a2: "", _k: "", _i: fold(is.label)
         });
         all = all.concat(byIssue[i]);
       });
@@ -395,29 +396,56 @@
     return emshuLoad;
   }
 
-  /* 2 = үгийн эхэнд таарсан, 1 = үгийн дунд, 0 = таараагүй */
-  function foldHit(hay, t) {
-    if (hay.indexOf(t) < 0) return 0;
-    return (" " + hay).indexOf(" " + t) > -1 ? 2 : 1;
+  /* Хайлтыг нэр томьёонд хуваана. Зураастай нийлмэл нэр («Сэр-Од») болон хашилтад бичсэн
+     хэллэг нь салгахгүй нэг нэр томьёо болно: fold() зураасыг зайгаар сольдог тул «сэр од»
+     гэсэн зэрэгцээ хоёр үг болж тулгагдана. Ганц үсэг (овгийн товчлол «Х.») нь бараг бүх
+     бичлэгт таардаг тул өөр үг байгаа үед тооцохгүй. */
+  function emshuTerms(q) {
+    var terms = [];
+    var rest = String(q || "").replace(/["«“„]([^"»”]+)["»”]/g, function (m, p) { terms.push(fold(p)); return " "; });
+    rest.split(/[\s.,;:()\/]+/).forEach(function (w) { terms.push(fold(w)); });
+    terms = terms.filter(function (t, i, a) { return t && a.indexOf(t) === i; });
+    var long = terms.filter(function (t) { return t.length > 1; });
+    return long.length ? long : terms;
   }
 
-  /* Хайсан үг бүр гарчиг, түлхүүр үг, зохиогч, дугаарын аль нэгэнд байх ёстой.
-     Монгол үг залгавраар хувирдаг тул үгийн эхний хэсгээр нь тулгана. */
+  /* 3 = бүтэн үгээрээ таарсан, 2 = үгийн эхэнд, 1 = үгийн дунд, 0 = таараагүй.
+     Үгийн дунд таарахыг зөвхөн 5-аас дээш үсэгтэй үгэнд зөвшөөрнө: богино үг («од»)
+     өөр үгсийн дотор («метод», «өдөр») санамсаргүй таарч хамаагүй илэрц гаргадаг. */
+  function foldHit(hay, t) {
+    var h = " " + hay + " ";
+    if (h.indexOf(" " + t) > -1) return h.indexOf(" " + t + " ") > -1 ? 3 : 2;
+    return t.length >= 5 && t.indexOf(" ") < 0 && hay.indexOf(t) > -1 ? 1 : 0;
+  }
+
+  /* Хайсан нэр томьёо бүр гарчиг, түлхүүр үг, зохиогчийн аль нэгэнд байх ёстой.
+     Монгол үг залгавраар хувирдаг тул үгийн эхний хэсгээр нь тулгана.
+     Дугаарын тэмдэглэгээнээс нийтлэлд зөвхөн тоо (он, дугаар) тулгана: «тусгай», «дугаар»
+     гэх мэт үг тухайн дугаарын бүх нийтлэлийг гаргачихдаг. */
   async function searchEmshu(q, f, start) {
-    var all = await loadEmshu(), toks = fold(q).split(" ").filter(Boolean), from = parseInt(f.from, 10) || 0, hits = [];
+    var all = await loadEmshu(), terms = emshuTerms(q), phrase = terms.length > 1 ? fold(q) : "";
+    var from = parseInt(f.from, 10) || 0, hits = [];
     all.forEach(function (it) {
+      it.hit = "";
       if (from && it.y < from) return;
-      var score = 0;
-      for (var i = 0; i < toks.length; i++) {
-        var t = toks[i];
-        var s = Math.max(foldHit(it._t, t) * 4, foldHit(it._k, t) * 3, foldHit(it._a, t) * 2, foldHit(it._i, t));
+      var score = 0, byAuthor = "";
+      for (var i = 0; i < terms.length; i++) {
+        var t = terms[i], au = Math.max(foldHit(it._a, t), foldHit(it._a2, t));
+        var is = it.kind === "issue" ? foldHit(it._i, t) * 2 : (/^\d+$/.test(t) && (" " + it._i + " ").indexOf(" " + t + " ") > -1 ? 1 : 0);
+        var s = Math.max(foldHit(it._t, t) * 4, foldHit(it._k, t) * 3, au * 3, is);
         if (!s) return;
+        if (au && !byAuthor) byAuthor = t;
         score += s;
+      }
+      /* Хайлт бүхэлдээ зэрэгцээ үгсээр таарсан бол дээр гаргана */
+      if (phrase) score += foldHit(it._t, phrase) > 1 ? 8 : (foldHit(it._k, phrase) > 1 || foldHit(it._a, phrase) > 1 ? 6 : 0);
+      if (byAuthor) {
+        it.hit = (it.authors || []).filter(function (n) { return foldHit(fold(n), byAuthor) || foldHit(fold(n.replace(/-/g, "")), byAuthor); })[0] || "";
       }
       hits.push({ it: it, s: score });
     });
-    if (toks.length && f.sort !== "date") hits.sort(function (a, b) { return b.s - a.s || a.it.ord - b.it.ord; });
-    return { total: hits.length, items: hits.slice(start, start + PAGE).map(function (h) { return h.it; }), note: toks.length || from ? "" : emshuNote };
+    if (terms.length && f.sort !== "date") hits.sort(function (a, b) { return b.s - a.s || a.it.ord - b.it.ord; });
+    return { total: hits.length, items: hits.slice(start, start + PAGE).map(function (h) { return h.it; }), note: terms.length || from ? "" : emshuNote };
   }
 
   /* --- OpenAlex: PubMed-д байхгүй нийтлэлийн хураангуйг DOI-оор авах --- */
@@ -705,7 +733,10 @@
   function authorLine(it) {
     var a = it.authors || [];
     if (!a.length) return "";
-    return a.length > 3 || it.etal ? a.slice(0, 3).join(", ") + " нар" : a.join(", ");
+    var s = a.length > 3 || it.etal ? a.slice(0, 3).join(", ") + " нар" : a.join(", ");
+    /* Хайсан зохиогч эхний гуравт багтаагүй бол яагаад олдсоныг харуулна */
+    if (it.hit && a.indexOf(it.hit) > 2) s += " (" + it.hit + ")";
+    return s;
   }
 
   function renderList() {
