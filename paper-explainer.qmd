@@ -1,0 +1,51 @@
+---
+title: "Paper Explainer"
+description: "PubMed, Scopus, Web of Science-д бүртгэлтэй сэтгүүлийн нийтлэлийг хайж, ашигласан статистик арга зүйг энгийн монгол хэлээр тайлбарлана."
+toc: false
+page-layout: full
+format:
+  html:
+    body-classes: page-methods page-paper
+    css:
+      - styles.css
+      - styles/methods.css
+      - styles/paper-stats.css
+    include-after-body:
+      text: |
+        <script src="assets/js/js-yaml.min.js"></script>
+        <script src="assets/js/paper-stats-dict.js"></script>
+        <script src="assets/js/paper-stats.js"></script>
+---
+
+```{=html}
+<header class="mt-hero">
+  <p class="mt-eyebrow"><i class="bi bi-chat-square-text"></i> Нийтлэл уншихад туслах</p>
+  <h1>Нийтлэлийн статистикийг тайлбарлагч</h1>
+  <p class="mt-lead">
+    Олон улсын сэтгүүлд хэвлэгдсэн нийтлэлийг хайж олоод сонгоход түүнд ашигласан
+    статистик аргуудыг (t-тест, ANOVA, регресс гэх мэт) статистикийн мэдлэг
+    шаардахгүй энгийн үгээр тайлбарлана.
+  </p>
+  <ul class="mt-badges" aria-label="Товч мэдээлэл">
+    <li><strong>PubMed</strong> · Scopus · Web of Science</li>
+    <li><strong>120+</strong> арга таньдаг</li>
+    <li><strong>Монгол</strong> тайлбар</li>
+    <li><span class="vc" data-vc-href=""></span></li>
+  </ul>
+</header>
+
+<!--
+  data-api: _backend/worker.js-ийг байршуулсан хаягийг энд бичнэ
+            (жишээ нь https://paper-stats.таны-нэр.workers.dev).
+            Хоосон үед PubMed хайлт + бэлэн тайлбарын сангаар ажиллана.
+            Заавар: _backend/README.md
+-->
+<div class="ps-app" data-glossary="glossary/terms.yml" data-api="">
+  <p class="ps-wait">Ачаалж байна…</p>
+</div>
+<noscript><p>Энэ хуудсыг ашиглахын тулд JavaScript идэвхжүүлнэ үү.</p></noscript>
+```
+
+::: {.callout-note appearance="simple" icon="false"}
+**Хэрхэн ажилладаг вэ?** Хайлтыг АНУ-ын Анагаах ухааны үндэсний номын сангийн PubMed-ийн нээлттэй үйлчилгээгээр шууд хийнэ. Нийтлэлийн бүтэн эх нь PubMed Central-д нээлттэй бол «Statistical analysis» хэсгийг, үгүй бол хураангуйг нь уншиж, дурдагдсан статистик аргуудыг таньж тайлбарлана. Тайлбар нь автоматаар гардаг тул эх нийтлэлтэй нь тулгаж уншаарай. Арга тус бүрийн дэлгэрэнгүйг [Data Analysis Methods](methods.html), нэр томьёог [Нэр томьёоны толь](glossary.html)-оос үзнэ үү.
+:::
