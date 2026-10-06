@@ -724,6 +724,68 @@
     el.more.hidden = state.items.length >= state.total || state.items.length >= 100;
   }
 
+  /* ---------- Сэтгүүлийн индекс ---------- */
+
+  /* Scopus: Elsevier-ийн Serial Title API нь ISSN-ээр сэтгүүлийн үндсэн мэдээллийг
+     түлхүүргүй буцаадаг (200 = Scopus-ын эх сурвалжийн жагсаалтад бий, 404 = алга).
+     Хамрах он, CiteScore нь түлхүүр шаарддаг тул Scopus дахь хуудас руу нь холбоно.
+     Web of Science: Clarivate (Master Journal List) хөтчөөс шууд дуудагдахыг зөвшөөрдөггүй
+     тул серверээр дамжихаас нааш хуудсанд хариу гаргах боломжгүй, холбоос хэвээр үлдэнэ. */
+  var idxCache = {};
+
+  function fmtIssn(s) {
+    s = String(s || "").toUpperCase().replace(/[^0-9X]/g, "");
+    return /^\d{7}[\dX]$/.test(s) ? s.slice(0, 4) + "-" + s.slice(4) : "";
+  }
+
+  async function scopusSource(issns) {
+    for (var i = 0; i < issns.length; i++) {
+      var r = await fetch("https://api.elsevier.com/content/serial/title/issn/" + issns[i], { headers: { Accept: "application/json" } });
+      if (r.status === 404) continue;
+      if (!r.ok) throw new Error("Scopus " + r.status);
+      var e = (((await r.json())["serial-metadata-response"] || {}).entry || [])[0];
+      if (!e || !e["dc:title"]) throw new Error("Scopus: танигдаагүй хариу");
+      var link = (e.link || []).filter(function (l) { return l["@ref"] === "scopus-source"; })[0];
+      var url = link && /^https:\/\/www\.scopus\.com\//.test(link["@href"] || "") ? link["@href"] : "";
+      return { found: true, title: e["dc:title"], url: url };
+    }
+    return { found: false };
+  }
+
+  function idxBody(issns, st) {
+    var ext = ' target="_blank" rel="noopener"', sc;
+    if (!st) sc = '<span class="ps-idx-v"><span class="ps-spin"></span>шалгаж байна…</span>';
+    else if (st.error) {
+      sc = '<span class="ps-idx-v">одоогоор шалгаж чадсангүй</span> · ' +
+        '<a href="https://www.scimagojr.com/journalsearch.php?q=' + issns[0].replace("-", "") + '"' + ext + ">SJR-ээс харах</a>";
+    } else if (st.found) {
+      sc = '<span class="ps-idx-v is-yes" title="' + esc(st.title) + '"><i class="bi bi-check-circle-fill"></i> бүртгэлтэй</span>' +
+        (st.url ? ' · <a href="' + esc(st.url) + '"' + ext + ">Хамрах он, CiteScore</a>" : "");
+    } else {
+      sc = '<span class="ps-idx-v is-no" title="ISSN ' + issns.join(", ") + '"><i class="bi bi-x-circle"></i> жагсаалтаас олдсонгүй</span>';
+    }
+    return '<span class="ps-idx-t">Сэтгүүлийн индекс</span>' +
+      '<span class="ps-idx-row"><b>Scopus:</b> ' + sc + "</span>" +
+      '<span class="ps-idx-row"><b>Web of Science:</b> <a href="https://mjl.clarivate.com/search-results?issn=' + issns[0] + '"' + ext + ">Master Journal List-ээс шалгах</a></span>";
+  }
+
+  /* Нэг нийтлэлийн толгой хэд хэдэн удаа зурагддаг тул хариуг ISSN-ээр нь хадгалж,
+     ирэхэд нь дэлгэц дээр байгаа бүх хайрцгийг шинэчилнэ. */
+  function journalIndex(p) {
+    var issns = [fmtIssn(p.issn), fmtIssn(p.essn)].filter(function (s, i, a) { return s && a.indexOf(s) === i; });
+    if (!issns.length) return "";
+    var key = issns.join("_"), c = idxCache[key];
+    if (c && c.st && c.st.error && Date.now() - c.at > 30000) c = null; /* алдаа гарсан бол хэсэг хугацааны дараа дахин оролдоно */
+    if (!c) {
+      c = idxCache[key] = { st: null, at: 0 };
+      scopusSource(issns).then(function (st) { return st; }, function () { return { error: true }; }).then(function (st) {
+        c.st = st; c.at = Date.now();
+        root.querySelectorAll('.ps-idx[data-k="' + key + '"]').forEach(function (n) { n.innerHTML = idxBody(issns, st); });
+      });
+    }
+    return '<div class="ps-idx" data-k="' + key + '" aria-live="polite">' + idxBody(issns, c.st) + "</div>";
+  }
+
   /* ---------- Баруун тал: тайлбар ---------- */
 
   function paperHead(p) {
@@ -733,16 +795,12 @@
     if (p.doi) links.push('<a href="https://doi.org/' + esc(p.doi) + '" target="_blank" rel="noopener"><i class="bi bi-link-45deg"></i> DOI</a>');
     if (p.src === "scopus" && p.url) links.push('<a href="' + esc(p.url) + '" target="_blank" rel="noopener">Scopus</a>');
     if (p.src === "wos" && p.url) links.push('<a href="' + esc(p.url) + '" target="_blank" rel="noopener">Web of Science</a>');
-    var issn = p.issn || p.essn;
-    if (issn) {
-      if (issn.indexOf("-") < 0 && issn.length === 8) issn = issn.slice(0, 4) + "-" + issn.slice(4);
-      links.push('<span class="ps-idx">Сэтгүүлийн индексийг шалгах: <a href="https://www.scimagojr.com/journalsearch.php?q=' + esc(issn.replace("-", "")) + '" target="_blank" rel="noopener">Scopus (SJR)</a> · <a href="https://mjl.clarivate.com/search-results?issn=' + esc(issn) + '" target="_blank" rel="noopener">Web of Science</a></span>');
-    }
     return '<header class="ps-head">' +
       '<button type="button" class="ps-back"><i class="bi bi-arrow-left"></i> Жагсаалт руу</button>' +
       "<h2>" + esc(p.title) + "</h2>" +
       '<p class="ps-head-meta"><em>' + esc(p.journal) + "</em>" + (p.year ? " · " + esc(p.year) : "") + (authorLine(p) ? " · " + esc(authorLine(p)) : "") + "</p>" +
       '<p class="ps-head-links">' + links.join("") + "</p>" +
+      journalIndex(p) +
       "</header>";
   }
 
