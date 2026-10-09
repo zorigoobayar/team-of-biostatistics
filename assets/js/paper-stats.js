@@ -335,19 +335,32 @@
   /* --- ЭМШУ: АШУҮИС-ийн «Эрүүл мэндийн шинжлэх ухаан» сэтгүүл ---
      Номын сангийн каталог (catalog.mnums.edu.mn) өөр сайтаас дуудагдахыг зөвшөөрдөггүй тул
      нийтлэлийн жагсаалтыг paper-emshu-data.js файлд хадгалж, хайлтыг хөтөч дотор хийнэ.
-     Каталогт хураангуй, бүтэн эх байхгүй: гарчиг, зохиогч, дугаар, хуудас, түлхүүр үг л бий. */
+     Каталогт хураангуй, бүтэн эх байхгүй: гарчиг, зохиогч, дугаар, хуудас, түлхүүр үг л бий.
+     Каталогт нийтлэл нь тус тусдаа бүртгэгдээгүй дугаарын агуулгыг сэтгүүлийн цахим хувилбарын
+     (fliphtml5) гарчгийн хуудаснаас авсан: тэдгээрт каталогийн бичлэг байхгүй (fromFlip),
+     цахим хувилбарын тухайн хуудас руу шууд холбоно (fpage). */
 
   var EMSHU = {
     name: "Эрүүл мэндийн шинжлэх ухаан",
     cat: "https://catalog.mnums.edu.mn/cgi-bin/koha/opac-detail.pl?biblionumber="
   };
-  var emshuLoad = null, emshuAll = [], emshuNote = "";
+  var emshuLoad = null, emshuAll = [], emshuNote = "", emshuEmpty = 0;
 
   /* Харьцуулахад бэлтгэнэ: жижиг үсэг, ү→у, ө→о, ё→е (гарнаас ү, ө-г у, о-оор
      бичсэн хайлт болон бичлэгийг ч олохын тулд), тэмдэгтүүдийг зайгаар солино. */
   function fold(s) {
     return String(s || "").toLowerCase().replace(/ү/g, "у").replace(/ө/g, "о").replace(/ё/g, "е")
       .replace(/[^0-9a-zа-я]+/g, " ").trim();
+  }
+
+  /* Зохиогчийн бичлэгийг нэр, овгийн товчлол болгон задална. Каталогт «Нэр, О.», «Нэр О.»,
+     «О.Нэр», «Нэр,О» гээд янз бүрээр бичигдсэн байдаг. Товчлолгүй бол i хоосон. */
+  function splitAuthor(s) {
+    s = String(s || "").replace(/\([^)]*\)/g, " ").replace(/\s+/g, " ").trim();
+    var m = /^([A-Za-zА-Яа-яЁёӨөҮү]{1,2})\s?\.\s?(\S.{2,})$/.exec(s), name = s, ini = "";
+    if (m) { ini = m[1]; name = m[2]; }
+    else if ((m = /^(.{3,}?)\s?[,\s]\s?([A-Za-zА-Яа-яЁёӨөҮү]{1,2})\.?$/.exec(s))) { name = m[1]; ini = m[2]; }
+    return { n: fold(name), n2: fold(name.replace(/-/g, "")), i: fold(ini).charAt(0) };
   }
 
   function loadEmshu() {
@@ -361,14 +374,17 @@
       document.head.appendChild(sc);
     }).then(function () {
       var d = window.PS_EMSHU, byIssue = d.issues.map(function () { return []; });
-      /* Нийтлэл: [каталогийн дугаар, дугаарын индекс, гарчиг, [зохиогчид], хуудас, [түлхүүр үг]] */
+      /* Нийтлэл: [дугаар, дугаарын индекс, гарчиг, [зохиогчид], хуудас, [түлхүүр үг], цахим хувилбарын хуудас]
+         дугаар нь тоо бол каталогийн бичлэг, "f…" бол цахим хувилбарын гарчгийн хуудаснаас авсан нийтлэл */
       d.articles.forEach(function (a) {
         var is = d.issues[a[1]] || {};
         (byIssue[a[1]] || []).push({
           key: "emshu:" + a[0], src: "emshu", catId: a[0], iss: a[1],
           title: a[2], authors: a[3] || [], pages: a[4] || "", keywords: a[5] || [],
           journal: EMSHU.name, jabbr: "ЭМШУ", issue: is.label || "", y: is.year || 0, issueId: is.id || 0, flip: is.flip || "",
+          fromFlip: typeof a[0] !== "number", fpage: a[6] || 0, ocr: !!is.ocr && typeof a[0] !== "number",
           _t: fold(a[2]), _a: fold((a[3] || []).join(" ")), _a2: fold((a[3] || []).join(" ").replace(/-/g, "")),
+          _au: (a[3] || []).map(splitAuthor),
           _k: fold((a[5] || []).join(" ")), _i: fold(is.label)
         });
       });
@@ -380,14 +396,16 @@
           key: "emshu-issue:" + i, src: "emshu", kind: "issue", iss: i, tag: "Дугаар",
           title: is.label, authors: [], arts: byIssue[i],
           journal: EMSHU.name, jabbr: "ЭМШУ", issue: byIssue[i].length ? byIssue[i].length + " нийтлэл" : "зөвхөн бүтэн дугаар",
-          label: is.label, y: is.year || 0, issueId: is.id || 0, flip: is.flip || "",
-          _t: "", _a: "", _a2: "", _k: "", _i: fold(is.label)
+          label: is.label, y: is.year || 0, issueId: is.id || 0, flip: is.flip || "", ocr: !!is.ocr,
+          _t: "", _a: "", _a2: "", _au: [], _k: "", _i: fold(is.label)
         });
         all = all.concat(byIssue[i]);
       });
       all.forEach(function (it, n) { it.ord = n; });
       emshuAll = all;
-      emshuNote = "ЭМШУ сэтгүүл: " + d.issues.length + " дугаар, " + fmtNum(d.articles.length) + " нийтлэл. Сүүлийн дугаараас эхлэн харуулж байна";
+      emshuEmpty = byIssue.filter(function (x) { return !x.length; }).length;
+      emshuNote = "ЭМШУ сэтгүүл: " + d.issues.length + " дугаар, " + fmtNum(d.articles.length) + " нийтлэл" +
+        (emshuEmpty ? " (" + emshuEmpty + " дугаарын агуулга ороогүй)" : "") + ". Сүүлийн дугаараас эхлэн харуулж байна";
       return all;
     }, function () {
       emshuLoad = null;
@@ -418,34 +436,87 @@
     return t.length >= 5 && t.indexOf(" ") < 0 && hay.indexOf(t) > -1 ? 1 : 0;
   }
 
+  /* Хайлтад овгийн товчлолтой нэр байвал («Б.Оюунцэцэг», «Оюунцэцэг Б», «Оюунцэцэг, Б.») салгаж авна.
+     Товчлолыг нэртэй нь хамт тулгаснаар ижил нэртэй өөр хүний бүтээл гарч ирэхгүй. */
+  function emshuPeople(q) {
+    var L = "A-Za-zА-Яа-яЁёӨөҮү", people = [], m;
+    var re1 = new RegExp("(?:^|[\\s,;(])([" + L + "])\\s?\\.\\s?([" + L + "][" + L + "\\-]{2,})", "g");
+    var re2 = new RegExp("([" + L + "][" + L + "\\-]{2,})\\s?,?\\s([" + L + "])\\.?(?=$|[\\s,;)])", "g");
+    q = String(q || "");
+    while ((m = re1.exec(q))) people.push({ i: fold(m[1]), n: fold(m[2]), n2: fold(m[2].replace(/-/g, "")), raw: m[1].toUpperCase() + "." + m[2], sure: /[А-Яа-яЁёӨөҮү]/.test(m[1]) });
+    if (!people.length) while ((m = re2.exec(q))) people.push({ i: fold(m[2]), n: fold(m[1]), n2: fold(m[1].replace(/-/g, "")) });
+    return people;
+  }
+
+  /* Нэг нэр томьёог зохиогчдын нэртэй тулгана: 3 = нэр бүтнээрээ, 2 = нэрийн эхэнд, 0 = таараагүй.
+     ini өгсөн бол тухайн зохиогчийн овгийн товчлол мөн таарах ёстой (товчлол бүртгэгдээгүй
+     зохиогчийг үгүйсгэхгүй, гэхдээ доогуур эрэмбэлнэ). */
+  function authorHit(it, name, name2, ini) {
+    var best = 0, who = -1;
+    for (var k = 0; k < it._au.length; k++) {
+      var a = it._au[k], h = Math.max(foldHit(a.n, name), name2 && name2 !== name ? foldHit(a.n2, name2) : 0, foldHit(a.n2, name));
+      if (h < 2) continue;
+      if (ini) { if (a.i && a.i !== ini) continue; h = h * 2 + (a.i ? 1 : 0); }
+      if (h > best) { best = h; who = k; }
+    }
+    return best ? { s: best, who: who } : null;
+  }
+
   /* Хайсан нэр томьёо бүр гарчиг, түлхүүр үг, зохиогчийн аль нэгэнд байх ёстой.
      Монгол үг залгавраар хувирдаг тул үгийн эхний хэсгээр нь тулгана.
      Дугаарын тэмдэглэгээнээс нийтлэлд зөвхөн тоо (он, дугаар) тулгана: «тусгай», «дугаар»
-     гэх мэт үг тухайн дугаарын бүх нийтлэлийг гаргачихдаг. */
+     гэх мэт үг тухайн дугаарын бүх нийтлэлийг гаргачихдаг.
+     f.field: "" = бүх талбар, "au" = зөвхөн зохиогч, "ti" = зөвхөн гарчиг, түлхүүр үг.
+     Овгийн товчлолтой нэр («Б.Оюунцэцэг») хайсан бөгөөд тийм зохиогч байвал зөвхөн зохиогчоор тулгана. */
   async function searchEmshu(q, f, start) {
     var all = await loadEmshu(), terms = emshuTerms(q), phrase = terms.length > 1 ? fold(q) : "";
-    var from = parseInt(f.from, 10) || 0, hits = [];
+    var from = parseInt(f.from, 10) || 0, field = f.field || "", hits = [];
+    var people = field === "ti" ? [] : emshuPeople(q);
+    var warn = "";
+    if (people.length && !all.some(function (it) { return people.every(function (p) { return authorHit(it, p.n, p.n2, p.i); }); })) {
+      /* «Б.Нэр» гэж тодорхой бичсэн боловч тийм зохиогч алга: товчлолгүйгээр хайж, үүнийгээ хэлнэ */
+      if (people.every(function (p) { return p.sure; })) warn = "«" + people.map(function (p) { return p.raw; }).join(", ") + "» гэсэн зохиогч олдсонгүй. Овгийн товчлолыг тооцолгүй хайсан дүн: ";
+      people = [];
+    }
+    /* Хүний нэрээр авсан үгсийг (нэр, товчлол) үлдсэн нэр томьёоноос хасна */
+    var rest = terms.filter(function (t) { return !people.some(function (p) { return p.n === t || p.n2 === t || p.i === t || p.n.split(" ").indexOf(t) > -1; }); });
+    var note = people.length ? "зохиогч" : "";
+
     all.forEach(function (it) {
       it.hit = "";
       if (from && it.y < from) return;
-      var score = 0, byAuthor = "";
-      for (var i = 0; i < terms.length; i++) {
-        var t = terms[i], au = Math.max(foldHit(it._a, t), foldHit(it._a2, t));
-        var is = it.kind === "issue" ? foldHit(it._i, t) * 2 : (/^\d+$/.test(t) && (" " + it._i + " ").indexOf(" " + t + " ") > -1 ? 1 : 0);
-        var s = Math.max(foldHit(it._t, t) * 4, foldHit(it._k, t) * 3, au * 3, is);
+      var score = 0, who = -1, i, t, h;
+      if (people.length) {
+        if (it.kind === "issue") return;
+        for (i = 0; i < people.length; i++) {
+          h = authorHit(it, people[i].n, people[i].n2, people[i].i);
+          if (!h) return;
+          score += h.s * 10; if (who < 0) who = h.who;
+        }
+      }
+      var list = people.length ? rest : terms;
+      for (i = 0; i < list.length; i++) {
+        t = list[i];
+        var ah = field === "ti" ? null : authorHit(it, t, t.replace(/ /g, ""), "");
+        /* Бүх талбараар хайхад урт үг зохиогчийн нэрийн дунд ч таарч болно («эрдэнэ» → «Сүлд-Эрдэнэ») */
+        var au = ah ? ah.s : (field === "" ? Math.min(1, Math.max(foldHit(it._a, t), foldHit(it._a2, t))) : 0);
+        /* Тоогоор (он, дугаар) хайхад дугаарын мөр гарчигтаа тэр тоог агуулсан нийтлэлээс дээр гарна */
+        var is = it.kind === "issue" ? foldHit(it._i, t) * (/^\d+$/.test(t) ? 5 : 2) : (/^\d+$/.test(t) && (" " + it._i + " ").indexOf(" " + t + " ") > -1 ? 1 : 0);
+        var s = field === "au" ? au * 3 : Math.max(field === "ti" || it.kind === "issue" ? 0 : au * 3, foldHit(it._t, t) * 4, foldHit(it._k, t) * 3, is);
         if (!s) return;
-        if (au && !byAuthor) byAuthor = t;
+        if (ah && who < 0 && au * 3 === s) who = ah.who;
         score += s;
       }
       /* Хайлт бүхэлдээ зэрэгцээ үгсээр таарсан бол дээр гаргана */
-      if (phrase) score += foldHit(it._t, phrase) > 1 ? 8 : (foldHit(it._k, phrase) > 1 || foldHit(it._a, phrase) > 1 ? 6 : 0);
-      if (byAuthor) {
-        it.hit = (it.authors || []).filter(function (n) { return foldHit(fold(n), byAuthor) || foldHit(fold(n.replace(/-/g, "")), byAuthor); })[0] || "";
-      }
+      if (phrase && !people.length && field !== "au") score += foldHit(it._t, phrase) > 1 ? 8 : (foldHit(it._k, phrase) > 1 || foldHit(it._a, phrase) > 1 ? 6 : 0);
+      if (who > -1) it.hit = it.authors[who] || "";
       hits.push({ it: it, s: score });
     });
-    if (terms.length && f.sort !== "date") hits.sort(function (a, b) { return b.s - a.s || a.it.ord - b.it.ord; });
-    return { total: hits.length, items: hits.slice(start, start + PAGE).map(function (h) { return h.it; }), note: terms.length || from ? "" : emshuNote };
+    if ((terms.length || people.length) && f.sort !== "date") hits.sort(function (a, b) { return b.s - a.s || a.it.ord - b.it.ord; });
+    return {
+      total: hits.length, items: hits.slice(start, start + PAGE).map(function (h) { return h.it; }),
+      note: terms.length || from ? "" : emshuNote, mode: note, warn: hits.length ? warn : ""
+    };
   }
 
   /* --- OpenAlex: PubMed-д байхгүй нийтлэлийн хураангуйг DOI-оор авах --- */
@@ -597,7 +668,7 @@
 
   var SRC = {
     pubmed: { name: "PubMed", icon: "bi-heart-pulse", hint: "Түлхүүр үг, DOI, PMID" },
-    emshu: { name: "ЭМШУ сэтгүүл", icon: "bi-journal-medical", hint: "Гарчиг, зохиогч, түлхүүр үг (монголоор)" }
+    emshu: { name: "ЭМШУ сэтгүүл", icon: "bi-journal-medical", hint: "Гарчиг, түлхүүр үг, зохиогч (жишээ нь Б.Оюунцэцэг)" }
   };
   var TYPE_LABEL = {
     "Randomized Controlled Trial": "RCT", "Meta-Analysis": "Мета-анализ", "Systematic Review": "Системчилсэн тойм",
@@ -619,6 +690,7 @@
               '<input type="search" name="q" autocomplete="off" placeholder="Түлхүүр үг, DOI, PMID" aria-label="Нийтлэл хайх"></label>' +
             '<button type="submit" class="btn btn-primary">Хайх</button>' +
             '<div class="ps-filters">' +
+              '<select name="field" aria-label="Хайх талбар"><option value="">Бүх талбар</option><option value="au">Зохиогч</option><option value="ti">Гарчиг, түлхүүр үг</option></select>' +
               '<select name="type" aria-label="Нийтлэлийн төрөл"><option value="">Бүх төрөл</option><option value="rct">RCT</option><option value="ct">Клиник туршилт</option><option value="obs">Ажиглалтын судалгаа</option><option value="meta">Мета-анализ</option><option value="sr">Системчилсэн тойм</option></select>' +
               '<select name="from" aria-label="Хэвлэгдсэн он"><option value="">Бүх он</option></select>' +
               '<select name="sort" aria-label="Эрэмбэлэх"><option value="rel">Хамаарлаар</option><option value="date">Шинэ нь эхэнд</option></select>' +
@@ -647,7 +719,7 @@
 
     el.tabs.forEach(function (b) { b.addEventListener("click", function () { setSrc(b.dataset.src); }); });
     el.form.addEventListener("submit", function (e) { e.preventDefault(); search(true); });
-    ["type", "from", "sort", "full"].forEach(function (n) {
+    ["field", "type", "from", "sort", "full"].forEach(function (n) {
       el.form.elements[n].addEventListener("change", function () { if (state.q || state.src === "emshu") search(true); });
     });
     el.more.addEventListener("click", function () { search(false); });
@@ -684,6 +756,7 @@
     });
     var pm = k === "pubmed";
     el.form.elements.type.hidden = !pm;
+    el.form.elements.field.hidden = pm;
     el.form.elements.full.closest("label").hidden = !pm;
     el.q.placeholder = SRC[k].hint;
     state.items = []; state.total = 0; state.start = 0;
@@ -707,7 +780,7 @@
   async function search(fresh) {
     var q = el.q.value.trim();
     if ((!q && state.src !== "emshu") || state.busy) return;
-    var f = { type: el.form.elements.type.value, from: el.form.elements.from.value, sort: el.form.elements.sort.value, full: el.form.elements.full.checked };
+    var f = { type: el.form.elements.type.value, from: el.form.elements.from.value, sort: el.form.elements.sort.value, full: el.form.elements.full.checked, field: el.form.elements.field.value };
     var start = fresh ? 0 : state.start + PAGE;
     state.busy = true; state.q = q; state.f = f;
     el.status.innerHTML = '<span class="ps-spin"></span> ' + SRC[state.src].name + "-ээс хайж байна…";
@@ -718,7 +791,7 @@
       var res = await (src === "emshu" ? searchEmshu : searchPubmed)(q, f, start);
       if (src !== state.src) return;
       state.items = fresh ? res.items : state.items.concat(res.items);
-      state.total = res.total; state.start = start; state.note = res.note || "";
+      state.total = res.total; state.start = start; state.note = res.note || ""; state.mode = res.mode || ""; state.warn = res.warn || "";
       renderList();
       if (fresh && res.items.length === 1 && parseId(q)) select(res.items[0], false);
     } catch (e) {
@@ -735,18 +808,20 @@
     if (!a.length) return "";
     var s = a.length > 3 || it.etal ? a.slice(0, 3).join(", ") + " нар" : a.join(", ");
     /* Хайсан зохиогч эхний гуравт багтаагүй бол яагаад олдсоныг харуулна */
-    if (it.hit && a.indexOf(it.hit) > 2) s += " (" + it.hit + ")";
+    if (it.hit && a.indexOf(it.hit) > 2) s += " (… " + it.hit + ")";
     return s;
   }
 
   function renderList() {
     if (!state.items.length) {
-      el.status.textContent = state.src === "emshu" ? "Илэрц олдсонгүй. Монгол түлхүүр үгээр, үгийн үндсээр нь хайгаад үзээрэй (жишээ нь «даралт»)."
-        : "Илэрц олдсонгүй. Өөр түлхүүр үгээр (англиар) хайгаад үзээрэй.";
+      el.status.textContent = state.src !== "emshu" ? "Илэрц олдсонгүй. Өөр түлхүүр үгээр (англиар) хайгаад үзээрэй."
+        : state.f.field === "au" ? "Ийм зохиогч олдсонгүй. Зохиогчийн нэрийг (овгийн товчлолгүйгээр) бичээд үзээрэй, жишээ нь «Даваалхам»."
+        : "Илэрц олдсонгүй. Монгол түлхүүр үгээр, үгийн үндсээр нь хайгаад үзээрэй (жишээ нь «даралт»).";
+      if (state.src === "emshu" && emshuEmpty) el.status.textContent += " " + emshuEmpty + " дугаарын агуулга жагсаалтад ороогүй: тэдгээрийг оноор нь хайж (жишээ нь «2021») дугаарыг цахимаар нээж үзнэ үү.";
       el.list.innerHTML = "";
       return;
     }
-    el.status.textContent = state.note || SRC[state.src].name + ": " + fmtNum(state.total) + " илэрцээс " + state.items.length + "-ыг харуулж байна";
+    el.status.textContent = state.note || (state.warn || SRC[state.src].name + ": ") + (state.mode ? state.mode + "оор " : "") + fmtNum(state.total) + " илэрцээс " + state.items.length + "-ыг харуулж байна";
     el.list.innerHTML = state.items.map(function (it, i) {
       var tags = "";
       if (it.pmcid) tags += '<span class="ps-tag ps-tag-full"><i class="bi bi-unlock"></i> Бүтэн эх</span>';
@@ -949,14 +1024,21 @@
   }
 
   /* ЭМШУ-ийн нийтлэл: каталогт хураангуй, бүтэн эх байхгүй тул статистикийн тайлбар гаргахгүй,
-     олдсон мэдээллийг харуулж каталог болон дугаарын цахим хувилбар руу холбоно. */
+     олдсон мэдээллийг харуулж каталог болон дугаарын цахим хувилбар руу холбоно.
+     Цахим хувилбар дахь хуудас нь мэдэгдэж байвал (fpage) тэр хуудсаар нь шууд нээнэ. */
+  var OCR_NOTE = "Энэ дугаарын цахим хувилбарын бичвэр зургаас машинаар уншигдсан тул гарчиг, зохиогчийн нэрэнд үсгийн алдаа байж болно.";
+
   function renderEmshu(it) {
-    var ext = ' target="_blank" rel="noopener"';
-    var links = ['<a href="' + EMSHU.cat + it.catId + '"' + ext + '><i class="bi bi-box-arrow-up-right"></i> Номын сангийн каталог</a>'];
-    if (it.flip) links.push('<a href="' + esc(it.flip) + '"' + ext + '><i class="bi bi-book"></i> Дугаарыг цахимаар унших</a>');
-    else if (it.issueId) links.push('<a href="' + EMSHU.cat + it.issueId + '"' + ext + '><i class="bi bi-journal-text"></i> Дугаарын бичлэг</a>');
+    var ext = ' target="_blank" rel="noopener"', links = [];
+    if (it.flip && it.fpage) links.push('<a href="' + esc(it.flip) + "#p=" + it.fpage + '"' + ext + '><i class="bi bi-book"></i> Нийтлэлийг цахимаар унших</a>');
+    else if (it.flip) links.push('<a href="' + esc(it.flip) + '"' + ext + '><i class="bi bi-book"></i> Дугаарыг цахимаар унших</a>');
+    if (!it.fromFlip) links.push('<a href="' + EMSHU.cat + it.catId + '"' + ext + '><i class="bi bi-box-arrow-up-right"></i> Номын сангийн каталог</a>');
+    if (!it.flip && it.issueId) links.push('<a href="' + EMSHU.cat + it.issueId + '"' + ext + '><i class="bi bi-journal-text"></i> Дугаарын бичлэг</a>');
     links.push('<button type="button" data-emshu-issue="' + it.iss + '"><i class="bi bi-list-ul"></i> Энэ дугаарын бүх нийтлэл</button>');
-    var where = it.flip ? "дугаарын цахим хувилбараас" : "АШУҮИС-ийн номын сангаас";
+    var where = it.flip ? (it.fpage ? "дээрх «Нийтлэлийг цахимаар унших» холбоосоор" : "дугаарын цахим хувилбараас") : "АШУҮИС-ийн номын сангаас";
+    var why = it.fromFlip
+      ? "Энэ нийтлэлийн гарчиг, зохиогчийг сэтгүүлийн цахим хувилбарын гарчгийн хуудаснаас авсан. Хураангуй, бүтэн эхийг нь энд уншуулаагүй тул ашигласан статистик аргыг эндээс тайлбарлах боломжгүй."
+      : "Номын сангийн каталогт энэ нийтлэлийн гарчиг, зохиогч, түлхүүр үг л бүртгэгдсэн, хураангуй болон бүтэн эх байхгүй. Тиймээс ашигласан статистик аргыг эндээс тайлбарлах боломжгүй.";
     el.right.innerHTML =
       '<header class="ps-head">' +
         '<button type="button" class="ps-back"><i class="bi bi-arrow-left"></i> Жагсаалт руу</button>' +
@@ -968,8 +1050,9 @@
       (it.keywords.length ? '<section class="ps-sec"><h3><i class="bi bi-tags"></i> Түлхүүр үг</h3><p class="ps-kw">' +
         it.keywords.map(function (k) { return '<button type="button" data-kw="' + esc(k) + '" title="Энэ түлхүүр үгээр ЭМШУ сэтгүүлээс хайх">' + esc(k) + "</button>"; }).join("") + "</p></section>" : "") +
       '<section class="ps-sum"><h3><i class="bi bi-info-circle"></i> Статистикийн тайлбар гараагүй шалтгаан</h3>' +
-        "<p>Номын сангийн каталогт энэ нийтлэлийн гарчиг, зохиогч, түлхүүр үг л бүртгэгдсэн, хураангуй болон бүтэн эх байхгүй. Тиймээс ашигласан статистик аргыг эндээс тайлбарлах боломжгүй.</p>" +
-        "<p>Нийтлэлийг " + where + (it.pages ? " (хуудас " + esc(it.pages) + ")" : "") + " уншина уу.</p></section>";
+        "<p>" + why + "</p>" +
+        "<p>Нийтлэлийг " + where + (it.pages ? " (хуудас " + esc(it.pages) + ")" : "") + " уншина уу.</p>" +
+        (it.ocr ? '<p class="ps-note">' + OCR_NOTE + "</p>" : "") + "</section>";
   }
 
   /* ЭМШУ-ийн нэг дугаар: агуулга (каталогт бүртгэгдсэн нийтлэлүүд) ба бүтэн дугаарын холбоос */
@@ -983,10 +1066,10 @@
         '<ol class="ps-toc">' + it.arts.map(function (a) {
           return '<li><button type="button" data-emshu="' + a.catId + '">' + esc(a.title) + "</button>" +
             "<span>" + esc(authorLine(a)) + (a.pages ? (authorLine(a) ? " · " : "") + "хуудас " + esc(a.pages) : "") + "</span></li>";
-        }).join("") + "</ol></section>";
+        }).join("") + "</ol>" + (it.ocr && it.arts.some(function (a) { return a.ocr; }) ? '<p class="ps-note">' + OCR_NOTE + "</p>" : "") + "</section>";
     } else {
       body = '<section class="ps-sum"><h3><i class="bi bi-info-circle"></i> Нийтлэлүүд нь тус тусдаа бүртгэгдээгүй</h3>' +
-        "<p>Номын сангийн каталогт энэ дугаар бүтнээрээ л бүртгэгдсэн тул нийтлэлийг нь гарчиг, зохиогчоор хайх боломжгүй. " +
+        "<p>Номын сангийн каталогт энэ дугаар бүтнээрээ л бүртгэгдсэн" + (it.flip ? ", цахим хувилбар нь зураг хэлбэртэй (бичвэр нь уншигддаггүй)" : "") + " тул нийтлэлийг нь гарчиг, зохиогчоор хайх боломжгүй. " +
         (it.flip ? "Дээрх холбоосоор бүтэн дугаарыг цахимаар нээж уншина уу." : "Дугаарыг АШУҮИС-ийн номын сангаас үзнэ үү.") + "</p></section>";
     }
     el.right.innerHTML =
