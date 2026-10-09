@@ -587,3 +587,7 @@ body.page-paper .mt-lead { max-width: 90ch; margin-bottom: 0.9rem; font-size: 0.
   .ps-spin { animation-duration: 2.5s; }
   .ps-item { transition: none; }
 }
+
+/* ЭМШУ: цахим хувилбараас машинаар уншигдсан агуулгын тэмдэглэл */
+.ps-sum .ps-note,
+.ps-sec .ps-note { margin-top: 0.6rem; }
