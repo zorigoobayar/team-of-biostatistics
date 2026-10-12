@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.19">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -42,10 +42,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-55617497126496852ff9f5a59253c640.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -74,68 +74,131 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 <!--
+
   Үзэлтийн тоо (GoatCounter) — бүх хуудсанд _quarto.yml-ээр орно.
+
   GoatCounter-ийн код солих бол доорх GC_CODE-г өөрчилнө.
 
+
+
   Хэрэглээ (HTML дотор):
+
     <span class="vc" data-vc-href="methods/anova.html"></span>   → тухайн хуудасны үзэлт
+
     <span class="vc" data-vc-href=""></span>                     → одоогийн хуудасны үзэлт
+
     <span class="vc" data-vc-event="cs-01-open"></span>          → товч дарсан тоо (event)
+
     <a data-goatcounter-click="cs-01-open" ...>                  → дарахад event бүртгэнэ
+
 -->
+
 <script>
+
 (function () {
+
   var GC_CODE = "serod";
+
   var GC = "https://" + GC_CODE + ".goatcounter.com";
 
+
+
   // /x/ → /x/index.html, /x/page → /x/page.html  (нэг хуудас нэг л замаар тоологдоно)
+
   function norm(p) {
+
     p = p.split("?")[0].split("#")[0];
+
     if (p.slice(-1) === "/") p += "index.html";
+
     else if (!/\.[a-z0-9]+$/i.test(p)) p += ".html";
+
     return p;
+
   }
+
   window.goatcounter = { path: function (p) { return norm(p); } };
 
+
+
   function fmt(n) {
+
     if (n >= 1e6) return (n / 1e6).toFixed(n < 1e7 ? 1 : 0).replace(/\.0$/, "") + "M";
+
     if (n >= 1e3) return (n / 1e3).toFixed(n < 1e4 ? 1 : 0).replace(/\.0$/, "") + "K";
+
     return String(n);
+
   }
+
+
 
   function fetchCount(path) {
+
     return fetch(GC + "/counter/" + encodeURIComponent(path) + ".json")
+
       .then(function (r) { return r.ok ? r.json() : { count: "0" }; })
+
       .then(function (d) { return parseInt(String(d.count).replace(/[^0-9]/g, ""), 10) || 0; })
+
       .catch(function () { return null; });
+
   }
+
+
 
   function run() {
+
     document.querySelectorAll(".vc").forEach(function (el) {
+
       var path;
+
       if (el.hasAttribute("data-vc-event")) path = el.getAttribute("data-vc-event");
+
       else path = norm(new URL(el.getAttribute("data-vc-href") || location.pathname, location.href).pathname);
+
       var icon = el.getAttribute("data-vc-icon") || "bi-eye";
+
       var label = el.getAttribute("data-vc-label") || "үзсэн";
+
       el.innerHTML = '<i class="bi ' + icon + '"></i> <b>…</b> ' + label;
+
       fetchCount(path).then(function (n) {
+
         if (n === null) { el.style.display = "none"; return; }
+
         el.querySelector("b").textContent = fmt(n);
+
         el.title = n.toLocaleString("en-US") + " " + label;
+
       });
+
     });
+
   }
 
+
+
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", run);
+
   else run();
+
 })();
+
 </script>
+
 <script data-goatcounter="https://serod.goatcounter.com/count" async="" src="https://gc.zgo.at/count.js"></script>
+
 <style>
+
   .vc { display: inline-flex; align-items: center; gap: 0.25rem; font-size: 0.82rem; color: #64748b; white-space: nowrap; }
+
   .vc b { font-weight: 600; color: #334155; }
+
   .vc-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem 0.9rem; margin-top: 0.6rem; }
+
 </style>
+
 
 
 <link rel="stylesheet" href="styles.css">
@@ -187,10 +250,6 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Data Analysis Methods</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./paper-explainer.html"> 
-<span class="menu-text">Paper Explainer</span></a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link" href="./contact.html"> 
 <span class="menu-text">Contact</span></a>
   </li>  
@@ -205,17 +264,8 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#biostatistics-books" id="toc-biostatistics-books" class="nav-link active" data-scroll-target="#biostatistics-books">Biostatistics Books</a>
-  <ul class="collapse">
-  <li><a href="#биостатистикийн-номууд" id="toc-биостатистикийн-номууд" class="nav-link" data-scroll-target="#биостатистикийн-номууд">Биостатистикийн номууд</a></li>
-  </ul></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -239,63 +289,212 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="biostatistics-books" class="level1 page-hero">
-<h1>Biostatistics Books</h1>
-<section id="биостатистикийн-номууд" class="level3">
-<h3 class="anchored" data-anchor-id="биостатистикийн-номууд">Биостатистикийн номууд</h3>
-<p>Биостатистик, статистик, тархвар судлал болон өгөгдлийн шинжлэх ухааны чиглэлээр суралцахад ашигтай ном, сурах бичгүүдийг танилцуулна.</p>
-</section>
-</section>
-<div class="resource-grid">
-<section id="biostatistics" class="level3 resource-card">
-<h3 class="anchored" data-anchor-id="biostatistics">📊 Biostatistics</h3>
-<p>Биостатистикийн үндсэн ойлголт, статистикийн арга зүйг сурахад зориулсан номууд.</p>
-<p><strong>Үндсэн сэдвүүд</strong></p>
-<ul>
-<li>Descriptive statistics</li>
-<li>Probability</li>
-<li>Statistical inference</li>
-<li>Hypothesis testing</li>
-<li>Regression</li>
-<li>Survival analysis</li>
+<div class="bk-hero">
+<span class="bk-eyebrow">BOOKS &amp; LEARNING RESOURCES</span>
+<h1>
+Biostatistics Books
+</h1>
+<h3 class="anchored">
+Биостатистикийн ном, гарын авлага
+</h3>
+<p class="bk-lead">
+Биостатистик, статистик, тархвар судлал болон өгөгдлийн шинжлэх ухааны чиглэлээр суралцахад зориулсан ном, гарын авлагууд.
+</p>
+<ul class="bk-stats">
+<li>
+<strong>2</strong> Үндсэн ном
+</li>
+<li>
+<strong>4</strong> Судалгааны чиглэл
+</li>
+<li>
+<strong>PDF</strong> Шууд унших боломжтой
+</li>
 </ul>
-</section>
-<section id="epidemiology" class="level3 resource-card">
-<h3 class="anchored" data-anchor-id="epidemiology">🦠 Epidemiology</h3>
-<p>Тархвар судлалын үндсэн ойлголт болон судалгааны арга зүйг сурахад зориулсан номууд.</p>
-<p><strong>Үндсэн сэдвүүд</strong></p>
+</div>
+<div class="bk-path">
+<div class="bk-path-title">
+Хурдан шижих:
+</div>
+<ol>
+<li>
+<a href="#book-biostatistics"><span>01</span> Биостатистик ном</a>
+</li>
+<li>
+<a href="#book-study-guide"><span>02</span> Гарын авлага</a>
+</li>
+</ol>
+</div>
+<div class="bk-grid">
+<div class="bk-card">
+<div class="bk-thumb">
+<span class="bk-num">01</span>
+<div class="bk-cover">
+<p><i class="bi bi-bar-chart-line-fill"></i> <span>BOOK</span></p>
+</div>
+</div>
+<div class="bk-body">
+<span class="bk-cat">Үндсэн сурах бичиг</span>
+<h2 class="anchored">
+Biostatistics
+</h2>
+<p class="bk-description">
+Биостатистикийн үндсэн ойлголт, статистикийн арга зүй, судалгааны өгөгдөлд дүн шинжилгээ хийх аргууд.
+</p>
 <ul>
-<li>Study design</li>
-<li>Disease frequency</li>
-<li>Risk and association</li>
-<li>Bias and confounding</li>
-<li>Epidemiological methods</li>
+<li>
+Descriptive statistics
+</li>
+<li>
+Probability and distributions
+</li>
+<li>
+Statistical inference
+</li>
+<li>
+Hypothesis testing
+</li>
+<li>
+Regression analysis
+</li>
+<li>
+Survival analysis
+</li>
 </ul>
-</section>
-<section id="statistical-programming" class="level3 resource-card">
-<h3 class="anchored" data-anchor-id="statistical-programming">💻 Statistical Programming</h3>
-<p>R болон статистикийн программчлал сурахад зориулсан номууд.</p>
-<p><strong>Сурах зүйлс</strong></p>
+<div class="bk-actions">
+<p><a class="bk-button" href="#book-biostatistics">📖 Ном унших</a></p>
+</div>
+</div>
+</div>
+<div class="bk-card">
+<div class="bk-thumb">
+<span class="bk-num">02</span>
+<div class="bk-cover bk-cover-alt">
+<p><i class="bi bi-journal-bookmark-fill"></i> <span>GUIDE</span></p>
+</div>
+</div>
+<div class="bk-body">
+<span class="bk-cat">Дасгал &amp; Жишээ</span>
+<h2 class="anchored">
+Study Guide
+</h2>
+<p class="bk-description">
+Биостатистик болон статистикийн хичээлээр суралцах, бие даан давтахад зориулсан гарын авлага.
+</p>
 <ul>
-<li>R programming</li>
-<li>Data manipulation</li>
-<li>Data visualization</li>
-<li>Statistical modelling</li>
-<li>Reproducible research</li>
+<li>
+Судалгааны үндсэн ойлголтууд
+</li>
+<li>
+Статистикийн арга зүй
+</li>
+<li>
+Өгөгдөл боловсруулах
+</li>
+<li>
+Үр дүн тайлбарлах
+</li>
+<li>
+Дасгал, жишээ бодлогууд
+</li>
 </ul>
-</section>
-<section id="recommended-reading" class="level3 resource-card">
-<h3 class="anchored" data-anchor-id="recommended-reading">📚 Recommended Reading</h3>
-<p>Цаашдаа энд ном бүрийн дараах мэдээллийг оруулна:</p>
+<div class="bk-actions">
+<p><a class="bk-button" href="#book-study-guide">📖 Гарын авлага унших</a></p>
+</div>
+</div>
+</div>
+<div class="bk-card">
+<div class="bk-thumb">
+<span class="bk-num">03</span>
+<div class="bk-cover bk-cover-alt">
+<p><i class="bi bi-virus"></i> <span>RESOURCE</span></p>
+</div>
+</div>
+<div class="bk-body">
+<span class="bk-cat">Тархвар судлал</span>
+<h2 class="anchored">
+Epidemiology
+</h2>
+<p class="bk-description">
+Тархвар судлалын үндсэн ойлголт болон судалгааны загвар, эрсдэл, хамаарлыг судлах материалууд.
+</p>
 <ul>
-<li>Нэр</li>
-<li>Зохиогч</li>
-<li>Хэвлэгдсэн он</li>
-<li>Товч тайлбар</li>
-<li>Номын зураг</li>
-<li>Албан ёсны холбоос</li>
+<li>
+Study design
+</li>
+<li>
+Disease frequency
+</li>
+<li>
+Risk and association
+</li>
+<li>
+Bias and confounding
+</li>
+<li>
+Epidemiological methods
+</li>
 </ul>
-</section>
+</div>
+</div>
+<div class="bk-card">
+<div class="bk-thumb">
+<span class="bk-num">04</span>
+<div class="bk-cover">
+<p><i class="bi bi-code-slash"></i> <span>PROGRAMMING</span></p>
+</div>
+</div>
+<div class="bk-body">
+<span class="bk-cat">Программчлал</span>
+<h2 class="anchored">
+Statistical Programming
+</h2>
+<p class="bk-description">
+R программчлал болон өгөгдөлд статистик шинжилгээ хийх практик ур чадвараа хөгжүүлэх материалууд.
+</p>
+<ul>
+<li>
+R programming
+</li>
+<li>
+Data manipulation
+</li>
+<li>
+Data visualization
+</li>
+<li>
+Statistical modelling
+</li>
+<li>
+Reproducible research
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="book-biostatistics" class="bk-reader">
+<div class="bk-reader-heading">
+<h2 class="anchored">
+📖 Biostatistics — Ном
+</h2>
+<p>
+Биостатистикийн номыг доорх хэсэгт шууд уншина уу.
+</p>
+</div>
+<iframe src="books/nom-01.pdf" title="Biostatistics book PDF">
+</iframe>
+</div>
+<div id="book-study-guide" class="bk-reader">
+<div class="bk-reader-heading">
+<h2 class="anchored">
+📚 Study Guide — Гарын авлага
+</h2>
+<p>
+Гарын авлагыг доорх хэсэгт шууд уншина уу.
+</p>
+</div>
+<iframe src="books/gariin-avlaga-01.pdf" title="Biostatistics study guide PDF">
+</iframe>
 </div>
 
 
