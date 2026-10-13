@@ -11,42 +11,35 @@
     "href": "research.html",
     "title": "Interesting Research",
     "section": "",
-    "text": "Энэ хэсэгт биостатистик, тархвар судлал, эмнэлзүйн судалгаа болон эрүүл мэндийн өгөгдлийн шинжилгээтэй холбоотой сонирхолтой судалгаануудыг танилцуулна."
+    "text": "Манай багийн сүүлийн үед хэвлүүлсэн өгүүлэл, судалгаануудын өвөрмөц статистик аргачлалуудыг тайлбарлаж та бүхний судалгаанд дэмжлэг үзүүлэх зорилготой."
   },
   {
-    "objectID": "research.html#сонирхолтой-судалгаанууд",
-    "href": "research.html#сонирхолтой-судалгаанууд",
+    "objectID": "research.html#research-publications",
+    "href": "research.html#research-publications",
     "title": "Interesting Research",
-    "section": "",
-    "text": "Энэ хэсэгт биостатистик, тархвар судлал, эмнэлзүйн судалгаа болон эрүүл мэндийн өгөгдлийн шинжилгээтэй холбоотой сонирхолтой судалгаануудыг танилцуулна."
+    "section": "Research Publications",
+    "text": "Research Publications\n\n\n\n\n\n01\n\n\n\nSARS-CoV-2 seroepidemiology in Mongolia, 2020–2021\n\n\nThe Lancet Regional Health – Western Pacific · 2023\n\n\n\n\n\n\nСудалгааны зорилго\n\n2020–2021 оны хооронд Монгол Улсын хүн амын SARS-CoV-2-ийн эсрэгбиеийн тархалтыг тогтоож, хугацааны хувьд хэрхэн өөрчлөгдсөнийг үнэлэх.\n\nСудалгааны загвар\n\n\n\n5,000 оролцогч\n\n\nДөрвөн үе шаттай мэдээлэл цуглуулалт\n\n\nНасны бүлэгт суурилсан олон шатлалт кластер түүвэрлэлт\n\n\n\nЖинлэсэн тархалт\n\n\n\n&lt;span&gt;2020 оны сүүл үе&lt;/span&gt;\n&lt;strong&gt;1.5%&lt;/strong&gt;\n\n\n&lt;span&gt;2021 оны сүүл үе&lt;/span&gt;\n&lt;strong&gt;82.3%&lt;/strong&gt;\n\n\nЭдгээр нь өгүүлэлд тайлагнасан эсрэгбиеийн тархалтын тооцооллууд юм. Жинлэлт нь түүврийн сонголтын магадлал болон хүн амын бүтцийг харгалзан хүн амын түвшний үнэлгээ гаргахад тусална.\n\nСтатистикийн арга\n\n\n\nЖинлэсэн тархалтын үнэлгээ\n\n\n95%-ийн итгэлцлийн интервал\n\n\nЛогистик регресс\n\n\n\nӨгүүллийг бүрэн унших ↗\n\n\n\n\n\n\n\n02\n\n\n\nDistribution of 10-year cardiovascular disease risk levels in Mongolia\n\n\nFrontiers in Public Health · 2025\n\n\n\n\n\n\nСудалгааны зорилго\n\nМонгол Улсын 40–80 насны хүн амын зүрх судасны өвчний 10 жилийн эрсдэлийн түвшний тархалтыг үнэлэх.\n\nСудалгааны өгөгдөл\n\n\n\n&lt;strong&gt;35,769&lt;/strong&gt;\n&lt;span&gt;Судалгаанд хамрагдсан хүн&lt;/span&gt;\n\n\n\nСудалгааны арга зүй\n\nҮндэсний хэмжээний эрүүл мэндийн үзлэгийн мэдээлэлд тулгуурлан зүрх судасны өвчний эрсдэлийн түвшнийг үнэлсэн судалгаа.\n\nСудалгааны ач холбогдол\n\nХүн амын эрсдэлийн түвшнийг тодорхойлох нь урьдчилан сэргийлэх арга хэмжээ болон эрүүл мэндийн төлөвлөлтөд мэдээлэл өгөх боломжтой.\n\nӨгүүллийг бүрэн унших ↗"
   },
   {
-    "objectID": "research.html#clinical-research",
-    "href": "research.html#clinical-research",
+    "objectID": "research.html#research-methods",
+    "href": "research.html#research-methods",
     "title": "Interesting Research",
-    "section": "Clinical Research",
-    "text": "Clinical Research\nЭмнэлзүйн судалгаанд статистикийн арга зүй нь эмчилгээний үр нөлөө, аюулгүй байдал болон судалгааны үр дүнг үнэлэхэд чухал ач холбогдолтой.\n\nСудалгаанд ашиглагддаг аргууд\n\nDescriptive statistics\nHypothesis testing\nConfidence intervals\nRegression analysis\nSurvival analysis\nSample size calculation"
+    "section": "Research Methods",
+    "text": "Research Methods\n\n\n\n\n\n⚖\n\n\n\nЖинлэсэн тархалт\n\n\nWeighted prevalence\n\n\n\n\n\n\nЯагаад жинлэсэн тархалт тооцдог вэ?\n\nТүүвэрт хүн амын зарим бүлэг хэт олон эсвэл цөөн хамрагдсан байж болно. Жинлэлт нь сонголтын магадлал болон судалгааны түүврийн загварыг харгалзан хүн амын түвшний тархалтыг үнэлэхэд тусална.\n\nТооцооллын томьёо\n\n[ p_w = ]\nЭнд (w_i) нь оролцогчийн жин, (y_i) нь тухайн үр дүн илэрсэн бол 1, илрээгүй бол 0 байна.\n\nАнхаарах зүйл\n\nИтгэлцлийн интервал болон стандарт алдааг тооцохдоо кластер, давхарга зэрэг түүврийн загварын мэдээллийг шаардлагатай тохиолдолд харгалзах хэрэгтэй.\n\n\n\n\n\n\n📊\n\n\n\nРегрессийн шинжилгээ\n\n\nRegression analysis\n\n\n\n\n\n\nТүгээмэл аргууд\n\n\n\nLinear regression\n\n\nLogistic regression\n\n\nCox regression\n\n\nMixed-effects models\n\n\nСудалгааны асуулт, үр дүнгийн хувьсагч болон өгөгдлийн бүтцэд тохируулан загвараа сонгоно.\n\n\n\n\n\n\n📈\n\n\n\nИтгэлцлийн интервал\n\n\nConfidence interval\n\n\n\n\n\nИтгэлцлийн интервал нь статистикийн үнэлгээний тодорхой бус байдлыг илэрхийлнэ. Үр дүнг зөв тайлбарлахын тулд үнэлгээ болон түүний итгэлцлийн интервалыг хамтад нь тайлагнах нь чухал.\n\n\n\n\n\n\n⏱\n\n\n\nАмьд үлдэх хугацааны шинжилгээ\n\n\nSurvival analysis\n\n\n\n\n\n\nТүгээмэл аргууд\n\n\n\nKaplan–Meier curve\n\n\nLog-rank test\n\n\nCox proportional hazards model\n\n\nӨвчний дахилт, нас баралт болон бусад тодорхой үйл явдал хүртэлх хугацааг судлахад ашиглана."
   },
   {
-    "objectID": "research.html#epidemiological-research",
-    "href": "research.html#epidemiological-research",
+    "objectID": "research.html#research-tools",
+    "href": "research.html#research-tools",
     "title": "Interesting Research",
-    "section": "Epidemiological Research",
-    "text": "Epidemiological Research\nТархвар судлалын судалгаанд өвчний тархалт, эрсдэлт хүчин зүйл болон хүн амын эрүүл мэндийн үзүүлэлтүүдийг статистикийн аргаар судална."
+    "section": "Research Tools",
+    "text": "Research Tools\n\n\n\n\n\nM\n\n\n\nMendeley\n\n\nReference management\n\n\n\n\n\n\nЮунд ашигладаг вэ?\n\n\n\nЭрдэм шинжилгээний өгүүлэл болон PDF файл хадгалах\n\n\nЭшлэл, ном зүйн мэдээллээ удирдах\n\n\nӨгүүлэл бичих үед эшлэл оруулах\n\n\n\nMendeley сайт ↗\n\n\n\n\n\n\n\nR\n\n\n\nR & RStudio\n\n\nStatistical computing\n\n\n\n\n\nӨгөгдөл цэвэрлэх, статистикийн шинжилгээ хийх, график үүсгэх болон тайлан бэлтгэхэд ашиглана.\n\nR Project ↗\n\n\n\n\n\n\n\nQ\n\n\n\nQuarto\n\n\nReproducible reports\n\n\n\n\n\nКод, тайлбар, хүснэгт болон графикийг нэгтгэсэн дахин давтагдахуйц судалгааны тайлан бэлтгэнэ.\n\nQuarto сайт ↗"
   },
   {
-    "objectID": "research.html#statistical-modelling",
-    "href": "research.html#statistical-modelling",
+    "objectID": "research.html#what-we-explore",
+    "href": "research.html#what-we-explore",
     "title": "Interesting Research",
-    "section": "Statistical Modelling",
-    "text": "Statistical Modelling\nСтатистикийн загварчлал ашиглан судалгааны өгөгдлөөс хамаарал, холбоо болон таамаглалыг шинжилж болно.\nЖишээлбэл:\n\nLinear regression\nLogistic regression\nCox regression\nMixed-effects models"
-  },
-  {
-    "objectID": "research.html#reproducible-research",
-    "href": "research.html#reproducible-research",
-    "title": "Interesting Research",
-    "section": "Reproducible Research",
-    "text": "Reproducible Research\nR болон Quarto ашиглан судалгааны код, өгөгдлийн боловсруулалт, үр дүн болон тайланг нэг дор нэгтгэж, дахин давтагдахуйц судалгааны орчин бүрдүүлж болно."
+    "section": "What We Explore",
+    "text": "What We Explore\n\nМанай судалгааны сонирхол дараах чиглэлүүдийг хамарна.\n\n\nБиостатистик ба тархвар судлал\n\n\nЭмнэлзүйн судалгааны арга зүй\n\n\nТүүвэрлэлт ба жинлэсэн үнэлгээ\n\n\nСтатистикийн загварчлал\n\n\nR программчлал ба өгөгдлийн дүрслэл\n\n\nДахин давтагдахуйц судалгаа"
   },
   {
     "objectID": "cheatsheet.html",
@@ -522,7 +515,7 @@
     "href": "books.html",
     "title": "Biostatistics Books",
     "section": "",
-    "text": "Biostatistics Books\n\nБиостатистикийн номууд\nБиостатистик, статистик, тархвар судлал болон өгөгдлийн шинжлэх ухааны чиглэлээр суралцахад ашигтай ном, сурах бичгүүдийг танилцуулна.\n\n\n\n\n📊 Biostatistics\nБиостатистикийн үндсэн ойлголт, статистикийн арга зүйг сурахад зориулсан номууд.\nҮндсэн сэдвүүд\n\nDescriptive statistics\nProbability\nStatistical inference\nHypothesis testing\nRegression\nSurvival analysis\n\n\n\n🦠 Epidemiology\nТархвар судлалын үндсэн ойлголт болон судалгааны арга зүйг сурахад зориулсан номууд.\nҮндсэн сэдвүүд\n\nStudy design\nDisease frequency\nRisk and association\nBias and confounding\nEpidemiological methods\n\n\n\n💻 Statistical Programming\nR болон статистикийн программчлал сурахад зориулсан номууд.\nСурах зүйлс\n\nR programming\nData manipulation\nData visualization\nStatistical modelling\nReproducible research\n\n\n\n📚 Recommended Reading\nЦаашдаа энд ном бүрийн дараах мэдээллийг оруулна:\n\nНэр\nЗохиогч\nХэвлэгдсэн он\nТовч тайлбар\nНомын зураг\nАлбан ёсны холбоос"
+    "text": "BOOKS & LEARNING RESOURCES\n\nBiostatistics Books\n\n\nБиостатистикийн ном, гарын авлага\n\n\nБиостатистик, статистик, тархвар судлал болон өгөгдлийн шинжлэх ухааны чиглэлээр суралцахад зориулсан ном, гарын авлагууд.\n\n\n\n2 Үндсэн ном\n\n\n4 Судалгааны чиглэл\n\n\nPDF Шууд унших боломжтой\n\n\n\n\n\nХурдан шижих:\n\n\n\n01 Биостатистик ном\n\n\n02 Гарын авлага\n\n\n\n\n\n\n01\n\n BOOK\n\n\n\nҮндсэн сурах бичиг\n\nBiostatistics\n\n\nБиостатистикийн үндсэн ойлголт, статистикийн арга зүй, судалгааны өгөгдөлд дүн шинжилгээ хийх аргууд.\n\n\n\nDescriptive statistics\n\n\nProbability and distributions\n\n\nStatistical inference\n\n\nHypothesis testing\n\n\nRegression analysis\n\n\nSurvival analysis\n\n\n\n📖 Ном унших\n\n\n\n\n\n02\n\n GUIDE\n\n\n\nДасгал & Жишээ\n\nStudy Guide\n\n\nБиостатистик болон статистикийн хичээлээр суралцах, бие даан давтахад зориулсан гарын авлага.\n\n\n\nСудалгааны үндсэн ойлголтууд\n\n\nСтатистикийн арга зүй\n\n\nӨгөгдөл боловсруулах\n\n\nҮр дүн тайлбарлах\n\n\nДасгал, жишээ бодлогууд\n\n\n\n📖 Гарын авлага унших\n\n\n\n\n\n03\n\n RESOURCE\n\n\n\nТархвар судлал\n\nEpidemiology\n\n\nТархвар судлалын үндсэн ойлголт болон судалгааны загвар, эрсдэл, хамаарлыг судлах материалууд.\n\n\n\nStudy design\n\n\nDisease frequency\n\n\nRisk and association\n\n\nBias and confounding\n\n\nEpidemiological methods\n\n\n\n\n\n\n04\n\n PROGRAMMING\n\n\n\nПрограммчлал\n\nStatistical Programming\n\n\nR программчлал болон өгөгдөлд статистик шинжилгээ хийх практик ур чадвараа хөгжүүлэх материалууд.\n\n\n\nR programming\n\n\nData manipulation\n\n\nData visualization\n\n\nStatistical modelling\n\n\nReproducible research\n\n\n\n\n\n\n\n\n📖 Biostatistics — Ном\n\n\nБиостатистикийн номыг доорх хэсэгт шууд уншина уу.\n\n\n\n\n\n\n\n\n📚 Study Guide — Гарын авлага\n\n\nГарын авлагыг доорх хэсэгт шууд уншина уу."
   },
   {
     "objectID": "methods/manova.html",
