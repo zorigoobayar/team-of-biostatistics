@@ -1,90 +1,152 @@
 ---
 title: "Biostatistics Books"
-
 format:
   html:
     body-classes: page-books
 ---
 
-<div class="page-hero">
+```{=html}
+<div class="bk-hero">
+<span class="bk-eyebrow">BOOKS &amp; LEARNING RESOURCES</span>
+<h1>Biostatistics Books</h1>
+<h3>Биостатистикийн ном, гарын авлага</h3>
+<p class="bk-lead">
+Биостатистик, статистик, тархвар судлал болон өгөгдлийн шинжлэх ухааны чиглэлээр суралцахад зориулсан ном, гарын авлагууд.
+</p>
+<ul class="bk-stats">
+<li><strong>2</strong> Үндсэн ном</li>
+<li><strong>4</strong> Судалгааны чиглэл</li>
+<li><strong>PDF</strong> Шууд унших боломжтой</li>
+</ul>
+</div>
 
-# Biostatistics Books
+<div class="bk-path">
+<div class="bk-path-title">Хурдан шижих:</div>
+<ol>
+<li><a href="#book-biostatistics"><span>01</span> Биостатистик ном</a></li>
+<li><a href="#book-study-guide"><span>02</span> Гарын авлага</a></li>
+</ol>
+</div>
 
-### Биостатистикийн номууд
+<div class="bk-grid">
 
-Биостатистик, статистик, тархвар судлал болон өгөгдлийн
-шинжлэх ухааны чиглэлээр суралцахад ашигтай ном,
-сурах бичгүүдийг танилцуулна.
+<div class="bk-card">
+<div class="bk-thumb">
+<span class="bk-num">01</span>
+<div class="bk-cover">
+<i class="bi bi-bar-chart-line-fill"></i>
+<span>BOOK</span>
+</div>
+</div>
+<div class="bk-body">
+<span class="bk-cat">Үндсэн сурах бичиг</span>
+<h2>Biostatistics</h2>
+<p class="bk-description">
+Биостатистикийн үндсэн ойлголт, статистикийн арга зүй, судалгааны өгөгдөлд дүн шинжилгээ хийх аргууд.
+</p>
+<ul>
+<li>Descriptive statistics</li>
+<li>Probability and distributions</li>
+<li>Statistical inference</li>
+<li>Hypothesis testing</li>
+<li>Regression analysis</li>
+<li>Survival analysis</li>
+</ul>
+<div class="bk-actions">
+<a class="bk-button" href="#book-biostatistics">📖 Ном унших</a>
+</div>
+</div>
+</div>
+
+<div class="bk-card">
+<div class="bk-thumb">
+<span class="bk-num">02</span>
+<div class="bk-cover bk-cover-alt">
+<i class="bi bi-journal-bookmark-fill"></i>
+<span>GUIDE</span>
+</div>
+</div>
+<div class="bk-body">
+<span class="bk-cat">Дасгал &amp; Жишээ</span>
+<h2>Study Guide</h2>
+<p class="bk-description">
+Биостатистик болон статистикийн хичээлээр суралцах, бие даан давтахад зориулсан гарын авлага.
+</p>
+<ul>
+<li>Судалгааны үндсэн ойлголтууд</li>
+<li>Статистикийн арга зүй</li>
+<li>Өгөгдөл боловсруулах</li>
+<li>Үр дүн тайлбарлах</li>
+<li>Дасгал, жишээ бодлогууд</li>
+</ul>
+<div class="bk-actions">
+<a class="bk-button" href="#book-study-guide">📖 Гарын авлага унших</a>
+</div>
+</div>
+</div>
+
+<div class="bk-card">
+<div class="bk-thumb">
+<span class="bk-num">03</span>
+<div class="bk-cover bk-cover-alt">
+<i class="bi bi-virus"></i>
+<span>RESOURCE</span>
+</div>
+</div>
+<div class="bk-body">
+<span class="bk-cat">Тархвар судлал</span>
+<h2>Epidemiology</h2>
+<p class="bk-description">
+Тархвар судлалын үндсэн ойлголт болон судалгааны загвар, эрсдэл, хамаарлыг судлах материалууд.
+</p>
+<ul>
+<li>Study design</li>
+<li>Disease frequency</li>
+<li>Risk and association</li>
+<li>Bias and confounding</li>
+<li>Epidemiological methods</li>
+</ul>
+</div>
+</div>
+
+<div class="bk-card">
+<div class="bk-thumb">
+<span class="bk-num">04</span>
+<div class="bk-cover">
+<i class="bi bi-code-slash"></i>
+<span>PROGRAMMING</span>
+</div>
+</div>
+<div class="bk-body">
+<span class="bk-cat">Программчлал</span>
+<h2>Statistical Programming</h2>
+<p class="bk-description">
+R программчлал болон өгөгдөлд статистик шинжилгээ хийх практик ур чадвараа хөгжүүлэх материалууд.
+</p>
+<ul>
+<li>R programming</li>
+<li>Data manipulation</li>
+<li>Data visualization</li>
+<li>Statistical modelling</li>
+<li>Reproducible research</li>
+</ul>
+</div>
+</div>
 
 </div>
 
-<div class="resource-grid">
-
-<div class="resource-card">
-
-### 📊 Biostatistics
-
-Биостатистикийн үндсэн ойлголт, статистикийн арга
-зүйг сурахад зориулсан номууд.
-
-**Үндсэн сэдвүүд**
-
-- Descriptive statistics
-- Probability
-- Statistical inference
-- Hypothesis testing
-- Regression
-- Survival analysis
-
+<div id="book-biostatistics" class="bk-reader">
+<div class="bk-reader-heading">
+<h2>📖 Biostatistics — Ном</h2>
+<p>Биостатистикийн номыг доорх хэсэгт шууд уншина уу.</p>
+</div>
+<iframe src="books/nom-01.pdf" title="Biostatistics book PDF"></iframe>
 </div>
 
-<div class="resource-card">
-
-### 🦠 Epidemiology
-
-Тархвар судлалын үндсэн ойлголт болон судалгааны
-арга зүйг сурахад зориулсан номууд.
-
-**Үндсэн сэдвүүд**
-
-- Study design
-- Disease frequency
-- Risk and association
-- Bias and confounding
-- Epidemiological methods
-
+<div id="book-study-guide" class="bk-reader">
+<div class="bk-reader-heading">
+<h2>📚 Study Guide — Гарын авлага</h2>
+<p>Гарын авлагыг доорх хэсэгт шууд уншина уу.</p>
 </div>
-
-<div class="resource-card">
-
-### 💻 Statistical Programming
-
-R болон статистикийн программчлал сурахад
-зориулсан номууд.
-
-**Сурах зүйлс**
-
-- R programming
-- Data manipulation
-- Data visualization
-- Statistical modelling
-- Reproducible research
-
-</div>
-
-<div class="resource-card">
-
-### 📚 Recommended Reading
-
-Цаашдаа энд ном бүрийн дараах мэдээллийг оруулна:
-
-- Нэр
-- Зохиогч
-- Хэвлэгдсэн он
-- Товч тайлбар
-- Номын зураг
-- Албан ёсны холбоос
-
-</div>
-
+<iframe src="books/gariin-avlaga-01.pdf" title="Biostatistics study guide PDF"></iframe>
 </div>

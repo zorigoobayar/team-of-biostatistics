@@ -1,3 +1,4 @@
+
 ---
 title: "Interesting Research"
 format:
@@ -5,52 +6,356 @@ format:
     body-classes: page-research
 ---
 
+<div class="page-hero">
+
+### Сонирхолтой судалгаанууд
+
+Манай багийн сүүлийн үед хэвлүүлсэн өгүүлэл, судалгаануудын 
+өвөрмөц статистик аргачлалуудыг тайлбарлаж та бүхний судалгаанд 
+дэмжлэг үзүүлэх зорилготой. 
 
 
-## Сонирхолтой судалгаанууд
+</div>
 
-Энэ хэсэгт биостатистик, тархвар судлал,
-эмнэлзүйн судалгаа болон эрүүл мэндийн
-өгөгдлийн шинжилгээтэй холбоотой сонирхолтой
-судалгаануудыг танилцуулна.
+## Research Publications
 
-## Clinical Research
+<div class="interactive-team">
 
-Эмнэлзүйн судалгаанд статистикийн арга зүй нь
-эмчилгээний үр нөлөө, аюулгүй байдал болон
-судалгааны үр дүнг үнэлэхэд чухал ач холбогдолтой.
+<details class="member-profile">
 
-### Судалгаанд ашиглагддаг аргууд
+<summary>
 
-- Descriptive statistics
-- Hypothesis testing
-- Confidence intervals
-- Regression analysis
-- Survival analysis
-- Sample size calculation
+<div class="member-summary">
 
-## Epidemiological Research
+<div class="research-card-icon">01</div>
 
-Тархвар судлалын судалгаанд өвчний тархалт,
-эрсдэлт хүчин зүйл болон хүн амын эрүүл мэндийн
-үзүүлэлтүүдийг статистикийн аргаар судална.
+<div>
+<h3>SARS-CoV-2 seroepidemiology in Mongolia, 2020–2021</h3>
+<p>The Lancet Regional Health – Western Pacific · 2023</p>
+</div>
 
-## Statistical Modelling
+</div>
 
-Статистикийн загварчлал ашиглан судалгааны
-өгөгдлөөс хамаарал, холбоо болон таамаглалыг
-шинжилж болно.
+</summary>
 
-Жишээлбэл:
+<div class="member-details">
 
-- Linear regression
-- Logistic regression
-- Cox regression
-- Mixed-effects models
+<h4>Судалгааны зорилго</h4>
 
-## Reproducible Research
+2020–2021 оны хооронд Монгол Улсын хүн амын
+SARS-CoV-2-ийн эсрэгбиеийн тархалтыг тогтоож, 
+хугацааны хувьд хэрхэн өөрчлөгдсөнийг үнэлэх.
 
-R болон Quarto ашиглан судалгааны код,
-өгөгдлийн боловсруулалт, үр дүн болон тайланг
-нэг дор нэгтгэж, дахин давтагдахуйц судалгааны
-орчин бүрдүүлж болно.
+<h4>Судалгааны загвар</h4>
+
+<ul>
+  <li>5,000 оролцогч</li>
+  <li>Дөрвөн үе шаттай мэдээлэл цуглуулалт</li>
+  <li>Насны бүлэгт суурилсан олон шатлалт кластер түүвэрлэлт</li>
+</ul>
+
+<h4>Жинлэсэн тархалт</h4>
+
+<div class="research-result">
+  <div>
+    <span>2020 оны сүүл үе</span>
+    <strong>1.5%</strong>
+  </div>
+  <div>
+    <span>2021 оны сүүл үе</span>
+    <strong>82.3%</strong>
+  </div>
+</div>
+
+Эдгээр нь өгүүлэлд тайлагнасан эсрэгбиеийн тархалтын
+тооцооллууд юм. Жинлэлт нь түүврийн сонголтын
+магадлал болон хүн амын бүтцийг харгалзан
+хүн амын түвшний үнэлгээ гаргахад тусална.
+
+<h4>Статистикийн арга</h4>
+
+<ul>
+  <li>Жинлэсэн тархалтын үнэлгээ</li>
+  <li>95%-ийн итгэлцлийн интервал</li>
+  <li>Логистик регресс</li>
+</ul>
+
+<p>
+<a href="https://www.thelancet.com/journals/lanwpc/article/PIIS2666-6065(23)00078-0/fulltext"
+target="_blank" rel="noopener">Өгүүллийг бүрэн унших ↗</a>
+</p>
+
+</div>
+</details>
+
+<details class="member-profile">
+
+<summary>
+
+<div class="member-summary">
+
+<div class="research-card-icon research-card-icon-purple">02</div>
+
+<div>
+<h3>Distribution of 10-year cardiovascular disease risk levels in Mongolia</h3>
+<p>Frontiers in Public Health · 2025</p>
+</div>
+
+</div>
+
+</summary>
+
+<div class="member-details">
+
+<h4>Судалгааны зорилго</h4>
+
+Монгол Улсын 40–80 насны хүн амын зүрх судасны
+өвчний 10 жилийн эрсдэлийн түвшний тархалтыг үнэлэх.
+
+<h4>Судалгааны өгөгдөл</h4>
+
+<div class="research-result research-result-one">
+  <div>
+    <strong>35,769</strong>
+    <span>Судалгаанд хамрагдсан хүн</span>
+  </div>
+</div>
+
+<h4>Судалгааны арга зүй</h4>
+
+Үндэсний хэмжээний эрүүл мэндийн үзлэгийн мэдээлэлд
+тулгуурлан зүрх судасны өвчний эрсдэлийн түвшнийг
+үнэлсэн судалгаа.
+
+<h4>Судалгааны ач холбогдол</h4>
+
+Хүн амын эрсдэлийн түвшнийг тодорхойлох нь
+урьдчилан сэргийлэх арга хэмжээ болон эрүүл мэндийн
+төлөвлөлтөд мэдээлэл өгөх боломжтой.
+
+<p>
+<a href="https://www.frontiersin.org/journals/public-health/articles/10.3389/fpubh.2025.1412262/full"
+target="_blank" rel="noopener">Өгүүллийг бүрэн унших ↗</a>
+</p>
+
+</div>
+</details>
+
+</div>
+
+## Research Methods
+
+<div class="interactive-team">
+
+<details class="member-profile">
+<summary>
+<div class="member-summary">
+<div class="research-card-icon">⚖</div>
+<div>
+<h3>Жинлэсэн тархалт</h3>
+<p>Weighted prevalence</p>
+</div>
+</div>
+</summary>
+
+<div class="member-details">
+
+<h4>Яагаад жинлэсэн тархалт тооцдог вэ?</h4>
+
+Түүвэрт хүн амын зарим бүлэг хэт олон эсвэл цөөн
+хамрагдсан байж болно. Жинлэлт нь сонголтын
+магадлал болон судалгааны түүврийн загварыг
+харгалзан хүн амын түвшний тархалтыг үнэлэхэд тусална.
+
+<h4>Тооцооллын томьёо</h4>
+
+\[
+\hat p_w = \frac{\sum_i w_i y_i}{\sum_i w_i}
+\]
+
+Энд \(w_i\) нь оролцогчийн жин, \(y_i\) нь тухайн
+үр дүн илэрсэн бол 1, илрээгүй бол 0 байна.
+
+<h4>Анхаарах зүйл</h4>
+
+Итгэлцлийн интервал болон стандарт алдааг тооцохдоо
+кластер, давхарга зэрэг түүврийн загварын мэдээллийг
+шаардлагатай тохиолдолд харгалзах хэрэгтэй.
+
+</div>
+</details>
+
+<details class="member-profile">
+<summary>
+<div class="member-summary">
+<div class="research-card-icon">📊</div>
+<div>
+<h3>Регрессийн шинжилгээ</h3>
+<p>Regression analysis</p>
+</div>
+</div>
+</summary>
+
+<div class="member-details">
+
+<h4>Түгээмэл аргууд</h4>
+
+<ul>
+  <li>Linear regression</li>
+  <li>Logistic regression</li>
+  <li>Cox regression</li>
+  <li>Mixed-effects models</li>
+</ul>
+
+Судалгааны асуулт, үр дүнгийн хувьсагч болон
+өгөгдлийн бүтцэд тохируулан загвараа сонгоно.
+
+</div>
+</details>
+
+<details class="member-profile">
+<summary>
+<div class="member-summary">
+<div class="research-card-icon">📈</div>
+<div>
+<h3>Итгэлцлийн интервал</h3>
+<p>Confidence interval</p>
+</div>
+</div>
+</summary>
+
+<div class="member-details">
+
+Итгэлцлийн интервал нь статистикийн үнэлгээний
+тодорхой бус байдлыг илэрхийлнэ. Үр дүнг зөв
+тайлбарлахын тулд үнэлгээ болон түүний итгэлцлийн
+интервалыг хамтад нь тайлагнах нь чухал.
+
+</div>
+</details>
+
+<details class="member-profile">
+<summary>
+<div class="member-summary">
+<div class="research-card-icon">⏱</div>
+<div>
+<h3>Амьд үлдэх хугацааны шинжилгээ</h3>
+<p>Survival analysis</p>
+</div>
+</div>
+</summary>
+
+<div class="member-details">
+
+<h4>Түгээмэл аргууд</h4>
+
+<ul>
+  <li>Kaplan–Meier curve</li>
+  <li>Log-rank test</li>
+  <li>Cox proportional hazards model</li>
+</ul>
+
+Өвчний дахилт, нас баралт болон бусад тодорхой
+үйл явдал хүртэлх хугацааг судлахад ашиглана.
+
+</div>
+</details>
+
+</div>
+
+## Research Tools
+
+<div class="interactive-team">
+
+<details class="member-profile">
+<summary>
+<div class="member-summary">
+<div class="research-card-icon">M</div>
+<div>
+<h3>Mendeley</h3>
+<p>Reference management</p>
+</div>
+</div>
+</summary>
+
+<div class="member-details">
+
+<h4>Юунд ашигладаг вэ?</h4>
+
+<ul>
+  <li>Эрдэм шинжилгээний өгүүлэл болон PDF файл хадгалах</li>
+  <li>Эшлэл, ном зүйн мэдээллээ удирдах</li>
+  <li>Өгүүлэл бичих үед эшлэл оруулах</li>
+</ul>
+
+<p>
+<a href="https://www.mendeley.com/" target="_blank" rel="noopener">Mendeley сайт ↗</a>
+</p>
+
+</div>
+</details>
+
+<details class="member-profile">
+<summary>
+<div class="member-summary">
+<div class="research-card-icon">R</div>
+<div>
+<h3>R & RStudio</h3>
+<p>Statistical computing</p>
+</div>
+</div>
+</summary>
+
+<div class="member-details">
+
+Өгөгдөл цэвэрлэх, статистикийн шинжилгээ хийх,
+график үүсгэх болон тайлан бэлтгэхэд ашиглана.
+
+<p>
+<a href="https://www.r-project.org/" target="_blank" rel="noopener">R Project ↗</a>
+</p>
+
+</div>
+</details>
+
+<details class="member-profile">
+<summary>
+<div class="member-summary">
+<div class="research-card-icon">Q</div>
+<div>
+<h3>Quarto</h3>
+<p>Reproducible reports</p>
+</div>
+</div>
+</summary>
+
+<div class="member-details">
+
+Код, тайлбар, хүснэгт болон графикийг нэгтгэсэн
+дахин давтагдахуйц судалгааны тайлан бэлтгэнэ.
+
+<p>
+<a href="https://quarto.org/" target="_blank" rel="noopener">Quarto сайт ↗</a>
+</p>
+
+</div>
+</details>
+
+</div>
+
+## What We Explore
+
+<div class="resource-card">
+
+Манай судалгааны сонирхол дараах чиглэлүүдийг хамарна.
+
+<ul>
+  <li>Биостатистик ба тархвар судлал</li>
+  <li>Эмнэлзүйн судалгааны арга зүй</li>
+  <li>Түүвэрлэлт ба жинлэсэн үнэлгээ</li>
+  <li>Статистикийн загварчлал</li>
+  <li>R программчлал ба өгөгдлийн дүрслэл</li>
+  <li>Дахин давтагдахуйц судалгаа</li>
+</ul>
+
+</div>
