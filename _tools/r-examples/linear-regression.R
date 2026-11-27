@@ -1,0 +1,5 @@
+df <- read.csv("emnelgiin-jishee.csv", fileEncoding = "UTF-8-BOM")
+df$group <- factor(df$group, levels = c("Плацебо", "Эм"))
+m <- lm(sbp8 ~ group + age + sbp0 + bmi, data = df)
+summary(m)
+round(confint(m), 2)

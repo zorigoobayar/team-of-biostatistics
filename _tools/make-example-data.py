@@ -5,6 +5,7 @@
 import csv, math, random
 
 random.seed(2026)
+r2 = random.Random(7)   # шинэ баганууд: хуучин баганын утгыг өөрчлөхгүйн тулд тусдаа генератор
 rows = []
 for i in range(1, 201):
     group = "Эм" if i % 2 else "Плацебо"
@@ -31,10 +32,28 @@ for i in range(1, 201):
     t_cens = random.uniform(12, 36)
     time = round(min(t_event, t_cens), 1)
     event = int(t_event <= t_cens)
+    # --- Нэмэлт баганууд (2-р хувилбар) ---
+    pain6 = min(10, max(0, pain6 + round(r2.gauss(0, 0.9))))   # өвдөлт заримдаа нэмэгдэж болно
+    sbp4 = round(sbp0 - (7 if drug else 2) + r2.gauss(0, 8))
+    sbp12 = round(sbp0 - (14 if drug else 5) - 0.1 * (age - 56) + r2.gauss(0, 9))
+    if r2.random() < 0.08:
+        sbp12 = ""                                             # 12 дахь долоо хоногт ирээгүй
+    dbp0 = round(88 + 0.35 * (sbp0 - 148) + r2.gauss(0, 6))
+    dbp8 = round(dbp0 - (6 if drug else 2) + 0.3 * (sbp8 - sbp0 + (12 if drug else 4)) + r2.gauss(0, 5))
+    city_eff = {"Улаанбаатар": 0.25, "Эрдэнэт": 0.0, "Дархан": -0.15}[city]
+    chol = round(4.6 + city_eff + 0.06 * (bmi - 27.5) + r2.gauss(0, 0.7), 2)
+    crp = round(math.exp(0.6 + 1.6 * city_eff + r2.gauss(0, 0.8)), 1)
+    pct = round(math.exp(-1.6 + (1.5 if infection == "Тийм" else 0) + r2.gauss(0, 0.75)), 2)
+    sbp8_home = round(sbp8 - 2 + r2.gauss(0, 5.5))
+    lvh_true = (sbp0 > 152) if r2.random() < 0.85 else (sbp0 <= 152)
+    lvh_r1 = "Тийм" if (lvh_true if r2.random() < 0.9 else not lvh_true) else "Үгүй"
+    lvh_r2 = "Тийм" if (lvh_true if r2.random() < 0.88 else not lvh_true) else "Үгүй"
     rows.append(dict(id=i, group=group, sex=sex, age=age, bmi=bmi, smoker=smoker,
                      city=city, sbp0=sbp0, sbp8=sbp8, pain0=pain0, pain6=pain6,
                      infection=infection, ari=ari, years=years,
-                     time_months=time, event=event))
+                     time_months=time, event=event,
+                     sbp4=sbp4, sbp12=sbp12, dbp0=dbp0, dbp8=dbp8, chol=chol, crp=crp,
+                     pct=pct, sbp8_home=sbp8_home, lvh_r1=lvh_r1, lvh_r2=lvh_r2))
 
 with open("resources/data/emnelgiin-jishee.csv", "w", newline="", encoding="utf-8-sig") as f:
     w = csv.DictWriter(f, fieldnames=list(rows[0]))

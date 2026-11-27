@@ -1,0 +1,40 @@
+> df <- read.csv("emnelgiin-jishee.csv", fileEncoding = "UTF-8-BOM")
+> df$smoker <- factor(df$smoker, levels = c("Үгүй", "Тийм"))
+> m_p <- glm(ari ~ city + smoker + offset(log(years)), family = poisson, data = df)
+> sum(residuals(m_p, type = "pearson")^2) / df.residual(m_p)   # хэт тархалтын харьцаа
+[1] 2.345515
+> m_nb <- MASS::glm.nb(ari ~ city + smoker + offset(log(years)), data = df)
+> summary(m_nb)
+
+Call:
+MASS::glm.nb(formula = ari ~ city + smoker + offset(log(years)), 
+    data = df, init.theta = 1.711281813, link = log)
+
+Coefficients:
+                Estimate Std. Error z value Pr(>|z|)   
+(Intercept)       0.4726     0.1721   2.746  0.00603 **
+cityУлаанбаатар   0.2185     0.1912   1.143  0.25299   
+cityЭрдэнэт      -0.3109     0.2540  -1.224  0.22090   
+smokerТийм        0.1489     0.1657   0.899  0.36883   
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for Negative Binomial(1.7113) family taken to be 1)
+
+    Null deviance: 230.26  on 199  degrees of freedom
+Residual deviance: 222.05  on 196  degrees of freedom
+AIC: 799.5
+
+Number of Fisher Scoring iterations: 1
+
+
+              Theta:  1.711 
+          Std. Err.:  0.335 
+
+ 2 x log-likelihood:  -789.504 
+> round(exp(cbind(IRR = coef(m_nb), confint.default(m_nb))), 2)
+                 IRR 2.5 % 97.5 %
+(Intercept)     1.60  1.14   2.25
+cityУлаанбаатар 1.24  0.86   1.81
+cityЭрдэнэт     0.73  0.45   1.21
+smokerТийм      1.16  0.84   1.61

@@ -6,6 +6,7 @@ format:
     body-classes: page-methods
     css:
       - ../styles.css
+      - ../styles/site.css
       - ../styles/methods.css
       - ../styles/glossary.css
     include-after-body:
@@ -62,10 +63,71 @@ car::vif(m)                     # олон шугамт хамаарал
 gtsummary::tbl_regression(m)
 ```
 
-## Цэс дээр хийх (jamovi / SPSS)
+## Жишээ: бодит гаралт ба тайлбар
+
+::: {.mt-example-intro}
+**Асуулт.** Нас, эхний даралт, БЖИ-ээр залруулахад эм 8 дахь долоо хоногийн систолын даралтад хэр нөлөөлсөн бэ?
+
+Доорх гаралтыг сайтын [жишээ өгөгдөл](../resources/data/emnelgiin-jishee.csv) дээр R 4.3.3-аар жинхэнээр нь ажиллуулж гаргасан. Кодыг хуулж өөрийн компьютер дээр ажиллуулбал яг ижил үр дүн гарна.
+:::
+
+```{.text .mt-console}
+> df <- read.csv("emnelgiin-jishee.csv", fileEncoding = "UTF-8-BOM")
+> df$group <- factor(df$group, levels = c("Плацебо", "Эм"))
+> m <- lm(sbp8 ~ group + age + sbp0 + bmi, data = df)
+> summary(m)
+
+Call:
+lm(formula = sbp8 ~ group + age + sbp0 + bmi, data = df)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-26.0763  -6.5245   0.4842   6.8075  21.4508 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  3.51427    9.44715   0.372    0.710    
+groupЭм     -7.73421    1.30377  -5.932 1.34e-08 ***
+age         -0.05260    0.05910  -0.890    0.375    
+sbp0         0.93554    0.05332  17.547  < 2e-16 ***
+bmi          0.14470    0.14593   0.992    0.323    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 9.12 on 195 degrees of freedom
+Multiple R-squared:  0.658,	Adjusted R-squared:  0.651 
+F-statistic: 93.79 on 4 and 195 DF,  p-value: < 2.2e-16
+
+> round(confint(m), 2)
+             2.5 % 97.5 %
+(Intercept) -15.12  22.15
+groupЭм     -10.31  -5.16
+age          -0.17   0.06
+sbp0          0.83   1.04
+bmi          -0.14   0.43
+```
+
+![Загварын оношилгоо: зүүн талд үлдэгдэл санамсаргүй тархсан (шугаман хамаарал хангагдсан), баруун талд үлдэгдэл ойролцоогоор хэвийн тархалттай.](../images/methods/linear-regression.png){.mt-figure fig-alt="Загварын оношилгоо: зүүн талд үлдэгдэл санамсаргүй тархсан (шугаман хамаарал хангагдсан), баруун талд үлдэгдэл ойролцоогоор хэвийн тархалттай."}
+
+### Гаралтыг хэрхэн унших вэ?
+
+::: {.mt-readout}
+1. `groupЭм -7.73421, Pr(>|t|) 1.34e-08` Бусад хувьсагчийг тогтмол үед эмийн бүлгийн даралт плацебоноос 7.7 мм м.у.б-аар бага (p < 0.001).
+2. `sbp0 0.93554` Эхний даралт 1 мм м.у.б-аар өндөр хүнд 8 дахь долоо хоногийн даралт дунджаар 0.94-өөр өндөр.
+3. `age -0.05260 (p 0.375), bmi 0.14470 (p 0.323)` Нас ба БЖИ залруулсны дараа даралттай ач холбогдолтой хамааралгүй.
+4. `Residual standard error: 9.12` Загварын таамаглалын дундаж алдаа ±9 мм м.у.б орчим.
+5. `Adjusted R-squared: 0.651` Загвар 8 дахь долоо хоногийн даралтын хэлбэлзлийн 65%-ийг тайлбарлаж байна. Ихэнхийг нь эхний даралт тайлбарлана.
+6. `confint: groupЭм -10.31 -5.16` Эмийн нөлөөний 95% CI: −10.3-аас −5.2 мм м.у.б.
+:::
+
+::: {.mt-conclusion}
+**Дүгнэлт (тайлагнах хэлбэрээр).** Нас, эхний даралт, БЖИ-ээр залруулахад эмийн бүлгийн 8 дахь долоо хоногийн систолын даралт плацебоноос 7.7 мм м.у.б-аар бага байв (β = −7.73, 95% CI −10.31; −5.16, p < 0.001; загварын adjusted R² = 0.65).
+:::
+
+## Цэс дээр хийх (SPSS)
 
 ```{=html}
-<div class="mt-menu"><div><b>jamovi</b> Analyses → Regression → Linear Regression → Model Coefficients: Confidence interval; Assumption Checks.</div><div><b>SPSS</b> Analyze → Regression → Linear → Statistics… → Confidence intervals, Collinearity diagnostics; Plots… → үлдэгдэл.</div></div>
+<div class="mt-menu"><div><b>SPSS</b> Analyze → Regression → Linear → Statistics… → Confidence intervals, Collinearity diagnostics; Plots… → үлдэгдэл.</div></div>
 ```
 
 ## Үр дүнг тайлбарлах

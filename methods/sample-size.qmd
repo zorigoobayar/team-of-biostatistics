@@ -6,6 +6,7 @@ format:
     body-classes: page-methods
     css:
       - ../styles.css
+      - ../styles/site.css
       - ../styles/methods.css
       - ../styles/glossary.css
     include-after-body:
@@ -72,10 +73,73 @@ n <- 75; ceiling(n / (1 - 0.15))
 # Хугацаа-үйл явдлын (Cox / log-rank) тооцоонд: powerSurvEpi эсвэл gsDesign багц
 ```
 
-## Цэс дээр хийх (jamovi / SPSS / G*Power)
+## Жишээ: бодит гаралт ба тайлбар
+
+::: {.mt-example-intro}
+**Асуулт.** Төлөвлөж буй судалгааны гурван хувилбарт хэдэн оролцогч хэрэгтэй вэ?
+
+Доорх гаралтыг сайтын [жишээ өгөгдөл](../resources/data/emnelgiin-jishee.csv) дээр R 4.3.3-аар жинхэнээр нь ажиллуулж гаргасан. Кодыг хуулж өөрийн компьютер дээр ажиллуулбал яг ижил үр дүн гарна.
+:::
+
+```{.text .mt-console}
+> power.t.test(delta = 8, sd = 15, sig.level = 0.05, power = 0.90)
+
+     Two-sample t test power calculation 
+
+              n = 74.85385
+          delta = 8
+             sd = 15
+      sig.level = 0.05
+          power = 0.9
+    alternative = two.sided
+
+NOTE: n is number in *each* group
+
+> power.prop.test(p1 = 0.20, p2 = 0.10, power = 0.80)
+
+     Two-sample comparison of proportions power calculation 
+
+              n = 198.9634
+             p1 = 0.2
+             p2 = 0.1
+      sig.level = 0.05
+          power = 0.8
+    alternative = two.sided
+
+NOTE: n is number in *each* group
+
+> pwr::pwr.anova.test(k = 3, f = 0.25, power = 0.80)
+
+     Balanced one-way analysis of variance power calculation 
+
+              k = 3
+              n = 52.3966
+              f = 0.25
+      sig.level = 0.05
+          power = 0.8
+
+NOTE: n is number in each group
+```
+
+![Чадлын муруй: бүлэг бүрийн хүний тоо нэмэгдэхэд 8 мм м.у.б зөрүүг илрүүлэх магадлал хэрхэн өсөхийг харуулна.](../images/methods/sample-size.png){.mt-figure fig-alt="Чадлын муруй: бүлэг бүрийн хүний тоо нэмэгдэхэд 8 мм м.у.б зөрүүг илрүүлэх магадлал хэрхэн өсөхийг харуулна."}
+
+### Гаралтыг хэрхэн унших вэ?
+
+::: {.mt-readout}
+1. `n = 74.85385` Дунджийн 8 мм м.у.б зөрүүг (SD 15) 90% чадалтай илрүүлэхэд бүлэг бүрт 74.9 → дээш бөөрөнхийлж 75 хүн хэрэгтэй.
+2. `NOTE: n is number in *each* group` Энэ нь бүлэг бүрийн тоо. Нийт түүвэр = 2 × 75 = 150.
+3. `power.prop.test: n = 198.9634` Хувь 20%-иас 10% болж буурахыг 80% чадалтай илрүүлэхэд бүлэг бүрт 199 хүн хэрэгтэй. Хувийн ялгааг илрүүлэхэд илүү олон хүн шаардлагатай.
+4. `pwr.anova.test: n = 52.3966` 3 бүлэгтэй ANOVA-д дунд зэргийн нөлөөг (f = 0.25) илрүүлэхэд бүлэг бүрт 53, нийт 159 хүн хэрэгтэй.
+:::
+
+::: {.mt-conclusion}
+**Дүгнэлт (тайлагнах хэлбэрээр).** Бүлэг бүрт 75 хүн шаардлагатай. Хасагдалтыг 15% гэж тооцвол бүлэг бүрт ⌈75 / 0.85⌉ = 89, нийт 178 оролцогч хамруулна.
+:::
+
+## Цэс дээр хийх (SPSS / G*Power)
 
 ```{=html}
-<div class="mt-menu"><div><b>G*Power</b> Үнэгүй програм: Test family → t tests → Means: Difference between two independent means → A priori.</div><div><b>jamovi</b> jpower модулийг суулгана → Independent Samples T-Test (эсвэл Paired, One Sample) → Calculate: N per group.</div><div><b>SPSS</b> 27 ба түүнээс хойшхи хувилбар: Analyze → Power Analysis → Means / Proportions / Correlations.</div></div>
+<div class="mt-menu"><div><b>G*Power</b> Үнэгүй програм: Test family → t tests → Means: Difference between two independent means → A priori.</div><div><b>SPSS</b> 27 ба түүнээс хойшхи хувилбар: Analyze → Power Analysis → Means / Proportions / Correlations.</div></div>
 ```
 
 ## Үр дүнг тайлбарлах

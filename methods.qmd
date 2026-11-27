@@ -7,6 +7,7 @@ format:
     body-classes: page-methods
     css:
       - styles.css
+      - styles/site.css
       - styles/methods.css
 ---
 
@@ -23,7 +24,6 @@ format:
     <li><strong>23</strong> арга</li>
     <li><strong>R</strong> кодын жишээ</li>
     <li><strong>Монгол</strong> нэр томьёо</li>
-    <li><strong>jamovi / SPSS</strong> цэсний заавар</li>
     <li><span class="vc" data-vc-href=""></span></li>
   </ul>
   <div class="mt-actions">

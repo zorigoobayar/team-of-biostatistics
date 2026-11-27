@@ -6,6 +6,7 @@ format:
     body-classes: page-methods
     css:
       - ../styles.css
+      - ../styles/site.css
       - ../styles/methods.css
       - ../styles/glossary.css
     include-after-body:
@@ -62,10 +63,61 @@ oneway.test(loss ~ diet, data = df)   # Welch ANOVA
 kruskal.test(loss ~ diet, data = df)
 ```
 
-## Цэс дээр хийх (jamovi / SPSS)
+## Жишээ: бодит гаралт ба тайлбар
+
+::: {.mt-example-intro}
+**Асуулт.** Улаанбаатар, Эрдэнэт, Дарханы өвчтөнүүдийн нийт холестерины дундаж ялгаатай юу?
+
+Доорх гаралтыг сайтын [жишээ өгөгдөл](../resources/data/emnelgiin-jishee.csv) дээр R 4.3.3-аар жинхэнээр нь ажиллуулж гаргасан. Кодыг хуулж өөрийн компьютер дээр ажиллуулбал яг ижил үр дүн гарна.
+:::
+
+```{.text .mt-console}
+> df <- read.csv("emnelgiin-jishee.csv", fileEncoding = "UTF-8-BOM")
+> aggregate(chol ~ city, data = df, FUN = function(x) round(c(n = length(x), mean = mean(x), sd = sd(x)), 2))
+         city chol.n chol.mean chol.sd
+1      Дархан  37.00      4.51    0.83
+2 Улаанбаатар 128.00      4.93    0.73
+3     Эрдэнэт  35.00      4.59    0.57
+> m <- aov(chol ~ city, data = df)
+> summary(m)
+             Df Sum Sq Mean Sq F value  Pr(>F)   
+city          2   6.72   3.361   6.459 0.00192 **
+Residuals   197 102.52   0.520                   
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+> TukeyHSD(m)
+  Tukey multiple comparisons of means
+    95% family-wise confidence level
+
+Fit: aov(formula = chol ~ city, data = df)
+
+$city
+                           diff         lwr         upr     p adj
+Улаанбаатар-Дархан   0.41461782  0.09663871  0.73259694 0.0066746
+Эрдэнэт-Дархан       0.07280309 -0.32888952  0.47449569 0.9040151
+Эрдэнэт-Улаанбаатар -0.34181473 -0.66676527 -0.01686419 0.0366583
+```
+
+![Хотоор холестерины тархалт. Хайрцаг нь квартилууд, ромбо нь дундаж.](../images/methods/anova.png){.mt-figure fig-alt="Хотоор холестерины тархалт. Хайрцаг нь квартилууд, ромбо нь дундаж."}
+
+### Гаралтыг хэрхэн унших вэ?
+
+::: {.mt-readout}
+1. `chol.mean 4.51 / 4.93 / 4.59` Хотуудын дундаж холестерин: Дархан 4.51, Улаанбаатар 4.93, Эрдэнэт 4.59 ммоль/л.
+2. `city Df 2, F value 6.459` Бүлэг хоорондын дисперсийг бүлэг доторх дисперст харьцуулсан F статистик. df = бүлгийн тоо − 1 = 2.
+3. `Residuals 197` Бүлэг доторх чөлөөний зэрэг = n − бүлгийн тоо = 200 − 3.
+4. `Pr(>F) 0.00192 **` p = 0.002 < 0.05: ядаж нэг хотын дундаж бусдаасаа ялгаатай. Гэхдээ аль хот гэдгийг энэ тест хэлэхгүй.
+5. `TukeyHSD: Улаанбаатар-Дархан 0.415, p adj 0.0067` Тьюкийн post-hoc тест: Улаанбаатар Дарханаас 0.41 ммоль/л өндөр (засвартай p = 0.007). Улаанбаатар Эрдэнэтээс 0.34-өөр өндөр (p = 0.037), харин Эрдэнэт ба Дархан ялгаагүй (p = 0.90).
+:::
+
+::: {.mt-conclusion}
+**Дүгнэлт (тайлагнах хэлбэрээр).** Нийт холестерин хотуудын хооронд ялгаатай байв (ANOVA, F(2, 197) = 6.46, p = 0.002). Тьюкийн тестээр Улаанбаатарын өвчтөнүүдийн холестерин Дарханыхаас 0.41 ммоль/л (95% CI 0.10; 0.73), Эрдэнэтийнхээс 0.34 ммоль/л (0.02; 0.67) өндөр байв.
+:::
+
+## Цэс дээр хийх (SPSS)
 
 ```{=html}
-<div class="mt-menu"><div><b>jamovi</b> Analyses → ANOVA → One-Way ANOVA (эсвэл ANOVA) → Post Hoc Tests: Tukey.</div><div><b>SPSS</b> Analyze → Compare Means → One-Way ANOVA → Post Hoc… → Tukey; Options… → Homogeneity of variance test.</div></div>
+<div class="mt-menu"><div><b>SPSS</b> Analyze → Compare Means → One-Way ANOVA → Post Hoc… → Tukey; Options… → Homogeneity of variance test.</div></div>
 ```
 
 ## Үр дүнг тайлбарлах

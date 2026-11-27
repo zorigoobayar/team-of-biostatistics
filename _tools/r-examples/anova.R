@@ -1,0 +1,5 @@
+df <- read.csv("emnelgiin-jishee.csv", fileEncoding = "UTF-8-BOM")
+aggregate(chol ~ city, data = df, FUN = function(x) round(c(n = length(x), mean = mean(x), sd = sd(x)), 2))
+m <- aov(chol ~ city, data = df)
+summary(m)
+TukeyHSD(m)

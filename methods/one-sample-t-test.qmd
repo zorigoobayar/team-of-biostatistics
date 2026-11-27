@@ -6,6 +6,7 @@ format:
     body-classes: page-methods
     css:
       - ../styles.css
+      - ../styles/site.css
       - ../styles/methods.css
       - ../styles/glossary.css
     include-after-body:
@@ -57,10 +58,53 @@ t.test(df$hb, mu = 120)          # нэг түүврийн t-тест
 wilcox.test(df$hb, mu = 120)
 ```
 
-## Цэс дээр хийх (jamovi / SPSS)
+## Жишээ: бодит гаралт ба тайлбар
+
+::: {.mt-example-intro}
+**Асуулт.** Жишээ өгөгдлийн 200 өвчтөний дундаж БЖИ (биеийн жингийн индекс) хэвийн дээд хязгаар болох 25-аас ялгаатай юу?
+
+Доорх гаралтыг сайтын [жишээ өгөгдөл](../resources/data/emnelgiin-jishee.csv) дээр R 4.3.3-аар жинхэнээр нь ажиллуулж гаргасан. Кодыг хуулж өөрийн компьютер дээр ажиллуулбал яг ижил үр дүн гарна.
+:::
+
+```{.text .mt-console}
+> df <- read.csv("emnelgiin-jishee.csv", fileEncoding = "UTF-8-BOM")
+> mean(df$bmi); sd(df$bmi)
+[1] 27.645
+[1] 4.476648
+> t.test(df$bmi, mu = 25)
+
+	One Sample t-test
+
+data:  df$bmi
+t = 8.3558, df = 199, p-value = 1.105e-14
+alternative hypothesis: true mean is not equal to 25
+95 percent confidence interval:
+ 27.02078 28.26922
+sample estimates:
+mean of x 
+   27.645
+```
+
+![БЖИ-ийн тархалт. Улаан тасархай шугам нь жишиг утга (25), хөх шугам нь түүврийн дундаж.](../images/methods/one-sample-t-test.png){.mt-figure fig-alt="БЖИ-ийн тархалт. Улаан тасархай шугам нь жишиг утга (25), хөх шугам нь түүврийн дундаж."}
+
+### Гаралтыг хэрхэн унших вэ?
+
+::: {.mt-readout}
+1. `27.645, 4.476648` Түүврийн дундаж БЖИ 27.6, стандарт хазайлт 4.5 кг/м².
+2. `t = 8.3558` Дундаж жишиг утгаас хэдэн стандарт алдаагаар зөрж байгааг харуулна. 0-ээс хол байх тусам ялгаа тод.
+3. `df = 199` Чөлөөний зэрэг = n − 1 = 200 − 1.
+4. `p-value = 1.105e-14` 1.105 × 10⁻¹⁴, өөрөөр хэлбэл 0.001-ээс хамаагүй бага. Хүн амын дундаж 25 гэсэн тэг таамаглалыг няцаана.
+5. `95 percent confidence interval: 27.02078 28.26922` Хүн амын дундаж БЖИ 27.0–28.3 хооронд байх магадлалтай. 25 энэ интервалд ороогүй нь p < 0.05-тай нийцнэ.
+:::
+
+::: {.mt-conclusion}
+**Дүгнэлт (тайлагнах хэлбэрээр).** Өвчтөнүүдийн дундаж БЖИ 27.6 (SD 4.5) байсан нь 25-аас статистик ач холбогдолтой өндөр байв (t(199) = 8.36, p < 0.001; дундаж 27.6, 95% CI 27.0; 28.3).
+:::
+
+## Цэс дээр хийх (SPSS)
 
 ```{=html}
-<div class="mt-menu"><div><b>jamovi</b> Analyses → T-Tests → One Sample T-Test → Test value-д жишиг утгыг оруулна.</div><div><b>SPSS</b> Analyze → Compare Means → One-Sample T Test → Test Value.</div></div>
+<div class="mt-menu"><div><b>SPSS</b> Analyze → Compare Means → One-Sample T Test → Test Value.</div></div>
 ```
 
 ## Үр дүнг тайлбарлах

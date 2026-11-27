@@ -1,0 +1,32 @@
+> df <- read.csv("emnelgiin-jishee.csv", fileEncoding = "UTF-8-BOM")
+> table(Үнэлэгч1 = df$lvh_r1, Үнэлэгч2 = df$lvh_r2)
+        Үнэлэгч2
+Үнэлэгч1 Тийм Үгүй
+    Тийм   73   24
+    Үгүй   18   85
+> psych::cohen.kappa(cbind(df$lvh_r1, df$lvh_r2))
+Call: cohen.kappa1(x = x, w = w, n.obs = n.obs, alpha = alpha, levels = levels)
+
+Cohen Kappa and Weighted Kappa correlation coefficients and confidence boundaries 
+                 lower estimate upper
+unweighted kappa  0.47     0.58  0.69
+weighted kappa    0.47     0.58  0.69
+
+ Number of subjects = 200 
+> psych::ICC(df[, c("sbp8_home", "sbp8")])
+Call: psych::ICC(x = df[, c("sbp8_home", "sbp8")])
+
+Intraclass correlation coefficients 
+                         type  ICC  F df1 df2       p lower bound upper bound
+Single_raters_absolute   ICC1 0.93 28 199 200 9.5e-90        0.91        0.95
+Single_random_raters     ICC2 0.93 35 199 199 5.0e-98        0.87        0.96
+Single_fixed_raters      ICC3 0.94 35 199 199 5.0e-98        0.93        0.96
+Average_raters_absolute ICC1k 0.96 28 199 200 9.5e-90        0.95        0.97
+Average_random_raters   ICC2k 0.96 35 199 199 5.0e-98        0.93        0.98
+Average_fixed_raters    ICC3k 0.97 35 199 199 5.0e-98        0.96        0.98
+
+ Number of subjects = 200     Number of Judges =  2
+See the help file for a discussion of the other 4 McGraw and Wong estimates,> d <- df$sbp8_home - df$sbp8
+> round(c(bias = mean(d), lower = mean(d) - 1.96 * sd(d), upper = mean(d) + 1.96 * sd(d)), 1)
+ bias lower upper 
+ -2.6 -12.9   7.7 

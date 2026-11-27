@@ -1,6 +1,7 @@
 ---
 title: "Contact"
 
+toc: false
 format:
   html:
     body-classes: page-contact

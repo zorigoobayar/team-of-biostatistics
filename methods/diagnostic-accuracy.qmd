@@ -6,6 +6,7 @@ format:
     body-classes: page-methods
     css:
       - ../styles.css
+      - ../styles/site.css
       - ../styles/methods.css
       - ../styles/glossary.css
     include-after-body:
@@ -69,10 +70,84 @@ epiR::epi.tests(tab, conf.level = 0.95)   # Se, Sp, PPV, NPV, LR+, LR−
 roc.test(r, roc(sbi ~ crp, data = df))     # DeLong тест
 ```
 
-## Цэс дээр хийх (jamovi / SPSS)
+## Жишээ: бодит гаралт ба тайлбар
+
+::: {.mt-example-intro}
+**Асуулт.** Сийвэнгийн прокальцитонин (PCT) хүндрэлийн халдварыг хэр сайн ялгаж байна вэ? (алтан стандарт: эмнэлзүйн баталгаажсан халдвар)
+
+Доорх гаралтыг сайтын [жишээ өгөгдөл](../resources/data/emnelgiin-jishee.csv) дээр R 4.3.3-аар жинхэнээр нь ажиллуулж гаргасан. Кодыг хуулж өөрийн компьютер дээр ажиллуулбал яг ижил үр дүн гарна.
+:::
+
+```{.text .mt-console}
+> df <- read.csv("emnelgiin-jishee.csv", fileEncoding = "UTF-8-BOM")
+> library(pROC)
+> r <- roc(infection ~ pct, data = df, levels = c("Үгүй", "Тийм"), direction = "<", ci = TRUE)
+> r
+
+Call:
+roc.formula(formula = infection ~ pct, data = df, levels = c("Үгүй",     "Тийм"), direction = "<", ci = TRUE)
+
+Data: pct in 177 controls (infection Үгүй) < 23 cases (infection Тийм).
+Area under the curve: 0.9635
+95% CI: 0.933-0.994 (DeLong)
+> coords(r, "best", best.method = "youden",
++        ret = c("threshold", "sensitivity", "specificity", "ppv", "npv"))
+          threshold sensitivity specificity       ppv       npv
+threshold     0.685   0.8695652   0.9435028 0.6666667 0.9823529
+> tab <- table(Test = factor(df$pct >= 0.5, levels = c(TRUE, FALSE)),
++              Infection = factor(df$infection, levels = c("Тийм", "Үгүй")))
+> tab
+       Infection
+Test    Тийм Үгүй
+  TRUE    20   17
+  FALSE    3  160
+> epiR::epi.tests(tab, conf.level = 0.95)
+          Outcome +    Outcome -      Total
+Test +           20           17         37
+Test -            3          160        163
+Total            23          177        200
+
+Point estimates and 95% CIs:
+--------------------------------------------------------------
+Apparent prevalence *                  0.18 (0.13, 0.25)
+True prevalence *                      0.12 (0.07, 0.17)
+Sensitivity *                          0.87 (0.66, 0.97)
+Specificity *                          0.90 (0.85, 0.94)
+Positive predictive value *            0.54 (0.37, 0.71)
+Negative predictive value *            0.98 (0.95, 1.00)
+Positive likelihood ratio              9.05 (5.61, 14.61)
+Negative likelihood ratio              0.14 (0.05, 0.41)
+False T+ proportion for true D- *      0.10 (0.06, 0.15)
+False T- proportion for true D+ *      0.13 (0.03, 0.34)
+False T+ proportion for T+ *           0.46 (0.29, 0.63)
+False T- proportion for T- *           0.02 (0.00, 0.05)
+Correctly classified proportion *      0.90 (0.85, 0.94)
+--------------------------------------------------------------
+* Exact CIs
+```
+
+![Прокальцитонины ROC муруй. Улаан цэг нь Юдений индексээр сонгосон хамгийн тохиромжтой таслах цэг.](../images/methods/diagnostic-accuracy.png){.mt-figure fig-alt="Прокальцитонины ROC муруй. Улаан цэг нь Юдений индексээр сонгосон хамгийн тохиромжтой таслах цэг."}
+
+### Гаралтыг хэрхэн унших вэ?
+
+::: {.mt-readout}
+1. `177 controls (Үгүй) < 23 cases (Тийм)` 23 халдвартай, 177 халдваргүй хүн.
+2. `Area under the curve: 0.9635, 95% CI: 0.933-0.994` AUC = 0.96: маш сайн ялгах чадвартай. Санамсаргүй сонгосон халдвартай хүний PCT халдваргүй хүнийхээс өндөр байх магадлал 96%.
+3. `threshold 0.685, sensitivity 0.870, specificity 0.944` Юдений индексээр хамгийн тохиромжтой таслах цэг 0.685 нг/мл: мэдрэг чанар 87%, өвөрмөц чанар 94%.
+4. `tab: 20 17 / 3 160` Урьдчилан тогтоосон 0.5 нг/мл таслах цэг дээрх 2×2 хүснэгт: 20 үнэн эерэг, 17 хуурамч эерэг, 3 хуурамч сөрөг, 160 үнэн сөрөг.
+5. `Sensitivity 0.87 (0.66, 0.97); Specificity 0.90 (0.85, 0.94)` 0.5 нг/мл-д мэдрэг чанар 87%, өвөрмөц чанар 90%. Халдвартай хүн цөөн (23) тул мэдрэг чанарын CI өргөн.
+6. `Positive predictive value 0.54; Negative predictive value 0.98` Тест эерэг бол халдвартай байх магадлал 54%, сөрөг бол халдваргүй байх магадлал 98%. Энэ хоёр нь халдварын тархалтаас (12%) хамаарна.
+7. `Positive likelihood ratio 9.05; Negative likelihood ratio 0.14` LR+ = 9: эерэг хариу халдварын odds-ийг 9 дахин нэмэгдүүлнэ. LR− = 0.14: сөрөг хариу odds-ийг 7 дахин бууруулна.
+:::
+
+::: {.mt-conclusion}
+**Дүгнэлт (тайлагнах хэлбэрээр).** Прокальцитонины AUC 0.96 (95% CI 0.93; 0.99) байв. 0.5 нг/мл таслах цэгт мэдрэг чанар 87% (95% CI 66; 97), өвөрмөц чанар 90% (85; 94), PPV 54%, NPV 98%, LR+ 9.1, LR− 0.14 байв (n = 200, тархалт 11.5%).
+:::
+
+## Цэс дээр хийх (SPSS)
 
 ```{=html}
-<div class="mt-menu"><div><b>jamovi</b> psychoPDA модулийг суулгана → ROC Analysis (таслах цэг, Se, Sp, AUC). 2x2 хүснэгтэд: meddecide модуль → Decision.</div><div><b>SPSS</b> Analyze → Classify → ROC Curve (хуучин хувилбарт Analyze → ROC Curve) → Standard error and confidence interval, Coordinate points of the ROC Curve-г сонгоно.</div></div>
+<div class="mt-menu"><div><b>SPSS</b> Analyze → Classify → ROC Curve (хуучин хувилбарт Analyze → ROC Curve) → Standard error and confidence interval, Coordinate points of the ROC Curve-г сонгоно.</div></div>
 ```
 
 ## Үр дүнг тайлбарлах

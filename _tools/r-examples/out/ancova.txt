@@ -1,0 +1,26 @@
+> df <- read.csv("emnelgiin-jishee.csv", fileEncoding = "UTF-8-BOM")
+> df$group <- factor(df$group, levels = c("Плацебо", "Эм"))
+> m <- lm(sbp8 ~ sbp0 + group, data = df)
+> car::Anova(m, type = 2)
+Anova Table (Type II tests)
+
+Response: sbp8
+          Sum Sq  Df F value    Pr(>F)    
+sbp0       26649   1 320.719 < 2.2e-16 ***
+group       2815   1  33.879 2.347e-08 ***
+Residuals  16369 197                      
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+> emmeans::emmeans(m, pairwise ~ group)
+$emmeans
+ group   emmean    SE  df lower.CL upper.CL
+ Плацебо    143 0.913 197      141      145
+ Эм         136 0.913 197      134      138
+
+Confidence level used: 0.95 
+
+$contrasts
+ contrast     estimate   SE  df t.ratio p.value
+ Плацебо - Эм     7.53 1.29 197   5.821  <.0001
+
+

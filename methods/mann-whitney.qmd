@@ -6,6 +6,7 @@ format:
     body-classes: page-methods
     css:
       - ../styles.css
+      - ../styles/site.css
       - ../styles/methods.css
       - ../styles/glossary.css
     include-after-body:
@@ -59,10 +60,60 @@ wilcox.test(los ~ group, data = df,
 effectsize::rank_biserial(los ~ group, data = df)
 ```
 
-## Цэс дээр хийх (jamovi / SPSS)
+## Жишээ: бодит гаралт ба тайлбар
+
+::: {.mt-example-intro}
+**Асуулт.** 6 дахь долоо хоногийн өвдөлтийн оноо (0–10, дараалсан хувьсагч) эмийн бүлэгт плацебо бүлгийнхээс бага байна уу?
+
+Доорх гаралтыг сайтын [жишээ өгөгдөл](../resources/data/emnelgiin-jishee.csv) дээр R 4.3.3-аар жинхэнээр нь ажиллуулж гаргасан. Кодыг хуулж өөрийн компьютер дээр ажиллуулбал яг ижил үр дүн гарна.
+:::
+
+```{.text .mt-console}
+> df <- read.csv("emnelgiin-jishee.csv", fileEncoding = "UTF-8-BOM")
+> df$group <- factor(df$group, levels = c("Плацебо", "Эм"))
+> tapply(df$pain6, df$group, summary)
+$Плацебо
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   0.00    4.00    5.00    5.17    7.00   10.00 
+
+$Эм
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   0.00    1.00    3.00    3.62    6.00   10.00 
+
+> wilcox.test(pain6 ~ group, data = df, conf.int = TRUE, exact = FALSE)
+
+	Wilcoxon rank sum test with continuity correction
+
+data:  pain6 by group
+W = 6752.5, p-value = 1.619e-05
+alternative hypothesis: true location shift is not equal to 0
+95 percent confidence interval:
+ 0.9999715 2.0000426
+sample estimates:
+difference in location 
+              1.999996
+```
+
+![Бүлэг тус бүрийн өвдөлтийн онооны тархалт (бүлгийн %). Эмийн бүлэг бага оноо руу шилжсэн.](../images/methods/mann-whitney.png){.mt-figure fig-alt="Бүлэг тус бүрийн өвдөлтийн онооны тархалт (бүлгийн %). Эмийн бүлэг бага оноо руу шилжсэн."}
+
+### Гаралтыг хэрхэн унших вэ?
+
+::: {.mt-readout}
+1. `Плацебо: Median 5.00, 1st Qu. 4.00, 3rd Qu. 7.00` Плацебо бүлгийн медиан 5 (IQR 4–7).
+2. `Эм: Median 3.00, 1st Qu. 1.00, 3rd Qu. 6.00` Эмийн бүлгийн медиан 3 (IQR 1–6).
+3. `W = 6752.5` Плацебо бүлгийн утга эмийн бүлгийнхээс их байсан хосын тоо (U статистик). Тэг таамаглал үнэн бол ойролцоогоор 100 × 100 / 2 = 5000 байх ёстой.
+4. `p-value = 1.619e-05` p < 0.001: хоёр бүлгийн тархалт ижил гэсэн тэг таамаглалыг няцаана.
+5. `difference in location 1.999996, 95% CI 0.99997 2.00004` Hodges–Lehmann зөрүү ≈ 2 оноо. Оноо бүхэл тоо тул CI нь 1–2 гэж бөөрөнхийлөгдөж байна.
+:::
+
+::: {.mt-conclusion}
+**Дүгнэлт (тайлагнах хэлбэрээр).** 6 дахь долоо хоногийн өвдөлтийн оноо эмийн бүлэгт (медиан 3, IQR 1–6) плацебо бүлгийнхээс (медиан 5, IQR 4–7) бага байв (Манн-Уитнигийн U тест, W = 6752.5, p < 0.001; Hodges–Lehmann зөрүү 2 оноо, 95% CI 1; 2).
+:::
+
+## Цэс дээр хийх (SPSS)
 
 ```{=html}
-<div class="mt-menu"><div><b>jamovi</b> Analyses → T-Tests → Independent Samples T-Test → Tests: Mann-Whitney U-г сонгоно (Effect size, Median-ийг нэмж болно).</div><div><b>SPSS</b> Analyze → Nonparametric Tests → Legacy Dialogs → 2 Independent Samples → Mann-Whitney U.</div></div>
+<div class="mt-menu"><div><b>SPSS</b> Analyze → Nonparametric Tests → Legacy Dialogs → 2 Independent Samples → Mann-Whitney U.</div></div>
 ```
 
 ## Үр дүнг тайлбарлах

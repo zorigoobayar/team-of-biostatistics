@@ -1,0 +1,7 @@
+df <- read.csv("emnelgiin-jishee.csv", fileEncoding = "UTF-8-BOM")
+df$group <- factor(df$group, levels = c("Плацебо", "Эм"))
+df$smoker <- factor(df$smoker, levels = c("Үгүй", "Тийм"))
+df$inf01 <- as.integer(df$infection == "Тийм")
+m <- glm(inf01 ~ group + age + smoker, family = binomial, data = df)
+summary(m)
+round(exp(cbind(OR = coef(m), confint(m))), 2)

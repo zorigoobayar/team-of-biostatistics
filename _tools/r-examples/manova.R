@@ -1,0 +1,5 @@
+df <- read.csv("emnelgiin-jishee.csv", fileEncoding = "UTF-8-BOM")
+df$group <- factor(df$group, levels = c("Плацебо", "Эм"))
+fit <- manova(cbind(sbp8, dbp8) ~ group, data = df)
+summary(fit, test = "Pillai")
+summary.aov(fit)

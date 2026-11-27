@@ -6,6 +6,7 @@ format:
     body-classes: page-methods
     css:
       - ../styles.css
+      - ../styles/site.css
       - ../styles/methods.css
       - ../styles/glossary.css
     include-after-body:
@@ -61,10 +62,51 @@ b <- tab["Тийм", "Үгүй"]; c <- tab["Үгүй", "Тийм"]
 binom.test(b, b + c)
 ```
 
-## Цэс дээр хийх (jamovi / SPSS)
+## Жишээ: бодит гаралт ба тайлбар
+
+::: {.mt-example-intro}
+**Асуулт.** Даралт хяналтад (< 140 мм м.у.б) орсон өвчтөний хувь эхэн ба 8 дахь долоо хоногт ялгаатай юу? (нэг хүмүүсийг хоёр удаа хэмжсэн)
+
+Доорх гаралтыг сайтын [жишээ өгөгдөл](../resources/data/emnelgiin-jishee.csv) дээр R 4.3.3-аар жинхэнээр нь ажиллуулж гаргасан. Кодыг хуулж өөрийн компьютер дээр ажиллуулбал яг ижил үр дүн гарна.
+:::
+
+```{.text .mt-console}
+> df <- read.csv("emnelgiin-jishee.csv", fileEncoding = "UTF-8-BOM")
+> before <- ifelse(df$sbp0 < 140, "Хяналттай", "Хяналтгүй")
+> after  <- ifelse(df$sbp8 < 140, "Хяналттай", "Хяналтгүй")
+> tab <- table(Өмнө = before, Дараа = after)
+> tab
+           Дараа
+Өмнө    Хяналтгүй Хяналттай
+  Хяналтгүй        94        60
+  Хяналттай         0        46
+> mcnemar.test(tab)
+
+	McNemar's Chi-squared test with continuity correction
+
+data:  tab
+McNemar's chi-squared = 58.017, df = 1, p-value = 2.599e-14
+```
+
+![Нийт 200 өвчтөнд даралт хяналтад орсон хувь, эхэнд ба 8 дахь долоо хоногт.](../images/methods/mcnemar-test.png){.mt-figure fig-alt="Нийт 200 өвчтөнд даралт хяналтад орсон хувь, эхэнд ба 8 дахь долоо хоногт."}
+
+### Гаралтыг хэрхэн унших вэ?
+
+::: {.mt-readout}
+1. `tab: Хяналтгүй→Хяналтгүй 94, Хяналтгүй→Хяналттай 60` Эхэндээ хяналтгүй байсан 154 хүний 60 нь хяналтад орсон.
+2. `Хяналттай→Хяналтгүй 0, Хяналттай→Хяналттай 46` Эхэндээ хяналттай байсан 46 хүний хэн нь ч хяналтаас гараагүй.
+3. `McNemar's chi-squared = 58.017` Тест зөвхөн хариу нь өөрчлөгдсөн хүмүүст (60 ба 0) тулгуурладаг: (|60 − 0| − 1)² / (60 + 0) = 58.0.
+4. `p-value = 2.599e-14` p < 0.001: хяналтад орсон хувь хоёр хэмжилтийн хооронд ялгаатай.
+:::
+
+::: {.mt-conclusion}
+**Дүгнэлт (тайлагнах хэлбэрээр).** Даралт хяналтад орсон өвчтөний хувь эхэн үед 23.0% (46/200) байсан бол 8 дахь долоо хоногт 53.0% (106/200) болж нэмэгдсэн (МакНемарын тест, χ²(1) = 58.0, p < 0.001; 60 хүн хяналтад орж, хэн нь ч хяналтаас гараагүй).
+:::
+
+## Цэс дээр хийх (SPSS)
 
 ```{=html}
-<div class="mt-menu"><div><b>jamovi</b> Analyses → Frequencies → Paired Samples (McNemar test).</div><div><b>SPSS</b> Analyze → Descriptive Statistics → Crosstabs → Statistics… → McNemar. Эсвэл Nonparametric Tests → Legacy Dialogs → 2 Related Samples → McNemar.</div></div>
+<div class="mt-menu"><div><b>SPSS</b> Analyze → Descriptive Statistics → Crosstabs → Statistics… → McNemar. Эсвэл Nonparametric Tests → Legacy Dialogs → 2 Related Samples → McNemar.</div></div>
 ```
 
 ## Үр дүнг тайлбарлах

@@ -1,0 +1,33 @@
+> df <- read.csv("emnelgiin-jishee.csv", fileEncoding = "UTF-8-BOM")
+> df$group <- factor(df$group, levels = c("Плацебо", "Эм"))
+> tab <- table(df$group, df$infection)
+> tab
+         
+          Тийм Үгүй
+  Плацебо   16   84
+  Эм         7   93
+> round(prop.table(tab, margin = 1) * 100, 1)
+         
+          Тийм Үгүй
+  Плацебо   16   84
+  Эм         7   93
+> chisq.test(tab)
+
+	Pearson's Chi-squared test with Yates' continuity correction
+
+data:  tab
+X-squared = 3.1442, df = 1, p-value = 0.0762
+
+> fisher.test(tab)
+
+	Fisher's Exact Test for Count Data
+
+data:  tab
+p-value = 0.0744
+alternative hypothesis: true odds ratio is not equal to 1
+95 percent confidence interval:
+ 0.9254042 7.6101897
+sample estimates:
+odds ratio 
+  2.519237 
+

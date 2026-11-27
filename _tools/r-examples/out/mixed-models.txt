@@ -1,0 +1,43 @@
+> df <- read.csv("emnelgiin-jishee.csv", fileEncoding = "UTF-8-BOM")
+> library(lme4); library(lmerTest)
+> long <- reshape(df[, c("id", "group", "sbp0", "sbp4", "sbp8", "sbp12")],
++                 direction = "long", varying = c("sbp0", "sbp4", "sbp8", "sbp12"),
++                 v.names = "sbp", timevar = "week", times = c(0, 4, 8, 12), idvar = "id")
+> long$group <- factor(long$group, levels = c("Плацебо", "Эм"))
+> long <- long[!is.na(long$sbp), ]                          # дутуу хэмжилтийг хасна, хүнийг биш
+> m1 <- lmer(sbp ~ group * week + (1 | id), data = long)
+> summary(m1)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: sbp ~ group * week + (1 | id)
+   Data: long
+
+REML criterion at convergence: 5861.5
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-2.8244 -0.5272  0.0782  0.5529  3.1032 
+
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ id       (Intercept) 143.46   11.978  
+ Residual              60.51    7.779  
+Number of obs: 778, groups:  id, 200
+
+Fixed effects:
+              Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept)  149.34434    1.36477 268.42103 109.428  < 2e-16 ***
+groupЭм       -3.46304    1.92970 268.23410  -1.795   0.0738 .  
+week          -0.49663    0.09047 578.45684  -5.489 6.04e-08 ***
+groupЭм:week  -0.65886    0.12715 578.08378  -5.182 3.04e-07 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) gropЭм week  
+groupЭм     -0.707              
+week        -0.381  0.269       
+groupЭм:wek  0.271 -0.381 -0.712
+> vc <- as.data.frame(VarCorr(m1))
+> vc$vcov[1] / sum(vc$vcov)                                  # ICC
+[1] 0.703343

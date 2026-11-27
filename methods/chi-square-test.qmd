@@ -6,6 +6,7 @@ format:
     body-classes: page-methods
     css:
       - ../styles.css
+      - ../styles/site.css
       - ../styles/methods.css
       - ../styles/glossary.css
     include-after-body:
@@ -67,10 +68,69 @@ effectsize::cramers_v(tab)           # r×c хүснэгтэд
 epitools::riskratio(tab)             # 2x2-т эрсдэлийн харьцаа (RR)
 ```
 
-## Цэс дээр хийх (jamovi / SPSS)
+## Жишээ: бодит гаралт ба тайлбар
+
+::: {.mt-example-intro}
+**Асуулт.** Хүндрэлийн халдвар эм уусан бүлэгт плацебо бүлгийнхээс бага давтамжтай байна уу?
+
+Доорх гаралтыг сайтын [жишээ өгөгдөл](../resources/data/emnelgiin-jishee.csv) дээр R 4.3.3-аар жинхэнээр нь ажиллуулж гаргасан. Кодыг хуулж өөрийн компьютер дээр ажиллуулбал яг ижил үр дүн гарна.
+:::
+
+```{.text .mt-console}
+> df <- read.csv("emnelgiin-jishee.csv", fileEncoding = "UTF-8-BOM")
+> df$group <- factor(df$group, levels = c("Плацебо", "Эм"))
+> tab <- table(df$group, df$infection)
+> tab
+         
+          Тийм Үгүй
+  Плацебо   16   84
+  Эм         7   93
+> round(prop.table(tab, margin = 1) * 100, 1)
+         
+          Тийм Үгүй
+  Плацебо   16   84
+  Эм         7   93
+> chisq.test(tab)
+
+	Pearson's Chi-squared test with Yates' continuity correction
+
+data:  tab
+X-squared = 3.1442, df = 1, p-value = 0.0762
+
+> fisher.test(tab)
+
+	Fisher's Exact Test for Count Data
+
+data:  tab
+p-value = 0.0744
+alternative hypothesis: true odds ratio is not equal to 1
+95 percent confidence interval:
+ 0.9254042 7.6101897
+sample estimates:
+odds ratio 
+  2.519237
+```
+
+![Бүлэг тус бүрт халдвар гарсан хувь.](../images/methods/chi-square-test.png){.mt-figure fig-alt="Бүлэг тус бүрт халдвар гарсан хувь."}
+
+### Гаралтыг хэрхэн унших вэ?
+
+::: {.mt-readout}
+1. `tab: 16 84 / 7 93` 2×2 хүснэгт: плацебо бүлэгт 16, эмийн бүлэгт 7 хүнд халдвар гарсан (бүлэг бүрт 100).
+2. `prop.table: 16 / 7` Мөрийн хувь: плацебо 16%, эм 7%.
+3. `X-squared = 3.1442, df = 1` Йейтсийн засвартай хи-квадрат. df = (2 − 1) × (2 − 1) = 1.
+4. `p-value = 0.0762` p > 0.05: харагдаж буй ялгаа (16% ба 7%) санамсаргүй хэлбэлзлээс үүдэлтэй байж болох тул статистик ач холбогдолгүй.
+5. `odds ratio 2.519237, 95% CI 0.9254 7.6102` Фишерийн тест: плацебо бүлэгт халдвар гарах odds эмийн бүлгийнхээс 2.5 дахин өндөр. Гэхдээ интервалд 1 орсон тул итгэлтэй хэлэх боломжгүй.
+:::
+
+::: {.mt-conclusion}
+**Дүгнэлт (тайлагнах хэлбэрээр).** Хүндрэлийн халдвар плацебо бүлэгт 16%, эмийн бүлэгт 7% тохиолдсон ч ялгаа статистик ач холбогдолгүй байв (χ²(1) = 3.14, p = 0.076; Фишерийн p = 0.074). Энэ нь "нөлөөгүй" гэсэн үг биш: түүвэр бага тул ялгааг батлах статистик чадал хүрэлцээгүй байж болно.
+:::
+
+## Цэс дээр хийх (SPSS)
 
 ```{=html}
-<div class="mt-menu"><div><b>jamovi</b> Analyses → Frequencies → Contingency Tables → Independent Samples (χ² test of association). Statistics хэсгээс Fisher's exact test, Expected counts-ийг сонгоно.</div><div><b>SPSS</b> Analyze → Descriptive Statistics → Crosstabs → Statistics… → Chi-square; Cells… → Expected, Row percentages.</div></div>
+<div class="mt-menu"><div><b>SPSS</b> Analyze → Descriptive Statistics → Crosstabs → Statistics… → Chi-square; Cells… → Expected, Row percentages.</div></div>
 ```
 
 ## Үр дүнг тайлбарлах

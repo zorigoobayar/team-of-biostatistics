@@ -6,6 +6,7 @@ format:
     body-classes: page-methods
     css:
       - ../styles.css
+      - ../styles/site.css
       - ../styles/methods.css
       - ../styles/glossary.css
     include-after-body:
@@ -59,10 +60,61 @@ cor.test(df$bmi, df$sbp, method = "spearman")   # Спирмен
 cor(df[, c("age", "bmi", "sbp", "glucose")], use = "complete.obs")
 ```
 
-## Цэс дээр хийх (jamovi / SPSS)
+## Жишээ: бодит гаралт ба тайлбар
+
+::: {.mt-example-intro}
+**Асуулт.** Биеийн жингийн индекс (БЖИ) нийт холестеринтэй хамааралтай юу?
+
+Доорх гаралтыг сайтын [жишээ өгөгдөл](../resources/data/emnelgiin-jishee.csv) дээр R 4.3.3-аар жинхэнээр нь ажиллуулж гаргасан. Кодыг хуулж өөрийн компьютер дээр ажиллуулбал яг ижил үр дүн гарна.
+:::
+
+```{.text .mt-console}
+> df <- read.csv("emnelgiin-jishee.csv", fileEncoding = "UTF-8-BOM")
+> cor.test(df$bmi, df$chol)                       # Пирсон
+
+	Pearson's product-moment correlation
+
+data:  df$bmi and df$chol
+t = 3.9617, df = 198, p-value = 0.0001038
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ 0.1374361 0.3949021
+sample estimates:
+      cor 
+0.2710095 
+
+> cor.test(df$bmi, df$chol, method = "spearman", exact = FALSE)
+
+	Spearman's rank correlation rho
+
+data:  df$bmi and df$chol
+S = 1030622, p-value = 0.001226
+alternative hypothesis: true rho is not equal to 0
+sample estimates:
+      rho 
+0.2270141
+```
+
+![БЖИ ба холестерин. Улаан шугам нь шугаман регрессийн шулуун.](../images/methods/correlation.png){.mt-figure fig-alt="БЖИ ба холестерин. Улаан шугам нь шугаман регрессийн шулуун."}
+
+### Гаралтыг хэрхэн унших вэ?
+
+::: {.mt-readout}
+1. `cor 0.2710095` Пирсоны r = 0.27: эерэг, сул–дунд зэргийн шугаман хамаарал. БЖИ өндөр хүмүүст холестерин өндөр байх хандлагатай.
+2. `t = 3.9617, df = 198` r тэгээс ялгаатай эсэхийг шалгах t статистик. df = n − 2.
+3. `p-value = 0.0001038` p < 0.001: хүн амд хамаарал байхгүй (ρ = 0) гэсэн тэг таамаглалыг няцаана.
+4. `95 percent confidence interval: 0.1374361 0.3949021` Хүн амын корреляци 0.14–0.39 хооронд байх магадлалтай.
+5. `rho 0.2270141, p-value = 0.001226` Спирмены эрэмбийн корреляци ойролцоо (0.23) гарсан нь үр дүн огцом утгаас хамаараагүйг харуулна.
+:::
+
+::: {.mt-conclusion}
+**Дүгнэлт (тайлагнах хэлбэрээр).** БЖИ нийт холестеринтэй сул–дунд зэргийн эерэг хамааралтай байв (Пирсоны r = 0.27, 95% CI 0.14; 0.39, p < 0.001; Спирмены ρ = 0.23). r² = 0.07 тул БЖИ холестерины хэлбэлзлийн ердөө 7%-ийг тайлбарлана.
+:::
+
+## Цэс дээр хийх (SPSS)
 
 ```{=html}
-<div class="mt-menu"><div><b>jamovi</b> Analyses → Regression → Correlation Matrix → Pearson / Spearman, Confidence intervals.</div><div><b>SPSS</b> Analyze → Correlate → Bivariate → Pearson / Spearman.</div></div>
+<div class="mt-menu"><div><b>SPSS</b> Analyze → Correlate → Bivariate → Pearson / Spearman.</div></div>
 ```
 
 ## Үр дүнг тайлбарлах

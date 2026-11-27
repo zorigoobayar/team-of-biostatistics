@@ -7,6 +7,7 @@ format:
     body-classes: page-methods
     css:
       - styles.css
+      - styles/site.css
       - styles/methods.css
       - styles/glossary.css
     include-after-body:

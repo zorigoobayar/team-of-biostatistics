@@ -6,6 +6,7 @@ format:
     body-classes: page-methods
     css:
       - ../styles.css
+      - ../styles/site.css
       - ../styles/methods.css
       - ../styles/glossary.css
     include-after-body:
@@ -61,10 +62,64 @@ FSA::dunnTest(lead ~ city, data = df, method = "holm")
 effectsize::rank_epsilon_squared(lead ~ city, data = df)
 ```
 
-## Цэс дээр хийх (jamovi / SPSS)
+## Жишээ: бодит гаралт ба тайлбар
+
+::: {.mt-example-intro}
+**Асуулт.** CRP (хазайлттай тархалттай үрэвслийн маркер) гурван хотын өвчтөнүүдэд ялгаатай юу?
+
+Доорх гаралтыг сайтын [жишээ өгөгдөл](../resources/data/emnelgiin-jishee.csv) дээр R 4.3.3-аар жинхэнээр нь ажиллуулж гаргасан. Кодыг хуулж өөрийн компьютер дээр ажиллуулбал яг ижил үр дүн гарна.
+:::
+
+```{.text .mt-console}
+> df <- read.csv("emnelgiin-jishee.csv", fileEncoding = "UTF-8-BOM")
+> aggregate(crp ~ city, data = df, FUN = function(x) c(n = length(x), median = median(x), IQR = IQR(x)))
+         city   crp.n crp.median crp.IQR
+1      Дархан  37.000      1.100   1.000
+2 Улаанбаатар 128.000      2.700   3.025
+3     Эрдэнэт  35.000      2.100   2.650
+> kruskal.test(crp ~ city, data = df)
+
+	Kruskal-Wallis rank sum test
+
+data:  crp by city
+Kruskal-Wallis chi-squared = 29.362, df = 2, p-value = 4.208e-07
+
+> pairwise.wilcox.test(df$crp, df$city, p.adjust.method = "holm", exact = FALSE)
+
+	Pairwise comparisons using Wilcoxon rank sum test with continuity correction 
+
+data:  df$crp and df$city 
+
+            Дархан  Улаанбаатар
+Улаанбаатар 2.1e-07 -          
+Эрдэнэт     0.00082 0.31997    
+
+P value adjustment method: holm
+```
+
+![Хотоор CRP-ийн тархалт (лог шкал). Тархалт баруун тийш хазайлттай тул ANOVA-гийн оронд эрэмбийн тест хэрэглэв.](../images/methods/kruskal-wallis.png){.mt-figure fig-alt="Хотоор CRP-ийн тархалт (лог шкал). Тархалт баруун тийш хазайлттай тул ANOVA-гийн оронд эрэмбийн тест хэрэглэв."}
+
+### Гаралтыг хэрхэн унших вэ?
+
+::: {.mt-readout}
+1. `crp.median 1.100 / 2.700 / 2.100` Медиан CRP: Дархан 1.1, Улаанбаатар 2.7, Эрдэнэт 2.1 мг/л.
+2. `Kruskal-Wallis chi-squared = 29.362, df = 2` H статистик. df = хотын тоо − 1.
+3. `p-value = 4.208e-07` p < 0.001: ядаж нэг хотын CRP-ийн тархалт бусдаасаа ялгаатай.
+4. `pairwise: Улаанбаатар–Дархан 2.1e-07, Эрдэнэт–Дархан 0.00082, Эрдэнэт–Улаанбаатар 0.31997` Холмын засвартай хос харьцуулалт: Дархан нөгөө хоёр хотоос бага, Улаанбаатар ба Эрдэнэт ялгаагүй.
+:::
+
+::: {.mt-note}
+Хуудасны дээрх кодод post-hoc тестийг <code>FSA::dunnTest()</code>-ээр харуулсан. Энд R-ийн суурь багцын <code>pairwise.wilcox.test()</code>-ийг Холмын засвартай хэрэглэсэн. Аль аль нь зөв арга.
+:::
+
+::: {.mt-conclusion}
+**Дүгнэлт (тайлагнах хэлбэрээр).** CRP хотуудын хооронд ялгаатай байв (Крускал-Валлисын тест, H(2) = 29.4, p < 0.001). Хос харьцуулалтаар Дарханы өвчтөнүүдийн CRP (медиан 1.1 мг/л) Улаанбаатар (2.7; p_adj < 0.001) болон Эрдэнэтийнхээс (2.1; p_adj < 0.001) бага байсан бол Улаанбаатар ба Эрдэнэт ялгаагүй (p_adj = 0.32).
+:::
+
+## Цэс дээр хийх (SPSS)
 
 ```{=html}
-<div class="mt-menu"><div><b>jamovi</b> Analyses → ANOVA → One-Way ANOVA: Non-Parametric (Kruskal-Wallis) → DSCF pairwise comparisons-ийг сонгоно.</div><div><b>SPSS</b> Analyze → Nonparametric Tests → Independent Samples → Kruskal-Wallis (Pairwise comparisons автоматаар гарна). Эсвэл Legacy Dialogs → K Independent Samples.</div></div>
+<div class="mt-menu"><div><b>SPSS</b> Analyze → Nonparametric Tests → Independent Samples → Kruskal-Wallis (Pairwise comparisons автоматаар гарна). Эсвэл Legacy Dialogs → K Independent Samples.</div></div>
 ```
 
 ## Үр дүнг тайлбарлах

@@ -1,0 +1,25 @@
+> df <- read.csv("emnelgiin-jishee.csv", fileEncoding = "UTF-8-BOM")
+> cor.test(df$bmi, df$chol)                       # Пирсон
+
+	Pearson's product-moment correlation
+
+data:  df$bmi and df$chol
+t = 3.9617, df = 198, p-value = 0.0001038
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ 0.1374361 0.3949021
+sample estimates:
+      cor 
+0.2710095 
+
+> cor.test(df$bmi, df$chol, method = "spearman", exact = FALSE)
+
+	Spearman's rank correlation rho
+
+data:  df$bmi and df$chol
+S = 1030622, p-value = 0.001226
+alternative hypothesis: true rho is not equal to 0
+sample estimates:
+      rho 
+0.2270141 
+

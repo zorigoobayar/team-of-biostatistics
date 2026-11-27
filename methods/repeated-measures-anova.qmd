@@ -6,6 +6,7 @@ format:
     body-classes: page-methods
     css:
       - ../styles.css
+      - ../styles/site.css
       - ../styles/methods.css
       - ../styles/glossary.css
     include-after-body:
@@ -69,10 +70,61 @@ aov_ez(id = "id", dv = "hba1c", within = "month",
 friedman.test(hba1c ~ month | id, data = df)
 ```
 
-## Цэс дээр хийх (jamovi / SPSS)
+## Жишээ: бодит гаралт ба тайлбар
+
+::: {.mt-example-intro}
+**Асуулт.** Систолын даралт 0, 4, 8, 12 дахь долоо хоногт өөрчлөгдсөн үү, өөрчлөлт нь эм ба плацебо бүлэгт ялгаатай юу? (хүн бүр 4 хэмжилттэй)
+
+Доорх гаралтыг сайтын [жишээ өгөгдөл](../resources/data/emnelgiin-jishee.csv) дээр R 4.3.3-аар жинхэнээр нь ажиллуулж гаргасан. Кодыг хуулж өөрийн компьютер дээр ажиллуулбал яг ижил үр дүн гарна.
+:::
+
+```{.text .mt-console}
+> df <- read.csv("emnelgiin-jishee.csv", fileEncoding = "UTF-8-BOM")
+> long <- reshape(df[, c("id", "group", "sbp0", "sbp4", "sbp8", "sbp12")],
++                 direction = "long", varying = c("sbp0", "sbp4", "sbp8", "sbp12"),
++                 v.names = "sbp", timevar = "week", times = c(0, 4, 8, 12), idvar = "id")
+> long$week <- factor(long$week)
+> full <- long[long$id %in% df$id[!is.na(df$sbp12)], ]     # бүрэн өгөгдөлтэй хүмүүс
+> m <- afex::aov_ez(id = "id", dv = "sbp", within = "week", between = "group", data = full)
+> m
+Anova Table (Type 3 tests)
+
+Response: sbp
+      Effect           df    MSE         F  ges p.value
+1      group       1, 176 627.10 19.89 *** .081   <.001
+2       week 2.39, 420.25  76.14 56.68 *** .067   <.001
+3 group:week 2.39, 420.25  76.14  9.54 *** .012   <.001
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘+’ 0.1 ‘ ’ 1
+
+Sphericity correction method: GG 
+> summary(m)$sphericity.tests
+           Test statistic    p-value
+week              0.53894 1.0869e-21
+group:week        0.53894 1.0869e-21
+```
+
+![Бүлэг тус бүрийн дундаж даралт ба 95% CI, хугацаагаар. Шугамууд зэрэгцээ бус байгаа нь бүлэг × хугацааны харилцан үйлчлэлийг илтгэнэ.](../images/methods/repeated-measures-anova.png){.mt-figure fig-alt="Бүлэг тус бүрийн дундаж даралт ба 95% CI, хугацаагаар. Шугамууд зэрэгцээ бус байгаа нь бүлэг × хугацааны харилцан үйлчлэлийг илтгэнэ."}
+
+### Гаралтыг хэрхэн унших вэ?
+
+::: {.mt-readout}
+1. `full <- ... !is.na(df$sbp12)` Давтан хэмжилтийн ANOVA бүрэн өгөгдөл шаарддаг тул 12 дахь долоо хоногт ирээгүй 22 хүнийг бүхэлд нь хассан (178 үлдсэн).
+2. `Mauchly: week 0.53894, p-value 1.0869e-21` Моклийн тест: сферик байдлын таамаглал зөрчигдсөн (p < 0.001). Тиймээс Гринхаус-Гайссерын (GG) засварыг хэрэглэнэ.
+3. `week df 2.39, 420.25` GG засвар чөлөөний зэргийг 3 ба 528-аас 2.39 ба 420.25 болгон багасгасан.
+4. `week F 56.68, p < .001` Хугацааны гол нөлөө: бүх хүмүүсийн даралт хугацааны явцад өөрчлөгдсөн.
+5. `group:week F 9.54, p < .001` Хамгийн чухал мөр: даралтын өөрчлөлтийн хурд хоёр бүлэгт ялгаатай. Эмийн бүлэгт илүү хурдан буурсан.
+6. `ges .081 / .067 / .012` Ерөнхийлсөн η² (нөлөөний хэмжээ): бүлэг 8%, хугацаа 7%, харилцан үйлчлэл 1%.
+:::
+
+::: {.mt-conclusion}
+**Дүгнэлт (тайлагнах хэлбэрээр).** Бүрэн өгөгдөлтэй 178 өвчтөнд хийсэн холимог давтан хэмжилтийн ANOVA-аар бүлэг × хугацааны харилцан үйлчлэл ач холбогдолтой байв (Гринхаус-Гайссерын засвартай F(2.39, 420.3) = 9.54, p < 0.001, ges = 0.012). Өөрөөр хэлбэл даралт эмийн бүлэгт плацебо бүлгийнхээс илүү хурдан буурсан.
+:::
+
+## Цэс дээр хийх (SPSS)
 
 ```{=html}
-<div class="mt-menu"><div><b>jamovi</b> Analyses → ANOVA → Repeated Measures ANOVA → Assumption Checks: Sphericity tests, Sphericity corrections (Greenhouse-Geisser); Post Hoc Tests.</div><div><b>SPSS</b> Analyze → General Linear Model → Repeated Measures → хүчин зүйл (month, 3 түвшин) тодорхойлно → EM Means… → Compare main effects (Bonferroni).</div></div>
+<div class="mt-menu"><div><b>SPSS</b> Analyze → General Linear Model → Repeated Measures → хүчин зүйл (month, 3 түвшин) тодорхойлно → EM Means… → Compare main effects (Bonferroni).</div></div>
 ```
 
 ## Үр дүнг тайлбарлах

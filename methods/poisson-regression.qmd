@@ -6,6 +6,7 @@ format:
     body-classes: page-methods
     css:
       - ../styles.css
+      - ../styles/site.css
       - ../styles/methods.css
       - ../styles/glossary.css
     include-after-body:
@@ -70,10 +71,78 @@ broom::tidy(m_nb, conf.int = TRUE, exponentiate = TRUE)
 lmtest::coeftest(m_p, vcov = sandwich::vcovHC(m_p, type = "HC0"))
 ```
 
-## Цэс дээр хийх (jamovi / SPSS)
+## Жишээ: бодит гаралт ба тайлбар
+
+::: {.mt-example-intro}
+**Асуулт.** Хот ба тамхидалт амьсгалын замын цочмог халдварын жилийн давтамжтай (түвшинтэй) холбоотой юу? Ажигласан хугацаа хүн бүрт өөр тул offset хэрэглэнэ.
+
+Доорх гаралтыг сайтын [жишээ өгөгдөл](../resources/data/emnelgiin-jishee.csv) дээр R 4.3.3-аар жинхэнээр нь ажиллуулж гаргасан. Кодыг хуулж өөрийн компьютер дээр ажиллуулбал яг ижил үр дүн гарна.
+:::
+
+```{.text .mt-console}
+> df <- read.csv("emnelgiin-jishee.csv", fileEncoding = "UTF-8-BOM")
+> df$smoker <- factor(df$smoker, levels = c("Үгүй", "Тийм"))
+> m_p <- glm(ari ~ city + smoker + offset(log(years)), family = poisson, data = df)
+> sum(residuals(m_p, type = "pearson")^2) / df.residual(m_p)   # хэт тархалтын харьцаа
+[1] 2.345515
+> m_nb <- MASS::glm.nb(ari ~ city + smoker + offset(log(years)), data = df)
+> summary(m_nb)
+
+Call:
+MASS::glm.nb(formula = ari ~ city + smoker + offset(log(years)), 
+    data = df, init.theta = 1.711281813, link = log)
+
+Coefficients:
+                Estimate Std. Error z value Pr(>|z|)   
+(Intercept)       0.4726     0.1721   2.746  0.00603 **
+cityУлаанбаатар   0.2185     0.1912   1.143  0.25299   
+cityЭрдэнэт      -0.3109     0.2540  -1.224  0.22090   
+smokerТийм        0.1489     0.1657   0.899  0.36883   
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for Negative Binomial(1.7113) family taken to be 1)
+
+    Null deviance: 230.26  on 199  degrees of freedom
+Residual deviance: 222.05  on 196  degrees of freedom
+AIC: 799.5
+
+Number of Fisher Scoring iterations: 1
+
+
+              Theta:  1.711 
+          Std. Err.:  0.335 
+
+ 2 x log-likelihood:  -789.504 
+> round(exp(cbind(IRR = coef(m_nb), confint.default(m_nb))), 2)
+                 IRR 2.5 % 97.5 %
+(Intercept)     1.60  1.14   2.25
+cityУлаанбаатар 1.24  0.86   1.81
+cityЭрдэнэт     0.73  0.45   1.21
+smokerТийм      1.16  0.84   1.61
+```
+
+![Халдварын тооны ажиглагдсан тархалт (баганууд) ба Пуассон тархалтын хүлээгдэх утга (улаан). Ажиглагдсан тархалт илүү өргөн буюу хэт тархалттай.](../images/methods/poisson-regression.png){.mt-figure fig-alt="Халдварын тооны ажиглагдсан тархалт (баганууд) ба Пуассон тархалтын хүлээгдэх утга (улаан). Ажиглагдсан тархалт илүү өргөн буюу хэт тархалттай."}
+
+### Гаралтыг хэрхэн унших вэ?
+
+::: {.mt-readout}
+1. `[1] 2.345515` Пуассон загварын хэт тархалтын харьцаа 2.3 ≫ 1. Пуассоны "дундаж = дисперс" таамаглал зөрчигдсөн тул сөрөг биномын загвар руу шилжив.
+2. `Theta: 1.711` Сөрөг биномын нэмэлт параметр: бага байх тусам хэт тархалт их.
+3. `cityУлаанбаатар 0.2185 (p 0.253)` Дарханыг (лавлах бүлэг) бодвол Улаанбаатарт халдварын түвшин өндөр байх хандлагатай ч ач холбогдолгүй.
+4. `IRR 1.24 (0.86; 1.81)` Улаанбаатарт түвшин 24%-иар өндөр гэсэн тооцоо, гэхдээ CI 1-ийг агуулсан.
+5. `smokerТийм IRR 1.16 (0.84; 1.61)` Тамхи татдаг хүмүүст 16%-иар өндөр гэсэн тооцоо, ач холбогдолгүй.
+6. `(Intercept) IRR 1.60` Лавлах бүлгийн (Дархан, тамхи татдаггүй) жилийн дундаж халдвар ≈ 1.6 удаа.
+:::
+
+::: {.mt-conclusion}
+**Дүгнэлт (тайлагнах хэлбэрээр).** Пуассон загварт хэт тархалт илэрсэн (харьцаа 2.35) тул сөрөг биномын регресс хэрэглэв. Хот (Улаанбаатар ба Дархан: IRR = 1.24, 95% CI 0.86; 1.81) болон тамхидалт (IRR = 1.16, 95% CI 0.84; 1.61) нь халдварын түвшинтэй ач холбогдолтой холбоогүй байв.
+:::
+
+## Цэс дээр хийх (SPSS)
 
 ```{=html}
-<div class="mt-menu"><div><b>jamovi</b> GAMLj модулийг суулгана → Linear Models → Generalized Linear Models → Poisson (эсвэл Negative Binomial).</div><div><b>SPSS</b> Analyze → Generalized Linear Models → Generalized Linear Models → Type of Model: Poisson loglinear (эсвэл Negative binomial with log link). Offset-ийг Predictors хэсэгт тохируулна.</div></div>
+<div class="mt-menu"><div><b>SPSS</b> Analyze → Generalized Linear Models → Generalized Linear Models → Type of Model: Poisson loglinear (эсвэл Negative binomial with log link). Offset-ийг Predictors хэсэгт тохируулна.</div></div>
 ```
 
 ## Үр дүнг тайлбарлах

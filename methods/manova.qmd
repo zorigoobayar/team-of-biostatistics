@@ -6,6 +6,7 @@ format:
     body-classes: page-methods
     css:
       - ../styles.css
+      - ../styles/site.css
       - ../styles/methods.css
       - ../styles/glossary.css
     include-after-body:
@@ -56,10 +57,59 @@ summary(m, test = "Pillai")      # олон хэмжээст тест
 summary.aov(m)                   # үр дагавар тус бүрийн ANOVA
 ```
 
-## Цэс дээр хийх (jamovi / SPSS)
+## Жишээ: бодит гаралт ба тайлбар
+
+::: {.mt-example-intro}
+**Асуулт.** Эм систол ба диастол даралтад хамтдаа нөлөөлсөн үү?
+
+Доорх гаралтыг сайтын [жишээ өгөгдөл](../resources/data/emnelgiin-jishee.csv) дээр R 4.3.3-аар жинхэнээр нь ажиллуулж гаргасан. Кодыг хуулж өөрийн компьютер дээр ажиллуулбал яг ижил үр дүн гарна.
+:::
+
+```{.text .mt-console}
+> df <- read.csv("emnelgiin-jishee.csv", fileEncoding = "UTF-8-BOM")
+> df$group <- factor(df$group, levels = c("Плацебо", "Эм"))
+> fit <- manova(cbind(sbp8, dbp8) ~ group, data = df)
+> summary(fit, test = "Pillai")
+           Df   Pillai approx F num Df den Df    Pr(>F)    
+group       1 0.093211   10.125      2    197 6.522e-05 ***
+Residuals 198                                              
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+> summary.aov(fit)
+ Response sbp8 :
+             Df Sum Sq Mean Sq F value    Pr(>F)    
+group         1   4409  4408.6  20.292 1.135e-05 ***
+Residuals   198  43017   217.3                      
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+ Response dbp8 :
+             Df  Sum Sq Mean Sq F value  Pr(>F)  
+group         1   612.5  612.50  6.7227 0.01023 *
+Residuals   198 18039.5   91.11                  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+```
+
+![Систол ба диастол даралт. Том ромбо нь бүлэг бүрийн хоёр хэмжээст дундаж.](../images/methods/manova.png){.mt-figure fig-alt="Систол ба диастол даралт. Том ромбо нь бүлэг бүрийн хоёр хэмжээст дундаж."}
+
+### Гаралтыг хэрхэн унших вэ?
+
+::: {.mt-readout}
+1. `Pillai 0.093211` Пиллайн мөр (trace): бүлэг хоёр үр дагаврын хамтын хэлбэлзлийн 9%-ийг тайлбарлаж байна. Бусад статистикаас бат бөх.
+2. `approx F 10.125, num Df 2, den Df 197` Пиллайн статистикийг F тархалт руу хөрвүүлсэн утга. num Df = үр дагаврын тоо.
+3. `Pr(>F) 6.522e-05 ***` p < 0.001: хоёр үр дагаврыг хамтад нь авч үзэхэд бүлгүүд ялгаатай.
+4. `Response sbp8: F 20.292, p 1.135e-05; Response dbp8: F 6.7227, p 0.01023` Үр дагавар тус бүрийн ANOVA: систол (p < 0.001) ба диастол (p = 0.010) хоёулаа ялгаатай. Олон тест тул Бонферронигоор α = 0.025 гэж үзэхэд ч хоёулаа ач холбогдолтой.
+:::
+
+::: {.mt-conclusion}
+**Дүгнэлт (тайлагнах хэлбэрээр).** Эм систол ба диастол даралтад хамтдаа нөлөөлсөн (MANOVA, Pillai = 0.093, F(2, 197) = 10.1, p < 0.001). Дагалдах ANOVA-аар систол (F = 20.3, p < 0.001) ба диастол (F = 6.7, p = 0.010) хоёулаа бүлгүүдэд ялгаатай байв.
+:::
+
+## Цэс дээр хийх (SPSS)
 
 ```{=html}
-<div class="mt-menu"><div><b>jamovi</b> Analyses → ANOVA → MANCOVA → Dependent Variables-д хэд хэдэн үр дагаврыг оруулна.</div><div><b>SPSS</b> Analyze → General Linear Model → Multivariate.</div></div>
+<div class="mt-menu"><div><b>SPSS</b> Analyze → General Linear Model → Multivariate.</div></div>
 ```
 
 ## Үр дүнг тайлбарлах

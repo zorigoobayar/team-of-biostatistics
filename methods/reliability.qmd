@@ -6,6 +6,7 @@ format:
     body-classes: page-methods
     css:
       - ../styles.css
+      - ../styles/site.css
       - ../styles/methods.css
       - ../styles/glossary.css
     include-after-body:
@@ -72,10 +73,74 @@ plot((df$sbp_home + df$sbp_clinic) / 2, d,
 abline(h = c(m, m - 1.96 * s, m + 1.96 * s), lty = c(1, 2, 2))
 ```
 
-## Цэс дээр хийх (jamovi / SPSS)
+## Жишээ: бодит гаралт ба тайлбар
+
+::: {.mt-example-intro}
+**Асуулт.** (1) Хоёр эмч ЭКГ-ээр зүүн ховдлын томролыг (тийм/үгүй) хэр тохиролтой үнэлж байна вэ? (2) Гэрийн даралтын аппарат эмнэлгийнхтэй хэр тохирч байна вэ?
+
+Доорх гаралтыг сайтын [жишээ өгөгдөл](../resources/data/emnelgiin-jishee.csv) дээр R 4.3.3-аар жинхэнээр нь ажиллуулж гаргасан. Кодыг хуулж өөрийн компьютер дээр ажиллуулбал яг ижил үр дүн гарна.
+:::
+
+```{.text .mt-console}
+> df <- read.csv("emnelgiin-jishee.csv", fileEncoding = "UTF-8-BOM")
+> table(Үнэлэгч1 = df$lvh_r1, Үнэлэгч2 = df$lvh_r2)
+        Үнэлэгч2
+Үнэлэгч1 Тийм Үгүй
+    Тийм   73   24
+    Үгүй   18   85
+> psych::cohen.kappa(cbind(df$lvh_r1, df$lvh_r2))
+Call: cohen.kappa1(x = x, w = w, n.obs = n.obs, alpha = alpha, levels = levels)
+
+Cohen Kappa and Weighted Kappa correlation coefficients and confidence boundaries 
+                 lower estimate upper
+unweighted kappa  0.47     0.58  0.69
+weighted kappa    0.47     0.58  0.69
+
+ Number of subjects = 200 
+> psych::ICC(df[, c("sbp8_home", "sbp8")])
+Call: psych::ICC(x = df[, c("sbp8_home", "sbp8")])
+
+Intraclass correlation coefficients 
+                         type  ICC  F df1 df2       p lower bound upper bound
+Single_raters_absolute   ICC1 0.93 28 199 200 9.5e-90        0.91        0.95
+Single_random_raters     ICC2 0.93 35 199 199 5.0e-98        0.87        0.96
+Single_fixed_raters      ICC3 0.94 35 199 199 5.0e-98        0.93        0.96
+Average_raters_absolute ICC1k 0.96 28 199 200 9.5e-90        0.95        0.97
+Average_random_raters   ICC2k 0.96 35 199 199 5.0e-98        0.93        0.98
+Average_fixed_raters    ICC3k 0.97 35 199 199 5.0e-98        0.96        0.98
+
+ Number of subjects = 200     Number of Judges =  2
+See the help file for a discussion of the other 4 McGraw and Wong estimates,
+> d <- df$sbp8_home - df$sbp8
+> round(c(bias = mean(d), lower = mean(d) - 1.96 * sd(d), upper = mean(d) + 1.96 * sd(d)), 1)
+ bias lower upper 
+ -2.6 -12.9   7.7
+```
+
+![Bland–Altman график: хоёр аргын зөрүүг дундажтай нь харьцуулав. Улаан тасархай шугам нь 95% тохирлын хязгаар.](../images/methods/reliability.png){.mt-figure fig-alt="Bland–Altman график: хоёр аргын зөрүүг дундажтай нь харьцуулав. Улаан тасархай шугам нь 95% тохирлын хязгаар."}
+
+### Гаралтыг хэрхэн унших вэ?
+
+::: {.mt-readout}
+1. `table: 73 24 / 18 85` Хоёр үнэлэгч 73 + 85 = 158 тохиолдолд (79%) санал нийлсэн, 42 тохиолдолд зөрсөн.
+2. `unweighted kappa 0.58 (0.47; 0.69)` Санамсаргүй тохиролыг хассан тохирол κ = 0.58: дунд зэрэг (0.41–0.60). Тохирлын 79% нь өндөр мэт боловч зарим нь санамсаргүй тохирол юм.
+3. `ICC2 0.93 (0.87; 0.96)` Хоёр аргын тохирол (two-way random, absolute agreement, single): ICC = 0.93 буюу маш сайн.
+4. `ICC3 0.94` Тогтвортой байдал (consistency): системтэй зөрүүг тооцохгүй тул ICC2-оос бага зэрэг өндөр.
+5. `bias -2.6, lower -12.9, upper 7.7` Гэрийн аппарат дунджаар 2.6 мм м.у.б-аар бага хэмжинэ. Хүмүүсийн 95%-д зөрүү −12.9-аас +7.7 хооронд байна.
+:::
+
+::: {.mt-note}
+Хуудасны дээрх кодод <code>irr</code> багцыг харуулсан. Энд <code>psych</code> багцын <code>cohen.kappa()</code> ба <code>ICC()</code> функцийг хэрэглэсэн. Тооцоо ижил.
+:::
+
+::: {.mt-conclusion}
+**Дүгнэлт (тайлагнах хэлбэрээр).** Хоёр эмчийн ЭКГ-ийн үнэлгээний тохирол 79% байсан бөгөөд дунд зэргийн түвшинд байв (Cohen-ийн κ = 0.58, 95% CI 0.47; 0.69). Гэрийн ба эмнэлгийн даралтын аппаратын тохирол маш сайн байв (ICC(2,1) = 0.93, 95% CI 0.87; 0.96). Дундаж зөрүү −2.6 мм м.у.б, 95% тохирлын хязгаар −12.9; 7.7.
+:::
+
+## Цэс дээр хийх (SPSS)
 
 ```{=html}
-<div class="mt-menu"><div><b>jamovi</b> Analyses → Frequencies → Contingency Tables → Independent Samples → Statistics: Cohen's kappa (хувилбараас хамаарна). ICC ба Bland–Altman-д: seolmatrix эсвэл blandr модуль.</div><div><b>SPSS</b> Kappa: Analyze → Descriptive Statistics → Crosstabs → Statistics… → Kappa. ICC: Analyze → Scale → Reliability Analysis → Statistics… → Intraclass correlation coefficient.</div></div>
+<div class="mt-menu"><div><b>SPSS</b> Kappa: Analyze → Descriptive Statistics → Crosstabs → Statistics… → Kappa. ICC: Analyze → Scale → Reliability Analysis → Statistics… → Intraclass correlation coefficient.</div></div>
 ```
 
 ## Үр дүнг тайлбарлах

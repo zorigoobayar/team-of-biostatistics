@@ -1,0 +1,24 @@
+> df <- read.csv("emnelgiin-jishee.csv", fileEncoding = "UTF-8-BOM")
+> df$group <- factor(df$group, levels = c("Плацебо", "Эм"))
+> fit <- manova(cbind(sbp8, dbp8) ~ group, data = df)
+> summary(fit, test = "Pillai")
+           Df   Pillai approx F num Df den Df    Pr(>F)    
+group       1 0.093211   10.125      2    197 6.522e-05 ***
+Residuals 198                                              
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+> summary.aov(fit)
+ Response sbp8 :
+             Df Sum Sq Mean Sq F value    Pr(>F)    
+group         1   4409  4408.6  20.292 1.135e-05 ***
+Residuals   198  43017   217.3                      
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+ Response dbp8 :
+             Df  Sum Sq Mean Sq F value  Pr(>F)  
+group         1   612.5  612.50  6.7227 0.01023 *
+Residuals   198 18039.5   91.11                  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+

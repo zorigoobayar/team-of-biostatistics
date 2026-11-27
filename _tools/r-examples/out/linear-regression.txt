@@ -1,0 +1,33 @@
+> df <- read.csv("emnelgiin-jishee.csv", fileEncoding = "UTF-8-BOM")
+> df$group <- factor(df$group, levels = c("Плацебо", "Эм"))
+> m <- lm(sbp8 ~ group + age + sbp0 + bmi, data = df)
+> summary(m)
+
+Call:
+lm(formula = sbp8 ~ group + age + sbp0 + bmi, data = df)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-26.0763  -6.5245   0.4842   6.8075  21.4508 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  3.51427    9.44715   0.372    0.710    
+groupЭм     -7.73421    1.30377  -5.932 1.34e-08 ***
+age         -0.05260    0.05910  -0.890    0.375    
+sbp0         0.93554    0.05332  17.547  < 2e-16 ***
+bmi          0.14470    0.14593   0.992    0.323    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 9.12 on 195 degrees of freedom
+Multiple R-squared:  0.658,	Adjusted R-squared:  0.651 
+F-statistic: 93.79 on 4 and 195 DF,  p-value: < 2.2e-16
+
+> round(confint(m), 2)
+             2.5 % 97.5 %
+(Intercept) -15.12  22.15
+groupЭм     -10.31  -5.16
+age          -0.17   0.06
+sbp0          0.83   1.04
+bmi          -0.14   0.43

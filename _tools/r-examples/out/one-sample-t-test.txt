@@ -1,0 +1,17 @@
+> df <- read.csv("emnelgiin-jishee.csv", fileEncoding = "UTF-8-BOM")
+> mean(df$bmi); sd(df$bmi)
+[1] 27.645
+[1] 4.476648
+> t.test(df$bmi, mu = 25)
+
+	One Sample t-test
+
+data:  df$bmi
+t = 8.3558, df = 199, p-value = 1.105e-14
+alternative hypothesis: true mean is not equal to 25
+95 percent confidence interval:
+ 27.02078 28.26922
+sample estimates:
+mean of x 
+   27.645 
+

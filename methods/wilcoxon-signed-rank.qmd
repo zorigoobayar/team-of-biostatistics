@@ -6,6 +6,7 @@ format:
     body-classes: page-methods
     css:
       - ../styles.css
+      - ../styles/site.css
       - ../styles/methods.css
       - ../styles/glossary.css
     include-after-body:
@@ -62,10 +63,52 @@ wilcox.test(df$pain0, mu = 5)
 effectsize::rank_biserial(df$pain6, df$pain0, paired = TRUE)
 ```
 
-## Цэс дээр хийх (jamovi / SPSS)
+## Жишээ: бодит гаралт ба тайлбар
+
+::: {.mt-example-intro}
+**Асуулт.** Нийт өвчтөнүүдийн өвдөлтийн оноо эхэн үеэс 6 дахь долоо хоног хүртэл буурсан уу? (нэг хүмүүс, дараалсан оноо)
+
+Доорх гаралтыг сайтын [жишээ өгөгдөл](../resources/data/emnelgiin-jishee.csv) дээр R 4.3.3-аар жинхэнээр нь ажиллуулж гаргасан. Кодыг хуулж өөрийн компьютер дээр ажиллуулбал яг ижил үр дүн гарна.
+:::
+
+```{.text .mt-console}
+> df <- read.csv("emnelgiin-jishee.csv", fileEncoding = "UTF-8-BOM")
+> summary(df$pain6 - df$pain0)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  -7.00   -2.00   -1.00   -1.44    0.00    2.00 
+> wilcox.test(df$pain6, df$pain0, paired = TRUE, conf.int = TRUE, exact = FALSE)
+
+	Wilcoxon signed rank test with continuity correction
+
+data:  df$pain6 and df$pain0
+V = 673, p-value < 2.2e-16
+alternative hypothesis: true location shift is not equal to 0
+95 percent confidence interval:
+ -2.000030 -1.500043
+sample estimates:
+(pseudo)median 
+     -1.999991
+```
+
+![Хүн бүрийн өвдөлтийн өөрчлөлт. Хөх нь буурсан, саарал нь өөрчлөгдөөгүй, улаан нь нэмэгдсэн хүмүүс.](../images/methods/wilcoxon-signed-rank.png){.mt-figure fig-alt="Хүн бүрийн өвдөлтийн өөрчлөлт. Хөх нь буурсан, саарал нь өөрчлөгдөөгүй, улаан нь нэмэгдсэн хүмүүс."}
+
+### Гаралтыг хэрхэн унших вэ?
+
+::: {.mt-readout}
+1. `summary: Median -1.00, Mean -1.44, Max. 2.00` Зөрүүний медиан −1 оноо. Зарим хүнд өвдөлт 2 оноо хүртэл нэмэгдсэн ч ихэнх нь буурсан.
+2. `V = 673` Эерэг зөрүүтэй (өвдөлт нэмэгдсэн) хүмүүсийн эрэмбийн нийлбэр. Бага байх нь өвдөлт ихэвчлэн буурсныг илтгэнэ.
+3. `p-value < 2.2e-16` p < 0.001: зөрүүний медиан тэг гэсэн тэг таамаглалыг няцаана.
+4. `(pseudo)median -1.999991, 95% CI -2.00003 -1.50004` Зөрүүний төв утгын тооцоо ≈ −2 оноо. Тэг зөрүүтэй хүмүүсийг тест хасдаг тул энгийн медианаас (−1) ялгаатай байж болно.
+:::
+
+::: {.mt-conclusion}
+**Дүгнэлт (тайлагнах хэлбэрээр).** Өвдөлтийн оноо 6 долоо хоногийн дараа буурсан (Уилкоксоны тэмдэгт эрэмбийн тест, V = 673, p < 0.001; зөрүүний псевдомедиан −2.0, 95% CI −2.0; −1.5; n = 200).
+:::
+
+## Цэс дээр хийх (SPSS)
 
 ```{=html}
-<div class="mt-menu"><div><b>jamovi</b> Analyses → T-Tests → Paired Samples T-Test → Tests: Wilcoxon rank. Нэг бүлэгт: One Sample T-Test → Wilcoxon rank.</div><div><b>SPSS</b> Analyze → Nonparametric Tests → Legacy Dialogs → 2 Related Samples → Wilcoxon.</div></div>
+<div class="mt-menu"><div><b>SPSS</b> Analyze → Nonparametric Tests → Legacy Dialogs → 2 Related Samples → Wilcoxon.</div></div>
 ```
 
 ## Үр дүнг тайлбарлах

@@ -1,0 +1,17 @@
+> df <- read.csv("emnelgiin-jishee.csv", fileEncoding = "UTF-8-BOM")
+> summary(df$pain6 - df$pain0)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  -7.00   -2.00   -1.00   -1.44    0.00    2.00 
+> wilcox.test(df$pain6, df$pain0, paired = TRUE, conf.int = TRUE, exact = FALSE)
+
+	Wilcoxon signed rank test with continuity correction
+
+data:  df$pain6 and df$pain0
+V = 673, p-value < 2.2e-16
+alternative hypothesis: true location shift is not equal to 0
+95 percent confidence interval:
+ -2.000030 -1.500043
+sample estimates:
+(pseudo)median 
+     -1.999991 
+

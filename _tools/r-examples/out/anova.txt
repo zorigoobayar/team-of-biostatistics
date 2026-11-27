@@ -1,0 +1,25 @@
+> df <- read.csv("emnelgiin-jishee.csv", fileEncoding = "UTF-8-BOM")
+> aggregate(chol ~ city, data = df, FUN = function(x) round(c(n = length(x), mean = mean(x), sd = sd(x)), 2))
+         city chol.n chol.mean chol.sd
+1      Дархан  37.00      4.51    0.83
+2 Улаанбаатар 128.00      4.93    0.73
+3     Эрдэнэт  35.00      4.59    0.57
+> m <- aov(chol ~ city, data = df)
+> summary(m)
+             Df Sum Sq Mean Sq F value  Pr(>F)   
+city          2   6.72   3.361   6.459 0.00192 **
+Residuals   197 102.52   0.520                   
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+> TukeyHSD(m)
+  Tukey multiple comparisons of means
+    95% family-wise confidence level
+
+Fit: aov(formula = chol ~ city, data = df)
+
+$city
+                           diff         lwr         upr     p adj
+Улаанбаатар-Дархан   0.41461782  0.09663871  0.73259694 0.0066746
+Эрдэнэт-Дархан       0.07280309 -0.32888952  0.47449569 0.9040151
+Эрдэнэт-Улаанбаатар -0.34181473 -0.66676527 -0.01686419 0.0366583
+

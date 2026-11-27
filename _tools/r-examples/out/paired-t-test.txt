@@ -1,0 +1,18 @@
+> df <- read.csv("emnelgiin-jishee.csv", fileEncoding = "UTF-8-BOM")
+> d <- df$sbp8 - df$sbp0
+> summary(d)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+ -35.00  -16.00   -9.00   -8.81   -1.75   17.00 
+> t.test(df$sbp8, df$sbp0, paired = TRUE)
+
+	Paired t-test
+
+data:  df$sbp8 and df$sbp0
+t = -12.681, df = 199, p-value < 2.2e-16
+alternative hypothesis: true mean difference is not equal to 0
+95 percent confidence interval:
+ -10.180024  -7.439976
+sample estimates:
+mean difference 
+          -8.81 
+

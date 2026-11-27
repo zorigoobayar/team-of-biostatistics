@@ -1,0 +1,32 @@
+> df <- read.csv("emnelgiin-jishee.csv", fileEncoding = "UTF-8-BOM")
+> library(survival)
+> df$group <- factor(df$group, levels = c("Плацебо", "Эм"))
+> km <- survfit(Surv(time_months, event) ~ group, data = df)
+> km
+Call: survfit(formula = Surv(time_months, event) ~ group, data = df)
+
+                n events median 0.95LCL 0.95UCL
+group=Плацебо 100     44   27.1    21.8      NA
+group=Эм      100     28     NA      NA      NA
+> summary(km, times = c(12, 24))
+Call: survfit(formula = Surv(time_months, event) ~ group, data = df)
+
+                group=Плацебо 
+ time n.risk n.event survival std.err lower 95% CI upper 95% CI
+   12     76      24    0.760  0.0427        0.681        0.848
+   24     32      16    0.556  0.0544        0.459        0.673
+
+                group=Эм 
+ time n.risk n.event survival std.err lower 95% CI upper 95% CI
+   12     81      20    0.800  0.0400        0.725        0.882
+   24     37       7    0.717  0.0468        0.631        0.815
+
+> survdiff(Surv(time_months, event) ~ group, data = df)
+Call:
+survdiff(formula = Surv(time_months, event) ~ group, data = df)
+
+                N Observed Expected (O-E)^2/E (O-E)^2/V
+group=Плацебо 100       44     35.3      2.17      4.25
+group=Эм      100       28     36.7      2.08      4.25
+
+ Chisq= 4.2  on 1 degrees of freedom, p= 0.04 

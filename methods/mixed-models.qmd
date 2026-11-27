@@ -6,6 +6,7 @@ format:
     body-classes: page-methods
     css:
       - ../styles.css
+      - ../styles/site.css
       - ../styles/methods.css
       - ../styles/glossary.css
     include-after-body:
@@ -74,10 +75,81 @@ performance::check_model(m2)       # үлдэгдлийн оношилгоо
 glmer(infection ~ pm25 + age + (1 | id), family = binomial, data = df)
 ```
 
-## Цэс дээр хийх (jamovi / SPSS)
+## Жишээ: бодит гаралт ба тайлбар
+
+::: {.mt-example-intro}
+**Асуулт.** Дутуу хэмжилттэй хүмүүсийг хасалгүйгээр систолын даралтын долоо хоног тутмын бууралтын хурдыг эм ба плацебо бүлэгт харьцуулах.
+
+Доорх гаралтыг сайтын [жишээ өгөгдөл](../resources/data/emnelgiin-jishee.csv) дээр R 4.3.3-аар жинхэнээр нь ажиллуулж гаргасан. Кодыг хуулж өөрийн компьютер дээр ажиллуулбал яг ижил үр дүн гарна.
+:::
+
+```{.text .mt-console}
+> df <- read.csv("emnelgiin-jishee.csv", fileEncoding = "UTF-8-BOM")
+> library(lme4); library(lmerTest)
+> long <- reshape(df[, c("id", "group", "sbp0", "sbp4", "sbp8", "sbp12")],
++                 direction = "long", varying = c("sbp0", "sbp4", "sbp8", "sbp12"),
++                 v.names = "sbp", timevar = "week", times = c(0, 4, 8, 12), idvar = "id")
+> long$group <- factor(long$group, levels = c("Плацебо", "Эм"))
+> long <- long[!is.na(long$sbp), ]                          # дутуу хэмжилтийг хасна, хүнийг биш
+> m1 <- lmer(sbp ~ group * week + (1 | id), data = long)
+> summary(m1)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: sbp ~ group * week + (1 | id)
+   Data: long
+
+REML criterion at convergence: 5861.5
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-2.8244 -0.5272  0.0782  0.5529  3.1032 
+
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ id       (Intercept) 143.46   11.978  
+ Residual              60.51    7.779  
+Number of obs: 778, groups:  id, 200
+
+Fixed effects:
+              Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept)  149.34434    1.36477 268.42103 109.428  < 2e-16 ***
+groupЭм       -3.46304    1.92970 268.23410  -1.795   0.0738 .  
+week          -0.49663    0.09047 578.45684  -5.489 6.04e-08 ***
+groupЭм:week  -0.65886    0.12715 578.08378  -5.182 3.04e-07 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) gropЭм week  
+groupЭм     -0.707              
+week        -0.381  0.269       
+groupЭм:wek  0.271 -0.381 -0.712
+> vc <- as.data.frame(VarCorr(m1))
+> vc$vcov[1] / sum(vc$vcov)                                  # ICC
+[1] 0.703343
+```
+
+![Санамсаргүй сонгосон 40 хүний хувийн шугам (нимгэн) ба загварын дундаж шугам (зузаан).](../images/methods/mixed-models.png){.mt-figure fig-alt="Санамсаргүй сонгосон 40 хүний хувийн шугам (нимгэн) ба загварын дундаж шугам (зузаан)."}
+
+### Гаралтыг хэрхэн унших вэ?
+
+::: {.mt-readout}
+1. `Number of obs: 778, groups: id, 200` 200 хүний бүгдийг ашигласан. 12 дахь долоо хоногт ирээгүй 22 хүнийг ч хасаагүй (800-аас 22 хэмжилт дутуу).
+2. `Random effects: id (Intercept) Variance 143.46` Хүмүүсийн суурь даралт хоорондоо ихээхэн ялгаатай (SD ≈ 12 мм м.у.б).
+3. `ICC [1] 0.703343` Нийт хэлбэлзлийн 70% нь хүн хоорондын ялгаа. Давтан хэмжилтийг тооцохгүй бол стандарт алдаа буруу гарна.
+4. `week -0.49663` Плацебо бүлгийн даралт долоо хоног бүр 0.50 мм м.у.б-аар буурч байна.
+5. `groupЭм:week -0.65886, Pr(>|t|) 3.04e-07` Эмийн бүлэгт долоо хоног бүр нэмэлт 0.66 мм м.у.б-аар буурч байна. Нийт хурд нь −0.50 − 0.66 = −1.16 мм м.у.б/долоо хоног.
+6. `groupЭм -3.46304 (p 0.0738)` 0 дахь долоо хоногт (эхэнд) бүлгүүд ялгаагүй байсан нь санамсаргүйчлэл зөв явагдсаныг харуулна.
+:::
+
+::: {.mt-conclusion}
+**Дүгнэлт (тайлагнах хэлбэрээр).** Шугаман холимог загвараар (хүн бүрт санамсаргүй огтлолцолтой) эмийн бүлгийн даралт плацебо бүлгийнхээс долоо хоногт 0.66 мм м.у.б-аар илүү хурдан буурч байв (бүлэг × долоо хоног β = −0.66, SE 0.13, p < 0.001; 200 хүний 778 хэмжилт; ICC = 0.70).
+:::
+
+## Цэс дээр хийх (SPSS)
 
 ```{=html}
-<div class="mt-menu"><div><b>jamovi</b> GAMLj модулийг суулгана → Linear Models → Mixed Model → Cluster variables-д id, Random Effects-д огтлолцол/налууг сонгоно.</div><div><b>SPSS</b> Analyze → Mixed Models → Linear → Subjects: id → Fixed… ба Random… хэсгийг тохируулна. Хоёр утгат үр дагаварт: Mixed Models → Generalized Linear.</div></div>
+<div class="mt-menu"><div><b>SPSS</b> Analyze → Mixed Models → Linear → Subjects: id → Fixed… ба Random… хэсгийг тохируулна. Хоёр утгат үр дагаварт: Mixed Models → Generalized Linear.</div></div>
 ```
 
 ## Үр дүнг тайлбарлах

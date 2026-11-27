@@ -6,6 +6,7 @@ format:
     body-classes: page-methods
     css:
       - ../styles.css
+      - ../styles/site.css
       - ../styles/methods.css
       - ../styles/glossary.css
     include-after-body:
@@ -63,10 +64,82 @@ summary(m)                     # robust SE ашигласан Wald тест
 broom::tidy(m, conf.int = TRUE, exponentiate = TRUE)
 ```
 
-## Цэс дээр хийх (jamovi / SPSS)
+## Жишээ: бодит гаралт ба тайлбар
+
+::: {.mt-example-intro}
+**Асуулт.** Даралт хяналтад (< 140) орох магадлал хугацааны явцад хэрхэн өөрчлөгдөж, энэ нь эм ба плацебо бүлэгт ялгаатай юу? (хоёр утгат давтан хэмжилт)
+
+Доорх гаралтыг сайтын [жишээ өгөгдөл](../resources/data/emnelgiin-jishee.csv) дээр R 4.3.3-аар жинхэнээр нь ажиллуулж гаргасан. Кодыг хуулж өөрийн компьютер дээр ажиллуулбал яг ижил үр дүн гарна.
+:::
+
+```{.text .mt-console}
+> df <- read.csv("emnelgiin-jishee.csv", fileEncoding = "UTF-8-BOM")
+> library(geepack)
+> long <- reshape(df[, c("id", "group", "sbp0", "sbp4", "sbp8", "sbp12")],
++                 direction = "long", varying = c("sbp0", "sbp4", "sbp8", "sbp12"),
++                 v.names = "sbp", timevar = "week", times = c(0, 4, 8, 12), idvar = "id")
+> long <- long[!is.na(long$sbp), ]
+> long <- long[order(long$id, long$week), ]
+> long$group <- factor(long$group, levels = c("Плацебо", "Эм"))
+> long$ctrl <- as.integer(long$sbp < 140)                    # даралт хяналтад орсон эсэх
+> m <- geeglm(ctrl ~ group * week, id = id, family = binomial,
++             corstr = "exchangeable", data = long)
+> summary(m)
+
+Call:
+geeglm(formula = ctrl ~ group * week, family = binomial, data = long, 
+    id = id, corstr = "exchangeable")
+
+ Coefficients:
+             Estimate  Std.err   Wald Pr(>|W|)    
+(Intercept)  -1.13856  0.21573 27.854 1.31e-07 ***
+groupЭм       0.35340  0.28826  1.503  0.22021    
+week          0.07126  0.01693 17.717 2.56e-05 ***
+groupЭм:week  0.08144  0.02641  9.507  0.00205 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation structure = exchangeable 
+Estimated Scale Parameters:
+
+            Estimate Std.err
+(Intercept)   0.9997 0.04299
+  Link = identity 
+
+Estimated Correlation Parameters:
+      Estimate Std.err
+alpha   0.4847 0.04986
+Number of clusters:   200  Maximum cluster size: 4 
+> round(exp(cbind(OR = coef(m), lower = coef(m) - 1.96 * sqrt(diag(vcov(m))),
++                 upper = coef(m) + 1.96 * sqrt(diag(vcov(m))))), 3)
+                OR lower upper
+(Intercept)  0.320 0.210 0.489
+groupЭм      1.424 0.809 2.505
+week         1.074 1.039 1.110
+groupЭм:week 1.085 1.030 1.142
+```
+
+![Хэмжилт бүрт даралт хяналтад орсон хувь, бүлгээр.](../images/methods/gee.png){.mt-figure fig-alt="Хэмжилт бүрт даралт хяналтад орсон хувь, бүлгээр."}
+
+### Гаралтыг хэрхэн унших вэ?
+
+::: {.mt-readout}
+1. `Number of clusters: 200, Maximum cluster size: 4` 200 хүн (кластер), хүн бүрт хамгийн ихдээ 4 хэмжилт.
+2. `alpha 0.4847` Нэг хүний хэмжилтүүд хоорондоо 0.48 корреляцитай (exchangeable бүтэц). Тиймээс хамааралгүй гэж үзэж болохгүй.
+3. `week OR 1.074 (1.039; 1.110)` Плацебо бүлэгт хяналтад орох odds долоо хоног бүр 7.4%-иар нэмэгдэнэ.
+4. `groupЭм:week OR 1.085 (1.030; 1.142), p 0.00205` Эмийн бүлэгт долоо хоног бүр нэмэлт 8.5%-иар нэмэгдэнэ. Өөрөөр хэлбэл эмийн бүлэгт хяналтад орох хурд илүү.
+5. `groupЭм OR 1.424 (0.809; 2.505)` Эхэн үед (0 дахь долоо хоногт) бүлгүүд ялгаагүй.
+6. `Std.err (robust)` GEE-ийн стандарт алдаа нь "сэндвич" (robust) тооцоо тул корреляцийн бүтцийг буруу сонгосон ч зөв хэвээр байна.
+:::
+
+::: {.mt-conclusion}
+**Дүгнэлт (тайлагнах хэлбэрээр).** GEE-ээр (exchangeable корреляци, robust SE) даралт хяналтад орох odds эмийн бүлэгт плацебо бүлгийнхээс илүү хурдан нэмэгдэж байв (бүлэг × долоо хоног OR = 1.085, 95% CI 1.030; 1.142, p = 0.002). 12 дахь долоо хоногт хяналтад орсон хувь эмийн бүлэгт 67%, плацебо бүлэгт 36% байв.
+:::
+
+## Цэс дээр хийх (SPSS)
 
 ```{=html}
-<div class="mt-menu"><div><b>jamovi</b> jamovi-д шууд цэс байхгүй. R эсвэл SPSS ашиглана.</div><div><b>SPSS</b> Analyze → Generalized Linear Models → Generalized Estimating Equations → Repeated: Subject variable, Working correlation matrix.</div></div>
+<div class="mt-menu"><div><b>SPSS</b> Analyze → Generalized Linear Models → Generalized Estimating Equations → Repeated: Subject variable, Working correlation matrix.</div></div>
 ```
 
 ## Үр дүнг тайлбарлах

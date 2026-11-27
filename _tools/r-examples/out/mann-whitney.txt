@@ -1,0 +1,24 @@
+> df <- read.csv("emnelgiin-jishee.csv", fileEncoding = "UTF-8-BOM")
+> df$group <- factor(df$group, levels = c("Плацебо", "Эм"))
+> tapply(df$pain6, df$group, summary)
+$Плацебо
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   0.00    4.00    5.00    5.17    7.00   10.00 
+
+$Эм
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   0.00    1.00    3.00    3.62    6.00   10.00 
+
+> wilcox.test(pain6 ~ group, data = df, conf.int = TRUE, exact = FALSE)
+
+	Wilcoxon rank sum test with continuity correction
+
+data:  pain6 by group
+W = 6752.5, p-value = 1.619e-05
+alternative hypothesis: true location shift is not equal to 0
+95 percent confidence interval:
+ 0.9999715 2.0000426
+sample estimates:
+difference in location 
+              1.999996 
+

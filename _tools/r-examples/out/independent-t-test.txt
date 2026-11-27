@@ -1,0 +1,19 @@
+> df <- read.csv("emnelgiin-jishee.csv", fileEncoding = "UTF-8-BOM")
+> df$group <- factor(df$group, levels = c("Плацебо", "Эм"))
+> aggregate(sbp8 ~ group, data = df, FUN = function(x) round(c(n = length(x), mean = mean(x), sd = sd(x)), 1))
+    group sbp8.n sbp8.mean sbp8.sd
+1 Плацебо  100.0     144.2    15.9
+2      Эм  100.0     134.8    13.5
+> t.test(sbp8 ~ group, data = df)
+
+	Welch Two Sample t-test
+
+data:  sbp8 by group
+t = 4.5047, df = 192.76, p-value = 1.15e-05
+alternative hypothesis: true difference in means between group Плацебо and group Эм is not equal to 0
+95 percent confidence interval:
+  5.27862 13.50138
+sample estimates:
+mean in group Плацебо      mean in group Эм 
+               144.18                134.79 
+

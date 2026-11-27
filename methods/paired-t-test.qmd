@@ -6,6 +6,7 @@ format:
     body-classes: page-methods
     css:
       - ../styles.css
+      - ../styles/site.css
       - ../styles/methods.css
       - ../styles/glossary.css
     include-after-body:
@@ -58,10 +59,54 @@ t.test(df$hba1c_3, df$hba1c_0, paired = TRUE)
 wilcox.test(df$hba1c_3, df$hba1c_0, paired = TRUE)
 ```
 
-## Цэс дээр хийх (jamovi / SPSS)
+## Жишээ: бодит гаралт ба тайлбар
+
+::: {.mt-example-intro}
+**Асуулт.** Нийт 200 өвчтөний систолын даралт эхэн үеэс 8 дахь долоо хоног хүртэл өөрчлөгдсөн үү?
+
+Доорх гаралтыг сайтын [жишээ өгөгдөл](../resources/data/emnelgiin-jishee.csv) дээр R 4.3.3-аар жинхэнээр нь ажиллуулж гаргасан. Кодыг хуулж өөрийн компьютер дээр ажиллуулбал яг ижил үр дүн гарна.
+:::
+
+```{.text .mt-console}
+> df <- read.csv("emnelgiin-jishee.csv", fileEncoding = "UTF-8-BOM")
+> d <- df$sbp8 - df$sbp0
+> summary(d)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+ -35.00  -16.00   -9.00   -8.81   -1.75   17.00 
+> t.test(df$sbp8, df$sbp0, paired = TRUE)
+
+	Paired t-test
+
+data:  df$sbp8 and df$sbp0
+t = -12.681, df = 199, p-value < 2.2e-16
+alternative hypothesis: true mean difference is not equal to 0
+95 percent confidence interval:
+ -10.180024  -7.439976
+sample estimates:
+mean difference 
+          -8.81
+```
+
+![Хүн бүрийн даралтын зөрүүний (8 дахь долоо хоног − эхэн) тархалт. Хөх шугам нь дундаж зөрүү.](../images/methods/paired-t-test.png){.mt-figure fig-alt="Хүн бүрийн даралтын зөрүүний (8 дахь долоо хоног − эхэн) тархалт. Хөх шугам нь дундаж зөрүү."}
+
+### Гаралтыг хэрхэн унших вэ?
+
+::: {.mt-readout}
+1. `summary(d): Median -9.00, Mean -8.81` Хүн бүрийн зөрүүний медиан −9, дундаж −8.8 мм м.у.б. Сөрөг утга нь даралт буурсныг илтгэнэ.
+2. `t = -12.681` Дундаж зөрүүг стандарт алдаанд хуваасан утга. Сөрөг тэмдэг нь буурсныг харуулна.
+3. `df = 199` Хосын тоо − 1 = 200 − 1.
+4. `p-value < 2.2e-16` R-ийн хэвлэх хамгийн бага утга. Тэг зөрүүтэй гэсэн таамаглалыг хүчтэй няцаана.
+5. `95 percent confidence interval: -10.180024 -7.439976` Дундаж бууралт 7.4–10.2 мм м.у.б хооронд байх магадлалтай.
+:::
+
+::: {.mt-conclusion}
+**Дүгнэлт (тайлагнах хэлбэрээр).** 8 долоо хоногийн хугацаанд систолын даралт дунджаар 8.8 мм м.у.б-аар буурсан (хамааралт t(199) = −12.68, p < 0.001; 95% CI −10.2; −7.4).
+:::
+
+## Цэс дээр хийх (SPSS)
 
 ```{=html}
-<div class="mt-menu"><div><b>jamovi</b> Analyses → T-Tests → Paired Samples T-Test → хоёр хэмжилтийг хос болгон оруулна.</div><div><b>SPSS</b> Analyze → Compare Means → Paired-Samples T Test.</div></div>
+<div class="mt-menu"><div><b>SPSS</b> Analyze → Compare Means → Paired-Samples T Test.</div></div>
 ```
 
 ## Үр дүнг тайлбарлах

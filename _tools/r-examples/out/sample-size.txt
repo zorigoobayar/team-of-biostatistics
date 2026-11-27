@@ -1,0 +1,38 @@
+> power.t.test(delta = 8, sd = 15, sig.level = 0.05, power = 0.90)
+
+     Two-sample t test power calculation 
+
+              n = 74.85385
+          delta = 8
+             sd = 15
+      sig.level = 0.05
+          power = 0.9
+    alternative = two.sided
+
+NOTE: n is number in *each* group
+
+> power.prop.test(p1 = 0.20, p2 = 0.10, power = 0.80)
+
+     Two-sample comparison of proportions power calculation 
+
+              n = 198.9634
+             p1 = 0.2
+             p2 = 0.1
+      sig.level = 0.05
+          power = 0.8
+    alternative = two.sided
+
+NOTE: n is number in *each* group
+
+> pwr::pwr.anova.test(k = 3, f = 0.25, power = 0.80)
+
+     Balanced one-way analysis of variance power calculation 
+
+              k = 3
+              n = 52.3966
+              f = 0.25
+      sig.level = 0.05
+          power = 0.8
+
+NOTE: n is number in each group
+

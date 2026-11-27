@@ -6,6 +6,7 @@ format:
     body-classes: page-methods
     css:
       - ../styles.css
+      - ../styles/site.css
       - ../styles/methods.css
       - ../styles/glossary.css
     include-after-body:
@@ -61,10 +62,55 @@ effectsize::cohens_d(sbp ~ group, data = df)
 wilcox.test(sbp ~ group, data = df)
 ```
 
-## Цэс дээр хийх (jamovi / SPSS)
+## Жишээ: бодит гаралт ба тайлбар
+
+::: {.mt-example-intro}
+**Асуулт.** 8 дахь долоо хоногт эм уусан бүлгийн систолын даралт плацебо бүлгийнхээс ялгаатай юу?
+
+Доорх гаралтыг сайтын [жишээ өгөгдөл](../resources/data/emnelgiin-jishee.csv) дээр R 4.3.3-аар жинхэнээр нь ажиллуулж гаргасан. Кодыг хуулж өөрийн компьютер дээр ажиллуулбал яг ижил үр дүн гарна.
+:::
+
+```{.text .mt-console}
+> df <- read.csv("emnelgiin-jishee.csv", fileEncoding = "UTF-8-BOM")
+> df$group <- factor(df$group, levels = c("Плацебо", "Эм"))
+> aggregate(sbp8 ~ group, data = df, FUN = function(x) round(c(n = length(x), mean = mean(x), sd = sd(x)), 1))
+    group sbp8.n sbp8.mean sbp8.sd
+1 Плацебо  100.0     144.2    15.9
+2      Эм  100.0     134.8    13.5
+> t.test(sbp8 ~ group, data = df)
+
+	Welch Two Sample t-test
+
+data:  sbp8 by group
+t = 4.5047, df = 192.76, p-value = 1.15e-05
+alternative hypothesis: true difference in means between group Плацебо and group Эм is not equal to 0
+95 percent confidence interval:
+  5.27862 13.50138
+sample estimates:
+mean in group Плацебо      mean in group Эм 
+               144.18                134.79
+```
+
+![Бүлэг тус бүрийн 8 дахь долоо хоногийн даралт. Цэг бүр нэг өвчтөн, ромбо нь дундаж.](../images/methods/independent-t-test.png){.mt-figure fig-alt="Бүлэг тус бүрийн 8 дахь долоо хоногийн даралт. Цэг бүр нэг өвчтөн, ромбо нь дундаж."}
+
+### Гаралтыг хэрхэн унших вэ?
+
+::: {.mt-readout}
+1. `sbp8.mean 144.2 / 134.8, sbp8.sd 15.9 / 13.5` Плацебо бүлгийн дундаж 144.2, эмийн бүлгийн дундаж 134.8 мм м.у.б, бүлэг бүрт n = 100.
+2. `Welch Two Sample t-test` R анхдагчаар дисперс тэнцүү гэж үздэггүй Welch-ийн хувилбарыг хэрэглэдэг тул бутархай df (192.76) гарсан.
+3. `t = 4.5047` Плацебо − Эм зөрүүг стандарт алдаанд хуваасан утга. Эерэг тэмдэг нь плацебо бүлгийн дундаж өндөр гэсэн үг.
+4. `p-value = 1.15e-05` 0.0000115 < 0.001: хоёр бүлгийн дундаж тэнцүү гэсэн тэг таамаглалыг няцаана.
+5. `95 percent confidence interval: 5.27862 13.50138` Плацебо − Эм зөрүүний 95% итгэх интервал. Эм даралтыг дунджаар 5.3–13.5 мм м.у.б-аар бага байлгаж байна. Интервалд 0 ороогүй.
+:::
+
+::: {.mt-conclusion}
+**Дүгнэлт (тайлагнах хэлбэрээр).** 8 дахь долоо хоногт эмийн бүлгийн систолын даралт (134.8 ± 13.5) плацебо бүлгийнхээс (144.2 ± 15.9) дунджаар 9.4 мм м.у.б-аар бага байв (Welch t(192.8) = 4.50, p < 0.001; 95% CI 5.3; 13.5).
+:::
+
+## Цэс дээр хийх (SPSS)
 
 ```{=html}
-<div class="mt-menu"><div><b>jamovi</b> Analyses → T-Tests → Independent Samples T-Test → Welch's, Effect size, Descriptives-ийг сонгоно.</div><div><b>SPSS</b> Analyze → Compare Means → Independent-Samples T Test → Define Groups. Levene-ийн тест автоматаар гарна.</div></div>
+<div class="mt-menu"><div><b>SPSS</b> Analyze → Compare Means → Independent-Samples T Test → Define Groups. Levene-ийн тест автоматаар гарна.</div></div>
 ```
 
 ## Үр дүнг тайлбарлах

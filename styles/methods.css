@@ -8,73 +8,6 @@
    бүлэг бүр өөрийн өнгөтэй.
    ========================================================= */
 
-/* ---------- Үсгийн фонт (сайтад өөрт нь байрлуулсан, OFL) ---------- */
-
-@font-face {
-  font-family: "Golos Text";
-  font-style: normal;
-  font-weight: 400 900;
-  font-display: swap;
-  src: url("../assets/fonts/golos-text-cyrillic-ext-wght-normal.woff2") format("woff2-variations");
-  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
-}
-@font-face {
-  font-family: "Golos Text";
-  font-style: normal;
-  font-weight: 400 900;
-  font-display: swap;
-  src: url("../assets/fonts/golos-text-cyrillic-wght-normal.woff2") format("woff2-variations");
-  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-}
-@font-face {
-  font-family: "Golos Text";
-  font-style: normal;
-  font-weight: 400 900;
-  font-display: swap;
-  src: url("../assets/fonts/golos-text-latin-ext-wght-normal.woff2") format("woff2-variations");
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1E00-1E9F, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-@font-face {
-  font-family: "Golos Text";
-  font-style: normal;
-  font-weight: 400 900;
-  font-display: swap;
-  src: url("../assets/fonts/golos-text-latin-wght-normal.woff2") format("woff2-variations");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-@font-face {
-  font-family: "STIX Two Text";
-  font-style: italic;
-  font-weight: 600;
-  font-display: swap;
-  src: url("../assets/fonts/stix-two-text-greek-600-italic.woff2") format("woff2");
-  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
-}
-@font-face {
-  font-family: "STIX Two Text";
-  font-style: italic;
-  font-weight: 600;
-  font-display: swap;
-  src: url("../assets/fonts/stix-two-text-latin-600-italic.woff2") format("woff2");
-  unicode-range: U+0000-00FF, U+2000-206F, U+2212;
-}
-@font-face {
-  font-family: "JetBrains Mono";
-  font-style: normal;
-  font-weight: 400 700;
-  font-display: swap;
-  src: url("../assets/fonts/jetbrains-mono-cyrillic-wght-normal.woff2") format("woff2-variations");
-  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-}
-@font-face {
-  font-family: "JetBrains Mono";
-  font-style: normal;
-  font-weight: 400 700;
-  font-display: swap;
-  src: url("../assets/fonts/jetbrains-mono-latin-wght-normal.woff2") format("woff2-variations");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+2000-206F, U+2212;
-}
-
 /* ---------- Өнгө ба хэмжээс ---------- */
 
 body.page-methods {
@@ -105,12 +38,6 @@ body.page-methods {
   --mt-mono: "JetBrains Mono", Consolas, "Courier New", monospace;
   --mt-radius: 14px;
 
-  background-color: var(--mt-paper);
-  background-image:
-    linear-gradient(var(--mt-grid) 1px, transparent 1px),
-    linear-gradient(90deg, var(--mt-grid) 1px, transparent 1px);
-  background-size: 28px 28px;
-  background-position: -1px -1px;
 }
 
 body.page-methods .page-columns { background: transparent; }
@@ -989,3 +916,131 @@ body.page-methods .callout small { display: block; margin-top: 0.4rem; color: va
 @media (prefers-reduced-motion: reduce) {
   .mt-card, .mt-card h3, .mt-filters button, .mt-wz-opts button, .mt-pager a { transition: none; }
 }
+
+/* ---------- Жишээ: бодит гаралт ба тайлбар ---------- */
+
+.mt-example-intro {
+  margin: 0 0 1rem;
+  padding: 1rem 1.15rem;
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid var(--mt-line);
+}
+.mt-example-intro p { margin: 0 0 0.5rem; }
+.mt-example-intro p:last-child { margin: 0; color: var(--mt-muted); font-size: 0.92rem; }
+
+/* R-ийн консол: харанхуй дэвсгэр, жинхэнэ гаралт гэдэг нь ялгарч харагдана */
+body.page-methods main div.sourceCode:has(> pre.mt-console),
+body.page-methods main div:has(> pre.mt-console) {
+  border: 0;
+  background: transparent;
+}
+body.page-methods main pre.mt-console,
+body.page-methods main .mt-console {
+  position: relative;
+  max-height: 34rem;
+  overflow: auto;
+  margin: 0 0 1.25rem;
+  padding: 2.4rem 1.15rem 1.1rem !important;
+  border-radius: 12px;
+  background: #161b2e !important;
+  border: 0 !important;
+  color: #d9def0 !important;
+  font-family: var(--mt-mono);
+  font-size: 0.8rem !important;
+  line-height: 1.6 !important;
+  white-space: pre;
+}
+body.page-methods main pre.mt-console code { color: inherit !important; background: none !important; font-size: inherit !important; white-space: pre; }
+body.page-methods main pre.mt-console::before {
+  content: "R 4.3.3 · бодит гаралт";
+  position: absolute;
+  top: 0.65rem;
+  left: 1.15rem;
+  font-family: var(--mt-sans);
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: #8f98c4;
+}
+
+.mt-figure, figure.figure:has(img.mt-figure) { margin: 0 0 1.5rem; }
+body.page-methods main img.mt-figure,
+body.page-methods main figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  border: 1px solid var(--mt-line);
+  background: #fff;
+}
+body.page-methods main figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.86rem;
+  color: var(--mt-muted);
+}
+
+body.page-methods main h3:has(+ .mt-readout),
+body.page-methods main .mt-readout + h3 { margin-top: 1.5rem; }
+
+.mt-readout ol {
+  counter-reset: rd;
+  margin: 0.5rem 0 1.25rem;
+  padding: 0;
+  list-style: none;
+}
+.mt-readout li {
+  counter-increment: rd;
+  position: relative;
+  margin: 0 0 0.55rem;
+  padding: 0.75rem 0.95rem 0.8rem 3rem;
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid var(--mt-line);
+  line-height: 1.6;
+}
+.mt-readout li::before {
+  content: counter(rd);
+  position: absolute;
+  left: 0.85rem;
+  top: 0.75rem;
+  display: grid;
+  place-items: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background: var(--mt-brand);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+body.page-methods main .mt-readout li > code:first-child {
+  display: inline-block;
+  margin: 0 0 0.3rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 6px;
+  background: #161b2e;
+  color: #e3e7f7;
+  font-size: 0.8rem;
+  white-space: pre-wrap;
+}
+.mt-readout li > code:first-child::after { content: ""; display: block; }
+
+.mt-note {
+  margin: 0 0 1.25rem;
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  background: #fff7ea;
+  border: 1px solid #f6e0b8;
+  font-size: 0.92rem;
+}
+.mt-note p { margin: 0; }
+
+.mt-conclusion {
+  margin: 0 0 1.5rem;
+  padding: 1rem 1.15rem;
+  border-radius: 12px;
+  background: #effaf3;
+  border: 1px solid #c9ebd6;
+  border-left: 4px solid #1f9d55;
+}
+.mt-conclusion p { margin: 0; }

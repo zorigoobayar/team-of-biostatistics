@@ -1,0 +1,23 @@
+> df <- read.csv("emnelgiin-jishee.csv", fileEncoding = "UTF-8-BOM")
+> long <- reshape(df[, c("id", "group", "sbp0", "sbp4", "sbp8", "sbp12")],
++                 direction = "long", varying = c("sbp0", "sbp4", "sbp8", "sbp12"),
++                 v.names = "sbp", timevar = "week", times = c(0, 4, 8, 12), idvar = "id")
+> long$week <- factor(long$week)
+> full <- long[long$id %in% df$id[!is.na(df$sbp12)], ]     # бүрэн өгөгдөлтэй хүмүүс
+> m <- afex::aov_ez(id = "id", dv = "sbp", within = "week", between = "group", data = full)
+> m
+Anova Table (Type 3 tests)
+
+Response: sbp
+      Effect           df    MSE         F  ges p.value
+1      group       1, 176 627.10 19.89 *** .081   <.001
+2       week 2.39, 420.25  76.14 56.68 *** .067   <.001
+3 group:week 2.39, 420.25  76.14  9.54 *** .012   <.001
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘+’ 0.1 ‘ ’ 1
+
+Sphericity correction method: GG 
+> summary(m)$sphericity.tests
+           Test statistic    p-value
+week              0.53894 1.0869e-21
+group:week        0.53894 1.0869e-21

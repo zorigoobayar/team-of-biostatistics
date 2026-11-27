@@ -6,6 +6,7 @@ format:
     body-classes: page-methods
     css:
       - ../styles.css
+      - ../styles/site.css
       - ../styles/methods.css
       - ../styles/glossary.css
     include-after-body:
@@ -62,10 +63,60 @@ anova(lm(wt12 ~ group * wt0, data = df))
 emmeans::emmeans(m, ~ group)
 ```
 
-## Цэс дээр хийх (jamovi / SPSS)
+## Жишээ: бодит гаралт ба тайлбар
+
+::: {.mt-example-intro}
+**Асуулт.** Эхний даралтыг залруулахад 8 дахь долоо хоногийн даралт эм ба плацебо бүлэгт ялгаатай юу?
+
+Доорх гаралтыг сайтын [жишээ өгөгдөл](../resources/data/emnelgiin-jishee.csv) дээр R 4.3.3-аар жинхэнээр нь ажиллуулж гаргасан. Кодыг хуулж өөрийн компьютер дээр ажиллуулбал яг ижил үр дүн гарна.
+:::
+
+```{.text .mt-console}
+> df <- read.csv("emnelgiin-jishee.csv", fileEncoding = "UTF-8-BOM")
+> df$group <- factor(df$group, levels = c("Плацебо", "Эм"))
+> m <- lm(sbp8 ~ sbp0 + group, data = df)
+> car::Anova(m, type = 2)
+Anova Table (Type II tests)
+
+Response: sbp8
+          Sum Sq  Df F value    Pr(>F)    
+sbp0       26649   1 320.719 < 2.2e-16 ***
+group       2815   1  33.879 2.347e-08 ***
+Residuals  16369 197                      
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+> emmeans::emmeans(m, pairwise ~ group)
+$emmeans
+ group   emmean    SE  df lower.CL upper.CL
+ Плацебо    143 0.913 197      141      145
+ Эм         136 0.913 197      134      138
+
+Confidence level used: 0.95 
+
+$contrasts
+ contrast     estimate   SE  df t.ratio p.value
+ Плацебо - Эм     7.53 1.29 197   5.821  <.0001
+```
+
+![Эхний ба 8 дахь долоо хоногийн даралт. Хоёр зэрэгцээ шугамын хоорондын зай нь залруулсан бүлгийн ялгаа.](../images/methods/ancova.png){.mt-figure fig-alt="Эхний ба 8 дахь долоо хоногийн даралт. Хоёр зэрэгцээ шугамын хоорондын зай нь залруулсан бүлгийн ялгаа."}
+
+### Гаралтыг хэрхэн унших вэ?
+
+::: {.mt-readout}
+1. `sbp0 F value 320.719` Ковариат (эхний даралт) эцсийн даралтыг маш хүчтэй тайлбарлаж байна. Үүнийг залруулснаар бүлгийн ялгааг илүү нарийн үнэлнэ.
+2. `group F value 33.879, Pr(>F) 2.347e-08` Эхний даралтыг тогтмол үед бүлгүүд ялгаатай (p < 0.001).
+3. `emmean 143 / 136` Залруулсан (estimated marginal) дундаж: хоёр бүлгийн эхний даралт ижил байсан бол 8 дахь долоо хоногт плацебо 143, эм 136 мм м.у.б байх байв.
+4. `Плацебо - Эм estimate 7.53, SE 1.29, p.value <.0001` Залруулсан зөрүү 7.5 мм м.у.б. t-тестийн 9.4-өөс бага боловч стандарт алдаа нь бага (1.29) тул илүү нарийвчлалтай.
+:::
+
+::: {.mt-conclusion}
+**Дүгнэлт (тайлагнах хэлбэрээр).** Эхний даралтаар залруулахад эмийн бүлгийн 8 дахь долоо хоногийн даралт плацебо бүлгийнхээс 7.5 мм м.у.б-аар бага байв (ANCOVA, F(1, 197) = 33.9, p < 0.001; залруулсан дундаж 136 ба 143).
+:::
+
+## Цэс дээр хийх (SPSS)
 
 ```{=html}
-<div class="mt-menu"><div><b>jamovi</b> Analyses → ANOVA → ANCOVA → Covariates-д суурь утгыг оруулна → Estimated Marginal Means.</div><div><b>SPSS</b> Analyze → General Linear Model → Univariate → Covariate(s); Options/EM Means… → залруулсан дундаж.</div></div>
+<div class="mt-menu"><div><b>SPSS</b> Analyze → General Linear Model → Univariate → Covariate(s); Options/EM Means… → залруулсан дундаж.</div></div>
 ```
 
 ## Үр дүнг тайлбарлах

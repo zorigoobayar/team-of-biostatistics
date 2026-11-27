@@ -1,0 +1,6 @@
+df <- read.csv("emnelgiin-jishee.csv", fileEncoding = "UTF-8-BOM")
+library(survival)
+df$group <- factor(df$group, levels = c("Плацебо", "Эм"))
+m <- coxph(Surv(time_months, event) ~ group + age + sex, data = df)
+summary(m)
+cox.zph(m)

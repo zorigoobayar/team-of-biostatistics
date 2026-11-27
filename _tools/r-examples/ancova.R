@@ -1,0 +1,5 @@
+df <- read.csv("emnelgiin-jishee.csv", fileEncoding = "UTF-8-BOM")
+df$group <- factor(df$group, levels = c("Плацебо", "Эм"))
+m <- lm(sbp8 ~ sbp0 + group, data = df)
+car::Anova(m, type = 2)
+emmeans::emmeans(m, pairwise ~ group)

@@ -1,0 +1,24 @@
+> df <- read.csv("emnelgiin-jishee.csv", fileEncoding = "UTF-8-BOM")
+> aggregate(crp ~ city, data = df, FUN = function(x) c(n = length(x), median = median(x), IQR = IQR(x)))
+         city   crp.n crp.median crp.IQR
+1      Дархан  37.000      1.100   1.000
+2 Улаанбаатар 128.000      2.700   3.025
+3     Эрдэнэт  35.000      2.100   2.650
+> kruskal.test(crp ~ city, data = df)
+
+	Kruskal-Wallis rank sum test
+
+data:  crp by city
+Kruskal-Wallis chi-squared = 29.362, df = 2, p-value = 4.208e-07
+
+> pairwise.wilcox.test(df$crp, df$city, p.adjust.method = "holm", exact = FALSE)
+
+	Pairwise comparisons using Wilcoxon rank sum test with continuity correction 
+
+data:  df$crp and df$city 
+
+            Дархан  Улаанбаатар
+Улаанбаатар 2.1e-07 -          
+Эрдэнэт     0.00082 0.31997    
+
+P value adjustment method: holm 

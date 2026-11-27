@@ -6,6 +6,7 @@ format:
     body-classes: page-methods
     css:
       - ../styles.css
+      - ../styles/site.css
       - ../styles/methods.css
       - ../styles/glossary.css
     include-after-body:
@@ -63,10 +64,72 @@ gtsummary::tbl_regression(m, exponentiate = TRUE)
 pROC::auc(pROC::roc(df$htn, fitted(m)))
 ```
 
-## Цэс дээр хийх (jamovi / SPSS)
+## Жишээ: бодит гаралт ба тайлбар
+
+::: {.mt-example-intro}
+**Асуулт.** Нас ба тамхидалтаар залруулахад эм хүндрэлийн халдварын эрсдэлийг бууруулсан уу?
+
+Доорх гаралтыг сайтын [жишээ өгөгдөл](../resources/data/emnelgiin-jishee.csv) дээр R 4.3.3-аар жинхэнээр нь ажиллуулж гаргасан. Кодыг хуулж өөрийн компьютер дээр ажиллуулбал яг ижил үр дүн гарна.
+:::
+
+```{.text .mt-console}
+> df <- read.csv("emnelgiin-jishee.csv", fileEncoding = "UTF-8-BOM")
+> df$group <- factor(df$group, levels = c("Плацебо", "Эм"))
+> df$smoker <- factor(df$smoker, levels = c("Үгүй", "Тийм"))
+> df$inf01 <- as.integer(df$infection == "Тийм")
+> m <- glm(inf01 ~ group + age + smoker, family = binomial, data = df)
+> summary(m)
+
+Call:
+glm(formula = inf01 ~ group + age + smoker, family = binomial, 
+    data = df)
+
+Coefficients:
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept) -5.24495    1.37069  -3.827  0.00013 ***
+groupЭм     -0.96086    0.49043  -1.959  0.05009 .  
+age          0.05988    0.02215   2.704  0.00686 ** 
+smokerТийм   0.53117    0.50999   1.042  0.29763    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 142.74  on 199  degrees of freedom
+Residual deviance: 130.50  on 196  degrees of freedom
+AIC: 138.5
+
+Number of Fisher Scoring iterations: 5
+
+> round(exp(cbind(OR = coef(m), confint(m))), 2)
+              OR 2.5 % 97.5 %
+(Intercept) 0.01  0.00   0.07
+groupЭм     0.38  0.14   0.97
+age         1.06  1.02   1.11
+smokerТийм  1.70  0.60   4.53
+```
+
+![Залруулсан odds ratio ба 95% CI (лог шкал). Тасархай шугам (OR = 1) нь нөлөөгүйг илтгэнэ.](../images/methods/logistic-regression.png){.mt-figure fig-alt="Залруулсан odds ratio ба 95% CI (лог шкал). Тасархай шугам (OR = 1) нь нөлөөгүйг илтгэнэ."}
+
+### Гаралтыг хэрхэн унших вэ?
+
+::: {.mt-readout}
+1. `groupЭм Estimate -0.96086` Log-odds-ийн өөрчлөлт. Шууд тайлбарлахад хэцүү тул exp() авч OR болгоно.
+2. `OR 0.38, 2.5 % 0.14, 97.5 % 0.97` Эм халдварын odds-ийг 62%-иар бууруулсан (OR = 0.38). Интервалын дээд хязгаар 0.97 тул 1-ийг арай л оруулаагүй.
+3. `Pr(>|z|) 0.05009` Wald тестийн p = 0.050, хил дээр байна. Харин profile likelihood CI (0.14–0.97) нь 1-ийг оруулаагүй. Хоёр арга бага зэрэг ялгаатай байж болно.
+4. `age OR 1.06 (1.02; 1.11)` Нас 1 жилээр ахих тутам халдварын odds 6%-иар нэмэгдэнэ. 10 жилд: 1.06¹⁰ ≈ 1.8 дахин.
+5. `smokerТийм OR 1.70 (0.60; 4.53)` Тамхи татах нь odds-ийг нэмэгдүүлэх хандлагатай ч CI өргөн, 1-ийг агуулсан тул ач холбогдолгүй.
+6. `AIC: 138.5, Residual deviance 130.50 / Null 142.74` Загварыг өөр загвартай харьцуулахад хэрэглэнэ (AIC бага нь сайн).
+:::
+
+::: {.mt-conclusion}
+**Дүгнэлт (тайлагнах хэлбэрээр).** Нас ба тамхидалтаар залруулахад эмийн бүлэгт хүндрэлийн халдварын odds бага байв (OR = 0.38, 95% CI 0.14; 0.97; Wald p = 0.050). Нас ахих нь эрсдэлийг нэмэгдүүлж байв (жил тутам OR = 1.06, 95% CI 1.02; 1.11). Үйл явдал цөөн (23) тул үр дүнг болгоомжтой тайлбарлана.
+:::
+
+## Цэс дээр хийх (SPSS)
 
 ```{=html}
-<div class="mt-menu"><div><b>jamovi</b> Analyses → Regression → 2 Outcomes (Binomial) → Model Coefficients: Odds ratio, Confidence interval.</div><div><b>SPSS</b> Analyze → Regression → Binary Logistic → Options… → CI for exp(B).</div></div>
+<div class="mt-menu"><div><b>SPSS</b> Analyze → Regression → Binary Logistic → Options… → CI for exp(B).</div></div>
 ```
 
 ## Үр дүнг тайлбарлах
