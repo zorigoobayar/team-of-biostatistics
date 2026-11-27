@@ -4,6 +4,7 @@ project:
     - glossary/terms.yml
     - assets/js/*.js
     - resources/data/*.csv
+    - assets/fonts/*
 
 website:
   title: "Team of Biostatistics"
