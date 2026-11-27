@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.11.9">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Таамаглал шалгах, нөлөөний хэмжээ ба итгэх интервал, олон харьцуулалтын засвар, дутуу өгөгдөл, жишээ өгөгдөл.">
+
+<title>Бүх аргад хамаарах суурь ойлголт – Team of Biostatistics</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/scrollable-regions/scrollable-regions.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-cb61c712ca1a7fe70a83faed8e4da2d7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<!--
+  Үзэлтийн тоо (GoatCounter) — бүх хуудсанд _quarto.yml-ээр орно.
+  GoatCounter-ийн код солих бол доорх GC_CODE-г өөрчилнө.
+
+  Хэрэглээ (HTML дотор):
+    <span class="vc" data-vc-href="methods/anova.html"></span>   → тухайн хуудасны үзэлт
+    <span class="vc" data-vc-href=""></span>                     → одоогийн хуудасны үзэлт
+    <span class="vc" data-vc-event="cs-01-open"></span>          → товч дарсан тоо (event)
+    <a data-goatcounter-click="cs-01-open" ...>                  → дарахад event бүртгэнэ
+-->
+<script>
+(function () {
+  var GC_CODE = "serod";
+  var GC = "https://" + GC_CODE + ".goatcounter.com";
+
+  // /x/ → /x/index.html, /x/page → /x/page.html  (нэг хуудас нэг л замаар тоологдоно)
+  function norm(p) {
+    p = p.split("?")[0].split("#")[0];
+    if (p.slice(-1) === "/") p += "index.html";
+    else if (!/\.[a-z0-9]+$/i.test(p)) p += ".html";
+    return p;
+  }
+  window.goatcounter = { path: function (p) { return norm(p); } };
+
+  function fmt(n) {
+    if (n >= 1e6) return (n / 1e6).toFixed(n < 1e7 ? 1 : 0).replace(/\.0$/, "") + "M";
+    if (n >= 1e3) return (n / 1e3).toFixed(n < 1e4 ? 1 : 0).replace(/\.0$/, "") + "K";
+    return String(n);
+  }
+
+  function fetchCount(path) {
+    return fetch(GC + "/counter/" + encodeURIComponent(path) + ".json")
+      .then(function (r) { return r.ok ? r.json() : { count: "0" }; })
+      .then(function (d) { return parseInt(String(d.count).replace(/[^0-9]/g, ""), 10) || 0; })
+      .catch(function () { return null; });
+  }
+
+  function run() {
+    document.querySelectorAll(".vc").forEach(function (el) {
+      var path;
+      if (el.hasAttribute("data-vc-event")) path = el.getAttribute("data-vc-event");
+      else path = norm(new URL(el.getAttribute("data-vc-href") || location.pathname, location.href).pathname);
+      var icon = el.getAttribute("data-vc-icon") || "bi-eye";
+      var label = el.getAttribute("data-vc-label") || "үзсэн";
+      el.innerHTML = '<i class="bi ' + icon + '"></i> <b>…</b> ' + label;
+      fetchCount(path).then(function (n) {
+        if (n === null) { el.style.display = "none"; return; }
+        el.querySelector("b").textContent = fmt(n);
+        el.title = n.toLocaleString("en-US") + " " + label;
+      });
+    });
+  }
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", run);
+  else run();
+})();
+</script>
+<script data-goatcounter="https://serod.goatcounter.com/count" async="" src="https://gc.zgo.at/count.js"></script>
+<style>
+  .vc { display: inline-flex; align-items: center; gap: 0.25rem; font-size: 0.82rem; color: #64748b; white-space: nowrap; }
+  .vc b { font-weight: 600; color: #334155; }
+  .vc-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem 0.9rem; margin-top: 0.6rem; }
+</style>
+
+
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../styles/methods.css">
+<link rel="stylesheet" href="../styles/glossary.css">
+</head>
+
+<body class="nav-fixed page-methods quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark" aria-label="Site">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Team of Biostatistics</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../team.html"> 
+<span class="menu-text">Our Team</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../software.html"> 
+<span class="menu-text">Statistical Software</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../research.html"> 
+<span class="menu-text">Interesting Research</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../books.html"> 
+<span class="menu-text">Biostatistics Books</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../cheatsheet.html"> 
+<span class="menu-text">Cheat sheet</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../methods.html"> 
+<span class="menu-text">Data Analysis Methods</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../paper-explainer.html"> 
+<span class="menu-text">Paper Explainer</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../contact.html"> 
+<span class="menu-text">Contact</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+            <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#таамаглал-шалгах" id="toc-таамаглал-шалгах" class="nav-link active" data-scroll-target="#таамаглал-шалгах">1. Таамаглал шалгах</a></li>
+  <li><a href="#нөлөөний-хэмжээ-ба-итгэх-интервал" id="toc-нөлөөний-хэмжээ-ба-итгэх-интервал" class="nav-link" data-scroll-target="#нөлөөний-хэмжээ-ба-итгэх-интервал">2. Нөлөөний хэмжээ ба итгэх интервал</a></li>
+  <li><a href="#олон-харьцуулалтын-засвар" id="toc-олон-харьцуулалтын-засвар" class="nav-link" data-scroll-target="#олон-харьцуулалтын-засвар">3. Олон харьцуулалтын засвар</a></li>
+  <li><a href="#дутуу-өгөгдөл" id="toc-дутуу-өгөгдөл" class="nav-link" data-scroll-target="#дутуу-өгөгдөл">4. Дутуу өгөгдөл</a></li>
+  <li><a href="#jishee-ogogdol" id="toc-jishee-ogogdol" class="nav-link" data-scroll-target="#jishee-ogogdol">5. Жишээ өгөгдөл</a></li>
+  <li><a href="#холбогдох-нэр-томьёо" id="toc-холбогдох-нэр-томьёо" class="nav-link" data-scroll-target="#холбогдох-нэр-томьёо">Холбогдох нэр томьёо</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content" tabindex="-1">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Бүх аргад хамаарах суурь ойлголт</h1>
+</div>
+
+<div>
+  <div class="description">
+    Таамаглал шалгах, нөлөөний хэмжээ ба итгэх интервал, олон харьцуулалтын засвар, дутуу өгөгдөл, жишээ өгөгдөл.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<header class="mt-hero">
+  <p class="mt-eyebrow"><a href="../methods.html">Data Analysis Methods</a> · Суурь ойлголт</p>
+  <h1>Бүх аргад хамаарах суурь ойлголт</h1>
+  <p class="mt-en" lang="en">Essentials: assumptions, effect sizes, multiple testing, missing data</p>
+  <p class="mt-lead">Аль ч аргыг хэрэглэхээс өмнө болон дараа анхаарах нийтлэг алхмууд. Арга тус бүрийн хуудас эдгээрийг товч дурддаг бол энд дэлгэрэнгүй, нэг дор тайлбарлав.</p>
+  <ul class="mt-badges"><li>Таамаглал</li><li>Нөлөөний хэмжээ</li><li>Олон харьцуулалт</li><li>Дутуу өгөгдөл</li><li>Жишээ өгөгдөл</li></ul>
+</header>
+<section id="таамаглал-шалгах" class="level2">
+<h2 class="anchored" data-anchor-id="таамаглал-шалгах">1. Таамаглал шалгах</h2>
+<p>Параметрийн аргууд (t-тест, ANOVA, шугаман регресс) өгөгдлийн талаар тодорхой таамаглал дэвшүүлдэг. Таамаглал хэр зөрчигдсөнийг <strong>график</strong> болон тестээр хамтад нь үнэлнэ.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Таамаглал</th>
+<th>Хэрхэн шалгах</th>
+<th>Зөрчигдвөл</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Бие даасан байдал</td>
+<td>Судалгааны дизайнаас (давтан хэмжилт, кластер байгаа эсэх)</td>
+<td>Хамааралт тест, <a href="mixed-models.html">холимог загвар</a>, <a href="gee.html">GEE</a></td>
+</tr>
+<tr class="even">
+<td>Хэвийн тархалт</td>
+<td>Q-Q график, гистограм; Шапиро-Уилкийн тест</td>
+<td>Түүвэр том бол ихэвчлэн асуудалгүй; хувиргалт эсвэл параметрийн бус тест</td>
+</tr>
+<tr class="odd">
+<td>Дисперсийн тэгш байдал</td>
+<td>Хайрцган график; Левенийн тест</td>
+<td>Welch t-тест / Welch ANOVA, robust SE</td>
+</tr>
+<tr class="even">
+<td>Шугаман хамаарал (регресс)</td>
+<td>Үлдэгдэл ба таамаг утгын график</td>
+<td>Сплайн, полином, хувиргалт</td>
+</tr>
+<tr class="odd">
+<td>Огцом утга</td>
+<td>Хайрцган график, Cook’s distance</td>
+<td>Өгөгдлийн алдааг шалгах; огцом утгатай ба огцом утгагүй хоёр шинжилгээ хийж үр дүнгийн тогтвортой байдлыг харьцуулах</td>
+</tr>
+</tbody>
+</table>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Хэвийн тархалт: график эхэлж, дараа нь тест</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(df<span class="sc">$</span>sbp8); <span class="fu">qqline</span>(df<span class="sc">$</span>sbp8)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(df<span class="sc">$</span>sbp8)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Дисперсийн тэгш байдал</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>car<span class="sc">::</span><span class="fu">leveneTest</span>(sbp8 <span class="sc">~</span> group, <span class="at">data =</span> df)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Регрессийн загварын бүх таамаглалыг нэг дор</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">lm</span>(sbp8 <span class="sc">~</span> group <span class="sc">+</span> age <span class="sc">+</span> sbp0, <span class="at">data =</span> df)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>performance<span class="sc">::</span><span class="fu">check_model</span>(m)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-simple callout-warning no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Анхаар:</strong> Шапиро-Уилкийн тест том түүвэрт өчүүхэн хазайлтыг ч “ач холбогдолтой” гэж гаргадаг бол бага түүвэрт том хазайлтыг ч илрүүлэхгүй байж болно. Шийдвэрийг зөвхөн p-утгаар бус, Q-Q график болон түүврийн хэмжээг харгалзаж гаргана. Регрессэд хувьсагчийн биш, <strong>үлдэгдлийн</strong> хэвийн тархалт чухал.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="нөлөөний-хэмжээ-ба-итгэх-интервал" class="level2">
+<h2 class="anchored" data-anchor-id="нөлөөний-хэмжээ-ба-итгэх-интервал">2. Нөлөөний хэмжээ ба итгэх интервал</h2>
+<p>p-утга зөвхөн “тэг таамаглалтай нийцэх эсэх”-ийг хэлдэг. Ялгаа <strong>хэр том</strong>, эмнэлзүйн хувьд <strong>чухал эсэхийг</strong> нөлөөний хэмжээ ба түүний 95% итгэх интервал (CI) харуулна. Олон улсын тайлагнах заавар (CONSORT, STROBE) хоёуланг нь шаарддаг.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Арга</th>
+<th>Нөлөөний хэмжээ</th>
+<th>Бага / дунд / их (ойролцоогоор)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>t-тест</td>
+<td>Дунджийн зөрүү (нэгжээр), Cohen-ийн d</td>
+<td>d: 0.2 / 0.5 / 0.8</td>
+</tr>
+<tr class="even">
+<td>ANOVA</td>
+<td>η², ω²</td>
+<td>0.01 / 0.06 / 0.14</td>
+</tr>
+<tr class="odd">
+<td>Корреляци</td>
+<td>r</td>
+<td>0.1 / 0.3 / 0.5</td>
+</tr>
+<tr class="even">
+<td>Хи-квадрат (2×2)</td>
+<td>RR, OR, эрсдэлийн зөрүү</td>
+<td>Эмнэлзүйн утгаар тайлбарлана</td>
+</tr>
+<tr class="odd">
+<td>Хи-квадрат (r×c)</td>
+<td>Cramér’s V</td>
+<td>0.1 / 0.3 / 0.5</td>
+</tr>
+<tr class="even">
+<td>Манн-Уитни, Уилкоксон</td>
+<td>Rank-biserial r</td>
+<td>0.1 / 0.3 / 0.5</td>
+</tr>
+<tr class="odd">
+<td>Логистик регресс</td>
+<td>OR</td>
+<td>Эмнэлзүйн утгаар тайлбарлана</td>
+</tr>
+<tr class="even">
+<td>Пуассон регресс</td>
+<td>IRR</td>
+<td>Эмнэлзүйн утгаар тайлбарлана</td>
+</tr>
+<tr class="odd">
+<td>Кокс регресс</td>
+<td>HR</td>
+<td>Эмнэлзүйн утгаар тайлбарлана</td>
+</tr>
+</tbody>
+</table>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>effectsize<span class="sc">::</span><span class="fu">cohens_d</span>(sbp8 <span class="sc">~</span> group, <span class="at">data =</span> df)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>effectsize<span class="sc">::</span><span class="fu">eta_squared</span>(<span class="fu">aov</span>(sbp8 <span class="sc">~</span> city, <span class="at">data =</span> df))</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>effectsize<span class="sc">::</span><span class="fu">interpret_cohens_d</span>(<span class="fl">0.45</span>)     <span class="co"># "small" / "medium" ...</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Жишээ:</strong> “p = 0.03” гэхийн оронд “эмийн бүлэгт систолын даралт плацебогоос 7.5 мм м.у.б-аар бага байв (95% CI 3.0; 12.0; p = 0.001)” гэж тайлагнана. CI-ийн доод хязгаар (3.0) хүртэл эмнэлзүйн ач холбогдолтой эсэхийг уншигч өөрөө дүгнэх боломжтой.</p>
+</div>
+</div>
+</div>
+<p>Cohen-ийн “бага/дунд/их” хил хязгаар нь ерөнхий баримжаа юм. Тухайн салбарын эмнэлзүйн хувьд ач холбогдолтой хамгийн бага ялгаа (MCID) илүү чухал.</p>
+</section>
+<section id="олон-харьцуулалтын-засвар" class="level2">
+<h2 class="anchored" data-anchor-id="олон-харьцуулалтын-засвар">3. Олон харьцуулалтын засвар</h2>
+<p>Олон тест хийх тусам санамсаргүйгээр “ач холбогдолтой” үр дүн гарах магадлал өснө. 20 хамааралгүй тестийг α = 0.05-аар хийвэл ядаж нэг хуурамч эерэг гарах магадлал ≈ 64%.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Арга</th>
+<th>Хэзээ</th>
+<th>R</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Бонферрони</strong></td>
+<td>Цөөн, урьдчилан төлөвлөсөн харьцуулалт. Хамгийн хатуу.</td>
+<td><code>p.adjust(p, "bonferroni")</code></td>
+</tr>
+<tr class="even">
+<td><strong>Холм</strong></td>
+<td>Бонферронигоос үргэлж илүү чадалтай, ижил хамгаалалттай. Анхдагч сонголт болгоход тохиромжтой.</td>
+<td><code>p.adjust(p, "holm")</code></td>
+</tr>
+<tr class="odd">
+<td><strong>Тьюки (HSD)</strong></td>
+<td>ANOVA-гийн дараа бүх хосыг харьцуулах</td>
+<td><code>TukeyHSD(aov(...))</code></td>
+</tr>
+<tr class="even">
+<td><strong>Даннет</strong></td>
+<td>Бүх бүлгийг нэг хяналтын бүлэгтэй харьцуулах</td>
+<td><code>emmeans(..., trt.vs.ctrl ~ g)</code></td>
+</tr>
+<tr class="odd">
+<td><strong>Бенжамини-Хохберг (FDR)</strong></td>
+<td>Олон зуун тест (ген, биомаркер) бүхий хайгуулын судалгаа</td>
+<td><code>p.adjust(p, "BH")</code></td>
+</tr>
+</tbody>
+</table>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.004</span>, <span class="fl">0.019</span>, <span class="fl">0.030</span>, <span class="fl">0.240</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">p.adjust</span>(p, <span class="at">method =</span> <span class="st">"holm"</span>)     <span class="co"># 0.016 0.057 0.060 0.240</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Засвар хэзээ хэрэггүй вэ?</strong> Протоколд урьдчилан тодорхойлсон <strong>нэг гол үр дагавар</strong> ба нэг гол харьцуулалттай бол засвар шаардлагагүй. Хоёрдогч үр дагаврыг “хайгуулын” гэж тодорхой тэмдэглэн тайлагнаж болно.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="дутуу-өгөгдөл" class="level2">
+<h2 class="anchored" data-anchor-id="дутуу-өгөгдөл">4. Дутуу өгөгдөл</h2>
+<p>Анагаахын бараг бүх судалгаанд дутуу утга байдаг. Хэдэн хувь дутуу, яагаад дутуу болсон нь шинжилгээний сонголтыг тодорхойлно.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Механизм</th>
+<th>Утга</th>
+<th>Жишээ</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>MCAR</strong> (бүрэн санамсаргүй)</td>
+<td>Дутуу байх нь ямар ч хувьсагчаас хамаарахгүй</td>
+<td>Лабораторийн дээж санамсаргүйгээр гэмтсэн</td>
+</tr>
+<tr class="even">
+<td><strong>MAR</strong> (санамсаргүй)</td>
+<td>Дутуу байх нь <em>ажиглагдсан</em> хувьсагчаас хамаарна</td>
+<td>Залуу хүмүүс давтан үзлэгт бага ирдэг (нас бүртгэгдсэн)</td>
+</tr>
+<tr class="odd">
+<td><strong>MNAR</strong> (санамсаргүй биш)</td>
+<td>Дутуу байх нь <em>дутуу утгаасаа</em> хамаарна</td>
+<td>Даралт нь өндөр хүмүүс үзлэгт ирэхээс зайлсхийдэг</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Бүрэн тохиолдлын шинжилгээ</strong> (дутуутай мөрийг хасах): MCAR үед хазайлтгүй, гэхдээ чадал буурна. Бусад үед хазайлттай байж болно.</li>
+<li><strong>Олон дахин нөхөх (multiple imputation)</strong>: MAR үед санал болгох арга. Дутуу утгыг олон удаа нөхөж, үр дүнг нэгтгэнэ.</li>
+<li><strong>Холимог загвар</strong>: давтан хэмжилтэд MAR үед дутуу хэмжилттэй хүмүүсийг хасалгүй ашиглана.</li>
+<li>Дунджаар нөхөх, сүүлийн утгыг үргэлжлүүлэх (LOCF) аргыг ерөнхийдөө <strong>хэрэглэхгүй</strong>.</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Хувьсагч бүрийн дутуу хувь</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colMeans</span>(<span class="fu">is.na</span>(df)) <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>naniar<span class="sc">::</span><span class="fu">vis_miss</span>(df)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Олон дахин нөхөх</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mice)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>imp <span class="ot">&lt;-</span> <span class="fu">mice</span>(df, <span class="at">m =</span> <span class="dv">20</span>, <span class="at">seed =</span> <span class="dv">2026</span>)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">with</span>(imp, <span class="fu">lm</span>(sbp8 <span class="sc">~</span> group <span class="sc">+</span> age <span class="sc">+</span> sbp0))</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">pool</span>(fit), <span class="at">conf.int =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Тайлагнахдаа хувьсагч бүрийн дутуу хувь, шинжилгээнд орсон хүний тоо, дутуу өгөгдөлтэй хэрхэн ажилласнаа заавал бичнэ.</p>
+</section>
+<section id="jishee-ogogdol" class="level2">
+<h2 class="anchored" data-anchor-id="jishee-ogogdol">5. Жишээ өгөгдөл</h2>
+<p>Сайтын кодыг өөрийн компьютер дээр туршихад зориулсан <strong>зохиомол</strong> өгөгдөл: 200 өвчтөн, эм ба плацебо бүлэг.</p>
+<div class="mt-actions" style="margin:0.5rem 0 1rem">
+  <a class="btn btn-primary btn-sm" href="../resources/data/emnelgiin-jishee.csv" download=""><i class="bi bi-download"></i> emnelgiin-jishee.csv татах</a>
+</div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Хувьсагч</th>
+<th>Тайлбар</th>
+<th>Тохирох аргууд</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>id</code></td>
+<td>Өвчтөний дугаар</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>group</code></td>
+<td>Эм / Плацебо</td>
+<td>t-тест, хи-квадрат, регресс</td>
+</tr>
+<tr class="odd">
+<td><code>sex</code>, <code>age</code>, <code>bmi</code>, <code>smoker</code></td>
+<td>Хүйс, нас, БЖИ, тамхи татдаг эсэх</td>
+<td>Ковариат</td>
+</tr>
+<tr class="even">
+<td><code>city</code></td>
+<td>Улаанбаатар / Эрдэнэт / Дархан</td>
+<td>ANOVA, Крускал-Валлис</td>
+</tr>
+<tr class="odd">
+<td><code>sbp0</code>, <code>sbp8</code></td>
+<td>Систолын даралт: эхэнд ба 8 дахь долоо хоногт (мм м.у.б)</td>
+<td>Хамааралт t-тест, ANCOVA</td>
+</tr>
+<tr class="even">
+<td><code>pain0</code>, <code>pain6</code></td>
+<td>Өвдөлтийн оноо (0–10): эхэнд ба 6 дахь долоо хоногт</td>
+<td>Уилкоксон, Манн-Уитни</td>
+</tr>
+<tr class="odd">
+<td><code>infection</code></td>
+<td>Хүндрэлийн халдвар (Тийм / Үгүй)</td>
+<td>Хи-квадрат, логистик регресс</td>
+</tr>
+<tr class="even">
+<td><code>ari</code>, <code>years</code></td>
+<td>Амьсгалын замын халдварын тоо, ажигласан жил</td>
+<td>Пуассон / сөрөг биномын регресс</td>
+</tr>
+<tr class="odd">
+<td><code>time_months</code>, <code>event</code></td>
+<td>Ажигласан хугацаа (сар), үйл явдал (1 = тохиолдсон, 0 = цензур)</td>
+<td>Каплан-Майер, Кокс регресс</td>
+</tr>
+</tbody>
+</table>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"emnelgiin-jishee.csv"</span>, <span class="at">encoding =</span> <span class="st">"UTF-8"</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(df)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(sbp8 <span class="sc">~</span> group, <span class="at">data =</span> df)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(<span class="fu">table</span>(df<span class="sc">$</span>group, df<span class="sc">$</span>infection))</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(MASS<span class="sc">::</span><span class="fu">glm.nb</span>(ari <span class="sc">~</span> city <span class="sc">+</span> smoker <span class="sc">+</span> <span class="fu">offset</span>(<span class="fu">log</span>(years)), <span class="at">data =</span> df))</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>survival<span class="sc">::</span><span class="fu">coxph</span>(survival<span class="sc">::</span><span class="fu">Surv</span>(time_months, event) <span class="sc">~</span> group <span class="sc">+</span> age, <span class="at">data =</span> df)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Өгөгдөл зохиомол бөгөөд зөвхөн сургалтын зорилготой. Үүнийг үүсгэсэн скрипт: <code>_tools/make-example-data.py</code>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="холбогдох-нэр-томьёо" class="level2">
+<h2 class="anchored" data-anchor-id="холбогдох-нэр-томьёо">Холбогдох нэр томьёо</h2>
+<div class="glossary-embed" data-src="../glossary/terms.yml" data-glossary-url="../glossary.html" data-terms="normal-distribution,shapiro-wilk,levene-test,qq-plot,residual,outlier,effect-size,confidence-interval,clinical-significance,multiple-comparisons,bonferroni,post-hoc-test,missing-data,type-i-error">
+  <p class="gl-loading">Нэр томьёог ачаалж байна…</p>
+</div>
+
+<nav class="mt-pager" aria-label="Аргууд хооронд шилжих"><a href="../methods.html">← Бүх аргууд</a><a href="sample-size.html">Түүврийн хэмжээ ба чадал →</a></nav>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/zorigoobayar\.github\.io\/team-of-biostatistics\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+      window.quartoDecorateExternalLinks = function (root) {
+     var links = (root || window.document).querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+          if (!link.classList.contains('no-external-icon')) {
+          }
+        }
+      }
+      };
+      window.quartoDecorateExternalLinks(window.document);
+    // Esc closes the popup (WCAG 1.4.13) and focus leaving both trigger and
+    // popup closes it (WCAG 2.4.11); tippy handles neither for interactive popups.
+    const hideOnEscAndFocusOut = {
+      name: 'hideOnEscAndFocusOut',
+      defaultValue: true,
+      fn(instance) {
+        const dismiss = () => {
+          // A show scheduled by the trigger delay would otherwise reopen it
+          instance.clearDelayTimeouts();
+          instance.hide();
+        };
+        const onKeyDown = (event) => {
+          if (event.key !== 'Escape') {
+            return;
+          }
+          // Keep Esc from also reaching page handlers (e.g. reveal.js overview),
+          // except an open reveal.js slide menu, which Esc should close too.
+          // The menu handles keys only when its keyboard option is on.
+          const menuHandlesEsc = window.Reveal?.getPlugin?.('menu')?.isOpen() &&
+            window.Reveal.getConfig().menu?.keyboard !== false;
+          if (!menuHandlesEsc) {
+            event.stopPropagation();
+          }
+          if (instance.popper.contains(window.document.activeElement)) {
+            // Disabled while refocusing so the focus trigger does not reopen it
+            instance.disable();
+            instance.reference.focus();
+            instance.enable();
+          }
+          dismiss();
+        };
+        const onFocusOut = (event) => {
+          const target = event.relatedTarget;
+          if (target && !instance.reference.contains(target) &&
+              !instance.popper.contains(target)) {
+            dismiss();
+          }
+        };
+        // On the trigger too: a click trigger (code-annotations: select) has no
+        // blur handling. Attached for the instance's lifetime so leaving the
+        // trigger also cancels a show still pending on the trigger delay.
+        instance.reference.addEventListener('focusout', onFocusOut);
+        return {
+          onShow() {
+            window.document.addEventListener('keydown', onKeyDown, true);
+            instance.popper.addEventListener('focusout', onFocusOut);
+          },
+          onHide() {
+            window.document.removeEventListener('keydown', onKeyDown, true);
+            instance.popper.removeEventListener('focusout', onFocusOut);
+          },
+          onDestroy() {
+            instance.reference.removeEventListener('focusout', onFocusOut);
+          },
+        };
+      },
+    };
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+        plugins: [hideOnEscAndFocusOut],
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          // Each band is positioned against its own containing block, which is
+          // not the offsetParent of the lines, so place it from client rects.
+          const placeBand = (band, firstEl, lastEl, codeBlock) => {
+            const container = band.offsetParent;
+            if (container === null) {
+              return;
+            }
+            const containerRect = container.getBoundingClientRect();
+            // Reveal.js scales slides with a transform, so convert client
+            // pixels back to the CSS pixels of the container.
+            const scale = containerRect.height / container.offsetHeight || 1;
+            const firstRect = firstEl.getBoundingClientRect();
+            const lastRect = lastEl.getBoundingClientRect();
+            const top = (firstRect.top - containerRect.top) / scale - container.clientTop + container.scrollTop;
+            const height = (lastRect.bottom - firstRect.top) / scale;
+            band.style.top = top - 2 + "px";
+            band.style.height = height + 4 + "px";
+            if (codeBlock) {
+              // Without the copy button wrapper, the containing block is wider
+              // than the code block, so span the code block explicitly.
+              const blockRect = codeBlock.getBoundingClientRect();
+              band.style.left = (blockRect.left - containerRect.left) / scale - container.clientLeft + container.scrollLeft + "px";
+              band.style.width = blockRect.width / scale + "px";
+            }
+          };
+          if (lineIds.length > 0) {
+            const el = window.document.getElementById(lineIds[0]);
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const parent = el.parentElement.parentElement;
+            // cook up a div (if necessary) and position it
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            placeBand(div, el, lastEl, parent.closest("div.sourceCode") || parent);
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            placeBand(gutterDiv, el, lastEl);
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+  <script type="application/javascript">
+  window.quartoScrollableRegionsLabels = {"code":"Scrollable code","output":"Scrollable output"};
+  </script>
+</div> <!-- /content -->
+<script src="../assets/js/js-yaml.min.js"></script>
+<script src="../assets/js/glossary.js"></script>
+
+
+
+
+</body></html>

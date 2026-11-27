@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.19">
+<meta name="generator" content="quarto-1.11.9">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -39,14 +39,15 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="./">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/scrollable-regions/scrollable-regions.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-55617497126496852ff9f5a59253c640.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-cb61c712ca1a7fe70a83faed8e4da2d7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -143,19 +144,18 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="styles/methods.css">
 </head>
 
-<body class="nav-fixed page-methods fullcontent quarto-light">
+<body class="nav-fixed page-methods fullcontent quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark" aria-label="Site">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Team of Biostatistics</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -200,6 +200,7 @@ ul.task-list li input[type="checkbox"] {
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
 </div>
+            <div id="quarto-search" class="" title="Search"></div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -209,7 +210,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content" tabindex="-1">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -244,34 +245,47 @@ ul.task-list li input[type="checkbox"] {
     тайлагнах загвар болон холбогдох нэр томьёо багтсан.
   </p>
   <ul class="mt-badges" aria-label="Товч мэдээлэл">
-    <li><strong>12</strong> арга</li>
+    <li><strong>23</strong> арга</li>
     <li><strong>R</strong> кодын жишээ</li>
     <li><strong>Монгол</strong> нэр томьёо</li>
+    <li><strong>jamovi / SPSS</strong> цэсний заавар</li>
     <li><span class="vc" data-vc-href=""></span></li>
   </ul>
   <div class="mt-actions">
-    <a class="btn btn-primary btn-sm" href="#аль-аргыг-сонгох-вэ"><i class="bi bi-signpost-split"></i> Аль аргыг сонгох вэ?</a>
+    <a class="btn btn-primary btn-sm" href="#mt-wizard"><i class="bi bi-signpost-split"></i> Аль аргыг сонгох вэ?</a>
+    <a class="btn btn-outline-secondary btn-sm" href="methods/essentials.html"><i class="bi bi-lightbulb"></i> Суурь ойлголт</a>
+    <a class="btn btn-outline-secondary btn-sm" href="resources/data/emnelgiin-jishee.csv" download=""><i class="bi bi-download"></i> Жишээ өгөгдөл</a>
     <a class="btn btn-outline-secondary btn-sm" href="glossary.html"><i class="bi bi-journal-text"></i> Нэр томьёоны толь</a>
   </div>
 </header>
 <section class="mt-browse column-page" aria-label="Аргууд">
   <div class="mt-toolbar">
     <label class="mt-search"><i class="bi bi-search" aria-hidden="true"></i>
-      <input type="search" placeholder="Хайх: t-тест, регресс, survival…" aria-label="Арга хайх"></label>
+      <input type="search" placeholder="Хайх: t-тест, хи-квадрат, регресс…" aria-label="Арга хайх"></label>
     <div class="mt-filters" role="group" aria-label="Бүлгээр шүүх">
-      <button type="button" class="is-active" data-group="all">Бүгд <span>12</span></button>
+      <button type="button" class="is-active" data-group="all">Бүгд <span>23</span></button>
       <button type="button" data-group="compare" class="mt-f-compare"><i class="bi bi-bar-chart-line"></i> Дундаж <span>6</span></button>
-      <button type="button" data-group="relation" class="mt-f-relation"><i class="bi bi-graph-up"></i> Хамаарал <span>3</span></button>
+      <button type="button" data-group="categorical" class="mt-f-categorical"><i class="bi bi-pie-chart"></i> Категорийн <span>2</span></button>
+      <button type="button" data-group="nonparam" class="mt-f-nonparam"><i class="bi bi-sort-numeric-down"></i> Параметрийн бус <span>3</span></button>
+      <button type="button" data-group="relation" class="mt-f-relation"><i class="bi bi-graph-up"></i> Хамаарал <span>4</span></button>
       <button type="button" data-group="survival" class="mt-f-survival"><i class="bi bi-hourglass-split"></i> Амьдрах чадвар <span>2</span></button>
-      <button type="button" data-group="clustered" class="mt-f-clustered"><i class="bi bi-diagram-3"></i> Давтан / кластер <span>1</span></button>
+      <button type="button" data-group="clustered" class="mt-f-clustered"><i class="bi bi-diagram-3"></i> Давтан / кластер <span>3</span></button>
+      <button type="button" data-group="diagnostic" class="mt-f-diagnostic"><i class="bi bi-clipboard2-pulse"></i> Оношилгоо / тохирол <span>2</span></button>
+      <button type="button" data-group="design" class="mt-f-design"><i class="bi bi-rulers"></i> Төлөвлөлт <span>1</span></button>
     </div>
   </div>
+  <p class="mt-legend">Түвшин:
+    <span class="mt-level lv-1">Анхан</span>
+    <span class="mt-level lv-2">Дунд</span>
+    <span class="mt-level lv-3">Ахисан</span>
+  </p>
 
   <div class="mt-grid">
-    <a class="mt-card g-compare" href="methods/one-sample-t-test.html" data-group="compare" data-search="нэг түүврийн t-тест one-sample t-test нэг бүлгийн дундажийг норм, жишиг эсвэл онолын утгатай харьцуулна. тасралтгүй 1 бүлэг  t.test(x, mu = )  дундаж харьцуулах">
+    <a class="mt-card g-compare" href="methods/one-sample-t-test.html" data-group="compare" data-level="1" data-search="нэг түүврийн t-тест one-sample t-test нэг бүлгийн дундажийг норм, жишиг эсвэл онолын утгатай харьцуулна. тасралтгүй 1 бүлэг t.test(x, mu = ) дундаж харьцуулах анхан">
       <div class="mt-card-top">
         <span class="mt-symbol" aria-hidden="true">t</span>
         <span class="mt-cat">Дундаж</span>
+        <span class="mt-level lv-1">Анхан</span>
         <span class="mt-num">01</span>
       </div>
       <h3 class="anchored">Нэг түүврийн t-тест</h3>
@@ -283,10 +297,11 @@ ul.task-list li input[type="checkbox"] {
         <span class="vc" data-vc-href="methods/one-sample-t-test.html"></span>
       </div>
     </a>
-    <a class="mt-card g-compare" href="methods/independent-t-test.html" data-group="compare" data-search="хамааралгүй түүврийн t-тест independent samples t-test хоёр хамааралгүй бүлгийн тасралтгүй хувьсагчийн дундажийг харьцуулна. тасралтгүй 2 бүлэг  t.test(y ~ g)  дундаж харьцуулах">
+    <a class="mt-card g-compare" href="methods/independent-t-test.html" data-group="compare" data-level="1" data-search="хамааралгүй түүврийн t-тест independent samples t-test хоёр хамааралгүй бүлгийн тасралтгүй хувьсагчийн дундажийг харьцуулна. тасралтгүй 2 бүлэг t.test(y ~ g) дундаж харьцуулах анхан">
       <div class="mt-card-top">
         <span class="mt-symbol" aria-hidden="true">t</span>
         <span class="mt-cat">Дундаж</span>
+        <span class="mt-level lv-1">Анхан</span>
         <span class="mt-num">02</span>
       </div>
       <h3 class="anchored">Хамааралгүй түүврийн t-тест</h3>
@@ -298,10 +313,11 @@ ul.task-list li input[type="checkbox"] {
         <span class="vc" data-vc-href="methods/independent-t-test.html"></span>
       </div>
     </a>
-    <a class="mt-card g-compare" href="methods/paired-t-test.html" data-group="compare" data-search="хамааралт түүврийн t тест paired t-test нэг хүнээс авсан хоёр хэмжилтийн (өмнө/дараа) дундаж зөрүүг шалгана. тасралтгүй 2 хэмжилт  t.test(paired = true)  дундаж харьцуулах">
+    <a class="mt-card g-compare" href="methods/paired-t-test.html" data-group="compare" data-level="1" data-search="хамааралт түүврийн t тест paired t-test нэг хүнээс авсан хоёр хэмжилтийн (өмнө/дараа) дундаж зөрүүг шалгана. тасралтгүй 2 хэмжилт t.test(paired = true) дундаж харьцуулах анхан">
       <div class="mt-card-top">
         <span class="mt-symbol" aria-hidden="true">t</span>
         <span class="mt-cat">Дундаж</span>
+        <span class="mt-level lv-1">Анхан</span>
         <span class="mt-num">03</span>
       </div>
       <h3 class="anchored">Хамааралт түүврийн t тест</h3>
@@ -313,10 +329,11 @@ ul.task-list li input[type="checkbox"] {
         <span class="vc" data-vc-href="methods/paired-t-test.html"></span>
       </div>
     </a>
-    <a class="mt-card g-compare" href="methods/anova.html" data-group="compare" data-search="дисперсийн шинжилгээ (anova) one-way analysis of variance гурав ба түүнээс дээш хамааралгүй бүлгийн дундажийг нэг дор харьцуулна. тасралтгүй ≥ 3 бүлэг  aov()  дундаж харьцуулах">
+    <a class="mt-card g-compare" href="methods/anova.html" data-group="compare" data-level="2" data-search="дисперсийн шинжилгээ (anova) one-way analysis of variance гурав ба түүнээс дээш хамааралгүй бүлгийн дундажийг нэг дор харьцуулна. тасралтгүй ≥ 3 бүлэг aov() дундаж харьцуулах дунд">
       <div class="mt-card-top">
         <span class="mt-symbol" aria-hidden="true">F</span>
         <span class="mt-cat">Дундаж</span>
+        <span class="mt-level lv-2">Дунд</span>
         <span class="mt-num">04</span>
       </div>
       <h3 class="anchored">Дисперсийн шинжилгээ (ANOVA)</h3>
@@ -328,10 +345,11 @@ ul.task-list li input[type="checkbox"] {
         <span class="vc" data-vc-href="methods/anova.html"></span>
       </div>
     </a>
-    <a class="mt-card g-compare" href="methods/ancova.html" data-group="compare" data-search="ковариацын шинжилгээ (ancova) analysis of covariance бүлгүүдийн дундажийг суурь утга зэрэг тасралтгүй ковариатаар залруулж харьцуулна. тасралтгүй ≥ 2 бүлэг + ковариат  lm(y ~ g + x)  дундаж харьцуулах">
+    <a class="mt-card g-compare" href="methods/ancova.html" data-group="compare" data-level="2" data-search="ковариацын шинжилгээ (ancova) analysis of covariance бүлгүүдийн дундажийг суурь утга зэрэг тасралтгүй ковариатаар залруулж харьцуулна. тасралтгүй ≥ 2 бүлэг + ковариат lm(y ~ g + x) дундаж харьцуулах дунд">
       <div class="mt-card-top">
         <span class="mt-symbol" aria-hidden="true">F</span>
         <span class="mt-cat">Дундаж</span>
+        <span class="mt-level lv-2">Дунд</span>
         <span class="mt-num">05</span>
       </div>
       <h3 class="anchored">Ковариацын шинжилгээ (ANCOVA)</h3>
@@ -343,10 +361,11 @@ ul.task-list li input[type="checkbox"] {
         <span class="vc" data-vc-href="methods/ancova.html"></span>
       </div>
     </a>
-    <a class="mt-card g-compare" href="methods/manova.html" data-group="compare" data-search="олон хэмжээст дисперсийн шинжилгээ (manova) multivariate analysis of variance хоёр ба түүнээс дээш хамааралтай үр дагаврыг бүлгүүдийн хооронд зэрэг харьцуулна. ≥ 2 тасралтгүй үр дагавар ≥ 2 бүлэг  manova()  дундаж харьцуулах">
+    <a class="mt-card g-compare" href="methods/manova.html" data-group="compare" data-level="3" data-search="олон хэмжээст дисперсийн шинжилгээ (manova) multivariate analysis of variance хоёр ба түүнээс дээш хамааралтай үр дагаврыг бүлгүүдийн хооронд зэрэг харьцуулна. ≥ 2 тасралтгүй үр дагавар ≥ 2 бүлэг manova() дундаж харьцуулах ахисан">
       <div class="mt-card-top">
         <span class="mt-symbol" aria-hidden="true">Λ</span>
         <span class="mt-cat">Дундаж</span>
+        <span class="mt-level lv-3">Ахисан</span>
         <span class="mt-num">06</span>
       </div>
       <h3 class="anchored">Олон хэмжээст дисперсийн шинжилгээ (MANOVA)</h3>
@@ -358,11 +377,92 @@ ul.task-list li input[type="checkbox"] {
         <span class="vc" data-vc-href="methods/manova.html"></span>
       </div>
     </a>
-    <a class="mt-card g-relation" href="methods/correlation.html" data-group="relation" data-search="корреляцийн шинжилгээ correlation analysis хоёр тоон хувьсагчийн хамаарлын хүч ба чиглэлийг −1-ээс +1 хооронд хэмжинэ. 2 тоон хувьсагч пирсон / спирмен  cor.test()  хамаарал ба регресс">
+    <a class="mt-card g-categorical" href="methods/chi-square-test.html" data-group="categorical" data-level="1" data-search="хи-квадрат тест ба фишерийн яг тест chi-square &amp; fisher's exact test хоёр категорийн хувьсагчийн хамаарал буюу бүлгүүдийн хувийг харьцуулна. категорийн ≥ 2 бүлэг chisq.test() категорийн өгөгдөл хувь анхан">
+      <div class="mt-card-top">
+        <span class="mt-symbol" aria-hidden="true">χ²</span>
+        <span class="mt-cat">Категорийн</span>
+        <span class="mt-level lv-1">Анхан</span>
+        <span class="mt-num">07</span>
+      </div>
+      <h3 class="anchored">Хи-квадрат тест ба Фишерийн яг тест</h3>
+      <p class="mt-card-en" lang="en">Chi-square &amp; Fisher's exact test</p>
+      <p class="mt-desc">Хоёр категорийн хувьсагчийн хамаарал буюу бүлгүүдийн хувийг харьцуулна.</p>
+      <div class="mt-tags"><span>Категорийн</span><span>≥ 2 бүлэг</span></div>
+      <div class="mt-card-foot">
+        <code>chisq.test()</code>
+        <span class="vc" data-vc-href="methods/chi-square-test.html"></span>
+      </div>
+    </a>
+    <a class="mt-card g-categorical" href="methods/mcnemar-test.html" data-group="categorical" data-level="1" data-search="макнемарын тест mcnemar's test нэг хүнээс авсан хоёр тийм/үгүй хэмжилтийн (өмнө/дараа) хувийг харьцуулна. хоёр утгат 2 хэмжилт mcnemar.test() категорийн өгөгдөл хувь анхан">
+      <div class="mt-card-top">
+        <span class="mt-symbol" aria-hidden="true">χ²</span>
+        <span class="mt-cat">Категорийн</span>
+        <span class="mt-level lv-1">Анхан</span>
+        <span class="mt-num">08</span>
+      </div>
+      <h3 class="anchored">МакНемарын тест</h3>
+      <p class="mt-card-en" lang="en">McNemar's test</p>
+      <p class="mt-desc">Нэг хүнээс авсан хоёр тийм/үгүй хэмжилтийн (өмнө/дараа) хувийг харьцуулна.</p>
+      <div class="mt-tags"><span>Хоёр утгат</span><span>2 хэмжилт</span></div>
+      <div class="mt-card-foot">
+        <code>mcnemar.test()</code>
+        <span class="vc" data-vc-href="methods/mcnemar-test.html"></span>
+      </div>
+    </a>
+    <a class="mt-card g-nonparam" href="methods/mann-whitney.html" data-group="nonparam" data-level="1" data-search="манн-уитнигийн u тест mann–whitney u test хоёр хамааралгүй бүлгийг эрэмбээр харьцуулна. хамааралгүй t-тестийн параметрийн бус хувилбар. хэвийн бус / дараалсан 2 бүлэг wilcox.test(y ~ g) параметрийн бус эрэмбэ анхан">
+      <div class="mt-card-top">
+        <span class="mt-symbol" aria-hidden="true">U</span>
+        <span class="mt-cat">Параметрийн бус</span>
+        <span class="mt-level lv-1">Анхан</span>
+        <span class="mt-num">09</span>
+      </div>
+      <h3 class="anchored">Манн-Уитнигийн U тест</h3>
+      <p class="mt-card-en" lang="en">Mann–Whitney U test</p>
+      <p class="mt-desc">Хоёр хамааралгүй бүлгийг эрэмбээр харьцуулна. Хамааралгүй t-тестийн параметрийн бус хувилбар.</p>
+      <div class="mt-tags"><span>Хэвийн бус / дараалсан</span><span>2 бүлэг</span></div>
+      <div class="mt-card-foot">
+        <code>wilcox.test(y ~ g)</code>
+        <span class="vc" data-vc-href="methods/mann-whitney.html"></span>
+      </div>
+    </a>
+    <a class="mt-card g-nonparam" href="methods/wilcoxon-signed-rank.html" data-group="nonparam" data-level="1" data-search="уилкоксоны тэмдэгт эрэмбийн тест wilcoxon signed-rank test нэг хүний хоёр хэмжилтийн зөрүүг эрэмбээр шалгана. хамааралт t тестийн параметрийн бус хувилбар. хэвийн бус / дараалсан 2 хэмжилт wilcox.test(paired = true) параметрийн бус эрэмбэ анхан">
+      <div class="mt-card-top">
+        <span class="mt-symbol" aria-hidden="true">W</span>
+        <span class="mt-cat">Параметрийн бус</span>
+        <span class="mt-level lv-1">Анхан</span>
+        <span class="mt-num">10</span>
+      </div>
+      <h3 class="anchored">Уилкоксоны тэмдэгт эрэмбийн тест</h3>
+      <p class="mt-card-en" lang="en">Wilcoxon signed-rank test</p>
+      <p class="mt-desc">Нэг хүний хоёр хэмжилтийн зөрүүг эрэмбээр шалгана. Хамааралт t тестийн параметрийн бус хувилбар.</p>
+      <div class="mt-tags"><span>Хэвийн бус / дараалсан</span><span>2 хэмжилт</span></div>
+      <div class="mt-card-foot">
+        <code>wilcox.test(paired = TRUE)</code>
+        <span class="vc" data-vc-href="methods/wilcoxon-signed-rank.html"></span>
+      </div>
+    </a>
+    <a class="mt-card g-nonparam" href="methods/kruskal-wallis.html" data-group="nonparam" data-level="1" data-search="крускал-валлисын тест kruskal–wallis test гурав ба түүнээс дээш хамааралгүй бүлгийг эрэмбээр харьцуулна. anova-гийн параметрийн бус хувилбар. хэвийн бус / дараалсан ≥ 3 бүлэг kruskal.test() параметрийн бус эрэмбэ анхан">
+      <div class="mt-card-top">
+        <span class="mt-symbol" aria-hidden="true">H</span>
+        <span class="mt-cat">Параметрийн бус</span>
+        <span class="mt-level lv-1">Анхан</span>
+        <span class="mt-num">11</span>
+      </div>
+      <h3 class="anchored">Крускал-Валлисын тест</h3>
+      <p class="mt-card-en" lang="en">Kruskal–Wallis test</p>
+      <p class="mt-desc">Гурав ба түүнээс дээш хамааралгүй бүлгийг эрэмбээр харьцуулна. ANOVA-гийн параметрийн бус хувилбар.</p>
+      <div class="mt-tags"><span>Хэвийн бус / дараалсан</span><span>≥ 3 бүлэг</span></div>
+      <div class="mt-card-foot">
+        <code>kruskal.test()</code>
+        <span class="vc" data-vc-href="methods/kruskal-wallis.html"></span>
+      </div>
+    </a>
+    <a class="mt-card g-relation" href="methods/correlation.html" data-group="relation" data-level="1" data-search="корреляцийн шинжилгээ correlation analysis хоёр тоон хувьсагчийн хамаарлын хүч ба чиглэлийг −1-ээс +1 хооронд хэмжинэ. 2 тоон хувьсагч пирсон / спирмен cor.test() хамаарал ба регресс анхан">
       <div class="mt-card-top">
         <span class="mt-symbol" aria-hidden="true">r</span>
         <span class="mt-cat">Хамаарал</span>
-        <span class="mt-num">07</span>
+        <span class="mt-level lv-1">Анхан</span>
+        <span class="mt-num">12</span>
       </div>
       <h3 class="anchored">Корреляцийн шинжилгээ</h3>
       <p class="mt-card-en" lang="en">Correlation analysis</p>
@@ -373,11 +473,12 @@ ul.task-list li input[type="checkbox"] {
         <span class="vc" data-vc-href="methods/correlation.html"></span>
       </div>
     </a>
-    <a class="mt-card g-relation" href="methods/linear-regression.html" data-group="relation" data-search="шугаман регресс linear regression тасралтгүй үр дагаврыг нэг буюу олон тайлбарлагч хувьсагчаар загварчилна. тасралтгүй үр дагавар олон хувьсагч  lm()  хамаарал ба регресс">
+    <a class="mt-card g-relation" href="methods/linear-regression.html" data-group="relation" data-level="2" data-search="шугаман регресс linear regression тасралтгүй үр дагаврыг нэг буюу олон тайлбарлагч хувьсагчаар загварчилна. тасралтгүй үр дагавар олон хувьсагч lm() хамаарал ба регресс дунд">
       <div class="mt-card-top">
         <span class="mt-symbol" aria-hidden="true">β</span>
         <span class="mt-cat">Хамаарал</span>
-        <span class="mt-num">08</span>
+        <span class="mt-level lv-2">Дунд</span>
+        <span class="mt-num">13</span>
       </div>
       <h3 class="anchored">Шугаман регресс</h3>
       <p class="mt-card-en" lang="en">Linear regression</p>
@@ -388,11 +489,12 @@ ul.task-list li input[type="checkbox"] {
         <span class="vc" data-vc-href="methods/linear-regression.html"></span>
       </div>
     </a>
-    <a class="mt-card g-relation" href="methods/logistic-regression.html" data-group="relation" data-search="логистик регресс logistic regression хоёр утгат (тийм/үгүй) үр дагаврын odds-ийг олон хувьсагчаар загварчилж or тооцно. хоёр утгат үр дагавар or  glm(binomial)  хамаарал ба регресс">
+    <a class="mt-card g-relation" href="methods/logistic-regression.html" data-group="relation" data-level="2" data-search="логистик регресс logistic regression хоёр утгат (тийм/үгүй) үр дагаврын odds-ийг олон хувьсагчаар загварчилж or тооцно. хоёр утгат үр дагавар or glm(binomial) хамаарал ба регресс дунд">
       <div class="mt-card-top">
         <span class="mt-symbol" aria-hidden="true">OR</span>
         <span class="mt-cat">Хамаарал</span>
-        <span class="mt-num">09</span>
+        <span class="mt-level lv-2">Дунд</span>
+        <span class="mt-num">14</span>
       </div>
       <h3 class="anchored">Логистик регресс</h3>
       <p class="mt-card-en" lang="en">Logistic regression</p>
@@ -403,11 +505,28 @@ ul.task-list li input[type="checkbox"] {
         <span class="vc" data-vc-href="methods/logistic-regression.html"></span>
       </div>
     </a>
-    <a class="mt-card g-survival" href="methods/survival-analysis.html" data-group="survival" data-search="амьдрах чадварын шинжилгээ kaplan–meier &amp; log-rank test үйл явдал хүртэлх хугацааг цензурыг тооцож шинжилж, бүлгүүдийн муруйг харьцуулна. хугацаа + үйл явдал цензур  survfit()  амьдрах чадвар">
+    <a class="mt-card g-relation" href="methods/poisson-regression.html" data-group="relation" data-level="3" data-search="пуассон ба сөрөг биномын регресс poisson &amp; negative binomial regression тоолсон үр дагавар буюу өвчлөлийн түвшинг олон хувьсагчаар загварчилж irr тооцно. тоолсон үр дагавар irr glm(poisson) хамаарал ба регресс ахисан">
+      <div class="mt-card-top">
+        <span class="mt-symbol" aria-hidden="true">IRR</span>
+        <span class="mt-cat">Хамаарал</span>
+        <span class="mt-level lv-3">Ахисан</span>
+        <span class="mt-num">15</span>
+      </div>
+      <h3 class="anchored">Пуассон ба сөрөг биномын регресс</h3>
+      <p class="mt-card-en" lang="en">Poisson &amp; negative binomial regression</p>
+      <p class="mt-desc">Тоолсон үр дагавар буюу өвчлөлийн түвшинг олон хувьсагчаар загварчилж IRR тооцно.</p>
+      <div class="mt-tags"><span>Тоолсон үр дагавар</span><span>IRR</span></div>
+      <div class="mt-card-foot">
+        <code>glm(poisson)</code>
+        <span class="vc" data-vc-href="methods/poisson-regression.html"></span>
+      </div>
+    </a>
+    <a class="mt-card g-survival" href="methods/survival-analysis.html" data-group="survival" data-level="2" data-search="амьдрах чадварын шинжилгээ kaplan–meier &amp; log-rank test үйл явдал хүртэлх хугацааг цензурыг тооцож шинжилж, бүлгүүдийн муруйг харьцуулна. хугацаа + үйл явдал цензур survfit() амьдрах чадвар дунд">
       <div class="mt-card-top">
         <span class="mt-symbol" aria-hidden="true">S(t)</span>
         <span class="mt-cat">Амьдрах чадвар</span>
-        <span class="mt-num">10</span>
+        <span class="mt-level lv-2">Дунд</span>
+        <span class="mt-num">16</span>
       </div>
       <h3 class="anchored">Амьдрах чадварын шинжилгээ</h3>
       <p class="mt-card-en" lang="en">Kaplan–Meier &amp; log-rank test</p>
@@ -418,11 +537,12 @@ ul.task-list li input[type="checkbox"] {
         <span class="vc" data-vc-href="methods/survival-analysis.html"></span>
       </div>
     </a>
-    <a class="mt-card g-survival" href="methods/cox-regression.html" data-group="survival" data-search="коксын регресс cox proportional hazards regression үйл явдал хүртэлх хугацаанд олон хувьсагчийн нөлөөг залруулж hazard ratio тооцно. хугацаа + үйл явдал hr  coxph()  амьдрах чадвар">
+    <a class="mt-card g-survival" href="methods/cox-regression.html" data-group="survival" data-level="3" data-search="коксын регресс cox proportional hazards regression үйл явдал хүртэлх хугацаанд олон хувьсагчийн нөлөөг залруулж hazard ratio тооцно. хугацаа + үйл явдал hr coxph() амьдрах чадвар ахисан">
       <div class="mt-card-top">
         <span class="mt-symbol" aria-hidden="true">HR</span>
         <span class="mt-cat">Амьдрах чадвар</span>
-        <span class="mt-num">11</span>
+        <span class="mt-level lv-3">Ахисан</span>
+        <span class="mt-num">17</span>
       </div>
       <h3 class="anchored">Коксын регресс</h3>
       <p class="mt-card-en" lang="en">Cox proportional hazards regression</p>
@@ -433,11 +553,44 @@ ul.task-list li input[type="checkbox"] {
         <span class="vc" data-vc-href="methods/cox-regression.html"></span>
       </div>
     </a>
-    <a class="mt-card g-clustered" href="methods/gee.html" data-group="clustered" data-search="ерөнхийлсөн үнэлгээний тэгшитгэл (gee) generalized estimating equations давтан хэмжилт эсвэл кластерласан өгөгдлийн хүн амын түвшний нөлөөг үнэлнэ. давтан хэмжилт тасралтгүй / 0-1 / тоо  geeglm()  давтан хэмжилт ба кластер">
+    <a class="mt-card g-clustered" href="methods/repeated-measures-anova.html" data-group="clustered" data-level="2" data-search="давтан хэмжилтийн anova repeated measures anova нэг хүнээс ≥ 3 удаа авсан тасралтгүй хэмжилтийн дундажийг харьцуулна. тасралтгүй ≥ 3 хэмжилт afex::aov_ez() давтан хэмжилт ба кластер дунд">
+      <div class="mt-card-top">
+        <span class="mt-symbol" aria-hidden="true">F</span>
+        <span class="mt-cat">Давтан / кластер</span>
+        <span class="mt-level lv-2">Дунд</span>
+        <span class="mt-num">18</span>
+      </div>
+      <h3 class="anchored">Давтан хэмжилтийн ANOVA</h3>
+      <p class="mt-card-en" lang="en">Repeated measures ANOVA</p>
+      <p class="mt-desc">Нэг хүнээс ≥ 3 удаа авсан тасралтгүй хэмжилтийн дундажийг харьцуулна.</p>
+      <div class="mt-tags"><span>Тасралтгүй</span><span>≥ 3 хэмжилт</span></div>
+      <div class="mt-card-foot">
+        <code>afex::aov_ez()</code>
+        <span class="vc" data-vc-href="methods/repeated-measures-anova.html"></span>
+      </div>
+    </a>
+    <a class="mt-card g-clustered" href="methods/mixed-models.html" data-group="clustered" data-level="3" data-search="холимог нөлөөний загвар linear mixed-effects models давтан хэмжилт, кластерыг санамсаргүй нөлөөгөөр загварчилна. дутуу өгөгдлийг сайн даадаг. давтан хэмжилт санамсаргүй нөлөө lmer() давтан хэмжилт ба кластер ахисан">
+      <div class="mt-card-top">
+        <span class="mt-symbol" aria-hidden="true">LMM</span>
+        <span class="mt-cat">Давтан / кластер</span>
+        <span class="mt-level lv-3">Ахисан</span>
+        <span class="mt-num">19</span>
+      </div>
+      <h3 class="anchored">Холимог нөлөөний загвар</h3>
+      <p class="mt-card-en" lang="en">Linear mixed-effects models</p>
+      <p class="mt-desc">Давтан хэмжилт, кластерыг санамсаргүй нөлөөгөөр загварчилна. Дутуу өгөгдлийг сайн даадаг.</p>
+      <div class="mt-tags"><span>Давтан хэмжилт</span><span>Санамсаргүй нөлөө</span></div>
+      <div class="mt-card-foot">
+        <code>lmer()</code>
+        <span class="vc" data-vc-href="methods/mixed-models.html"></span>
+      </div>
+    </a>
+    <a class="mt-card g-clustered" href="methods/gee.html" data-group="clustered" data-level="3" data-search="ерөнхийлсөн үнэлгээний тэгшитгэл (gee) generalized estimating equations давтан хэмжилт эсвэл кластерласан өгөгдлийн хүн амын түвшний нөлөөг үнэлнэ. давтан хэмжилт тасралтгүй / 0-1 / тоо geeglm() давтан хэмжилт ба кластер ахисан">
       <div class="mt-card-top">
         <span class="mt-symbol" aria-hidden="true">GEE</span>
         <span class="mt-cat">Давтан / кластер</span>
-        <span class="mt-num">12</span>
+        <span class="mt-level lv-3">Ахисан</span>
+        <span class="mt-num">20</span>
       </div>
       <h3 class="anchored">Ерөнхийлсөн үнэлгээний тэгшитгэл (GEE)</h3>
       <p class="mt-card-en" lang="en">Generalized estimating equations</p>
@@ -446,6 +599,54 @@ ul.task-list li input[type="checkbox"] {
       <div class="mt-card-foot">
         <code>geeglm()</code>
         <span class="vc" data-vc-href="methods/gee.html"></span>
+      </div>
+    </a>
+    <a class="mt-card g-diagnostic" href="methods/diagnostic-accuracy.html" data-group="diagnostic" data-level="2" data-search="оношилгооны тестийн нарийвчлал sensitivity, specificity &amp; roc шинэ тестийн мэдрэг чанар, өвөрмөц чанар, таамаглах утга, roc муруй ба auc-г тооцно. тест + алтан стандарт se, sp, auc proc::roc() оношилгоо тохирол дунд">
+      <div class="mt-card-top">
+        <span class="mt-symbol" aria-hidden="true">AUC</span>
+        <span class="mt-cat">Оношилгоо / тохирол</span>
+        <span class="mt-level lv-2">Дунд</span>
+        <span class="mt-num">21</span>
+      </div>
+      <h3 class="anchored">Оношилгооны тестийн нарийвчлал</h3>
+      <p class="mt-card-en" lang="en">Sensitivity, specificity &amp; ROC</p>
+      <p class="mt-desc">Шинэ тестийн мэдрэг чанар, өвөрмөц чанар, таамаглах утга, ROC муруй ба AUC-г тооцно.</p>
+      <div class="mt-tags"><span>Тест + алтан стандарт</span><span>Se, Sp, AUC</span></div>
+      <div class="mt-card-foot">
+        <code>pROC::roc()</code>
+        <span class="vc" data-vc-href="methods/diagnostic-accuracy.html"></span>
+      </div>
+    </a>
+    <a class="mt-card g-diagnostic" href="methods/reliability.html" data-group="diagnostic" data-level="2" data-search="найдвартай байдал ба тохирол cohen's kappa, icc, bland–altman үнэлэгч, багаж эсвэл давтан хэмжилтийн хоорондын тохирлыг үнэлнэ. үнэлэгч / багаж κ, icc irr::kappa2() оношилгоо тохирол дунд">
+      <div class="mt-card-top">
+        <span class="mt-symbol" aria-hidden="true">κ</span>
+        <span class="mt-cat">Оношилгоо / тохирол</span>
+        <span class="mt-level lv-2">Дунд</span>
+        <span class="mt-num">22</span>
+      </div>
+      <h3 class="anchored">Найдвартай байдал ба тохирол</h3>
+      <p class="mt-card-en" lang="en">Cohen's kappa, ICC, Bland–Altman</p>
+      <p class="mt-desc">Үнэлэгч, багаж эсвэл давтан хэмжилтийн хоорондын тохирлыг үнэлнэ.</p>
+      <div class="mt-tags"><span>Үнэлэгч / багаж</span><span>κ, ICC</span></div>
+      <div class="mt-card-foot">
+        <code>irr::kappa2()</code>
+        <span class="vc" data-vc-href="methods/reliability.html"></span>
+      </div>
+    </a>
+    <a class="mt-card g-design" href="methods/sample-size.html" data-group="design" data-level="2" data-search="түүврийн хэмжээ ба чадал sample size &amp; power судалгаа эхлэхээс өмнө хангалттай статистик чадалтай байх түүврийн хэмжээг тооцно. төлөвлөлт α, 1 − β power.t.test() судалгааны төлөвлөлт дунд">
+      <div class="mt-card-top">
+        <span class="mt-symbol" aria-hidden="true">n</span>
+        <span class="mt-cat">Төлөвлөлт</span>
+        <span class="mt-level lv-2">Дунд</span>
+        <span class="mt-num">23</span>
+      </div>
+      <h3 class="anchored">Түүврийн хэмжээ ба чадал</h3>
+      <p class="mt-card-en" lang="en">Sample size &amp; power</p>
+      <p class="mt-desc">Судалгаа эхлэхээс өмнө хангалттай статистик чадалтай байх түүврийн хэмжээг тооцно.</p>
+      <div class="mt-tags"><span>Төлөвлөлт</span><span>α, 1 − β</span></div>
+      <div class="mt-card-foot">
+        <code>power.t.test()</code>
+        <span class="vc" data-vc-href="methods/sample-size.html"></span>
       </div>
     </a>
   </div>
@@ -475,16 +676,129 @@ ul.task-list li input[type="checkbox"] {
   input.addEventListener("input", apply);
 })();
 </script>
+<section class="mt-wizard column-page" id="mt-wizard" aria-labelledby="mt-wz-title">
+  <h2 id="mt-wz-title" class="anchored">Аль аргыг сонгох вэ?</h2>
+  <p>Хэдэн асуултад хариулж тохирох аргаа олоорой. Доорх хүснэгтээс бүх сонголтыг нэг дор харж болно.</p>
+  <ol class="mt-wz-trail" aria-label="Таны сонголтууд"></ol>
+  <div class="mt-wz-body" aria-live="polite"></div>
+  <div class="mt-wz-nav">
+    <button type="button" class="mt-wz-back" hidden=""><i class="bi bi-arrow-left"></i> Буцах</button>
+    <button type="button" class="mt-wz-reset" hidden=""><i class="bi bi-arrow-counterclockwise"></i> Дахин эхлэх</button>
+  </div>
+</section>
+
+<script>
+(function () {
+  var root = document.getElementById("mt-wizard");
+  if (!root) return;
+  var M = {
+    "one-sample-t-test": "Нэг түүврийн t-тест", "independent-t-test": "Хамааралгүй түүврийн t-тест",
+    "paired-t-test": "Хамааралт түүврийн t тест", "anova": "ANOVA", "ancova": "ANCOVA", "manova": "MANOVA",
+    "chi-square-test": "Хи-квадрат тест ба Фишерийн яг тест", "mcnemar-test": "МакНемарын тест",
+    "mann-whitney": "Манн-Уитнигийн U тест", "wilcoxon-signed-rank": "Уилкоксоны тэмдэгт эрэмбийн тест",
+    "kruskal-wallis": "Крускал-Валлисын тест", "correlation": "Корреляцийн шинжилгээ",
+    "linear-regression": "Шугаман регресс", "logistic-regression": "Логистик регресс",
+    "poisson-regression": "Пуассон ба сөрөг биномын регресс", "survival-analysis": "Каплан-Майер ба лог-ранк тест",
+    "cox-regression": "Коксын регресс", "repeated-measures-anova": "Давтан хэмжилтийн ANOVA",
+    "mixed-models": "Холимог нөлөөний загвар", "gee": "GEE",
+    "diagnostic-accuracy": "Оношилгооны тестийн нарийвчлал", "reliability": "Найдвартай байдал ба тохирол",
+    "sample-size": "Түүврийн хэмжээ ба чадал"
+  };
+  function R(ids, note) { return { r: ids, note: note }; }
+  function normal(par, nonpar, extra) {
+    return { q: "Үр дагавар ойролцоогоор хэвийн тархалттай юу (эсвэл бүлэг бүрт n ≥ 30)?", o: [
+      ["Тийм", "", R([par], extra)],
+      ["Үгүй / дараалсан оноо / мэдэхгүй", "Q-Q графикаа шалгаарай", R([nonpar, par], "Түүвэр бага, тархалт хүчтэй хазайлттай бол параметрийн бус тест. Шалгах аргыг «Суурь ойлголт» хуудаснаас үзнэ үү.")]
+    ]};
+  }
+  var tree = { q: "Таны гол үр дагавар (outcome) ямар төрлийн вэ?", o: [
+    ["Тасралтгүй тоон утга", "Даралт, сахар, жин, оноо", { q: "Юуг судлах вэ?", o: [
+      ["1 бүлгийг жишиг утгатай харьцуулах", "", normal("one-sample-t-test", "wilcoxon-signed-rank")],
+      ["2 хамааралгүй бүлгийг харьцуулах", "Эм ба плацебо, эрэгтэй ба эмэгтэй", normal("independent-t-test", "mann-whitney", "Дисперс ялгаатай байж болох тул Welch t-тест (R-ийн анхдагч) санал болгоно.")],
+      ["Нэг хүний 2 хэмжилт", "Өмнө / дараа", normal("paired-t-test", "wilcoxon-signed-rank")],
+      ["≥ 3 хамааралгүй бүлэг", "", normal("anova", "kruskal-wallis", "Ялгаа илэрвэл post-hoc тестээр аль бүлгүүд ялгаатайг тодорхойлно.")],
+      ["Нэг хүний ≥ 3 хэмжилт", "0, 3, 6 сар", { q: "Дутуу хэмжилт, хүн бүрт өөр хугацаа эсвэл нэмэлт ковариат байгаа юу?", o: [
+        ["Үгүй, өгөгдөл бүрэн", "", R(["repeated-measures-anova", "mixed-models"])],
+        ["Тийм", "", R(["mixed-models", "gee"], "Хувь хүний түвшний нөлөө сонирхолтой бол холимог загвар, хүн амын дундаж нөлөө бол GEE.")]
+      ]}],
+      ["Бүлгүүдийг суурь утгаар залруулж харьцуулах", "RCT-ийн эцсийн утга, суурь утгатай", R(["ancova"])],
+      ["Хэд хэдэн тасралтгүй үр дагаврыг хамтад", "", R(["manova"])],
+      ["Хоёр тоон хувьсагчийн хамаарлын хүч", "", R(["correlation"], "Хэвийн тархалттай, шугаман бол Пирсон, эс бөгөөс Спирмен.")],
+      ["Олон хүчин зүйлийн нөлөө / залруулга", "", { q: "Ажиглалтууд хоорондоо хамааралгүй юу?", o: [
+        ["Тийм, нэг хүн = нэг мөр", "", R(["linear-regression"])],
+        ["Үгүй, давтан хэмжилт эсвэл кластер", "", R(["mixed-models", "gee"])]
+      ]}]
+    ]}],
+    ["Категорийн", "Тийм/үгүй, ангилал", { q: "Юуг судлах вэ?", o: [
+      ["Хамааралгүй бүлгүүдийн хувийг харьцуулах", "", { q: "Хүснэгтийн бүх нүдэнд хүлээгдэх давтамж ≥ 5 юу?", o: [
+        ["Тийм", "", R(["chi-square-test"])],
+        ["Үгүй / түүвэр бага", "", R(["chi-square-test"], "Фишерийн яг тестийг хэрэглэнэ (мөн хуудсанд).")]
+      ]}],
+      ["Нэг хүний 2 хэмжилт (өмнө / дараа)", "", R(["mcnemar-test"])],
+      ["Олон хүчин зүйлээр залруулах (тийм/үгүй үр дагавар)", "", { q: "Ажиглалтууд хоорондоо хамааралгүй юу?", o: [
+        ["Тийм", "", R(["logistic-regression"])],
+        ["Үгүй, давтан хэмжилт эсвэл кластер", "", R(["gee", "mixed-models"])]
+      ]}]
+    ]}],
+    ["Тоолсон утга", "Халдварын тоо, хэвтсэн удаа, түвшин", { q: "Ажиглалтууд хоорондоо хамааралгүй юу?", o: [
+      ["Тийм", "", R(["poisson-regression"], "Хэт тархалт байвал сөрөг биномын регресс (мөн хуудсанд).")],
+      ["Үгүй, давтан хэмжилт эсвэл кластер", "", R(["gee", "mixed-models"])]
+    ]}],
+    ["Үйл явдал хүртэлх хугацаа", "Нас баралт, дахилт, цензуртай", { q: "Юуг судлах вэ?", o: [
+      ["Бүлгүүдийн амьдрах чадварын муруйг харьцуулах", "", R(["survival-analysis"])],
+      ["Олон хүчин зүйлээр залруулсан нөлөө (HR)", "", R(["cox-regression"])]
+    ]}],
+    ["Оношилгоо эсвэл тохирол", "", { q: "Юуг үнэлэх вэ?", o: [
+      ["Шинэ тестийг алтан стандарттай харьцуулах", "", R(["diagnostic-accuracy"])],
+      ["Үнэлэгч / багаж хоорондын тохирол", "", R(["reliability"])]
+    ]}],
+    ["Судалгаа төлөвлөж байна", "Хэдэн оролцогч хэрэгтэй вэ?", R(["sample-size"])]
+  ]};
+
+  var body = root.querySelector(".mt-wz-body"), trail = root.querySelector(".mt-wz-trail"),
+      back = root.querySelector(".mt-wz-back"), reset = root.querySelector(".mt-wz-reset"),
+      path = [];   // [{node, label}]
+  function esc(t) { var d = document.createElement("div"); d.textContent = t; return d.innerHTML; }
+  function current() { return path.length ? path[path.length - 1].node : tree; }
+  function render() {
+    var n = current();
+    trail.innerHTML = path.map(function (p) { return "<li>" + esc(p.label) + "</li>"; }).join("");
+    back.hidden = reset.hidden = path.length === 0;
+    if (n.r) {
+      body.innerHTML = '<div class="mt-wz-result"><h3><i class="bi bi-check2-circle"></i> Санал болгох арга</h3><ul>' +
+        n.r.map(function (id, i) {
+          return '<li><a href="methods/' + id + '.html"><strong>' + esc(M[id]) + "</strong></a>" + (i ? " (өөр хувилбар)" : "") + "</li>";
+        }).join("") + "</ul>" + (n.note ? "<p>" + esc(n.note) + "</p>" : "") +
+        '<p>Шинжилгээ хийхээс өмнө: <a href="methods/essentials.html">таамаглал шалгах, нөлөөний хэмжээ</a>.</p></div>';
+      return;
+    }
+    body.innerHTML = '<p class="mt-wz-q">' + esc(n.q) + '</p><div class="mt-wz-opts">' +
+      n.o.map(function (o, i) {
+        return '<button type="button" data-i="' + i + '">' + esc(o[0]) + (o[1] ? "<small>" + esc(o[1]) + "</small>" : "") + "</button>";
+      }).join("") + "</div>";
+  }
+  body.addEventListener("click", function (e) {
+    var b = e.target.closest("button[data-i]"); if (!b) return;
+    var o = current().o[+b.dataset.i];
+    path.push({ node: o[2], label: o[0] }); render();
+    var f = body.querySelector("button, a"); if (f) f.focus({ preventScroll: true });
+  });
+  back.addEventListener("click", function () { path.pop(); render(); });
+  reset.addEventListener("click", function () { path = []; render(); });
+  render();
+})();
+</script>
 <section id="аль-аргыг-сонгох-вэ" class="level2 mt-chooser column-page">
-<h2 class="anchored" data-anchor-id="аль-аргыг-сонгох-вэ">Аль аргыг сонгох вэ?</h2>
-<p>Үр дагаврын хувьсагчийн төрөл болон бүлгийн бүтцээс эхэлнэ.</p>
+<h2 class="anchored" data-anchor-id="аль-аргыг-сонгох-вэ">Бүх сонголт нэг хүснэгтэд</h2>
+<p>Үр дагаврын хувьсагчийн төрөл болон бүлгийн бүтцээс эхэлнэ. Таамаглалыг хэрхэн шалгахыг <a href="methods/essentials.html">Суурь ойлголт</a> хуудаснаас үзнэ үү.</p>
 <div class="mt-table-wrap">
 <table class="caption-top table">
 <thead>
 <tr class="header">
 <th>Үр дагавар</th>
 <th>Харьцуулах / асуулт</th>
-<th>Параметр арга</th>
+<th>Параметрийн арга</th>
+<th>Гол таамаглал</th>
 <th>Параметрийн бус / өөр хувилбар</th>
 </tr>
 </thead>
@@ -493,73 +807,141 @@ ul.task-list li input[type="checkbox"] {
 <td>Тасралтгүй</td>
 <td>1 бүлэг ба жишиг утга</td>
 <td><a href="methods/one-sample-t-test.html">Нэг түүврийн t-тест</a></td>
-<td>Уилкоксоны тэмдэгт эрэмбийн тест</td>
+<td>Хэвийн тархалт</td>
+<td><a href="methods/wilcoxon-signed-rank.html">Уилкоксоны тэмдэгт эрэмбийн тест</a></td>
 </tr>
 <tr class="even">
 <td>Тасралтгүй</td>
 <td>2 хамааралгүй бүлэг</td>
 <td><a href="methods/independent-t-test.html">Хамааралгүй түүврийн t-тест</a></td>
-<td>Манн-Уитнигийн U тест</td>
+<td>Бүлэг бүрт хэвийн тархалт</td>
+<td><a href="methods/mann-whitney.html">Манн-Уитнигийн U тест</a></td>
 </tr>
 <tr class="odd">
 <td>Тасралтгүй</td>
 <td>Нэг хүний 2 хэмжилт</td>
 <td><a href="methods/paired-t-test.html">Хамааралт түүврийн t тест</a></td>
-<td>Уилкоксоны тэмдэгт эрэмбийн тест</td>
+<td>Зөрүүний хэвийн тархалт</td>
+<td><a href="methods/wilcoxon-signed-rank.html">Уилкоксоны тэмдэгт эрэмбийн тест</a></td>
 </tr>
 <tr class="even">
 <td>Тасралтгүй</td>
 <td>≥ 3 хамааралгүй бүлэг</td>
 <td><a href="methods/anova.html">ANOVA</a></td>
-<td>Крускал-Валлисын тест</td>
+<td>Хэвийн тархалт, тэнцүү дисперс</td>
+<td><a href="methods/kruskal-wallis.html">Крускал-Валлисын тест</a></td>
 </tr>
 <tr class="odd">
+<td>Тасралтгүй</td>
+<td>Нэг хүний ≥ 3 хэмжилт</td>
+<td><a href="methods/repeated-measures-anova.html">Давтан хэмжилтийн ANOVA</a></td>
+<td>Сферик байдал, бүрэн өгөгдөл</td>
+<td>Фридманы тест, <a href="methods/mixed-models.html">холимог загвар</a></td>
+</tr>
+<tr class="even">
 <td>Тасралтгүй</td>
 <td>Бүлэг + суурь утгаар залруулах</td>
 <td><a href="methods/ancova.html">ANCOVA</a></td>
-<td>—</td>
+<td>Регрессийн налуу бүлгүүдэд ижил</td>
+<td><a href="methods/linear-regression.html">Шугаман регресс</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>≥ 2 тасралтгүй</td>
 <td>Бүлгүүдийг хамтад нь</td>
 <td><a href="methods/manova.html">MANOVA</a></td>
-<td>—</td>
+<td>Олон хэмжээст хэвийн тархалт</td>
+<td>Үр дагавар тус бүрт ANOVA (засвартай)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>2 тоон хувьсагч</td>
 <td>Хамаарлын хүч</td>
 <td><a href="methods/correlation.html">Пирсоны корреляци</a></td>
+<td>Шугаман, хэвийн тархалт</td>
 <td><a href="methods/correlation.html">Спирмены корреляци</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Тасралтгүй</td>
 <td>Олон хүчин зүйлийн нөлөө</td>
 <td><a href="methods/linear-regression.html">Шугаман регресс</a></td>
-<td>—</td>
+<td>Үлдэгдэл хэвийн, тогтмол дисперс</td>
+<td>Хувиргалт, robust SE</td>
+</tr>
+<tr class="even">
+<td>Категорийн</td>
+<td>2+ хамааралгүй бүлгийн хувь</td>
+<td><a href="methods/chi-square-test.html">Хи-квадрат тест</a></td>
+<td>Хүлээгдэх давтамж ≥ 5</td>
+<td><a href="methods/chi-square-test.html">Фишерийн яг тест</a></td>
 </tr>
 <tr class="odd">
 <td>Хоёр утгат (0/1)</td>
+<td>Нэг хүний 2 хэмжилт</td>
+<td><a href="methods/mcnemar-test.html">МакНемарын тест</a></td>
+<td>Хосолсон өгөгдөл</td>
+<td>Яг биномын тест</td>
+</tr>
+<tr class="even">
+<td>Хоёр утгат (0/1)</td>
 <td>Олон хүчин зүйлийн нөлөө</td>
 <td><a href="methods/logistic-regression.html">Логистик регресс</a></td>
-<td>—</td>
+<td>Logit-тэй шугаман, хангалттай үйл явдал</td>
+<td>Фиртийн регресс (цөөн үйл явдалд)</td>
+</tr>
+<tr class="odd">
+<td>Тоолсон (0, 1, 2…)</td>
+<td>Олон хүчин зүйлийн нөлөө</td>
+<td><a href="methods/poisson-regression.html">Пуассон регресс</a></td>
+<td>Дисперс = дундаж</td>
+<td><a href="methods/poisson-regression.html">Сөрөг биномын регресс</a></td>
 </tr>
 <tr class="even">
 <td>Хугацаа + үйл явдал</td>
 <td>Бүлгүүдийн муруй</td>
 <td><a href="methods/survival-analysis.html">Каплан-Майер, лог-ранк</a></td>
+<td>Цензур мэдээлэлгүй (non-informative)</td>
 <td>—</td>
 </tr>
 <tr class="odd">
 <td>Хугацаа + үйл явдал</td>
 <td>Олон хүчин зүйлийн нөлөө</td>
 <td><a href="methods/cox-regression.html">Коксын регресс</a></td>
-<td>—</td>
+<td>Пропорциональ эрсдэл</td>
+<td>Хугацаанаас хамаарсан ковариат</td>
 </tr>
 <tr class="even">
 <td>Давтан / кластер</td>
 <td>Хүн амын дундаж нөлөө</td>
 <td><a href="methods/gee.html">GEE</a></td>
-<td>Холимог нөлөөний загвар</td>
+<td>Кластер хангалттай олон</td>
+<td><a href="methods/mixed-models.html">Холимог нөлөөний загвар</a></td>
+</tr>
+<tr class="odd">
+<td>Давтан / кластер</td>
+<td>Хувь хүний түвшний нөлөө</td>
+<td><a href="methods/mixed-models.html">Холимог нөлөөний загвар</a></td>
+<td>Санамсаргүй нөлөө хэвийн, MAR</td>
+<td><a href="methods/gee.html">GEE</a></td>
+</tr>
+<tr class="even">
+<td>Тест + алтан стандарт</td>
+<td>Оношилгооны нарийвчлал</td>
+<td><a href="methods/diagnostic-accuracy.html">Se, Sp, ROC/AUC</a></td>
+<td>Бүгд алтан стандарт хийлгэсэн</td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td>2+ үнэлэгч / багаж</td>
+<td>Тохирол</td>
+<td><a href="methods/reliability.html">Kappa, ICC</a></td>
+<td>Бие даасан үнэлгээ</td>
+<td>Bland–Altman</td>
+</tr>
+<tr class="even">
+<td>Төлөвлөлт</td>
+<td>Хэдэн оролцогч хэрэгтэй вэ?</td>
+<td><a href="methods/sample-size.html">Түүврийн хэмжээ ба чадал</a></td>
+<td>α, чадал, нөлөөний хэмжээ</td>
+<td>—</td>
 </tr>
 </tbody>
 </table>
@@ -571,7 +953,7 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p><strong>Хэрхэн ашиглах вэ?</strong> Карт дээр дарж аргын хуудсыг нээнэ. Хуудас бүрийн төгсгөлд тухайн аргад хэрэгтэй нэр томьёонууд байгаа. Бүх нэр томьёог <a href="glossary.html">Нэр томьёоны толь</a>-оос хайж болно. Хуудсан дахь тоон жишээнүүд зохиомол бөгөөд тайлагнах хэлбэрийг харуулах зорилготой.</p>
+<p><strong>Хэрхэн ашиглах вэ?</strong> Карт дээр дарж аргын хуудсыг нээнэ. Хуудас бүрийн төгсгөлд тухайн аргад хэрэгтэй нэр томьёонууд байгаа. Бүх нэр томьёог <a href="glossary.html">Нэр томьёоны толь</a>-оос хайж болно. Хуудсан дахь тоон жишээнүүд зохиомол бөгөөд тайлагнах хэлбэрийг харуулах зорилготой. Кодыг туршихад <a href="methods/essentials.html#jishee-ogogdol">жишээ өгөгдөл</a> ашиглаж болно.</p>
 </div>
 </div>
 </div>
@@ -657,7 +1039,8 @@ ul.task-list li input[type="checkbox"] {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
       // Inspect non-navigation links and adorn them if external
-     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      window.quartoDecorateExternalLinks = function (root) {
+     var links = (root || window.document).querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
       for (var i=0; i<links.length; i++) {
         const link = links[i];
         if (!isInternal(link.href)) {
@@ -666,8 +1049,69 @@ ul.task-list li input[type="checkbox"] {
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+          if (!link.classList.contains('no-external-icon')) {
+          }
         }
       }
+      };
+      window.quartoDecorateExternalLinks(window.document);
+    // Esc closes the popup (WCAG 1.4.13) and focus leaving both trigger and
+    // popup closes it (WCAG 2.4.11); tippy handles neither for interactive popups.
+    const hideOnEscAndFocusOut = {
+      name: 'hideOnEscAndFocusOut',
+      defaultValue: true,
+      fn(instance) {
+        const dismiss = () => {
+          // A show scheduled by the trigger delay would otherwise reopen it
+          instance.clearDelayTimeouts();
+          instance.hide();
+        };
+        const onKeyDown = (event) => {
+          if (event.key !== 'Escape') {
+            return;
+          }
+          // Keep Esc from also reaching page handlers (e.g. reveal.js overview),
+          // except an open reveal.js slide menu, which Esc should close too.
+          // The menu handles keys only when its keyboard option is on.
+          const menuHandlesEsc = window.Reveal?.getPlugin?.('menu')?.isOpen() &&
+            window.Reveal.getConfig().menu?.keyboard !== false;
+          if (!menuHandlesEsc) {
+            event.stopPropagation();
+          }
+          if (instance.popper.contains(window.document.activeElement)) {
+            // Disabled while refocusing so the focus trigger does not reopen it
+            instance.disable();
+            instance.reference.focus();
+            instance.enable();
+          }
+          dismiss();
+        };
+        const onFocusOut = (event) => {
+          const target = event.relatedTarget;
+          if (target && !instance.reference.contains(target) &&
+              !instance.popper.contains(target)) {
+            dismiss();
+          }
+        };
+        // On the trigger too: a click trigger (code-annotations: select) has no
+        // blur handling. Attached for the instance's lifetime so leaving the
+        // trigger also cancels a show still pending on the trigger delay.
+        instance.reference.addEventListener('focusout', onFocusOut);
+        return {
+          onShow() {
+            window.document.addEventListener('keydown', onKeyDown, true);
+            instance.popper.addEventListener('focusout', onFocusOut);
+          },
+          onHide() {
+            window.document.removeEventListener('keydown', onKeyDown, true);
+            instance.popper.removeEventListener('focusout', onFocusOut);
+          },
+          onDestroy() {
+            instance.reference.removeEventListener('focusout', onFocusOut);
+          },
+        };
+      },
+    };
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
       const config = {
         allowHTML: true,
@@ -681,6 +1125,7 @@ ul.task-list li input[type="checkbox"] {
         interactiveBorder: 10,
         theme: 'quarto',
         placement: 'bottom-start',
+        plugins: [hideOnEscAndFocusOut],
       };
       if (contentFn) {
         config.content = contentFn;
@@ -843,44 +1288,54 @@ ul.task-list li input[type="checkbox"] {
           const lineIds = lines.map((line) => {
             return targetCell + "-" + line;
           })
-          let top = null;
-          let height = null;
-          let parent = null;
+          // Each band is positioned against its own containing block, which is
+          // not the offsetParent of the lines, so place it from client rects.
+          const placeBand = (band, firstEl, lastEl, codeBlock) => {
+            const container = band.offsetParent;
+            if (container === null) {
+              return;
+            }
+            const containerRect = container.getBoundingClientRect();
+            // Reveal.js scales slides with a transform, so convert client
+            // pixels back to the CSS pixels of the container.
+            const scale = containerRect.height / container.offsetHeight || 1;
+            const firstRect = firstEl.getBoundingClientRect();
+            const lastRect = lastEl.getBoundingClientRect();
+            const top = (firstRect.top - containerRect.top) / scale - container.clientTop + container.scrollTop;
+            const height = (lastRect.bottom - firstRect.top) / scale;
+            band.style.top = top - 2 + "px";
+            band.style.height = height + 4 + "px";
+            if (codeBlock) {
+              // Without the copy button wrapper, the containing block is wider
+              // than the code block, so span the code block explicitly.
+              const blockRect = codeBlock.getBoundingClientRect();
+              band.style.left = (blockRect.left - containerRect.left) / scale - container.clientLeft + container.scrollLeft + "px";
+              band.style.width = blockRect.width / scale + "px";
+            }
+          };
           if (lineIds.length > 0) {
-              //compute the position of the single el (top and bottom and make a div)
-              const el = window.document.getElementById(lineIds[0]);
-              top = el.offsetTop;
-              height = el.offsetHeight;
-              parent = el.parentElement.parentElement;
-            if (lineIds.length > 1) {
-              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-              height = bottom - top;
+            const el = window.document.getElementById(lineIds[0]);
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const parent = el.parentElement.parentElement;
+            // cook up a div (if necessary) and position it
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
             }
-            if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
-              let div = window.document.getElementById("code-annotation-line-highlight");
-              if (div === null) {
-                div = window.document.createElement("div");
-                div.setAttribute("id", "code-annotation-line-highlight");
-                div.style.position = 'absolute';
-                parent.appendChild(div);
-              }
-              div.style.top = top - 2 + "px";
-              div.style.height = height + 4 + "px";
-              div.style.left = 0;
-              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-              if (gutterDiv === null) {
-                gutterDiv = window.document.createElement("div");
-                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-                gutterDiv.style.position = 'absolute';
-                const codeCell = window.document.getElementById(targetCell);
-                const gutter = codeCell.querySelector('.code-annotation-gutter');
-                gutter.appendChild(gutterDiv);
-              }
-              gutterDiv.style.top = top - 2 + "px";
-              gutterDiv.style.height = height + 4 + "px";
+            placeBand(div, el, lastEl, parent.closest("div.sourceCode") || parent);
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
             }
+            placeBand(gutterDiv, el, lastEl);
             selectedAnnoteEl = annoteEl;
           }
         };
@@ -978,6 +1433,9 @@ ul.task-list li input[type="checkbox"] {
       }
     }
   });
+  </script>
+  <script type="application/javascript">
+  window.quartoScrollableRegionsLabels = {"code":"Scrollable code","output":"Scrollable output"};
   </script>
 </div> <!-- /content -->
 

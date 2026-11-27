@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.11.9">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Тоолсон үр дагавар (тохиолдлын тоо) эсвэл өвчлөлийн түвшинг олон хувьсагчаар загварчилж IRR тооцно.">
+
+<title>Пуассон ба сөрөг биномын регресс – Team of Biostatistics</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/scrollable-regions/scrollable-regions.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-cb61c712ca1a7fe70a83faed8e4da2d7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<!--
+  Үзэлтийн тоо (GoatCounter) — бүх хуудсанд _quarto.yml-ээр орно.
+  GoatCounter-ийн код солих бол доорх GC_CODE-г өөрчилнө.
+
+  Хэрэглээ (HTML дотор):
+    <span class="vc" data-vc-href="methods/anova.html"></span>   → тухайн хуудасны үзэлт
+    <span class="vc" data-vc-href=""></span>                     → одоогийн хуудасны үзэлт
+    <span class="vc" data-vc-event="cs-01-open"></span>          → товч дарсан тоо (event)
+    <a data-goatcounter-click="cs-01-open" ...>                  → дарахад event бүртгэнэ
+-->
+<script>
+(function () {
+  var GC_CODE = "serod";
+  var GC = "https://" + GC_CODE + ".goatcounter.com";
+
+  // /x/ → /x/index.html, /x/page → /x/page.html  (нэг хуудас нэг л замаар тоологдоно)
+  function norm(p) {
+    p = p.split("?")[0].split("#")[0];
+    if (p.slice(-1) === "/") p += "index.html";
+    else if (!/\.[a-z0-9]+$/i.test(p)) p += ".html";
+    return p;
+  }
+  window.goatcounter = { path: function (p) { return norm(p); } };
+
+  function fmt(n) {
+    if (n >= 1e6) return (n / 1e6).toFixed(n < 1e7 ? 1 : 0).replace(/\.0$/, "") + "M";
+    if (n >= 1e3) return (n / 1e3).toFixed(n < 1e4 ? 1 : 0).replace(/\.0$/, "") + "K";
+    return String(n);
+  }
+
+  function fetchCount(path) {
+    return fetch(GC + "/counter/" + encodeURIComponent(path) + ".json")
+      .then(function (r) { return r.ok ? r.json() : { count: "0" }; })
+      .then(function (d) { return parseInt(String(d.count).replace(/[^0-9]/g, ""), 10) || 0; })
+      .catch(function () { return null; });
+  }
+
+  function run() {
+    document.querySelectorAll(".vc").forEach(function (el) {
+      var path;
+      if (el.hasAttribute("data-vc-event")) path = el.getAttribute("data-vc-event");
+      else path = norm(new URL(el.getAttribute("data-vc-href") || location.pathname, location.href).pathname);
+      var icon = el.getAttribute("data-vc-icon") || "bi-eye";
+      var label = el.getAttribute("data-vc-label") || "үзсэн";
+      el.innerHTML = '<i class="bi ' + icon + '"></i> <b>…</b> ' + label;
+      fetchCount(path).then(function (n) {
+        if (n === null) { el.style.display = "none"; return; }
+        el.querySelector("b").textContent = fmt(n);
+        el.title = n.toLocaleString("en-US") + " " + label;
+      });
+    });
+  }
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", run);
+  else run();
+})();
+</script>
+<script data-goatcounter="https://serod.goatcounter.com/count" async="" src="https://gc.zgo.at/count.js"></script>
+<style>
+  .vc { display: inline-flex; align-items: center; gap: 0.25rem; font-size: 0.82rem; color: #64748b; white-space: nowrap; }
+  .vc b { font-weight: 600; color: #334155; }
+  .vc-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem 0.9rem; margin-top: 0.6rem; }
+</style>
+
+
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../styles/methods.css">
+<link rel="stylesheet" href="../styles/glossary.css">
+</head>
+
+<body class="nav-fixed page-methods quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark" aria-label="Site">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Team of Biostatistics</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../team.html"> 
+<span class="menu-text">Our Team</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../software.html"> 
+<span class="menu-text">Statistical Software</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../research.html"> 
+<span class="menu-text">Interesting Research</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../books.html"> 
+<span class="menu-text">Biostatistics Books</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../cheatsheet.html"> 
+<span class="menu-text">Cheat sheet</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../methods.html"> 
+<span class="menu-text">Data Analysis Methods</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../paper-explainer.html"> 
+<span class="menu-text">Paper Explainer</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../contact.html"> 
+<span class="menu-text">Contact</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+            <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#товч-мэдээлэл" id="toc-товч-мэдээлэл" class="nav-link active" data-scroll-target="#товч-мэдээлэл">Товч мэдээлэл</a></li>
+  <li><a href="#хэзээ-хэрэглэх-вэ" id="toc-хэзээ-хэрэглэх-вэ" class="nav-link" data-scroll-target="#хэзээ-хэрэглэх-вэ">Хэзээ хэрэглэх вэ?</a></li>
+  <li><a href="#таамаглалууд" id="toc-таамаглалууд" class="nav-link" data-scroll-target="#таамаглалууд">Таамаглалууд</a></li>
+  <li><a href="#r-дээр-хийх" id="toc-r-дээр-хийх" class="nav-link" data-scroll-target="#r-дээр-хийх">R дээр хийх</a></li>
+  <li><a href="#цэс-дээр-хийх-jamovi-spss" id="toc-цэс-дээр-хийх-jamovi-spss" class="nav-link" data-scroll-target="#цэс-дээр-хийх-jamovi-spss">Цэс дээр хийх (jamovi / SPSS)</a></li>
+  <li><a href="#үр-дүнг-тайлбарлах" id="toc-үр-дүнг-тайлбарлах" class="nav-link" data-scroll-target="#үр-дүнг-тайлбарлах">Үр дүнг тайлбарлах</a></li>
+  <li><a href="#тайлагнах-жишээ" id="toc-тайлагнах-жишээ" class="nav-link" data-scroll-target="#тайлагнах-жишээ">Тайлагнах жишээ</a></li>
+  <li><a href="#түгээмэл-алдаа" id="toc-түгээмэл-алдаа" class="nav-link" data-scroll-target="#түгээмэл-алдаа">Түгээмэл алдаа</a></li>
+  <li><a href="#өөр-аргууд" id="toc-өөр-аргууд" class="nav-link" data-scroll-target="#өөр-аргууд">Өөр аргууд</a></li>
+  <li><a href="#холбогдох-нэр-томьёо" id="toc-холбогдох-нэр-томьёо" class="nav-link" data-scroll-target="#холбогдох-нэр-томьёо">Холбогдох нэр томьёо</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content" tabindex="-1">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Пуассон ба сөрөг биномын регресс</h1>
+</div>
+
+<div>
+  <div class="description">
+    Тоолсон үр дагавар (тохиолдлын тоо) эсвэл өвчлөлийн түвшинг олон хувьсагчаар загварчилж IRR тооцно.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<header class="mt-hero" style="--mt-accent:#9333ea">
+  <p class="mt-eyebrow"><a href="../methods.html">Data Analysis Methods</a> · Хамаарал ба регресс</p>
+  <h1>Пуассон ба сөрөг биномын регресс</h1>
+  <p class="mt-en" lang="en">Poisson &amp; negative binomial regression</p>
+  <p class="mt-lead">Үр дагавар нь 0, 1, 2, … гэсэн тоо (халдварын тоо, эмнэлэгт хэвтсэн удаа, астмын сэдрэл) эсвэл хүн-хугацаанд ногдох түвшин байх үед хүчин зүйлсийн нөлөөг түвшний харьцаагаар (IRR) үнэлнэ.</p>
+  <ul class="mt-badges"><li>Тоолсон үр дагавар</li><li>IRR</li><li><code>glm(poisson)</code></li><li><span class="vc" data-vc-href=""></span></li></ul>
+</header>
+<section id="товч-мэдээлэл" class="level2">
+<h2 class="anchored" data-anchor-id="товч-мэдээлэл">Товч мэдээлэл</h2>
+<div class="mt-facts"><div><span>Үр дагавар</span><strong>Тоо (0, 1, 2, …) эсвэл түвшин</strong></div><div><span>Тайлбарлагч</span><strong>Тоон ба категорийн</strong></div><div><span>Үр дүн</span><strong>IRR = exp(β)</strong></div><div><span>Хэт тархалттай бол</span><strong>Сөрөг биномын регресс</strong></div></div>
+</section>
+<section id="хэзээ-хэрэглэх-вэ" class="level2">
+<h2 class="anchored" data-anchor-id="хэзээ-хэрэглэх-вэ">Хэзээ хэрэглэх вэ?</h2>
+<p>Нэг хүнд (эсвэл нэг нэгжид) тодорхой хугацаанд тохиолдсон үйл явдлын <strong>тоог</strong> загварчлах бол. Ажиглалтын хугацаа хүн бүрт өөр бол хугацааг <strong>offset</strong> болгон оруулж түвшинг загварчилна.</p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Жишээ судалгааны асуулт:</strong> Гэртээ нүүрсний зуух хэрэглэдэг хүүхдүүдэд жилд тохиолдох амьсгалын замын цочмог халдварын тоо цахилгаан халаагууртай гэрийн хүүхдүүдийнхээс өндөр байна уу?</p>
+</div>
+</div>
+</div>
+</section>
+<section id="таамаглалууд" class="level2">
+<h2 class="anchored" data-anchor-id="таамаглалууд">Таамаглалууд</h2>
+<p>Шинжилгээ хийхээс өмнө шалгана:</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Үр дагавар нь сөрөг биш бүхэл тоо.</label></li>
+<li><label><input type="checkbox">Ажиглалтууд хоорондоо хамааралгүй (давтан хэмжилт бол GEE эсвэл холимог загвар).</label></li>
+<li><label><input type="checkbox">log(түвшин) нь тоон тайлбарлагчтай шугаман хамааралтай.</label></li>
+<li><label><input type="checkbox"><strong>Хэт тархалт (overdispersion) байхгүй:</strong> Пуассон загвар дисперс = дундаж гэж үздэг. Дисперс их бол сөрөг биномын загвар хэрэглэнэ.</label></li>
+<li><label><input type="checkbox">Тэг утга хэт олон эсэхийг шалгана (шаардлагатай бол zero-inflated загвар).</label></li>
+</ul>
+</section>
+<section id="r-дээр-хийх" class="level2">
+<h2 class="anchored" data-anchor-id="r-дээр-хийх">R дээр хийх</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Өгөгдөл: df$ari (жилийн халдварын тоо), df$stove, df$age, df$years (ажигласан жил)</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>m_p <span class="ot">&lt;-</span> <span class="fu">glm</span>(ari <span class="sc">~</span> stove <span class="sc">+</span> age <span class="sc">+</span> <span class="fu">offset</span>(<span class="fu">log</span>(years)),</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">family =</span> poisson, <span class="at">data =</span> df)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m_p)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Хэт тархалт шалгах: харьцаа ≫ 1 бол асуудалтай</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">residuals</span>(m_p, <span class="at">type =</span> <span class="st">"pearson"</span>)<span class="sc">^</span><span class="dv">2</span>) <span class="sc">/</span> <span class="fu">df.residual</span>(m_p)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>performance<span class="sc">::</span><span class="fu">check_overdispersion</span>(m_p)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Сөрөг биномын загвар</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>m_nb <span class="ot">&lt;-</span> MASS<span class="sc">::</span><span class="fu">glm.nb</span>(ari <span class="sc">~</span> stove <span class="sc">+</span> age <span class="sc">+</span> <span class="fu">offset</span>(<span class="fu">log</span>(years)), <span class="at">data =</span> df)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># IRR ба 95% CI</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>broom<span class="sc">::</span><span class="fu">tidy</span>(m_nb, <span class="at">conf.int =</span> <span class="cn">TRUE</span>, <span class="at">exponentiate =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Пуассон загвар хэвээр бол robust SE ашиглах нэг сонголт:</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>lmtest<span class="sc">::</span><span class="fu">coeftest</span>(m_p, <span class="at">vcov =</span> sandwich<span class="sc">::</span><span class="fu">vcovHC</span>(m_p, <span class="at">type =</span> <span class="st">"HC0"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="цэс-дээр-хийх-jamovi-spss" class="level2">
+<h2 class="anchored" data-anchor-id="цэс-дээр-хийх-jamovi-spss">Цэс дээр хийх (jamovi / SPSS)</h2>
+<div class="mt-menu"><div><b>jamovi</b> GAMLj модулийг суулгана → Linear Models → Generalized Linear Models → Poisson (эсвэл Negative Binomial).</div><div><b>SPSS</b> Analyze → Generalized Linear Models → Generalized Linear Models → Type of Model: Poisson loglinear (эсвэл Negative binomial with log link). Offset-ийг Predictors хэсэгт тохируулна.</div></div>
+</section>
+<section id="үр-дүнг-тайлбарлах" class="level2">
+<h2 class="anchored" data-anchor-id="үр-дүнг-тайлбарлах">Үр дүнг тайлбарлах</h2>
+<ul>
+<li><strong>Estimate (β)</strong>: log(түвшин)-ий өөрчлөлт. exp(β) = <strong>IRR</strong> (incidence rate ratio).</li>
+<li><strong>IRR = 1.4</strong>: бусад хувьсагчийг тогтмол үед түвшин 40%-иар өндөр. IRR &lt; 1 бол бага.</li>
+<li><strong>Хэт тархалтын харьцаа</strong>: ойролцоогоор 1 байвал Пуассон тохиромжтой, 1.5–2-оос их бол сөрөг биномын загвар руу шилжинэ.</li>
+<li><strong>AIC</strong>: Пуассон ба сөрөг биномын загварыг харьцуулахад бага нь илүү.</li>
+</ul>
+</section>
+<section id="тайлагнах-жишээ" class="level2">
+<h2 class="anchored" data-anchor-id="тайлагнах-жишээ">Тайлагнах жишээ</h2>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Нас болон ажигласан хугацаагаар залруулахад нүүрсний зуухтай гэрийн хүүхдүүдэд амьсгалын замын цочмог халдварын түвшин 1.38 дахин өндөр байв (IRR = 1.38, 95% CI 1.15; 1.66; сөрөг биномын регресс, n = 420). Пуассон загварт хэт тархалт илэрсэн (харьцаа 2.3) тул сөрөг биномын загварыг сонгосон.</p>
+<p><small>Тоонууд зохиомол бөгөөд тайлагнах хэлбэрийг харуулах зорилготой.</small></p>
+</div>
+</div>
+</div>
+</section>
+<section id="түгээмэл-алдаа" class="level2">
+<h2 class="anchored" data-anchor-id="түгээмэл-алдаа">Түгээмэл алдаа</h2>
+<div class="callout callout-style-simple callout-warning no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<ul>
+<li>Тоолсон үр дагаврыг шугаман регрессээр шинжлэх. Сөрөг таамаг утга гарч, стандарт алдаа буруу болно.</li>
+<li>Хэт тархалтыг шалгахгүй орхих. Стандарт алдаа хэт бага, p-утга хэт жижиг гарна.</li>
+<li>Ажиглалтын хугацаа өөр байхад offset оруулахгүй байх.</li>
+<li>Тоог “тийм/үгүй” болгож логистик регресс хийх. Мэдээлэл алдагдана.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="өөр-аргууд" class="level2">
+<h2 class="anchored" data-anchor-id="өөр-аргууд">Өөр аргууд</h2>
+<ul>
+<li><a href="logistic-regression.html">Логистик регресс</a> — үр дагавар нь зөвхөн тийм/үгүй бол.</li>
+<li><a href="gee.html">GEE</a> — давтан эсвэл кластерласан тоолсон өгөгдөлд (<code>family = poisson</code>).</li>
+<li><a href="mixed-models.html">Холимог нөлөөний загвар</a> — <code>lme4::glmer(family = poisson)</code> хэлбэрээр.</li>
+</ul>
+</section>
+<section id="холбогдох-нэр-томьёо" class="level2">
+<h2 class="anchored" data-anchor-id="холбогдох-нэр-томьёо">Холбогдох нэр томьёо</h2>
+<div class="glossary-embed" data-src="../glossary/terms.yml" data-glossary-url="../glossary.html" data-terms="poisson-regression,poisson-distribution,incidence-rate,person-time,discrete-variable,regression-coefficient,confounding">
+  <p class="gl-loading">Нэр томьёог ачаалж байна…</p>
+</div>
+
+<nav class="mt-pager" aria-label="Аргууд хооронд шилжих"><a href="kruskal-wallis.html">← Крускал-Валлисын тест</a><a href="repeated-measures-anova.html">Давтан хэмжилтийн ANOVA →</a></nav>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/zorigoobayar\.github\.io\/team-of-biostatistics\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+      window.quartoDecorateExternalLinks = function (root) {
+     var links = (root || window.document).querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+          if (!link.classList.contains('no-external-icon')) {
+          }
+        }
+      }
+      };
+      window.quartoDecorateExternalLinks(window.document);
+    // Esc closes the popup (WCAG 1.4.13) and focus leaving both trigger and
+    // popup closes it (WCAG 2.4.11); tippy handles neither for interactive popups.
+    const hideOnEscAndFocusOut = {
+      name: 'hideOnEscAndFocusOut',
+      defaultValue: true,
+      fn(instance) {
+        const dismiss = () => {
+          // A show scheduled by the trigger delay would otherwise reopen it
+          instance.clearDelayTimeouts();
+          instance.hide();
+        };
+        const onKeyDown = (event) => {
+          if (event.key !== 'Escape') {
+            return;
+          }
+          // Keep Esc from also reaching page handlers (e.g. reveal.js overview),
+          // except an open reveal.js slide menu, which Esc should close too.
+          // The menu handles keys only when its keyboard option is on.
+          const menuHandlesEsc = window.Reveal?.getPlugin?.('menu')?.isOpen() &&
+            window.Reveal.getConfig().menu?.keyboard !== false;
+          if (!menuHandlesEsc) {
+            event.stopPropagation();
+          }
+          if (instance.popper.contains(window.document.activeElement)) {
+            // Disabled while refocusing so the focus trigger does not reopen it
+            instance.disable();
+            instance.reference.focus();
+            instance.enable();
+          }
+          dismiss();
+        };
+        const onFocusOut = (event) => {
+          const target = event.relatedTarget;
+          if (target && !instance.reference.contains(target) &&
+              !instance.popper.contains(target)) {
+            dismiss();
+          }
+        };
+        // On the trigger too: a click trigger (code-annotations: select) has no
+        // blur handling. Attached for the instance's lifetime so leaving the
+        // trigger also cancels a show still pending on the trigger delay.
+        instance.reference.addEventListener('focusout', onFocusOut);
+        return {
+          onShow() {
+            window.document.addEventListener('keydown', onKeyDown, true);
+            instance.popper.addEventListener('focusout', onFocusOut);
+          },
+          onHide() {
+            window.document.removeEventListener('keydown', onKeyDown, true);
+            instance.popper.removeEventListener('focusout', onFocusOut);
+          },
+          onDestroy() {
+            instance.reference.removeEventListener('focusout', onFocusOut);
+          },
+        };
+      },
+    };
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+        plugins: [hideOnEscAndFocusOut],
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          // Each band is positioned against its own containing block, which is
+          // not the offsetParent of the lines, so place it from client rects.
+          const placeBand = (band, firstEl, lastEl, codeBlock) => {
+            const container = band.offsetParent;
+            if (container === null) {
+              return;
+            }
+            const containerRect = container.getBoundingClientRect();
+            // Reveal.js scales slides with a transform, so convert client
+            // pixels back to the CSS pixels of the container.
+            const scale = containerRect.height / container.offsetHeight || 1;
+            const firstRect = firstEl.getBoundingClientRect();
+            const lastRect = lastEl.getBoundingClientRect();
+            const top = (firstRect.top - containerRect.top) / scale - container.clientTop + container.scrollTop;
+            const height = (lastRect.bottom - firstRect.top) / scale;
+            band.style.top = top - 2 + "px";
+            band.style.height = height + 4 + "px";
+            if (codeBlock) {
+              // Without the copy button wrapper, the containing block is wider
+              // than the code block, so span the code block explicitly.
+              const blockRect = codeBlock.getBoundingClientRect();
+              band.style.left = (blockRect.left - containerRect.left) / scale - container.clientLeft + container.scrollLeft + "px";
+              band.style.width = blockRect.width / scale + "px";
+            }
+          };
+          if (lineIds.length > 0) {
+            const el = window.document.getElementById(lineIds[0]);
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const parent = el.parentElement.parentElement;
+            // cook up a div (if necessary) and position it
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            placeBand(div, el, lastEl, parent.closest("div.sourceCode") || parent);
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            placeBand(gutterDiv, el, lastEl);
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+  <script type="application/javascript">
+  window.quartoScrollableRegionsLabels = {"code":"Scrollable code","output":"Scrollable output"};
+  </script>
+</div> <!-- /content -->
+<script src="../assets/js/js-yaml.min.js"></script>
+<script src="../assets/js/glossary.js"></script>
+
+
+
+
+</body></html>
