@@ -10,12 +10,6 @@ body.page-cheatsheet {
   --cs-line: #e2e8f0;
   --cs-card: rgba(255, 255, 255, 0.9);
   --cs-brand: #0f766e;
-  background:
-    radial-gradient(circle at 4% 18%, rgba(45, 212, 191, 0.16) 0 110px, transparent 111px),
-    radial-gradient(circle at 96% 12%, rgba(94, 234, 212, 0.20) 0 120px, transparent 121px),
-    radial-gradient(circle at 92% 92%, rgba(153, 246, 228, 0.22) 0 140px, transparent 141px),
-    #f0fbf9;
-  background-attachment: fixed;
 }
 
 body.page-cheatsheet .page-columns {
@@ -37,8 +31,9 @@ body.page-cheatsheet .page-columns {
   margin: 0 0 0.5rem;
   font-size: 0.8rem;
   font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  letter-spacing: 0;
+  text-transform: none;
+  font-size: 0.9rem;
   color: var(--cs-brand);
 }
 

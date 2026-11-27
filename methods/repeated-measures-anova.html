@@ -82,7 +82,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-cb61c712ca1a7fe70a83faed8e4da2d7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-f35a81a4717690815b2013502477d714.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -176,6 +176,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../styles/site.css">
 <link rel="stylesheet" href="../styles/methods.css">
 <link rel="stylesheet" href="../styles/glossary.css">
 </head>
@@ -253,7 +254,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#хэзээ-хэрэглэх-вэ" id="toc-хэзээ-хэрэглэх-вэ" class="nav-link" data-scroll-target="#хэзээ-хэрэглэх-вэ">Хэзээ хэрэглэх вэ?</a></li>
   <li><a href="#таамаглалууд" id="toc-таамаглалууд" class="nav-link" data-scroll-target="#таамаглалууд">Таамаглалууд</a></li>
   <li><a href="#r-дээр-хийх" id="toc-r-дээр-хийх" class="nav-link" data-scroll-target="#r-дээр-хийх">R дээр хийх</a></li>
-  <li><a href="#цэс-дээр-хийх-jamovi-spss" id="toc-цэс-дээр-хийх-jamovi-spss" class="nav-link" data-scroll-target="#цэс-дээр-хийх-jamovi-spss">Цэс дээр хийх (jamovi / SPSS)</a></li>
+  <li><a href="#жишээ-бодит-гаралт-ба-тайлбар" id="toc-жишээ-бодит-гаралт-ба-тайлбар" class="nav-link" data-scroll-target="#жишээ-бодит-гаралт-ба-тайлбар">Жишээ: бодит гаралт ба тайлбар</a>
+  <ul class="collapse">
+  <li><a href="#гаралтыг-хэрхэн-унших-вэ" id="toc-гаралтыг-хэрхэн-унших-вэ" class="nav-link" data-scroll-target="#гаралтыг-хэрхэн-унших-вэ">Гаралтыг хэрхэн унших вэ?</a></li>
+  </ul></li>
+  <li><a href="#цэс-дээр-хийх-spss" id="toc-цэс-дээр-хийх-spss" class="nav-link" data-scroll-target="#цэс-дээр-хийх-spss">Цэс дээр хийх (SPSS)</a></li>
   <li><a href="#үр-дүнг-тайлбарлах" id="toc-үр-дүнг-тайлбарлах" class="nav-link" data-scroll-target="#үр-дүнг-тайлбарлах">Үр дүнг тайлбарлах</a></li>
   <li><a href="#тайлагнах-жишээ" id="toc-тайлагнах-жишээ" class="nav-link" data-scroll-target="#тайлагнах-жишээ">Тайлагнах жишээ</a></li>
   <li><a href="#түгээмэл-алдаа" id="toc-түгээмэл-алдаа" class="nav-link" data-scroll-target="#түгээмэл-алдаа">Түгээмэл алдаа</a></li>
@@ -344,9 +349,61 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Параметрийн бус хувилбар:</span></span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="fu">friedman.test</span>(hba1c <span class="sc">~</span> month <span class="sc">|</span> id, <span class="at">data =</span> df)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="цэс-дээр-хийх-jamovi-spss" class="level2">
-<h2 class="anchored" data-anchor-id="цэс-дээр-хийх-jamovi-spss">Цэс дээр хийх (jamovi / SPSS)</h2>
-<div class="mt-menu"><div><b>jamovi</b> Analyses → ANOVA → Repeated Measures ANOVA → Assumption Checks: Sphericity tests, Sphericity corrections (Greenhouse-Geisser); Post Hoc Tests.</div><div><b>SPSS</b> Analyze → General Linear Model → Repeated Measures → хүчин зүйл (month, 3 түвшин) тодорхойлно → EM Means… → Compare main effects (Bonferroni).</div></div>
+<section id="жишээ-бодит-гаралт-ба-тайлбар" class="level2">
+<h2 class="anchored" data-anchor-id="жишээ-бодит-гаралт-ба-тайлбар">Жишээ: бодит гаралт ба тайлбар</h2>
+<div class="mt-example-intro">
+<p><strong>Асуулт.</strong> Систолын даралт 0, 4, 8, 12 дахь долоо хоногт өөрчлөгдсөн үү, өөрчлөлт нь эм ба плацебо бүлэгт ялгаатай юу? (хүн бүр 4 хэмжилттэй)</p>
+<p>Доорх гаралтыг сайтын <a href="../resources/data/emnelgiin-jishee.csv">жишээ өгөгдөл</a> дээр R 4.3.3-аар жинхэнээр нь ажиллуулж гаргасан. Кодыг хуулж өөрийн компьютер дээр ажиллуулбал яг ижил үр дүн гарна.</p>
+</div>
+<pre class="text mt-console"><code>&gt; df &lt;- read.csv("emnelgiin-jishee.csv", fileEncoding = "UTF-8-BOM")
+&gt; long &lt;- reshape(df[, c("id", "group", "sbp0", "sbp4", "sbp8", "sbp12")],
++                 direction = "long", varying = c("sbp0", "sbp4", "sbp8", "sbp12"),
++                 v.names = "sbp", timevar = "week", times = c(0, 4, 8, 12), idvar = "id")
+&gt; long$week &lt;- factor(long$week)
+&gt; full &lt;- long[long$id %in% df$id[!is.na(df$sbp12)], ]     # бүрэн өгөгдөлтэй хүмүүс
+&gt; m &lt;- afex::aov_ez(id = "id", dv = "sbp", within = "week", between = "group", data = full)
+&gt; m
+Anova Table (Type 3 tests)
+
+Response: sbp
+      Effect           df    MSE         F  ges p.value
+1      group       1, 176 627.10 19.89 *** .081   &lt;.001
+2       week 2.39, 420.25  76.14 56.68 *** .067   &lt;.001
+3 group:week 2.39, 420.25  76.14  9.54 *** .012   &lt;.001
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘+’ 0.1 ‘ ’ 1
+
+Sphericity correction method: GG 
+&gt; summary(m)$sphericity.tests
+           Test statistic    p-value
+week              0.53894 1.0869e-21
+group:week        0.53894 1.0869e-21</code></pre>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/methods/repeated-measures-anova.png" class="mt-figure img-fluid figure-img" alt="Бүлэг тус бүрийн дундаж даралт ба 95% CI, хугацаагаар. Шугамууд зэрэгцээ бус байгаа нь бүлэг × хугацааны харилцан үйлчлэлийг илтгэнэ."></p>
+<figcaption>Бүлэг тус бүрийн дундаж даралт ба 95% CI, хугацаагаар. Шугамууд зэрэгцээ бус байгаа нь бүлэг × хугацааны харилцан үйлчлэлийг илтгэнэ.</figcaption>
+</figure>
+</div>
+<section id="гаралтыг-хэрхэн-унших-вэ" class="level3">
+<h3 class="anchored" data-anchor-id="гаралтыг-хэрхэн-унших-вэ">Гаралтыг хэрхэн унших вэ?</h3>
+<div class="mt-readout">
+<ol type="1">
+<li><code>full &lt;- ... !is.na(df$sbp12)</code> Давтан хэмжилтийн ANOVA бүрэн өгөгдөл шаарддаг тул 12 дахь долоо хоногт ирээгүй 22 хүнийг бүхэлд нь хассан (178 үлдсэн).</li>
+<li><code>Mauchly: week 0.53894, p-value 1.0869e-21</code> Моклийн тест: сферик байдлын таамаглал зөрчигдсөн (p &lt; 0.001). Тиймээс Гринхаус-Гайссерын (GG) засварыг хэрэглэнэ.</li>
+<li><code>week df 2.39, 420.25</code> GG засвар чөлөөний зэргийг 3 ба 528-аас 2.39 ба 420.25 болгон багасгасан.</li>
+<li><code>week F 56.68, p &lt; .001</code> Хугацааны гол нөлөө: бүх хүмүүсийн даралт хугацааны явцад өөрчлөгдсөн.</li>
+<li><code>group:week F 9.54, p &lt; .001</code> Хамгийн чухал мөр: даралтын өөрчлөлтийн хурд хоёр бүлэгт ялгаатай. Эмийн бүлэгт илүү хурдан буурсан.</li>
+<li><code>ges .081 / .067 / .012</code> Ерөнхийлсөн η² (нөлөөний хэмжээ): бүлэг 8%, хугацаа 7%, харилцан үйлчлэл 1%.</li>
+</ol>
+</div>
+<div class="mt-conclusion">
+<p><strong>Дүгнэлт (тайлагнах хэлбэрээр).</strong> Бүрэн өгөгдөлтэй 178 өвчтөнд хийсэн холимог давтан хэмжилтийн ANOVA-аар бүлэг × хугацааны харилцан үйлчлэл ач холбогдолтой байв (Гринхаус-Гайссерын засвартай F(2.39, 420.3) = 9.54, p &lt; 0.001, ges = 0.012). Өөрөөр хэлбэл даралт эмийн бүлэгт плацебо бүлгийнхээс илүү хурдан буурсан.</p>
+</div>
+</section>
+</section>
+<section id="цэс-дээр-хийх-spss" class="level2">
+<h2 class="anchored" data-anchor-id="цэс-дээр-хийх-spss">Цэс дээр хийх (SPSS)</h2>
+<div class="mt-menu"><div><b>SPSS</b> Analyze → General Linear Model → Repeated Measures → хүчин зүйл (month, 3 түвшин) тодорхойлно → EM Means… → Compare main effects (Bonferroni).</div></div>
 </section>
 <section id="үр-дүнг-тайлбарлах" class="level2">
 <h2 class="anchored" data-anchor-id="үр-дүнг-тайлбарлах">Үр дүнг тайлбарлах</h2>

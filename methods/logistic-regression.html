@@ -82,7 +82,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-cb61c712ca1a7fe70a83faed8e4da2d7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-f35a81a4717690815b2013502477d714.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -176,6 +176,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../styles/site.css">
 <link rel="stylesheet" href="../styles/methods.css">
 <link rel="stylesheet" href="../styles/glossary.css">
 </head>
@@ -253,7 +254,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#хэзээ-хэрэглэх-вэ" id="toc-хэзээ-хэрэглэх-вэ" class="nav-link" data-scroll-target="#хэзээ-хэрэглэх-вэ">Хэзээ хэрэглэх вэ?</a></li>
   <li><a href="#таамаглалууд" id="toc-таамаглалууд" class="nav-link" data-scroll-target="#таамаглалууд">Таамаглалууд</a></li>
   <li><a href="#r-дээр-хийх" id="toc-r-дээр-хийх" class="nav-link" data-scroll-target="#r-дээр-хийх">R дээр хийх</a></li>
-  <li><a href="#цэс-дээр-хийх-jamovi-spss" id="toc-цэс-дээр-хийх-jamovi-spss" class="nav-link" data-scroll-target="#цэс-дээр-хийх-jamovi-spss">Цэс дээр хийх (jamovi / SPSS)</a></li>
+  <li><a href="#жишээ-бодит-гаралт-ба-тайлбар" id="toc-жишээ-бодит-гаралт-ба-тайлбар" class="nav-link" data-scroll-target="#жишээ-бодит-гаралт-ба-тайлбар">Жишээ: бодит гаралт ба тайлбар</a>
+  <ul class="collapse">
+  <li><a href="#гаралтыг-хэрхэн-унших-вэ" id="toc-гаралтыг-хэрхэн-унших-вэ" class="nav-link" data-scroll-target="#гаралтыг-хэрхэн-унших-вэ">Гаралтыг хэрхэн унших вэ?</a></li>
+  </ul></li>
+  <li><a href="#цэс-дээр-хийх-spss" id="toc-цэс-дээр-хийх-spss" class="nav-link" data-scroll-target="#цэс-дээр-хийх-spss">Цэс дээр хийх (SPSS)</a></li>
   <li><a href="#үр-дүнг-тайлбарлах" id="toc-үр-дүнг-тайлбарлах" class="nav-link" data-scroll-target="#үр-дүнг-тайлбарлах">Үр дүнг тайлбарлах</a></li>
   <li><a href="#тайлагнах-жишээ" id="toc-тайлагнах-жишээ" class="nav-link" data-scroll-target="#тайлагнах-жишээ">Тайлагнах жишээ</a></li>
   <li><a href="#түгээмэл-алдаа" id="toc-түгээмэл-алдаа" class="nav-link" data-scroll-target="#түгээмэл-алдаа">Түгээмэл алдаа</a></li>
@@ -338,9 +343,72 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Ялгах чадвар</span></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>pROC<span class="sc">::</span><span class="fu">auc</span>(pROC<span class="sc">::</span><span class="fu">roc</span>(df<span class="sc">$</span>htn, <span class="fu">fitted</span>(m)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="цэс-дээр-хийх-jamovi-spss" class="level2">
-<h2 class="anchored" data-anchor-id="цэс-дээр-хийх-jamovi-spss">Цэс дээр хийх (jamovi / SPSS)</h2>
-<div class="mt-menu"><div><b>jamovi</b> Analyses → Regression → 2 Outcomes (Binomial) → Model Coefficients: Odds ratio, Confidence interval.</div><div><b>SPSS</b> Analyze → Regression → Binary Logistic → Options… → CI for exp(B).</div></div>
+<section id="жишээ-бодит-гаралт-ба-тайлбар" class="level2">
+<h2 class="anchored" data-anchor-id="жишээ-бодит-гаралт-ба-тайлбар">Жишээ: бодит гаралт ба тайлбар</h2>
+<div class="mt-example-intro">
+<p><strong>Асуулт.</strong> Нас ба тамхидалтаар залруулахад эм хүндрэлийн халдварын эрсдэлийг бууруулсан уу?</p>
+<p>Доорх гаралтыг сайтын <a href="../resources/data/emnelgiin-jishee.csv">жишээ өгөгдөл</a> дээр R 4.3.3-аар жинхэнээр нь ажиллуулж гаргасан. Кодыг хуулж өөрийн компьютер дээр ажиллуулбал яг ижил үр дүн гарна.</p>
+</div>
+<pre class="text mt-console"><code>&gt; df &lt;- read.csv("emnelgiin-jishee.csv", fileEncoding = "UTF-8-BOM")
+&gt; df$group &lt;- factor(df$group, levels = c("Плацебо", "Эм"))
+&gt; df$smoker &lt;- factor(df$smoker, levels = c("Үгүй", "Тийм"))
+&gt; df$inf01 &lt;- as.integer(df$infection == "Тийм")
+&gt; m &lt;- glm(inf01 ~ group + age + smoker, family = binomial, data = df)
+&gt; summary(m)
+
+Call:
+glm(formula = inf01 ~ group + age + smoker, family = binomial, 
+    data = df)
+
+Coefficients:
+            Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept) -5.24495    1.37069  -3.827  0.00013 ***
+groupЭм     -0.96086    0.49043  -1.959  0.05009 .  
+age          0.05988    0.02215   2.704  0.00686 ** 
+smokerТийм   0.53117    0.50999   1.042  0.29763    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 142.74  on 199  degrees of freedom
+Residual deviance: 130.50  on 196  degrees of freedom
+AIC: 138.5
+
+Number of Fisher Scoring iterations: 5
+
+&gt; round(exp(cbind(OR = coef(m), confint(m))), 2)
+              OR 2.5 % 97.5 %
+(Intercept) 0.01  0.00   0.07
+groupЭм     0.38  0.14   0.97
+age         1.06  1.02   1.11
+smokerТийм  1.70  0.60   4.53</code></pre>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/methods/logistic-regression.png" class="mt-figure img-fluid figure-img" alt="Залруулсан odds ratio ба 95% CI (лог шкал). Тасархай шугам (OR = 1) нь нөлөөгүйг илтгэнэ."></p>
+<figcaption>Залруулсан odds ratio ба 95% CI (лог шкал). Тасархай шугам (OR = 1) нь нөлөөгүйг илтгэнэ.</figcaption>
+</figure>
+</div>
+<section id="гаралтыг-хэрхэн-унших-вэ" class="level3">
+<h3 class="anchored" data-anchor-id="гаралтыг-хэрхэн-унших-вэ">Гаралтыг хэрхэн унших вэ?</h3>
+<div class="mt-readout">
+<ol type="1">
+<li><code>groupЭм Estimate -0.96086</code> Log-odds-ийн өөрчлөлт. Шууд тайлбарлахад хэцүү тул exp() авч OR болгоно.</li>
+<li><code>OR 0.38, 2.5 % 0.14, 97.5 % 0.97</code> Эм халдварын odds-ийг 62%-иар бууруулсан (OR = 0.38). Интервалын дээд хязгаар 0.97 тул 1-ийг арай л оруулаагүй.</li>
+<li><code>Pr(&gt;|z|) 0.05009</code> Wald тестийн p = 0.050, хил дээр байна. Харин profile likelihood CI (0.14–0.97) нь 1-ийг оруулаагүй. Хоёр арга бага зэрэг ялгаатай байж болно.</li>
+<li><code>age OR 1.06 (1.02; 1.11)</code> Нас 1 жилээр ахих тутам халдварын odds 6%-иар нэмэгдэнэ. 10 жилд: 1.06¹⁰ ≈ 1.8 дахин.</li>
+<li><code>smokerТийм OR 1.70 (0.60; 4.53)</code> Тамхи татах нь odds-ийг нэмэгдүүлэх хандлагатай ч CI өргөн, 1-ийг агуулсан тул ач холбогдолгүй.</li>
+<li><code>AIC: 138.5, Residual deviance 130.50 / Null 142.74</code> Загварыг өөр загвартай харьцуулахад хэрэглэнэ (AIC бага нь сайн).</li>
+</ol>
+</div>
+<div class="mt-conclusion">
+<p><strong>Дүгнэлт (тайлагнах хэлбэрээр).</strong> Нас ба тамхидалтаар залруулахад эмийн бүлэгт хүндрэлийн халдварын odds бага байв (OR = 0.38, 95% CI 0.14; 0.97; Wald p = 0.050). Нас ахих нь эрсдэлийг нэмэгдүүлж байв (жил тутам OR = 1.06, 95% CI 1.02; 1.11). Үйл явдал цөөн (23) тул үр дүнг болгоомжтой тайлбарлана.</p>
+</div>
+</section>
+</section>
+<section id="цэс-дээр-хийх-spss" class="level2">
+<h2 class="anchored" data-anchor-id="цэс-дээр-хийх-spss">Цэс дээр хийх (SPSS)</h2>
+<div class="mt-menu"><div><b>SPSS</b> Analyze → Regression → Binary Logistic → Options… → CI for exp(B).</div></div>
 </section>
 <section id="үр-дүнг-тайлбарлах" class="level2">
 <h2 class="anchored" data-anchor-id="үр-дүнг-тайлбарлах">Үр дүнг тайлбарлах</h2>

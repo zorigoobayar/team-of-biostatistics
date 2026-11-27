@@ -82,7 +82,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-cb61c712ca1a7fe70a83faed8e4da2d7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-f35a81a4717690815b2013502477d714.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -176,6 +176,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../styles/site.css">
 <link rel="stylesheet" href="../styles/methods.css">
 <link rel="stylesheet" href="../styles/glossary.css">
 </head>
@@ -253,7 +254,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#хэзээ-хэрэглэх-вэ" id="toc-хэзээ-хэрэглэх-вэ" class="nav-link" data-scroll-target="#хэзээ-хэрэглэх-вэ">Хэзээ хэрэглэх вэ?</a></li>
   <li><a href="#таамаглалууд" id="toc-таамаглалууд" class="nav-link" data-scroll-target="#таамаглалууд">Таамаглалууд</a></li>
   <li><a href="#r-дээр-хийх" id="toc-r-дээр-хийх" class="nav-link" data-scroll-target="#r-дээр-хийх">R дээр хийх</a></li>
-  <li><a href="#цэс-дээр-хийх-jamovi-spss" id="toc-цэс-дээр-хийх-jamovi-spss" class="nav-link" data-scroll-target="#цэс-дээр-хийх-jamovi-spss">Цэс дээр хийх (jamovi / SPSS)</a></li>
+  <li><a href="#жишээ-бодит-гаралт-ба-тайлбар" id="toc-жишээ-бодит-гаралт-ба-тайлбар" class="nav-link" data-scroll-target="#жишээ-бодит-гаралт-ба-тайлбар">Жишээ: бодит гаралт ба тайлбар</a>
+  <ul class="collapse">
+  <li><a href="#гаралтыг-хэрхэн-унших-вэ" id="toc-гаралтыг-хэрхэн-унших-вэ" class="nav-link" data-scroll-target="#гаралтыг-хэрхэн-унших-вэ">Гаралтыг хэрхэн унших вэ?</a></li>
+  </ul></li>
+  <li><a href="#цэс-дээр-хийх-spss" id="toc-цэс-дээр-хийх-spss" class="nav-link" data-scroll-target="#цэс-дээр-хийх-spss">Цэс дээр хийх (SPSS)</a></li>
   <li><a href="#үр-дүнг-тайлбарлах" id="toc-үр-дүнг-тайлбарлах" class="nav-link" data-scroll-target="#үр-дүнг-тайлбарлах">Үр дүнг тайлбарлах</a></li>
   <li><a href="#тайлагнах-жишээ" id="toc-тайлагнах-жишээ" class="nav-link" data-scroll-target="#тайлагнах-жишээ">Тайлагнах жишээ</a></li>
   <li><a href="#түгээмэл-алдаа" id="toc-түгээмэл-алдаа" class="nav-link" data-scroll-target="#түгээмэл-алдаа">Түгээмэл алдаа</a></li>
@@ -334,9 +339,60 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Нөлөөний хэмжээ: rank-biserial корреляци</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>effectsize<span class="sc">::</span><span class="fu">rank_biserial</span>(los <span class="sc">~</span> group, <span class="at">data =</span> df)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="цэс-дээр-хийх-jamovi-spss" class="level2">
-<h2 class="anchored" data-anchor-id="цэс-дээр-хийх-jamovi-spss">Цэс дээр хийх (jamovi / SPSS)</h2>
-<div class="mt-menu"><div><b>jamovi</b> Analyses → T-Tests → Independent Samples T-Test → Tests: Mann-Whitney U-г сонгоно (Effect size, Median-ийг нэмж болно).</div><div><b>SPSS</b> Analyze → Nonparametric Tests → Legacy Dialogs → 2 Independent Samples → Mann-Whitney U.</div></div>
+<section id="жишээ-бодит-гаралт-ба-тайлбар" class="level2">
+<h2 class="anchored" data-anchor-id="жишээ-бодит-гаралт-ба-тайлбар">Жишээ: бодит гаралт ба тайлбар</h2>
+<div class="mt-example-intro">
+<p><strong>Асуулт.</strong> 6 дахь долоо хоногийн өвдөлтийн оноо (0–10, дараалсан хувьсагч) эмийн бүлэгт плацебо бүлгийнхээс бага байна уу?</p>
+<p>Доорх гаралтыг сайтын <a href="../resources/data/emnelgiin-jishee.csv">жишээ өгөгдөл</a> дээр R 4.3.3-аар жинхэнээр нь ажиллуулж гаргасан. Кодыг хуулж өөрийн компьютер дээр ажиллуулбал яг ижил үр дүн гарна.</p>
+</div>
+<pre class="text mt-console"><code>&gt; df &lt;- read.csv("emnelgiin-jishee.csv", fileEncoding = "UTF-8-BOM")
+&gt; df$group &lt;- factor(df$group, levels = c("Плацебо", "Эм"))
+&gt; tapply(df$pain6, df$group, summary)
+$Плацебо
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   0.00    4.00    5.00    5.17    7.00   10.00 
+
+$Эм
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   0.00    1.00    3.00    3.62    6.00   10.00 
+
+&gt; wilcox.test(pain6 ~ group, data = df, conf.int = TRUE, exact = FALSE)
+
+    Wilcoxon rank sum test with continuity correction
+
+data:  pain6 by group
+W = 6752.5, p-value = 1.619e-05
+alternative hypothesis: true location shift is not equal to 0
+95 percent confidence interval:
+ 0.9999715 2.0000426
+sample estimates:
+difference in location 
+              1.999996</code></pre>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/methods/mann-whitney.png" class="mt-figure img-fluid figure-img" alt="Бүлэг тус бүрийн өвдөлтийн онооны тархалт (бүлгийн %). Эмийн бүлэг бага оноо руу шилжсэн."></p>
+<figcaption>Бүлэг тус бүрийн өвдөлтийн онооны тархалт (бүлгийн %). Эмийн бүлэг бага оноо руу шилжсэн.</figcaption>
+</figure>
+</div>
+<section id="гаралтыг-хэрхэн-унших-вэ" class="level3">
+<h3 class="anchored" data-anchor-id="гаралтыг-хэрхэн-унших-вэ">Гаралтыг хэрхэн унших вэ?</h3>
+<div class="mt-readout">
+<ol type="1">
+<li><code>Плацебо: Median 5.00, 1st Qu. 4.00, 3rd Qu. 7.00</code> Плацебо бүлгийн медиан 5 (IQR 4–7).</li>
+<li><code>Эм: Median 3.00, 1st Qu. 1.00, 3rd Qu. 6.00</code> Эмийн бүлгийн медиан 3 (IQR 1–6).</li>
+<li><code>W = 6752.5</code> Плацебо бүлгийн утга эмийн бүлгийнхээс их байсан хосын тоо (U статистик). Тэг таамаглал үнэн бол ойролцоогоор 100 × 100 / 2 = 5000 байх ёстой.</li>
+<li><code>p-value = 1.619e-05</code> p &lt; 0.001: хоёр бүлгийн тархалт ижил гэсэн тэг таамаглалыг няцаана.</li>
+<li><code>difference in location 1.999996, 95% CI 0.99997 2.00004</code> Hodges–Lehmann зөрүү ≈ 2 оноо. Оноо бүхэл тоо тул CI нь 1–2 гэж бөөрөнхийлөгдөж байна.</li>
+</ol>
+</div>
+<div class="mt-conclusion">
+<p><strong>Дүгнэлт (тайлагнах хэлбэрээр).</strong> 6 дахь долоо хоногийн өвдөлтийн оноо эмийн бүлэгт (медиан 3, IQR 1–6) плацебо бүлгийнхээс (медиан 5, IQR 4–7) бага байв (Манн-Уитнигийн U тест, W = 6752.5, p &lt; 0.001; Hodges–Lehmann зөрүү 2 оноо, 95% CI 1; 2).</p>
+</div>
+</section>
+</section>
+<section id="цэс-дээр-хийх-spss" class="level2">
+<h2 class="anchored" data-anchor-id="цэс-дээр-хийх-spss">Цэс дээр хийх (SPSS)</h2>
+<div class="mt-menu"><div><b>SPSS</b> Analyze → Nonparametric Tests → Legacy Dialogs → 2 Independent Samples → Mann-Whitney U.</div></div>
 </section>
 <section id="үр-дүнг-тайлбарлах" class="level2">
 <h2 class="anchored" data-anchor-id="үр-дүнг-тайлбарлах">Үр дүнг тайлбарлах</h2>

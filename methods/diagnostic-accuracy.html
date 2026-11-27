@@ -82,7 +82,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-cb61c712ca1a7fe70a83faed8e4da2d7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-f35a81a4717690815b2013502477d714.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -176,6 +176,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../styles/site.css">
 <link rel="stylesheet" href="../styles/methods.css">
 <link rel="stylesheet" href="../styles/glossary.css">
 </head>
@@ -253,7 +254,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#хэзээ-хэрэглэх-вэ" id="toc-хэзээ-хэрэглэх-вэ" class="nav-link" data-scroll-target="#хэзээ-хэрэглэх-вэ">Хэзээ хэрэглэх вэ?</a></li>
   <li><a href="#таамаглалууд" id="toc-таамаглалууд" class="nav-link" data-scroll-target="#таамаглалууд">Таамаглалууд</a></li>
   <li><a href="#r-дээр-хийх" id="toc-r-дээр-хийх" class="nav-link" data-scroll-target="#r-дээр-хийх">R дээр хийх</a></li>
-  <li><a href="#цэс-дээр-хийх-jamovi-spss" id="toc-цэс-дээр-хийх-jamovi-spss" class="nav-link" data-scroll-target="#цэс-дээр-хийх-jamovi-spss">Цэс дээр хийх (jamovi / SPSS)</a></li>
+  <li><a href="#жишээ-бодит-гаралт-ба-тайлбар" id="toc-жишээ-бодит-гаралт-ба-тайлбар" class="nav-link" data-scroll-target="#жишээ-бодит-гаралт-ба-тайлбар">Жишээ: бодит гаралт ба тайлбар</a>
+  <ul class="collapse">
+  <li><a href="#гаралтыг-хэрхэн-унших-вэ" id="toc-гаралтыг-хэрхэн-унших-вэ" class="nav-link" data-scroll-target="#гаралтыг-хэрхэн-унших-вэ">Гаралтыг хэрхэн унших вэ?</a></li>
+  </ul></li>
+  <li><a href="#цэс-дээр-хийх-spss" id="toc-цэс-дээр-хийх-spss" class="nav-link" data-scroll-target="#цэс-дээр-хийх-spss">Цэс дээр хийх (SPSS)</a></li>
   <li><a href="#үр-дүнг-тайлбарлах" id="toc-үр-дүнг-тайлбарлах" class="nav-link" data-scroll-target="#үр-дүнг-тайлбарлах">Үр дүнг тайлбарлах</a></li>
   <li><a href="#тайлагнах-жишээ" id="toc-тайлагнах-жишээ" class="nav-link" data-scroll-target="#тайлагнах-жишээ">Тайлагнах жишээ</a></li>
   <li><a href="#түгээмэл-алдаа" id="toc-түгээмэл-алдаа" class="nav-link" data-scroll-target="#түгээмэл-алдаа">Түгээмэл алдаа</a></li>
@@ -344,9 +349,84 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Хоёр маркерийн AUC-г харьцуулах</span></span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="fu">roc.test</span>(r, <span class="fu">roc</span>(sbi <span class="sc">~</span> crp, <span class="at">data =</span> df))     <span class="co"># DeLong тест</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="цэс-дээр-хийх-jamovi-spss" class="level2">
-<h2 class="anchored" data-anchor-id="цэс-дээр-хийх-jamovi-spss">Цэс дээр хийх (jamovi / SPSS)</h2>
-<div class="mt-menu"><div><b>jamovi</b> psychoPDA модулийг суулгана → ROC Analysis (таслах цэг, Se, Sp, AUC). 2x2 хүснэгтэд: meddecide модуль → Decision.</div><div><b>SPSS</b> Analyze → Classify → ROC Curve (хуучин хувилбарт Analyze → ROC Curve) → Standard error and confidence interval, Coordinate points of the ROC Curve-г сонгоно.</div></div>
+<section id="жишээ-бодит-гаралт-ба-тайлбар" class="level2">
+<h2 class="anchored" data-anchor-id="жишээ-бодит-гаралт-ба-тайлбар">Жишээ: бодит гаралт ба тайлбар</h2>
+<div class="mt-example-intro">
+<p><strong>Асуулт.</strong> Сийвэнгийн прокальцитонин (PCT) хүндрэлийн халдварыг хэр сайн ялгаж байна вэ? (алтан стандарт: эмнэлзүйн баталгаажсан халдвар)</p>
+<p>Доорх гаралтыг сайтын <a href="../resources/data/emnelgiin-jishee.csv">жишээ өгөгдөл</a> дээр R 4.3.3-аар жинхэнээр нь ажиллуулж гаргасан. Кодыг хуулж өөрийн компьютер дээр ажиллуулбал яг ижил үр дүн гарна.</p>
+</div>
+<pre class="text mt-console"><code>&gt; df &lt;- read.csv("emnelgiin-jishee.csv", fileEncoding = "UTF-8-BOM")
+&gt; library(pROC)
+&gt; r &lt;- roc(infection ~ pct, data = df, levels = c("Үгүй", "Тийм"), direction = "&lt;", ci = TRUE)
+&gt; r
+
+Call:
+roc.formula(formula = infection ~ pct, data = df, levels = c("Үгүй",     "Тийм"), direction = "&lt;", ci = TRUE)
+
+Data: pct in 177 controls (infection Үгүй) &lt; 23 cases (infection Тийм).
+Area under the curve: 0.9635
+95% CI: 0.933-0.994 (DeLong)
+&gt; coords(r, "best", best.method = "youden",
++        ret = c("threshold", "sensitivity", "specificity", "ppv", "npv"))
+          threshold sensitivity specificity       ppv       npv
+threshold     0.685   0.8695652   0.9435028 0.6666667 0.9823529
+&gt; tab &lt;- table(Test = factor(df$pct &gt;= 0.5, levels = c(TRUE, FALSE)),
++              Infection = factor(df$infection, levels = c("Тийм", "Үгүй")))
+&gt; tab
+       Infection
+Test    Тийм Үгүй
+  TRUE    20   17
+  FALSE    3  160
+&gt; epiR::epi.tests(tab, conf.level = 0.95)
+          Outcome +    Outcome -      Total
+Test +           20           17         37
+Test -            3          160        163
+Total            23          177        200
+
+Point estimates and 95% CIs:
+--------------------------------------------------------------
+Apparent prevalence *                  0.18 (0.13, 0.25)
+True prevalence *                      0.12 (0.07, 0.17)
+Sensitivity *                          0.87 (0.66, 0.97)
+Specificity *                          0.90 (0.85, 0.94)
+Positive predictive value *            0.54 (0.37, 0.71)
+Negative predictive value *            0.98 (0.95, 1.00)
+Positive likelihood ratio              9.05 (5.61, 14.61)
+Negative likelihood ratio              0.14 (0.05, 0.41)
+False T+ proportion for true D- *      0.10 (0.06, 0.15)
+False T- proportion for true D+ *      0.13 (0.03, 0.34)
+False T+ proportion for T+ *           0.46 (0.29, 0.63)
+False T- proportion for T- *           0.02 (0.00, 0.05)
+Correctly classified proportion *      0.90 (0.85, 0.94)
+--------------------------------------------------------------
+* Exact CIs</code></pre>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/methods/diagnostic-accuracy.png" class="mt-figure img-fluid figure-img" alt="Прокальцитонины ROC муруй. Улаан цэг нь Юдений индексээр сонгосон хамгийн тохиромжтой таслах цэг."></p>
+<figcaption>Прокальцитонины ROC муруй. Улаан цэг нь Юдений индексээр сонгосон хамгийн тохиромжтой таслах цэг.</figcaption>
+</figure>
+</div>
+<section id="гаралтыг-хэрхэн-унших-вэ" class="level3">
+<h3 class="anchored" data-anchor-id="гаралтыг-хэрхэн-унших-вэ">Гаралтыг хэрхэн унших вэ?</h3>
+<div class="mt-readout">
+<ol type="1">
+<li><code>177 controls (Үгүй) &lt; 23 cases (Тийм)</code> 23 халдвартай, 177 халдваргүй хүн.</li>
+<li><code>Area under the curve: 0.9635, 95% CI: 0.933-0.994</code> AUC = 0.96: маш сайн ялгах чадвартай. Санамсаргүй сонгосон халдвартай хүний PCT халдваргүй хүнийхээс өндөр байх магадлал 96%.</li>
+<li><code>threshold 0.685, sensitivity 0.870, specificity 0.944</code> Юдений индексээр хамгийн тохиромжтой таслах цэг 0.685 нг/мл: мэдрэг чанар 87%, өвөрмөц чанар 94%.</li>
+<li><code>tab: 20 17 / 3 160</code> Урьдчилан тогтоосон 0.5 нг/мл таслах цэг дээрх 2×2 хүснэгт: 20 үнэн эерэг, 17 хуурамч эерэг, 3 хуурамч сөрөг, 160 үнэн сөрөг.</li>
+<li><code>Sensitivity 0.87 (0.66, 0.97); Specificity 0.90 (0.85, 0.94)</code> 0.5 нг/мл-д мэдрэг чанар 87%, өвөрмөц чанар 90%. Халдвартай хүн цөөн (23) тул мэдрэг чанарын CI өргөн.</li>
+<li><code>Positive predictive value 0.54; Negative predictive value 0.98</code> Тест эерэг бол халдвартай байх магадлал 54%, сөрөг бол халдваргүй байх магадлал 98%. Энэ хоёр нь халдварын тархалтаас (12%) хамаарна.</li>
+<li><code>Positive likelihood ratio 9.05; Negative likelihood ratio 0.14</code> LR+ = 9: эерэг хариу халдварын odds-ийг 9 дахин нэмэгдүүлнэ. LR− = 0.14: сөрөг хариу odds-ийг 7 дахин бууруулна.</li>
+</ol>
+</div>
+<div class="mt-conclusion">
+<p><strong>Дүгнэлт (тайлагнах хэлбэрээр).</strong> Прокальцитонины AUC 0.96 (95% CI 0.93; 0.99) байв. 0.5 нг/мл таслах цэгт мэдрэг чанар 87% (95% CI 66; 97), өвөрмөц чанар 90% (85; 94), PPV 54%, NPV 98%, LR+ 9.1, LR− 0.14 байв (n = 200, тархалт 11.5%).</p>
+</div>
+</section>
+</section>
+<section id="цэс-дээр-хийх-spss" class="level2">
+<h2 class="anchored" data-anchor-id="цэс-дээр-хийх-spss">Цэс дээр хийх (SPSS)</h2>
+<div class="mt-menu"><div><b>SPSS</b> Analyze → Classify → ROC Curve (хуучин хувилбарт Analyze → ROC Curve) → Standard error and confidence interval, Coordinate points of the ROC Curve-г сонгоно.</div></div>
 </section>
 <section id="үр-дүнг-тайлбарлах" class="level2">
 <h2 class="anchored" data-anchor-id="үр-дүнг-тайлбарлах">Үр дүнг тайлбарлах</h2>

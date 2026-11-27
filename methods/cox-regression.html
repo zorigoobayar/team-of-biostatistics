@@ -82,7 +82,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-cb61c712ca1a7fe70a83faed8e4da2d7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-f35a81a4717690815b2013502477d714.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -176,6 +176,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../styles/site.css">
 <link rel="stylesheet" href="../styles/methods.css">
 <link rel="stylesheet" href="../styles/glossary.css">
 </head>
@@ -253,7 +254,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#хэзээ-хэрэглэх-вэ" id="toc-хэзээ-хэрэглэх-вэ" class="nav-link" data-scroll-target="#хэзээ-хэрэглэх-вэ">Хэзээ хэрэглэх вэ?</a></li>
   <li><a href="#таамаглалууд" id="toc-таамаглалууд" class="nav-link" data-scroll-target="#таамаглалууд">Таамаглалууд</a></li>
   <li><a href="#r-дээр-хийх" id="toc-r-дээр-хийх" class="nav-link" data-scroll-target="#r-дээр-хийх">R дээр хийх</a></li>
-  <li><a href="#цэс-дээр-хийх-jamovi-spss" id="toc-цэс-дээр-хийх-jamovi-spss" class="nav-link" data-scroll-target="#цэс-дээр-хийх-jamovi-spss">Цэс дээр хийх (jamovi / SPSS)</a></li>
+  <li><a href="#жишээ-бодит-гаралт-ба-тайлбар" id="toc-жишээ-бодит-гаралт-ба-тайлбар" class="nav-link" data-scroll-target="#жишээ-бодит-гаралт-ба-тайлбар">Жишээ: бодит гаралт ба тайлбар</a>
+  <ul class="collapse">
+  <li><a href="#гаралтыг-хэрхэн-унших-вэ" id="toc-гаралтыг-хэрхэн-унших-вэ" class="nav-link" data-scroll-target="#гаралтыг-хэрхэн-унших-вэ">Гаралтыг хэрхэн унших вэ?</a></li>
+  </ul></li>
+  <li><a href="#цэс-дээр-хийх-spss" id="toc-цэс-дээр-хийх-spss" class="nav-link" data-scroll-target="#цэс-дээр-хийх-spss">Цэс дээр хийх (SPSS)</a></li>
   <li><a href="#үр-дүнг-тайлбарлах" id="toc-үр-дүнг-тайлбарлах" class="nav-link" data-scroll-target="#үр-дүнг-тайлбарлах">Үр дүнг тайлбарлах</a></li>
   <li><a href="#тайлагнах-жишээ" id="toc-тайлагнах-жишээ" class="nav-link" data-scroll-target="#тайлагнах-жишээ">Тайлагнах жишээ</a></li>
   <li><a href="#түгээмэл-алдаа" id="toc-түгээмэл-алдаа" class="nav-link" data-scroll-target="#түгээмэл-алдаа">Түгээмэл алдаа</a></li>
@@ -335,9 +340,75 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>gtsummary<span class="sc">::</span><span class="fu">tbl_regression</span>(m, <span class="at">exponentiate =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="цэс-дээр-хийх-jamovi-spss" class="level2">
-<h2 class="anchored" data-anchor-id="цэс-дээр-хийх-jamovi-spss">Цэс дээр хийх (jamovi / SPSS)</h2>
-<div class="mt-menu"><div><b>jamovi</b> Нэмэлт модуль шаардлагатай (жишээ нь jsurvival) → Multivariable Survival.</div><div><b>SPSS</b> Analyze → Survival → Cox Regression → Options… → CI for exp(B); пропорциональ эрсдэлийг шалгахад Cox w/ Time-Dep Cov.</div></div>
+<section id="жишээ-бодит-гаралт-ба-тайлбар" class="level2">
+<h2 class="anchored" data-anchor-id="жишээ-бодит-гаралт-ба-тайлбар">Жишээ: бодит гаралт ба тайлбар</h2>
+<div class="mt-example-intro">
+<p><strong>Асуулт.</strong> Нас ба хүйсээр залруулахад эм үйл явдлын эрсдэлийг (hazard) бууруулсан уу?</p>
+<p>Доорх гаралтыг сайтын <a href="../resources/data/emnelgiin-jishee.csv">жишээ өгөгдөл</a> дээр R 4.3.3-аар жинхэнээр нь ажиллуулж гаргасан. Кодыг хуулж өөрийн компьютер дээр ажиллуулбал яг ижил үр дүн гарна.</p>
+</div>
+<pre class="text mt-console"><code>&gt; df &lt;- read.csv("emnelgiin-jishee.csv", fileEncoding = "UTF-8-BOM")
+&gt; library(survival)
+&gt; df$group &lt;- factor(df$group, levels = c("Плацебо", "Эм"))
+&gt; m &lt;- coxph(Surv(time_months, event) ~ group + age + sex, data = df)
+&gt; summary(m)
+Call:
+coxph(formula = Surv(time_months, event) ~ group + age + sex, 
+    data = df)
+
+  n= 200, number of events= 72 
+
+               coef exp(coef) se(coef)      z Pr(&gt;|z|)    
+groupЭм    -0.37317   0.68855  0.24434 -1.527 0.126694    
+age         0.03778   1.03851  0.01113  3.396 0.000684 ***
+sexЭрэгтэй -0.49358   0.61044  0.24957 -1.978 0.047962 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+           exp(coef) exp(-coef) lower .95 upper .95
+groupЭм       0.6886     1.4523    0.4265    1.1115
+age           1.0385     0.9629    1.0161    1.0614
+sexЭрэгтэй    0.6104     1.6382    0.3743    0.9956
+
+Concordance= 0.636  (se = 0.035 )
+Likelihood ratio test= 19.65  on 3 df,   p=2e-04
+Wald test            = 19.13  on 3 df,   p=3e-04
+Score (logrank) test = 19.52  on 3 df,   p=2e-04
+
+&gt; cox.zph(m)
+        chisq df    p
+group  1.1290  1 0.29
+age    0.0514  1 0.82
+sex    0.6362  1 0.43
+GLOBAL 1.6091  3 0.66</code></pre>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/methods/cox-regression.png" class="mt-figure img-fluid figure-img" alt="Залруулсан hazard ratio ба 95% CI (лог шкал). Тасархай шугам (HR = 1) нь нөлөөгүйг илтгэнэ."></p>
+<figcaption>Залруулсан hazard ratio ба 95% CI (лог шкал). Тасархай шугам (HR = 1) нь нөлөөгүйг илтгэнэ.</figcaption>
+</figure>
+</div>
+<section id="гаралтыг-хэрхэн-унших-вэ" class="level3">
+<h3 class="anchored" data-anchor-id="гаралтыг-хэрхэн-унших-вэ">Гаралтыг хэрхэн унших вэ?</h3>
+<div class="mt-readout">
+<ol type="1">
+<li><code>n= 200, number of events= 72</code> Загварт 200 хүн, 72 үйл явдал орсон. Тайлбарлагч хувьсагч бүрт ≥ 10 үйл явдал байх нь зохимжтой.</li>
+<li><code>groupЭм exp(coef) 0.68855, lower .95 0.4265, upper .95 1.1115, p 0.126694</code> Нас, хүйсээр залруулахад эрсдэл 31%-иар бага гэсэн тооцоо гарсан ч CI 1-ийг агуулсан тул ач холбогдолгүй.</li>
+<li><code>age 1.03851 (1.0161; 1.0614)</code> Нас 1 жилээр ахих тутам эрсдэл 3.9%-иар нэмэгдэнэ (p &lt; 0.001).</li>
+<li><code>sexЭрэгтэй 0.61044 (0.3743; 0.9956)</code> Эмэгтэйчүүдийг бодвол эрэгтэйчүүдийн эрсдэл 39%-иар бага (p = 0.048).</li>
+<li><code>Concordance= 0.636</code> C индекс: загвар хоёр хүний алинд нь эрт үйл явдал тохиолдохыг 64% тохиолдолд зөв эрэмбэлнэ.</li>
+<li><code>cox.zph GLOBAL p 0.66</code> Пропорциональ эрсдэлийн таамаглалын тест: бүх p &gt; 0.05 тул таамаглал хангагдсан.</li>
+</ol>
+</div>
+<div class="mt-note">
+<p>Каплан-Майерийн хуудасны лог-ранк тест (залруулгагүй) p = 0.04 гарсан бол энд залруулсны дараа p = 0.13 болсон. Энэ нь бүлгүүдийн нас, хүйсний бүтэц зарим талаар ялгааг тайлбарлаж байсныг харуулна. Аль үр дүнг гол болгохыг судалгааны протоколд урьдчилан тодорхойлох ёстой.</p>
+</div>
+<div class="mt-conclusion">
+<p><strong>Дүгнэлт (тайлагнах хэлбэрээр).</strong> Нас ба хүйсээр залруулахад эмийн бүлэгт үйл явдлын эрсдэл бага байх хандлагатай байсан ч статистик ач холбогдолгүй байв (HR = 0.69, 95% CI 0.43; 1.11, p = 0.13). Нас (жил тутам HR = 1.04, 95% CI 1.02; 1.06) нь эрсдэлтэй хамааралтай байв. Пропорциональ эрсдэлийн таамаглал хангагдсан (глобал p = 0.66).</p>
+</div>
+</section>
+</section>
+<section id="цэс-дээр-хийх-spss" class="level2">
+<h2 class="anchored" data-anchor-id="цэс-дээр-хийх-spss">Цэс дээр хийх (SPSS)</h2>
+<div class="mt-menu"><div><b>SPSS</b> Analyze → Survival → Cox Regression → Options… → CI for exp(B); пропорциональ эрсдэлийг шалгахад Cox w/ Time-Dep Cov.</div></div>
 </section>
 <section id="үр-дүнг-тайлбарлах" class="level2">
 <h2 class="anchored" data-anchor-id="үр-дүнг-тайлбарлах">Үр дүнг тайлбарлах</h2>

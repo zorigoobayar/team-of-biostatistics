@@ -82,7 +82,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-cb61c712ca1a7fe70a83faed8e4da2d7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-f35a81a4717690815b2013502477d714.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -176,6 +176,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../styles/site.css">
 <link rel="stylesheet" href="../styles/methods.css">
 <link rel="stylesheet" href="../styles/glossary.css">
 </head>
@@ -253,7 +254,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#хэзээ-хэрэглэх-вэ" id="toc-хэзээ-хэрэглэх-вэ" class="nav-link" data-scroll-target="#хэзээ-хэрэглэх-вэ">Хэзээ хэрэглэх вэ?</a></li>
   <li><a href="#таамаглалууд" id="toc-таамаглалууд" class="nav-link" data-scroll-target="#таамаглалууд">Таамаглалууд</a></li>
   <li><a href="#r-дээр-хийх" id="toc-r-дээр-хийх" class="nav-link" data-scroll-target="#r-дээр-хийх">R дээр хийх</a></li>
-  <li><a href="#цэс-дээр-хийх-jamovi-spss" id="toc-цэс-дээр-хийх-jamovi-spss" class="nav-link" data-scroll-target="#цэс-дээр-хийх-jamovi-spss">Цэс дээр хийх (jamovi / SPSS)</a></li>
+  <li><a href="#жишээ-бодит-гаралт-ба-тайлбар" id="toc-жишээ-бодит-гаралт-ба-тайлбар" class="nav-link" data-scroll-target="#жишээ-бодит-гаралт-ба-тайлбар">Жишээ: бодит гаралт ба тайлбар</a>
+  <ul class="collapse">
+  <li><a href="#гаралтыг-хэрхэн-унших-вэ" id="toc-гаралтыг-хэрхэн-унших-вэ" class="nav-link" data-scroll-target="#гаралтыг-хэрхэн-унших-вэ">Гаралтыг хэрхэн унших вэ?</a></li>
+  </ul></li>
+  <li><a href="#цэс-дээр-хийх-spss" id="toc-цэс-дээр-хийх-spss" class="nav-link" data-scroll-target="#цэс-дээр-хийх-spss">Цэс дээр хийх (SPSS)</a></li>
   <li><a href="#үр-дүнг-тайлбарлах" id="toc-үр-дүнг-тайлбарлах" class="nav-link" data-scroll-target="#үр-дүнг-тайлбарлах">Үр дүнг тайлбарлах</a></li>
   <li><a href="#тайлагнах-жишээ" id="toc-тайлагнах-жишээ" class="nav-link" data-scroll-target="#тайлагнах-жишээ">Тайлагнах жишээ</a></li>
   <li><a href="#түгээмэл-алдаа" id="toc-түгээмэл-алдаа" class="nav-link" data-scroll-target="#түгээмэл-алдаа">Түгээмэл алдаа</a></li>
@@ -336,9 +341,63 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Нөлөөний хэмжээ: эпсилон-квадрат</span></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>effectsize<span class="sc">::</span><span class="fu">rank_epsilon_squared</span>(lead <span class="sc">~</span> city, <span class="at">data =</span> df)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="цэс-дээр-хийх-jamovi-spss" class="level2">
-<h2 class="anchored" data-anchor-id="цэс-дээр-хийх-jamovi-spss">Цэс дээр хийх (jamovi / SPSS)</h2>
-<div class="mt-menu"><div><b>jamovi</b> Analyses → ANOVA → One-Way ANOVA: Non-Parametric (Kruskal-Wallis) → DSCF pairwise comparisons-ийг сонгоно.</div><div><b>SPSS</b> Analyze → Nonparametric Tests → Independent Samples → Kruskal-Wallis (Pairwise comparisons автоматаар гарна). Эсвэл Legacy Dialogs → K Independent Samples.</div></div>
+<section id="жишээ-бодит-гаралт-ба-тайлбар" class="level2">
+<h2 class="anchored" data-anchor-id="жишээ-бодит-гаралт-ба-тайлбар">Жишээ: бодит гаралт ба тайлбар</h2>
+<div class="mt-example-intro">
+<p><strong>Асуулт.</strong> CRP (хазайлттай тархалттай үрэвслийн маркер) гурван хотын өвчтөнүүдэд ялгаатай юу?</p>
+<p>Доорх гаралтыг сайтын <a href="../resources/data/emnelgiin-jishee.csv">жишээ өгөгдөл</a> дээр R 4.3.3-аар жинхэнээр нь ажиллуулж гаргасан. Кодыг хуулж өөрийн компьютер дээр ажиллуулбал яг ижил үр дүн гарна.</p>
+</div>
+<pre class="text mt-console"><code>&gt; df &lt;- read.csv("emnelgiin-jishee.csv", fileEncoding = "UTF-8-BOM")
+&gt; aggregate(crp ~ city, data = df, FUN = function(x) c(n = length(x), median = median(x), IQR = IQR(x)))
+         city   crp.n crp.median crp.IQR
+1      Дархан  37.000      1.100   1.000
+2 Улаанбаатар 128.000      2.700   3.025
+3     Эрдэнэт  35.000      2.100   2.650
+&gt; kruskal.test(crp ~ city, data = df)
+
+    Kruskal-Wallis rank sum test
+
+data:  crp by city
+Kruskal-Wallis chi-squared = 29.362, df = 2, p-value = 4.208e-07
+
+&gt; pairwise.wilcox.test(df$crp, df$city, p.adjust.method = "holm", exact = FALSE)
+
+    Pairwise comparisons using Wilcoxon rank sum test with continuity correction 
+
+data:  df$crp and df$city 
+
+            Дархан  Улаанбаатар
+Улаанбаатар 2.1e-07 -          
+Эрдэнэт     0.00082 0.31997    
+
+P value adjustment method: holm</code></pre>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/methods/kruskal-wallis.png" class="mt-figure img-fluid figure-img" alt="Хотоор CRP-ийн тархалт (лог шкал). Тархалт баруун тийш хазайлттай тул ANOVA-гийн оронд эрэмбийн тест хэрэглэв."></p>
+<figcaption>Хотоор CRP-ийн тархалт (лог шкал). Тархалт баруун тийш хазайлттай тул ANOVA-гийн оронд эрэмбийн тест хэрэглэв.</figcaption>
+</figure>
+</div>
+<section id="гаралтыг-хэрхэн-унших-вэ" class="level3">
+<h3 class="anchored" data-anchor-id="гаралтыг-хэрхэн-унших-вэ">Гаралтыг хэрхэн унших вэ?</h3>
+<div class="mt-readout">
+<ol type="1">
+<li><code>crp.median 1.100 / 2.700 / 2.100</code> Медиан CRP: Дархан 1.1, Улаанбаатар 2.7, Эрдэнэт 2.1 мг/л.</li>
+<li><code>Kruskal-Wallis chi-squared = 29.362, df = 2</code> H статистик. df = хотын тоо − 1.</li>
+<li><code>p-value = 4.208e-07</code> p &lt; 0.001: ядаж нэг хотын CRP-ийн тархалт бусдаасаа ялгаатай.</li>
+<li><code>pairwise: Улаанбаатар–Дархан 2.1e-07, Эрдэнэт–Дархан 0.00082, Эрдэнэт–Улаанбаатар 0.31997</code> Холмын засвартай хос харьцуулалт: Дархан нөгөө хоёр хотоос бага, Улаанбаатар ба Эрдэнэт ялгаагүй.</li>
+</ol>
+</div>
+<div class="mt-note">
+<p>Хуудасны дээрх кодод post-hoc тестийг <code>FSA::dunnTest()</code>-ээр харуулсан. Энд R-ийн суурь багцын <code>pairwise.wilcox.test()</code>-ийг Холмын засвартай хэрэглэсэн. Аль аль нь зөв арга.</p>
+</div>
+<div class="mt-conclusion">
+<p><strong>Дүгнэлт (тайлагнах хэлбэрээр).</strong> CRP хотуудын хооронд ялгаатай байв (Крускал-Валлисын тест, H(2) = 29.4, p &lt; 0.001). Хос харьцуулалтаар Дарханы өвчтөнүүдийн CRP (медиан 1.1 мг/л) Улаанбаатар (2.7; p_adj &lt; 0.001) болон Эрдэнэтийнхээс (2.1; p_adj &lt; 0.001) бага байсан бол Улаанбаатар ба Эрдэнэт ялгаагүй (p_adj = 0.32).</p>
+</div>
+</section>
+</section>
+<section id="цэс-дээр-хийх-spss" class="level2">
+<h2 class="anchored" data-anchor-id="цэс-дээр-хийх-spss">Цэс дээр хийх (SPSS)</h2>
+<div class="mt-menu"><div><b>SPSS</b> Analyze → Nonparametric Tests → Independent Samples → Kruskal-Wallis (Pairwise comparisons автоматаар гарна). Эсвэл Legacy Dialogs → K Independent Samples.</div></div>
 </section>
 <section id="үр-дүнг-тайлбарлах" class="level2">
 <h2 class="anchored" data-anchor-id="үр-дүнг-тайлбарлах">Үр дүнг тайлбарлах</h2>

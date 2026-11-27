@@ -82,7 +82,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-cb61c712ca1a7fe70a83faed8e4da2d7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-f35a81a4717690815b2013502477d714.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -176,6 +176,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../styles/site.css">
 <link rel="stylesheet" href="../styles/methods.css">
 <link rel="stylesheet" href="../styles/glossary.css">
 </head>
@@ -253,7 +254,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#хэзээ-хэрэглэх-вэ" id="toc-хэзээ-хэрэглэх-вэ" class="nav-link" data-scroll-target="#хэзээ-хэрэглэх-вэ">Хэзээ хэрэглэх вэ?</a></li>
   <li><a href="#таамаглалууд" id="toc-таамаглалууд" class="nav-link" data-scroll-target="#таамаглалууд">Таамаглалууд</a></li>
   <li><a href="#r-дээр-хийх" id="toc-r-дээр-хийх" class="nav-link" data-scroll-target="#r-дээр-хийх">R дээр хийх</a></li>
-  <li><a href="#цэс-дээр-хийх-jamovi-spss" id="toc-цэс-дээр-хийх-jamovi-spss" class="nav-link" data-scroll-target="#цэс-дээр-хийх-jamovi-spss">Цэс дээр хийх (jamovi / SPSS)</a></li>
+  <li><a href="#жишээ-бодит-гаралт-ба-тайлбар" id="toc-жишээ-бодит-гаралт-ба-тайлбар" class="nav-link" data-scroll-target="#жишээ-бодит-гаралт-ба-тайлбар">Жишээ: бодит гаралт ба тайлбар</a>
+  <ul class="collapse">
+  <li><a href="#гаралтыг-хэрхэн-унших-вэ" id="toc-гаралтыг-хэрхэн-унших-вэ" class="nav-link" data-scroll-target="#гаралтыг-хэрхэн-унших-вэ">Гаралтыг хэрхэн унших вэ?</a></li>
+  </ul></li>
+  <li><a href="#цэс-дээр-хийх-spss" id="toc-цэс-дээр-хийх-spss" class="nav-link" data-scroll-target="#цэс-дээр-хийх-spss">Цэс дээр хийх (SPSS)</a></li>
   <li><a href="#үр-дүнг-тайлбарлах" id="toc-үр-дүнг-тайлбарлах" class="nav-link" data-scroll-target="#үр-дүнг-тайлбарлах">Үр дүнг тайлбарлах</a></li>
   <li><a href="#тайлагнах-жишээ" id="toc-тайлагнах-жишээ" class="nav-link" data-scroll-target="#тайлагнах-жишээ">Тайлагнах жишээ</a></li>
   <li><a href="#түгээмэл-алдаа" id="toc-түгээмэл-алдаа" class="nav-link" data-scroll-target="#түгээмэл-алдаа">Түгээмэл алдаа</a></li>
@@ -350,9 +355,81 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Хоёр утгат үр дагавар:</span></span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="fu">glmer</span>(infection <span class="sc">~</span> pm25 <span class="sc">+</span> age <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> id), <span class="at">family =</span> binomial, <span class="at">data =</span> df)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="цэс-дээр-хийх-jamovi-spss" class="level2">
-<h2 class="anchored" data-anchor-id="цэс-дээр-хийх-jamovi-spss">Цэс дээр хийх (jamovi / SPSS)</h2>
-<div class="mt-menu"><div><b>jamovi</b> GAMLj модулийг суулгана → Linear Models → Mixed Model → Cluster variables-д id, Random Effects-д огтлолцол/налууг сонгоно.</div><div><b>SPSS</b> Analyze → Mixed Models → Linear → Subjects: id → Fixed… ба Random… хэсгийг тохируулна. Хоёр утгат үр дагаварт: Mixed Models → Generalized Linear.</div></div>
+<section id="жишээ-бодит-гаралт-ба-тайлбар" class="level2">
+<h2 class="anchored" data-anchor-id="жишээ-бодит-гаралт-ба-тайлбар">Жишээ: бодит гаралт ба тайлбар</h2>
+<div class="mt-example-intro">
+<p><strong>Асуулт.</strong> Дутуу хэмжилттэй хүмүүсийг хасалгүйгээр систолын даралтын долоо хоног тутмын бууралтын хурдыг эм ба плацебо бүлэгт харьцуулах.</p>
+<p>Доорх гаралтыг сайтын <a href="../resources/data/emnelgiin-jishee.csv">жишээ өгөгдөл</a> дээр R 4.3.3-аар жинхэнээр нь ажиллуулж гаргасан. Кодыг хуулж өөрийн компьютер дээр ажиллуулбал яг ижил үр дүн гарна.</p>
+</div>
+<pre class="text mt-console"><code>&gt; df &lt;- read.csv("emnelgiin-jishee.csv", fileEncoding = "UTF-8-BOM")
+&gt; library(lme4); library(lmerTest)
+&gt; long &lt;- reshape(df[, c("id", "group", "sbp0", "sbp4", "sbp8", "sbp12")],
++                 direction = "long", varying = c("sbp0", "sbp4", "sbp8", "sbp12"),
++                 v.names = "sbp", timevar = "week", times = c(0, 4, 8, 12), idvar = "id")
+&gt; long$group &lt;- factor(long$group, levels = c("Плацебо", "Эм"))
+&gt; long &lt;- long[!is.na(long$sbp), ]                          # дутуу хэмжилтийг хасна, хүнийг биш
+&gt; m1 &lt;- lmer(sbp ~ group * week + (1 | id), data = long)
+&gt; summary(m1)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: sbp ~ group * week + (1 | id)
+   Data: long
+
+REML criterion at convergence: 5861.5
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-2.8244 -0.5272  0.0782  0.5529  3.1032 
+
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ id       (Intercept) 143.46   11.978  
+ Residual              60.51    7.779  
+Number of obs: 778, groups:  id, 200
+
+Fixed effects:
+              Estimate Std. Error        df t value Pr(&gt;|t|)    
+(Intercept)  149.34434    1.36477 268.42103 109.428  &lt; 2e-16 ***
+groupЭм       -3.46304    1.92970 268.23410  -1.795   0.0738 .  
+week          -0.49663    0.09047 578.45684  -5.489 6.04e-08 ***
+groupЭм:week  -0.65886    0.12715 578.08378  -5.182 3.04e-07 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) gropЭм week  
+groupЭм     -0.707              
+week        -0.381  0.269       
+groupЭм:wek  0.271 -0.381 -0.712
+&gt; vc &lt;- as.data.frame(VarCorr(m1))
+&gt; vc$vcov[1] / sum(vc$vcov)                                  # ICC
+[1] 0.703343</code></pre>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/methods/mixed-models.png" class="mt-figure img-fluid figure-img" alt="Санамсаргүй сонгосон 40 хүний хувийн шугам (нимгэн) ба загварын дундаж шугам (зузаан)."></p>
+<figcaption>Санамсаргүй сонгосон 40 хүний хувийн шугам (нимгэн) ба загварын дундаж шугам (зузаан).</figcaption>
+</figure>
+</div>
+<section id="гаралтыг-хэрхэн-унших-вэ" class="level3">
+<h3 class="anchored" data-anchor-id="гаралтыг-хэрхэн-унших-вэ">Гаралтыг хэрхэн унших вэ?</h3>
+<div class="mt-readout">
+<ol type="1">
+<li><code>Number of obs: 778, groups: id, 200</code> 200 хүний бүгдийг ашигласан. 12 дахь долоо хоногт ирээгүй 22 хүнийг ч хасаагүй (800-аас 22 хэмжилт дутуу).</li>
+<li><code>Random effects: id (Intercept) Variance 143.46</code> Хүмүүсийн суурь даралт хоорондоо ихээхэн ялгаатай (SD ≈ 12 мм м.у.б).</li>
+<li><code>ICC [1] 0.703343</code> Нийт хэлбэлзлийн 70% нь хүн хоорондын ялгаа. Давтан хэмжилтийг тооцохгүй бол стандарт алдаа буруу гарна.</li>
+<li><code>week -0.49663</code> Плацебо бүлгийн даралт долоо хоног бүр 0.50 мм м.у.б-аар буурч байна.</li>
+<li><code>groupЭм:week -0.65886, Pr(&gt;|t|) 3.04e-07</code> Эмийн бүлэгт долоо хоног бүр нэмэлт 0.66 мм м.у.б-аар буурч байна. Нийт хурд нь −0.50 − 0.66 = −1.16 мм м.у.б/долоо хоног.</li>
+<li><code>groupЭм -3.46304 (p 0.0738)</code> 0 дахь долоо хоногт (эхэнд) бүлгүүд ялгаагүй байсан нь санамсаргүйчлэл зөв явагдсаныг харуулна.</li>
+</ol>
+</div>
+<div class="mt-conclusion">
+<p><strong>Дүгнэлт (тайлагнах хэлбэрээр).</strong> Шугаман холимог загвараар (хүн бүрт санамсаргүй огтлолцолтой) эмийн бүлгийн даралт плацебо бүлгийнхээс долоо хоногт 0.66 мм м.у.б-аар илүү хурдан буурч байв (бүлэг × долоо хоног β = −0.66, SE 0.13, p &lt; 0.001; 200 хүний 778 хэмжилт; ICC = 0.70).</p>
+</div>
+</section>
+</section>
+<section id="цэс-дээр-хийх-spss" class="level2">
+<h2 class="anchored" data-anchor-id="цэс-дээр-хийх-spss">Цэс дээр хийх (SPSS)</h2>
+<div class="mt-menu"><div><b>SPSS</b> Analyze → Mixed Models → Linear → Subjects: id → Fixed… ба Random… хэсгийг тохируулна. Хоёр утгат үр дагаварт: Mixed Models → Generalized Linear.</div></div>
 </section>
 <section id="үр-дүнг-тайлбарлах" class="level2">
 <h2 class="anchored" data-anchor-id="үр-дүнг-тайлбарлах">Үр дүнг тайлбарлах</h2>

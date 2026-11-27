@@ -82,7 +82,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-cb61c712ca1a7fe70a83faed8e4da2d7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-f35a81a4717690815b2013502477d714.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -176,6 +176,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../styles/site.css">
 <link rel="stylesheet" href="../styles/methods.css">
 <link rel="stylesheet" href="../styles/glossary.css">
 </head>
@@ -253,7 +254,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#хэзээ-хэрэглэх-вэ" id="toc-хэзээ-хэрэглэх-вэ" class="nav-link" data-scroll-target="#хэзээ-хэрэглэх-вэ">Хэзээ хэрэглэх вэ?</a></li>
   <li><a href="#таамаглалууд" id="toc-таамаглалууд" class="nav-link" data-scroll-target="#таамаглалууд">Таамаглалууд</a></li>
   <li><a href="#r-дээр-хийх" id="toc-r-дээр-хийх" class="nav-link" data-scroll-target="#r-дээр-хийх">R дээр хийх</a></li>
-  <li><a href="#цэс-дээр-хийх-jamovi-spss" id="toc-цэс-дээр-хийх-jamovi-spss" class="nav-link" data-scroll-target="#цэс-дээр-хийх-jamovi-spss">Цэс дээр хийх (jamovi / SPSS)</a></li>
+  <li><a href="#жишээ-бодит-гаралт-ба-тайлбар" id="toc-жишээ-бодит-гаралт-ба-тайлбар" class="nav-link" data-scroll-target="#жишээ-бодит-гаралт-ба-тайлбар">Жишээ: бодит гаралт ба тайлбар</a>
+  <ul class="collapse">
+  <li><a href="#гаралтыг-хэрхэн-унших-вэ" id="toc-гаралтыг-хэрхэн-унших-вэ" class="nav-link" data-scroll-target="#гаралтыг-хэрхэн-унших-вэ">Гаралтыг хэрхэн унших вэ?</a></li>
+  </ul></li>
+  <li><a href="#цэс-дээр-хийх-spss" id="toc-цэс-дээр-хийх-spss" class="nav-link" data-scroll-target="#цэс-дээр-хийх-spss">Цэс дээр хийх (SPSS)</a></li>
   <li><a href="#үр-дүнг-тайлбарлах" id="toc-үр-дүнг-тайлбарлах" class="nav-link" data-scroll-target="#үр-дүнг-тайлбарлах">Үр дүнг тайлбарлах</a></li>
   <li><a href="#тайлагнах-жишээ" id="toc-тайлагнах-жишээ" class="nav-link" data-scroll-target="#тайлагнах-жишээ">Тайлагнах жишээ</a></li>
   <li><a href="#түгээмэл-алдаа" id="toc-түгээмэл-алдаа" class="nav-link" data-scroll-target="#түгээмэл-алдаа">Түгээмэл алдаа</a></li>
@@ -349,9 +354,73 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Хоёр аргын дундаж"</span>, <span class="at">ylab =</span> <span class="st">"Зөрүү"</span>)</span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="fu">c</span>(m, m <span class="sc">-</span> <span class="fl">1.96</span> <span class="sc">*</span> s, m <span class="sc">+</span> <span class="fl">1.96</span> <span class="sc">*</span> s), <span class="at">lty =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="цэс-дээр-хийх-jamovi-spss" class="level2">
-<h2 class="anchored" data-anchor-id="цэс-дээр-хийх-jamovi-spss">Цэс дээр хийх (jamovi / SPSS)</h2>
-<div class="mt-menu"><div><b>jamovi</b> Analyses → Frequencies → Contingency Tables → Independent Samples → Statistics: Cohen's kappa (хувилбараас хамаарна). ICC ба Bland–Altman-д: seolmatrix эсвэл blandr модуль.</div><div><b>SPSS</b> Kappa: Analyze → Descriptive Statistics → Crosstabs → Statistics… → Kappa. ICC: Analyze → Scale → Reliability Analysis → Statistics… → Intraclass correlation coefficient.</div></div>
+<section id="жишээ-бодит-гаралт-ба-тайлбар" class="level2">
+<h2 class="anchored" data-anchor-id="жишээ-бодит-гаралт-ба-тайлбар">Жишээ: бодит гаралт ба тайлбар</h2>
+<div class="mt-example-intro">
+<p><strong>Асуулт.</strong> (1) Хоёр эмч ЭКГ-ээр зүүн ховдлын томролыг (тийм/үгүй) хэр тохиролтой үнэлж байна вэ? (2) Гэрийн даралтын аппарат эмнэлгийнхтэй хэр тохирч байна вэ?</p>
+<p>Доорх гаралтыг сайтын <a href="../resources/data/emnelgiin-jishee.csv">жишээ өгөгдөл</a> дээр R 4.3.3-аар жинхэнээр нь ажиллуулж гаргасан. Кодыг хуулж өөрийн компьютер дээр ажиллуулбал яг ижил үр дүн гарна.</p>
+</div>
+<pre class="text mt-console"><code>&gt; df &lt;- read.csv("emnelgiin-jishee.csv", fileEncoding = "UTF-8-BOM")
+&gt; table(Үнэлэгч1 = df$lvh_r1, Үнэлэгч2 = df$lvh_r2)
+        Үнэлэгч2
+Үнэлэгч1 Тийм Үгүй
+    Тийм   73   24
+    Үгүй   18   85
+&gt; psych::cohen.kappa(cbind(df$lvh_r1, df$lvh_r2))
+Call: cohen.kappa1(x = x, w = w, n.obs = n.obs, alpha = alpha, levels = levels)
+
+Cohen Kappa and Weighted Kappa correlation coefficients and confidence boundaries 
+                 lower estimate upper
+unweighted kappa  0.47     0.58  0.69
+weighted kappa    0.47     0.58  0.69
+
+ Number of subjects = 200 
+&gt; psych::ICC(df[, c("sbp8_home", "sbp8")])
+Call: psych::ICC(x = df[, c("sbp8_home", "sbp8")])
+
+Intraclass correlation coefficients 
+                         type  ICC  F df1 df2       p lower bound upper bound
+Single_raters_absolute   ICC1 0.93 28 199 200 9.5e-90        0.91        0.95
+Single_random_raters     ICC2 0.93 35 199 199 5.0e-98        0.87        0.96
+Single_fixed_raters      ICC3 0.94 35 199 199 5.0e-98        0.93        0.96
+Average_raters_absolute ICC1k 0.96 28 199 200 9.5e-90        0.95        0.97
+Average_random_raters   ICC2k 0.96 35 199 199 5.0e-98        0.93        0.98
+Average_fixed_raters    ICC3k 0.97 35 199 199 5.0e-98        0.96        0.98
+
+ Number of subjects = 200     Number of Judges =  2
+See the help file for a discussion of the other 4 McGraw and Wong estimates,
+&gt; d &lt;- df$sbp8_home - df$sbp8
+&gt; round(c(bias = mean(d), lower = mean(d) - 1.96 * sd(d), upper = mean(d) + 1.96 * sd(d)), 1)
+ bias lower upper 
+ -2.6 -12.9   7.7</code></pre>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/methods/reliability.png" class="mt-figure img-fluid figure-img" alt="Bland–Altman график: хоёр аргын зөрүүг дундажтай нь харьцуулав. Улаан тасархай шугам нь 95% тохирлын хязгаар."></p>
+<figcaption>Bland–Altman график: хоёр аргын зөрүүг дундажтай нь харьцуулав. Улаан тасархай шугам нь 95% тохирлын хязгаар.</figcaption>
+</figure>
+</div>
+<section id="гаралтыг-хэрхэн-унших-вэ" class="level3">
+<h3 class="anchored" data-anchor-id="гаралтыг-хэрхэн-унших-вэ">Гаралтыг хэрхэн унших вэ?</h3>
+<div class="mt-readout">
+<ol type="1">
+<li><code>table: 73 24 / 18 85</code> Хоёр үнэлэгч 73 + 85 = 158 тохиолдолд (79%) санал нийлсэн, 42 тохиолдолд зөрсөн.</li>
+<li><code>unweighted kappa 0.58 (0.47; 0.69)</code> Санамсаргүй тохиролыг хассан тохирол κ = 0.58: дунд зэрэг (0.41–0.60). Тохирлын 79% нь өндөр мэт боловч зарим нь санамсаргүй тохирол юм.</li>
+<li><code>ICC2 0.93 (0.87; 0.96)</code> Хоёр аргын тохирол (two-way random, absolute agreement, single): ICC = 0.93 буюу маш сайн.</li>
+<li><code>ICC3 0.94</code> Тогтвортой байдал (consistency): системтэй зөрүүг тооцохгүй тул ICC2-оос бага зэрэг өндөр.</li>
+<li><code>bias -2.6, lower -12.9, upper 7.7</code> Гэрийн аппарат дунджаар 2.6 мм м.у.б-аар бага хэмжинэ. Хүмүүсийн 95%-д зөрүү −12.9-аас +7.7 хооронд байна.</li>
+</ol>
+</div>
+<div class="mt-note">
+<p>Хуудасны дээрх кодод <code>irr</code> багцыг харуулсан. Энд <code>psych</code> багцын <code>cohen.kappa()</code> ба <code>ICC()</code> функцийг хэрэглэсэн. Тооцоо ижил.</p>
+</div>
+<div class="mt-conclusion">
+<p><strong>Дүгнэлт (тайлагнах хэлбэрээр).</strong> Хоёр эмчийн ЭКГ-ийн үнэлгээний тохирол 79% байсан бөгөөд дунд зэргийн түвшинд байв (Cohen-ийн κ = 0.58, 95% CI 0.47; 0.69). Гэрийн ба эмнэлгийн даралтын аппаратын тохирол маш сайн байв (ICC(2,1) = 0.93, 95% CI 0.87; 0.96). Дундаж зөрүү −2.6 мм м.у.б, 95% тохирлын хязгаар −12.9; 7.7.</p>
+</div>
+</section>
+</section>
+<section id="цэс-дээр-хийх-spss" class="level2">
+<h2 class="anchored" data-anchor-id="цэс-дээр-хийх-spss">Цэс дээр хийх (SPSS)</h2>
+<div class="mt-menu"><div><b>SPSS</b> Kappa: Analyze → Descriptive Statistics → Crosstabs → Statistics… → Kappa. ICC: Analyze → Scale → Reliability Analysis → Statistics… → Intraclass correlation coefficient.</div></div>
 </section>
 <section id="үр-дүнг-тайлбарлах" class="level2">
 <h2 class="anchored" data-anchor-id="үр-дүнг-тайлбарлах">Үр дүнг тайлбарлах</h2>

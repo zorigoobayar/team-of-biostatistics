@@ -82,7 +82,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-cb61c712ca1a7fe70a83faed8e4da2d7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-f35a81a4717690815b2013502477d714.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -176,6 +176,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../styles/site.css">
 <link rel="stylesheet" href="../styles/methods.css">
 <link rel="stylesheet" href="../styles/glossary.css">
 </head>
@@ -253,7 +254,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#хэзээ-хэрэглэх-вэ" id="toc-хэзээ-хэрэглэх-вэ" class="nav-link" data-scroll-target="#хэзээ-хэрэглэх-вэ">Хэзээ хэрэглэх вэ?</a></li>
   <li><a href="#таамаглалууд" id="toc-таамаглалууд" class="nav-link" data-scroll-target="#таамаглалууд">Таамаглалууд</a></li>
   <li><a href="#r-дээр-хийх" id="toc-r-дээр-хийх" class="nav-link" data-scroll-target="#r-дээр-хийх">R дээр хийх</a></li>
-  <li><a href="#цэс-дээр-хийх-jamovi-spss" id="toc-цэс-дээр-хийх-jamovi-spss" class="nav-link" data-scroll-target="#цэс-дээр-хийх-jamovi-spss">Цэс дээр хийх (jamovi / SPSS)</a></li>
+  <li><a href="#жишээ-бодит-гаралт-ба-тайлбар" id="toc-жишээ-бодит-гаралт-ба-тайлбар" class="nav-link" data-scroll-target="#жишээ-бодит-гаралт-ба-тайлбар">Жишээ: бодит гаралт ба тайлбар</a>
+  <ul class="collapse">
+  <li><a href="#гаралтыг-хэрхэн-унших-вэ" id="toc-гаралтыг-хэрхэн-унших-вэ" class="nav-link" data-scroll-target="#гаралтыг-хэрхэн-унших-вэ">Гаралтыг хэрхэн унших вэ?</a></li>
+  </ul></li>
+  <li><a href="#цэс-дээр-хийх-spss" id="toc-цэс-дээр-хийх-spss" class="nav-link" data-scroll-target="#цэс-дээр-хийх-spss">Цэс дээр хийх (SPSS)</a></li>
   <li><a href="#үр-дүнг-тайлбарлах" id="toc-үр-дүнг-тайлбарлах" class="nav-link" data-scroll-target="#үр-дүнг-тайлбарлах">Үр дүнг тайлбарлах</a></li>
   <li><a href="#тайлагнах-жишээ" id="toc-тайлагнах-жишээ" class="nav-link" data-scroll-target="#тайлагнах-жишээ">Тайлагнах жишээ</a></li>
   <li><a href="#түгээмэл-алдаа" id="toc-түгээмэл-алдаа" class="nav-link" data-scroll-target="#түгээмэл-алдаа">Түгээмэл алдаа</a></li>
@@ -336,9 +341,70 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># График (эрсдэлийн хүснэгттэй)</span></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>survminer<span class="sc">::</span><span class="fu">ggsurvplot</span>(fit, <span class="at">risk.table =</span> <span class="cn">TRUE</span>, <span class="at">conf.int =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="цэс-дээр-хийх-jamovi-spss" class="level2">
-<h2 class="anchored" data-anchor-id="цэс-дээр-хийх-jamovi-spss">Цэс дээр хийх (jamovi / SPSS)</h2>
-<div class="mt-menu"><div><b>jamovi</b> Нэмэлт модуль шаардлагатай (жишээ нь jsurvival) → Survival Analysis → Kaplan-Meier, Log-rank.</div><div><b>SPSS</b> Analyze → Survival → Kaplan-Meier → Compare Factor… → Log rank; Options… → Survival plot.</div></div>
+<section id="жишээ-бодит-гаралт-ба-тайлбар" class="level2">
+<h2 class="anchored" data-anchor-id="жишээ-бодит-гаралт-ба-тайлбар">Жишээ: бодит гаралт ба тайлбар</h2>
+<div class="mt-example-intro">
+<p><strong>Асуулт.</strong> Эмийн бүлэгт үйл явдал (жишээ нь зүрх судасны хүндрэл) тохиолдох хүртэлх хугацаа плацебо бүлгийнхээс урт уу?</p>
+<p>Доорх гаралтыг сайтын <a href="../resources/data/emnelgiin-jishee.csv">жишээ өгөгдөл</a> дээр R 4.3.3-аар жинхэнээр нь ажиллуулж гаргасан. Кодыг хуулж өөрийн компьютер дээр ажиллуулбал яг ижил үр дүн гарна.</p>
+</div>
+<pre class="text mt-console"><code>&gt; df &lt;- read.csv("emnelgiin-jishee.csv", fileEncoding = "UTF-8-BOM")
+&gt; library(survival)
+&gt; df$group &lt;- factor(df$group, levels = c("Плацебо", "Эм"))
+&gt; km &lt;- survfit(Surv(time_months, event) ~ group, data = df)
+&gt; km
+Call: survfit(formula = Surv(time_months, event) ~ group, data = df)
+
+                n events median 0.95LCL 0.95UCL
+group=Плацебо 100     44   27.1    21.8      NA
+group=Эм      100     28     NA      NA      NA
+&gt; summary(km, times = c(12, 24))
+Call: survfit(formula = Surv(time_months, event) ~ group, data = df)
+
+                group=Плацебо 
+ time n.risk n.event survival std.err lower 95% CI upper 95% CI
+   12     76      24    0.760  0.0427        0.681        0.848
+   24     32      16    0.556  0.0544        0.459        0.673
+
+                group=Эм 
+ time n.risk n.event survival std.err lower 95% CI upper 95% CI
+   12     81      20    0.800  0.0400        0.725        0.882
+   24     37       7    0.717  0.0468        0.631        0.815
+
+&gt; survdiff(Surv(time_months, event) ~ group, data = df)
+Call:
+survdiff(formula = Surv(time_months, event) ~ group, data = df)
+
+                N Observed Expected (O-E)^2/E (O-E)^2/V
+group=Плацебо 100       44     35.3      2.17      4.25
+group=Эм      100       28     36.7      2.08      4.25
+
+ Chisq= 4.2  on 1 degrees of freedom, p= 0.04</code></pre>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/methods/survival-analysis.png" class="mt-figure img-fluid figure-img" alt="Каплан-Майерийн муруй. Босоо зураас (+) нь цензурласан (судалгаанаас гарсан эсвэл үйл явдалгүй дууссан) хүмүүс."></p>
+<figcaption>Каплан-Майерийн муруй. Босоо зураас (+) нь цензурласан (судалгаанаас гарсан эсвэл үйл явдалгүй дууссан) хүмүүс.</figcaption>
+</figure>
+</div>
+<section id="гаралтыг-хэрхэн-унших-вэ" class="level3">
+<h3 class="anchored" data-anchor-id="гаралтыг-хэрхэн-унших-вэ">Гаралтыг хэрхэн унших вэ?</h3>
+<div class="mt-readout">
+<ol type="1">
+<li><code>n 100, events 44 / 28</code> Плацебо бүлэгт 44, эмийн бүлэгт 28 үйл явдал тохиолдсон.</li>
+<li><code>median 27.1 / NA</code> Плацебо бүлгийн медиан хугацаа 27.1 сар. Эмийн бүлэгт 50%-д хүрэх үйл явдал тохиолдоогүй тул медиан тооцогдоогүй (NA).</li>
+<li><code>time 12: survival 0.760 / 0.800</code> 12 сарын үйл явдалгүй байх магадлал: плацебо 76.0%, эм 80.0%.</li>
+<li><code>time 24: survival 0.556 / 0.717</code> 24 сард: плацебо 55.6% (95% CI 45.9; 67.3), эм 71.7% (63.1; 81.5).</li>
+<li><code>Observed 44 / 28, Expected 35.3 / 36.7</code> Лог-ранк тест: хоёр бүлэг ижил байсан бол хүлээгдэх үйл явдлын тоо. Плацебо бүлэгт хүлээгдэхээс олон тохиолдсон.</li>
+<li><code>Chisq= 4.2 on 1 degrees of freedom, p= 0.04</code> p = 0.04 &lt; 0.05: хоёр бүлгийн муруй ялгаатай.</li>
+</ol>
+</div>
+<div class="mt-conclusion">
+<p><strong>Дүгнэлт (тайлагнах хэлбэрээр).</strong> 24 сарын үйл явдалгүй байх магадлал эмийн бүлэгт 71.7% (95% CI 63.1; 81.5), плацебо бүлэгт 55.6% (45.9; 67.3) байв. Хоёр бүлгийн муруй статистик ач холбогдолтой ялгаатай байв (лог-ранк χ²(1) = 4.2, p = 0.04).</p>
+</div>
+</section>
+</section>
+<section id="цэс-дээр-хийх-spss" class="level2">
+<h2 class="anchored" data-anchor-id="цэс-дээр-хийх-spss">Цэс дээр хийх (SPSS)</h2>
+<div class="mt-menu"><div><b>SPSS</b> Analyze → Survival → Kaplan-Meier → Compare Factor… → Log rank; Options… → Survival plot.</div></div>
 </section>
 <section id="үр-дүнг-тайлбарлах" class="level2">
 <h2 class="anchored" data-anchor-id="үр-дүнг-тайлбарлах">Үр дүнг тайлбарлах</h2>

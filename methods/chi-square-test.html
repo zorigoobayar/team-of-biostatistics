@@ -82,7 +82,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-cb61c712ca1a7fe70a83faed8e4da2d7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-f35a81a4717690815b2013502477d714.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -176,6 +176,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../styles/site.css">
 <link rel="stylesheet" href="../styles/methods.css">
 <link rel="stylesheet" href="../styles/glossary.css">
 </head>
@@ -253,7 +254,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#хэзээ-хэрэглэх-вэ" id="toc-хэзээ-хэрэглэх-вэ" class="nav-link" data-scroll-target="#хэзээ-хэрэглэх-вэ">Хэзээ хэрэглэх вэ?</a></li>
   <li><a href="#таамаглалууд" id="toc-таамаглалууд" class="nav-link" data-scroll-target="#таамаглалууд">Таамаглалууд</a></li>
   <li><a href="#r-дээр-хийх" id="toc-r-дээр-хийх" class="nav-link" data-scroll-target="#r-дээр-хийх">R дээр хийх</a></li>
-  <li><a href="#цэс-дээр-хийх-jamovi-spss" id="toc-цэс-дээр-хийх-jamovi-spss" class="nav-link" data-scroll-target="#цэс-дээр-хийх-jamovi-spss">Цэс дээр хийх (jamovi / SPSS)</a></li>
+  <li><a href="#жишээ-бодит-гаралт-ба-тайлбар" id="toc-жишээ-бодит-гаралт-ба-тайлбар" class="nav-link" data-scroll-target="#жишээ-бодит-гаралт-ба-тайлбар">Жишээ: бодит гаралт ба тайлбар</a>
+  <ul class="collapse">
+  <li><a href="#гаралтыг-хэрхэн-унших-вэ" id="toc-гаралтыг-хэрхэн-унших-вэ" class="nav-link" data-scroll-target="#гаралтыг-хэрхэн-унших-вэ">Гаралтыг хэрхэн унших вэ?</a></li>
+  </ul></li>
+  <li><a href="#цэс-дээр-хийх-spss" id="toc-цэс-дээр-хийх-spss" class="nav-link" data-scroll-target="#цэс-дээр-хийх-spss">Цэс дээр хийх (SPSS)</a></li>
   <li><a href="#үр-дүнг-тайлбарлах" id="toc-үр-дүнг-тайлбарлах" class="nav-link" data-scroll-target="#үр-дүнг-тайлбарлах">Үр дүнг тайлбарлах</a></li>
   <li><a href="#тайлагнах-жишээ" id="toc-тайлагнах-жишээ" class="nav-link" data-scroll-target="#тайлагнах-жишээ">Тайлагнах жишээ</a></li>
   <li><a href="#түгээмэл-алдаа" id="toc-түгээмэл-алдаа" class="nav-link" data-scroll-target="#түгээмэл-алдаа">Түгээмэл алдаа</a></li>
@@ -342,9 +347,69 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>effectsize<span class="sc">::</span><span class="fu">cramers_v</span>(tab)           <span class="co"># r×c хүснэгтэд</span></span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>epitools<span class="sc">::</span><span class="fu">riskratio</span>(tab)             <span class="co"># 2x2-т эрсдэлийн харьцаа (RR)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="цэс-дээр-хийх-jamovi-spss" class="level2">
-<h2 class="anchored" data-anchor-id="цэс-дээр-хийх-jamovi-spss">Цэс дээр хийх (jamovi / SPSS)</h2>
-<div class="mt-menu"><div><b>jamovi</b> Analyses → Frequencies → Contingency Tables → Independent Samples (χ² test of association). Statistics хэсгээс Fisher's exact test, Expected counts-ийг сонгоно.</div><div><b>SPSS</b> Analyze → Descriptive Statistics → Crosstabs → Statistics… → Chi-square; Cells… → Expected, Row percentages.</div></div>
+<section id="жишээ-бодит-гаралт-ба-тайлбар" class="level2">
+<h2 class="anchored" data-anchor-id="жишээ-бодит-гаралт-ба-тайлбар">Жишээ: бодит гаралт ба тайлбар</h2>
+<div class="mt-example-intro">
+<p><strong>Асуулт.</strong> Хүндрэлийн халдвар эм уусан бүлэгт плацебо бүлгийнхээс бага давтамжтай байна уу?</p>
+<p>Доорх гаралтыг сайтын <a href="../resources/data/emnelgiin-jishee.csv">жишээ өгөгдөл</a> дээр R 4.3.3-аар жинхэнээр нь ажиллуулж гаргасан. Кодыг хуулж өөрийн компьютер дээр ажиллуулбал яг ижил үр дүн гарна.</p>
+</div>
+<pre class="text mt-console"><code>&gt; df &lt;- read.csv("emnelgiin-jishee.csv", fileEncoding = "UTF-8-BOM")
+&gt; df$group &lt;- factor(df$group, levels = c("Плацебо", "Эм"))
+&gt; tab &lt;- table(df$group, df$infection)
+&gt; tab
+         
+          Тийм Үгүй
+  Плацебо   16   84
+  Эм         7   93
+&gt; round(prop.table(tab, margin = 1) * 100, 1)
+         
+          Тийм Үгүй
+  Плацебо   16   84
+  Эм         7   93
+&gt; chisq.test(tab)
+
+    Pearson's Chi-squared test with Yates' continuity correction
+
+data:  tab
+X-squared = 3.1442, df = 1, p-value = 0.0762
+
+&gt; fisher.test(tab)
+
+    Fisher's Exact Test for Count Data
+
+data:  tab
+p-value = 0.0744
+alternative hypothesis: true odds ratio is not equal to 1
+95 percent confidence interval:
+ 0.9254042 7.6101897
+sample estimates:
+odds ratio 
+  2.519237</code></pre>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/methods/chi-square-test.png" class="mt-figure img-fluid figure-img" alt="Бүлэг тус бүрт халдвар гарсан хувь."></p>
+<figcaption>Бүлэг тус бүрт халдвар гарсан хувь.</figcaption>
+</figure>
+</div>
+<section id="гаралтыг-хэрхэн-унших-вэ" class="level3">
+<h3 class="anchored" data-anchor-id="гаралтыг-хэрхэн-унших-вэ">Гаралтыг хэрхэн унших вэ?</h3>
+<div class="mt-readout">
+<ol type="1">
+<li><code>tab: 16 84 / 7 93</code> 2×2 хүснэгт: плацебо бүлэгт 16, эмийн бүлэгт 7 хүнд халдвар гарсан (бүлэг бүрт 100).</li>
+<li><code>prop.table: 16 / 7</code> Мөрийн хувь: плацебо 16%, эм 7%.</li>
+<li><code>X-squared = 3.1442, df = 1</code> Йейтсийн засвартай хи-квадрат. df = (2 − 1) × (2 − 1) = 1.</li>
+<li><code>p-value = 0.0762</code> p &gt; 0.05: харагдаж буй ялгаа (16% ба 7%) санамсаргүй хэлбэлзлээс үүдэлтэй байж болох тул статистик ач холбогдолгүй.</li>
+<li><code>odds ratio 2.519237, 95% CI 0.9254 7.6102</code> Фишерийн тест: плацебо бүлэгт халдвар гарах odds эмийн бүлгийнхээс 2.5 дахин өндөр. Гэхдээ интервалд 1 орсон тул итгэлтэй хэлэх боломжгүй.</li>
+</ol>
+</div>
+<div class="mt-conclusion">
+<p><strong>Дүгнэлт (тайлагнах хэлбэрээр).</strong> Хүндрэлийн халдвар плацебо бүлэгт 16%, эмийн бүлэгт 7% тохиолдсон ч ялгаа статистик ач холбогдолгүй байв (χ²(1) = 3.14, p = 0.076; Фишерийн p = 0.074). Энэ нь “нөлөөгүй” гэсэн үг биш: түүвэр бага тул ялгааг батлах статистик чадал хүрэлцээгүй байж болно.</p>
+</div>
+</section>
+</section>
+<section id="цэс-дээр-хийх-spss" class="level2">
+<h2 class="anchored" data-anchor-id="цэс-дээр-хийх-spss">Цэс дээр хийх (SPSS)</h2>
+<div class="mt-menu"><div><b>SPSS</b> Analyze → Descriptive Statistics → Crosstabs → Statistics… → Chi-square; Cells… → Expected, Row percentages.</div></div>
 </section>
 <section id="үр-дүнг-тайлбарлах" class="level2">
 <h2 class="anchored" data-anchor-id="үр-дүнг-тайлбарлах">Үр дүнг тайлбарлах</h2>

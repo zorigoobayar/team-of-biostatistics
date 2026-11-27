@@ -82,7 +82,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-cb61c712ca1a7fe70a83faed8e4da2d7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-f35a81a4717690815b2013502477d714.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -176,6 +176,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../styles/site.css">
 <link rel="stylesheet" href="../styles/methods.css">
 <link rel="stylesheet" href="../styles/glossary.css">
 </head>
@@ -604,6 +605,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>Ажигласан хугацаа (сар), үйл явдал (1 = тохиолдсон, 0 = цензур)</td>
 <td>Каплан-Майер, Кокс регресс</td>
 </tr>
+<tr class="even">
+<td><code>sbp4</code>, <code>sbp12</code></td>
+<td>Систолын даралт 4 ба 12 дахь долоо хоногт (<code>sbp12</code>-т 22 дутуу утга)</td>
+<td>Давтан хэмжилтийн ANOVA, холимог загвар, GEE</td>
+</tr>
+<tr class="odd">
+<td><code>dbp0</code>, <code>dbp8</code></td>
+<td>Диастолын даралт: эхэнд ба 8 дахь долоо хоногт</td>
+<td>MANOVA</td>
+</tr>
+<tr class="even">
+<td><code>chol</code>, <code>crp</code></td>
+<td>Нийт холестерин (ммоль/л), CRP (мг/л, хазайлттай тархалт)</td>
+<td>ANOVA, корреляци, Крускал-Валлис</td>
+</tr>
+<tr class="odd">
+<td><code>pct</code></td>
+<td>Прокальцитонин (нг/мл)</td>
+<td>Оношилгооны нарийвчлал, ROC</td>
+</tr>
+<tr class="even">
+<td><code>sbp8_home</code></td>
+<td>Гэрийн аппаратаар хэмжсэн 8 дахь долоо хоногийн даралт</td>
+<td>ICC, Bland–Altman</td>
+</tr>
+<tr class="odd">
+<td><code>lvh_r1</code>, <code>lvh_r2</code></td>
+<td>Хоёр эмчийн ЭКГ-ийн үнэлгээ: зүүн ховдлын томрол (Тийм / Үгүй)</td>
+<td>Cohen-ийн kappa</td>
+</tr>
 </tbody>
 </table>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"emnelgiin-jishee.csv"</span>, <span class="at">encoding =</span> <span class="st">"UTF-8"</span>)</span>
@@ -619,7 +650,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>Өгөгдөл зохиомол бөгөөд зөвхөн сургалтын зорилготой. Үүнийг үүсгэсэн скрипт: <code>_tools/make-example-data.py</code>.</p>
+<p>Өгөгдөл зохиомол бөгөөд зөвхөн сургалтын зорилготой. Үүнийг үүсгэсэн скрипт: <code>_tools/make-example-data.py</code>. Аргын хуудас бүрийн “Жишээ: бодит гаралт ба тайлбар” хэсгийн гаралт, графикийг энэ өгөгдөл дээр <code>_tools/r-examples/</code> хавтсан дахь скриптээр гаргасан.</p>
 </div>
 </div>
 </div>

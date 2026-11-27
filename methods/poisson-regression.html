@@ -82,7 +82,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-cb61c712ca1a7fe70a83faed8e4da2d7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-f35a81a4717690815b2013502477d714.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -176,6 +176,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../styles/site.css">
 <link rel="stylesheet" href="../styles/methods.css">
 <link rel="stylesheet" href="../styles/glossary.css">
 </head>
@@ -253,7 +254,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#хэзээ-хэрэглэх-вэ" id="toc-хэзээ-хэрэглэх-вэ" class="nav-link" data-scroll-target="#хэзээ-хэрэглэх-вэ">Хэзээ хэрэглэх вэ?</a></li>
   <li><a href="#таамаглалууд" id="toc-таамаглалууд" class="nav-link" data-scroll-target="#таамаглалууд">Таамаглалууд</a></li>
   <li><a href="#r-дээр-хийх" id="toc-r-дээр-хийх" class="nav-link" data-scroll-target="#r-дээр-хийх">R дээр хийх</a></li>
-  <li><a href="#цэс-дээр-хийх-jamovi-spss" id="toc-цэс-дээр-хийх-jamovi-spss" class="nav-link" data-scroll-target="#цэс-дээр-хийх-jamovi-spss">Цэс дээр хийх (jamovi / SPSS)</a></li>
+  <li><a href="#жишээ-бодит-гаралт-ба-тайлбар" id="toc-жишээ-бодит-гаралт-ба-тайлбар" class="nav-link" data-scroll-target="#жишээ-бодит-гаралт-ба-тайлбар">Жишээ: бодит гаралт ба тайлбар</a>
+  <ul class="collapse">
+  <li><a href="#гаралтыг-хэрхэн-унших-вэ" id="toc-гаралтыг-хэрхэн-унших-вэ" class="nav-link" data-scroll-target="#гаралтыг-хэрхэн-унших-вэ">Гаралтыг хэрхэн унших вэ?</a></li>
+  </ul></li>
+  <li><a href="#цэс-дээр-хийх-spss" id="toc-цэс-дээр-хийх-spss" class="nav-link" data-scroll-target="#цэс-дээр-хийх-spss">Цэс дээр хийх (SPSS)</a></li>
   <li><a href="#үр-дүнг-тайлбарлах" id="toc-үр-дүнг-тайлбарлах" class="nav-link" data-scroll-target="#үр-дүнг-тайлбарлах">Үр дүнг тайлбарлах</a></li>
   <li><a href="#тайлагнах-жишээ" id="toc-тайлагнах-жишээ" class="nav-link" data-scroll-target="#тайлагнах-жишээ">Тайлагнах жишээ</a></li>
   <li><a href="#түгээмэл-алдаа" id="toc-түгээмэл-алдаа" class="nav-link" data-scroll-target="#түгээмэл-алдаа">Түгээмэл алдаа</a></li>
@@ -345,9 +350,78 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Пуассон загвар хэвээр бол robust SE ашиглах нэг сонголт:</span></span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>lmtest<span class="sc">::</span><span class="fu">coeftest</span>(m_p, <span class="at">vcov =</span> sandwich<span class="sc">::</span><span class="fu">vcovHC</span>(m_p, <span class="at">type =</span> <span class="st">"HC0"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="цэс-дээр-хийх-jamovi-spss" class="level2">
-<h2 class="anchored" data-anchor-id="цэс-дээр-хийх-jamovi-spss">Цэс дээр хийх (jamovi / SPSS)</h2>
-<div class="mt-menu"><div><b>jamovi</b> GAMLj модулийг суулгана → Linear Models → Generalized Linear Models → Poisson (эсвэл Negative Binomial).</div><div><b>SPSS</b> Analyze → Generalized Linear Models → Generalized Linear Models → Type of Model: Poisson loglinear (эсвэл Negative binomial with log link). Offset-ийг Predictors хэсэгт тохируулна.</div></div>
+<section id="жишээ-бодит-гаралт-ба-тайлбар" class="level2">
+<h2 class="anchored" data-anchor-id="жишээ-бодит-гаралт-ба-тайлбар">Жишээ: бодит гаралт ба тайлбар</h2>
+<div class="mt-example-intro">
+<p><strong>Асуулт.</strong> Хот ба тамхидалт амьсгалын замын цочмог халдварын жилийн давтамжтай (түвшинтэй) холбоотой юу? Ажигласан хугацаа хүн бүрт өөр тул offset хэрэглэнэ.</p>
+<p>Доорх гаралтыг сайтын <a href="../resources/data/emnelgiin-jishee.csv">жишээ өгөгдөл</a> дээр R 4.3.3-аар жинхэнээр нь ажиллуулж гаргасан. Кодыг хуулж өөрийн компьютер дээр ажиллуулбал яг ижил үр дүн гарна.</p>
+</div>
+<pre class="text mt-console"><code>&gt; df &lt;- read.csv("emnelgiin-jishee.csv", fileEncoding = "UTF-8-BOM")
+&gt; df$smoker &lt;- factor(df$smoker, levels = c("Үгүй", "Тийм"))
+&gt; m_p &lt;- glm(ari ~ city + smoker + offset(log(years)), family = poisson, data = df)
+&gt; sum(residuals(m_p, type = "pearson")^2) / df.residual(m_p)   # хэт тархалтын харьцаа
+[1] 2.345515
+&gt; m_nb &lt;- MASS::glm.nb(ari ~ city + smoker + offset(log(years)), data = df)
+&gt; summary(m_nb)
+
+Call:
+MASS::glm.nb(formula = ari ~ city + smoker + offset(log(years)), 
+    data = df, init.theta = 1.711281813, link = log)
+
+Coefficients:
+                Estimate Std. Error z value Pr(&gt;|z|)   
+(Intercept)       0.4726     0.1721   2.746  0.00603 **
+cityУлаанбаатар   0.2185     0.1912   1.143  0.25299   
+cityЭрдэнэт      -0.3109     0.2540  -1.224  0.22090   
+smokerТийм        0.1489     0.1657   0.899  0.36883   
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for Negative Binomial(1.7113) family taken to be 1)
+
+    Null deviance: 230.26  on 199  degrees of freedom
+Residual deviance: 222.05  on 196  degrees of freedom
+AIC: 799.5
+
+Number of Fisher Scoring iterations: 1
+
+
+              Theta:  1.711 
+          Std. Err.:  0.335 
+
+ 2 x log-likelihood:  -789.504 
+&gt; round(exp(cbind(IRR = coef(m_nb), confint.default(m_nb))), 2)
+                 IRR 2.5 % 97.5 %
+(Intercept)     1.60  1.14   2.25
+cityУлаанбаатар 1.24  0.86   1.81
+cityЭрдэнэт     0.73  0.45   1.21
+smokerТийм      1.16  0.84   1.61</code></pre>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/methods/poisson-regression.png" class="mt-figure img-fluid figure-img" alt="Халдварын тооны ажиглагдсан тархалт (баганууд) ба Пуассон тархалтын хүлээгдэх утга (улаан). Ажиглагдсан тархалт илүү өргөн буюу хэт тархалттай."></p>
+<figcaption>Халдварын тооны ажиглагдсан тархалт (баганууд) ба Пуассон тархалтын хүлээгдэх утга (улаан). Ажиглагдсан тархалт илүү өргөн буюу хэт тархалттай.</figcaption>
+</figure>
+</div>
+<section id="гаралтыг-хэрхэн-унших-вэ" class="level3">
+<h3 class="anchored" data-anchor-id="гаралтыг-хэрхэн-унших-вэ">Гаралтыг хэрхэн унших вэ?</h3>
+<div class="mt-readout">
+<ol type="1">
+<li><code>[1] 2.345515</code> Пуассон загварын хэт тархалтын харьцаа 2.3 ≫ 1. Пуассоны “дундаж = дисперс” таамаглал зөрчигдсөн тул сөрөг биномын загвар руу шилжив.</li>
+<li><code>Theta: 1.711</code> Сөрөг биномын нэмэлт параметр: бага байх тусам хэт тархалт их.</li>
+<li><code>cityУлаанбаатар 0.2185 (p 0.253)</code> Дарханыг (лавлах бүлэг) бодвол Улаанбаатарт халдварын түвшин өндөр байх хандлагатай ч ач холбогдолгүй.</li>
+<li><code>IRR 1.24 (0.86; 1.81)</code> Улаанбаатарт түвшин 24%-иар өндөр гэсэн тооцоо, гэхдээ CI 1-ийг агуулсан.</li>
+<li><code>smokerТийм IRR 1.16 (0.84; 1.61)</code> Тамхи татдаг хүмүүст 16%-иар өндөр гэсэн тооцоо, ач холбогдолгүй.</li>
+<li><code>(Intercept) IRR 1.60</code> Лавлах бүлгийн (Дархан, тамхи татдаггүй) жилийн дундаж халдвар ≈ 1.6 удаа.</li>
+</ol>
+</div>
+<div class="mt-conclusion">
+<p><strong>Дүгнэлт (тайлагнах хэлбэрээр).</strong> Пуассон загварт хэт тархалт илэрсэн (харьцаа 2.35) тул сөрөг биномын регресс хэрэглэв. Хот (Улаанбаатар ба Дархан: IRR = 1.24, 95% CI 0.86; 1.81) болон тамхидалт (IRR = 1.16, 95% CI 0.84; 1.61) нь халдварын түвшинтэй ач холбогдолтой холбоогүй байв.</p>
+</div>
+</section>
+</section>
+<section id="цэс-дээр-хийх-spss" class="level2">
+<h2 class="anchored" data-anchor-id="цэс-дээр-хийх-spss">Цэс дээр хийх (SPSS)</h2>
+<div class="mt-menu"><div><b>SPSS</b> Analyze → Generalized Linear Models → Generalized Linear Models → Type of Model: Poisson loglinear (эсвэл Negative binomial with log link). Offset-ийг Predictors хэсэгт тохируулна.</div></div>
 </section>
 <section id="үр-дүнг-тайлбарлах" class="level2">
 <h2 class="anchored" data-anchor-id="үр-дүнг-тайлбарлах">Үр дүнг тайлбарлах</h2>
