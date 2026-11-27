@@ -1,0 +1,120 @@
+---
+title: "Оношилгооны тестийн нарийвчлал ба ROC муруй"
+description: "Шинэ тест эсвэл маркерийн мэдрэг чанар, өвөрмөц чанар, таамаглах утга, ROC муруй ба AUC-г тооцно."
+format:
+  html:
+    body-classes: page-methods
+    css:
+      - ../styles.css
+      - ../styles/methods.css
+      - ../styles/glossary.css
+    include-after-body:
+      text: |
+        <script src="../assets/js/js-yaml.min.js"></script>
+        <script src="../assets/js/glossary.js"></script>
+---
+
+```{=html}
+<header class="mt-hero" style="--mt-accent:#be185d">
+  <p class="mt-eyebrow"><a href="../methods.html">Data Analysis Methods</a> · Оношилгоо ба тохирол</p>
+  <h1>Оношилгооны тестийн нарийвчлал ба ROC муруй</h1>
+  <p class="mt-en" lang="en">Diagnostic accuracy: sensitivity, specificity &amp; ROC analysis</p>
+  <p class="mt-lead">Шинэ тест, түргэвчилсэн оношлуур эсвэл биомаркер өвчтэй ба өвчгүй хүнийг хэр зөв ялгаж байгааг алтан стандарттай харьцуулж үнэлнэ. Тасралтгүй маркерт хамгийн тохиромжтой таслах цэгийг ROC муруйгаар сонгоно.</p>
+  <ul class="mt-badges"><li>Тест ба алтан стандарт</li><li>Se, Sp, AUC</li><li><code>pROC::roc()</code></li><li><span class="vc" data-vc-href=""></span></li></ul>
+</header>
+```
+
+## Товч мэдээлэл
+
+```{=html}
+<div class="mt-facts"><div><span>Өгөгдөл</span><strong>Тестийн үр дүн + алтан стандарт</strong></div><div><span>Гол үзүүлэлт</span><strong>Мэдрэг чанар, өвөрмөц чанар</strong></div><div><span>Тасралтгүй маркерт</span><strong>ROC муруй, AUC</strong></div><div><span>Тайлагнах заавар</span><strong>STARD</strong></div></div>
+```
+
+## Хэзээ хэрэглэх вэ?
+
+Шинэ оношилгооны аргыг одоо мөрдөж буй хамгийн найдвартай аргатай (алтан стандарт) нэг хүмүүс дээр харьцуулж байгаа бол.
+
+::: {.callout-tip appearance="simple" icon="false"}
+**Жишээ судалгааны асуулт:** Сийвэнгийн прокальцитонин нь яаралтай тусламжид хандсан хүүхдүүдийн нянгийн халдварыг (цусны өсгөвөрөөр баталгаажсан) хэр сайн ялгаж байна вэ?
+:::
+
+## Таамаглалууд
+
+Шинжилгээ хийхээс өмнө шалгана:
+
+- [ ] Бүх оролцогчид тест болон алтан стандарт хоёуланг нь хийлгэсэн (зөвхөн тест эерэгт алтан стандарт хийвэл баталгаажуулалтын хазайлт үүснэ).
+- [ ] Алтан стандартыг үнэлэгч тестийн үр дүнг мэдээгүй (сохор).
+- [ ] Судалгааны хүн ам нь тестийг бодитоор хэрэглэх хүн амтай төстэй (өвчний хүнд хөнгөний хүрээ).
+- [ ] Таслах цэгийг ижил өгөгдөл дээр сонгосон бол үр дүн хэт өөдрөг байж болохыг анхаарна.
+
+## R дээр хийх
+
+```r
+# Өгөгдөл: df$pct (нг/мл), df$sbi (алтан стандарт: 1 = нянгийн халдвар, 0 = үгүй)
+library(pROC)
+r <- roc(sbi ~ pct, data = df, ci = TRUE)
+r                                    # AUC ба 95% CI
+plot(r, print.auc = TRUE)
+
+# Юдений индексээр хамгийн тохиромжтой таслах цэг
+coords(r, "best", best.method = "youden",
+       ret = c("threshold", "sensitivity", "specificity", "ppv", "npv"))
+
+# Тогтсон таслах цэг (жишээ нь 0.5 нг/мл) дээрх 2x2 хүснэгт ба 95% CI
+df$test_pos <- factor(df$pct >= 0.5, levels = c(TRUE, FALSE))
+tab <- table(Test = df$test_pos, Disease = factor(df$sbi, levels = c(1, 0)))
+epiR::epi.tests(tab, conf.level = 0.95)   # Se, Sp, PPV, NPV, LR+, LR−
+
+# Хоёр маркерийн AUC-г харьцуулах
+roc.test(r, roc(sbi ~ crp, data = df))     # DeLong тест
+```
+
+## Цэс дээр хийх (jamovi / SPSS)
+
+```{=html}
+<div class="mt-menu"><div><b>jamovi</b> psychoPDA модулийг суулгана → ROC Analysis (таслах цэг, Se, Sp, AUC). 2x2 хүснэгтэд: meddecide модуль → Decision.</div><div><b>SPSS</b> Analyze → Classify → ROC Curve (хуучин хувилбарт Analyze → ROC Curve) → Standard error and confidence interval, Coordinate points of the ROC Curve-г сонгоно.</div></div>
+```
+
+## Үр дүнг тайлбарлах
+
+- **Мэдрэг чанар (Se)**: өвчтэй хүмүүсийн хэдэн хувийг тест эерэг гэж илрүүлсэн. Өндөр бол сөрөг хариу өвчнийг үгүйсгэхэд тустай.
+- **Өвөрмөц чанар (Sp)**: өвчгүй хүмүүсийн хэдэн хувийг тест сөрөг гэж зөв тодорхойлсон. Өндөр бол эерэг хариу өвчнийг батлахад тустай.
+- **PPV, NPV**: тестийн хариуны дараах өвчтэй/өвчгүй байх магадлал. **Тархалтаас хамаардаг** тул өөр хүн амд шууд шилжүүлэхгүй.
+- **LR+, LR−**: тархалтаас хамаарахгүй, эмнэлзүйн шийдвэрт хэрэгтэй (LR+ > 10, LR− < 0.1 бол хүчтэй).
+- **AUC**: 0.5 = санамсаргүй таавар, 0.7–0.8 хүлээн зөвшөөрөгдөхүйц, 0.8–0.9 сайн, > 0.9 маш сайн.
+
+## Тайлагнах жишээ
+
+::: {.callout-note appearance="simple" icon="false"}
+Нянгийн халдварыг ялгахад прокальцитонины AUC 0.84 (95% CI 0.79; 0.89) байв. 0.5 нг/мл таслах цэгт мэдрэг чанар 78.3% (95% CI 68.4; 86.2), өвөрмөц чанар 81.6% (77.2; 85.4), LR+ 4.3, LR− 0.27 байв (n = 412, тархалт 22.3%).
+
+<small>Тоонууд зохиомол бөгөөд тайлагнах хэлбэрийг харуулах зорилготой.</small>
+:::
+
+## Түгээмэл алдаа
+
+::: {.callout-warning appearance="simple" icon="false"}
+- PPV, NPV-г өөр тархалттай хүн амд шууд хэрэглэх.
+- Се, Sp-г итгэх интервалгүй тайлагнах.
+- Таслах цэгийг тухайн өгөгдөл дээрээ сонгоод, ижил өгөгдөл дээр нарийвчлалыг тооцож, баталгаажуулалтгүйгээр тайлагнах.
+- Хамгийн хүнд өвчтөн ба эрүүл хүмүүсийг харьцуулж (кейс-контрол загвар) нарийвчлалыг хэт өндөр гаргах.
+:::
+
+## Өөр аргууд
+
+- [Найдвартай байдал ба тохирол](reliability.html) — хоёр тест эсвэл шинжээч хоорондын тохирлыг үнэлэх бол (алтан стандартгүй).
+- [Логистик регресс](logistic-regression.html) — хэд хэдэн маркерийг хослуулж таамаглах загвар байгуулах бол.
+- [Хи-квадрат тест](chi-square-test.html) — тестийн эерэг хувь бүлгүүдэд ялгаатай эсэх.
+
+## Холбогдох нэр томьёо
+
+```{=html}
+<div class="glossary-embed"
+     data-src="../glossary/terms.yml"
+     data-glossary-url="../glossary.html"
+     data-terms="sensitivity,specificity,ppv,npv,likelihood-ratio,roc-curve,auc,cut-off,youden-index,gold-standard,prevalence">
+  <p class="gl-loading">Нэр томьёог ачаалж байна…</p>
+</div>
+
+<nav class="mt-pager" aria-label="Аргууд хооронд шилжих"><a href="mixed-models.html">← Холимог нөлөөний загвар</a><a href="reliability.html">Найдвартай байдал ба тохирол →</a></nav>
+```

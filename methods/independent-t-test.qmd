@@ -61,6 +61,12 @@ effectsize::cohens_d(sbp ~ group, data = df)
 wilcox.test(sbp ~ group, data = df)
 ```
 
+## Цэс дээр хийх (jamovi / SPSS)
+
+```{=html}
+<div class="mt-menu"><div><b>jamovi</b> Analyses → T-Tests → Independent Samples T-Test → Welch's, Effect size, Descriptives-ийг сонгоно.</div><div><b>SPSS</b> Analyze → Compare Means → Independent-Samples T Test → Define Groups. Levene-ийн тест автоматаар гарна.</div></div>
+```
+
 ## Үр дүнг тайлбарлах
 
 - **t, df, p-value** — дундаж ижил гэсэн тэг таамаглалын эсрэг нотолгоо. Welch тестэд df бутархай байж болно.
@@ -89,6 +95,7 @@ wilcox.test(sbp ~ group, data = df)
 - [Хамааралт түүврийн t тест](paired-t-test.html) — Нэг хүнээс авсан хоёр хэмжилтийн (өмнө/дараа) дундаж зөрүүг шалгана.
 - [Дисперсийн шинжилгээ (ANOVA)](anova.html) — Гурав ба түүнээс дээш хамааралгүй бүлгийн дундажийг нэг дор харьцуулна.
 - [Ковариацын шинжилгээ (ANCOVA)](ancova.html) — Бүлгүүдийн дундажийг суурь утга зэрэг тасралтгүй ковариатаар залруулж харьцуулна.
+- [Манн-Уитнигийн U тест](mann-whitney.html) — Хэвийн тархалт зөрчигдсөн үед хэрэглэх параметрийн бус хувилбар.
 
 ## Холбогдох нэр томьёо
 

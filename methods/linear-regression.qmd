@@ -62,6 +62,12 @@ car::vif(m)                     # олон шугамт хамаарал
 gtsummary::tbl_regression(m)
 ```
 
+## Цэс дээр хийх (jamovi / SPSS)
+
+```{=html}
+<div class="mt-menu"><div><b>jamovi</b> Analyses → Regression → Linear Regression → Model Coefficients: Confidence interval; Assumption Checks.</div><div><b>SPSS</b> Analyze → Regression → Linear → Statistics… → Confidence intervals, Collinearity diagnostics; Plots… → үлдэгдэл.</div></div>
+```
+
 ## Үр дүнг тайлбарлах
 
 - **Estimate (β)** — бусад хувьсагчийг тогтмол байлгахад тухайн хувьсагч нэг нэгжээр (эсвэл жишиг ангиллаас) өөрчлөгдөхөд үр дагаврын дундаж өөрчлөлт.
@@ -91,6 +97,7 @@ gtsummary::tbl_regression(m)
 - [Ковариацын шинжилгээ (ANCOVA)](ancova.html) — Бүлгүүдийн дундажийг суурь утга зэрэг тасралтгүй ковариатаар залруулж харьцуулна.
 - [Логистик регресс](logistic-regression.html) — Хоёр утгат (тийм/үгүй) үр дагаврын odds-ийг олон хувьсагчаар загварчилж OR тооцно.
 - [Ерөнхийлсөн үнэлгээний тэгшитгэл (GEE)](gee.html) — Давтан хэмжилт эсвэл кластерласан өгөгдлийн хүн амын түвшний нөлөөг үнэлнэ.
+- [Пуассон ба сөрөг биномын регресс](poisson-regression.html) — Үр дагавар нь тоо (давтамж) бол.
 
 ## Холбогдох нэр томьёо
 

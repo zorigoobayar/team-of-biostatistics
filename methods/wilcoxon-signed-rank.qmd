@@ -1,0 +1,111 @@
+---
+title: "Уилкоксоны тэмдэгт эрэмбийн тест"
+description: "Нэг хүний хоёр хэмжилтийн зөрүүг эсвэл нэг бүлгийг жишиг утгатай эрэмбээр харьцуулна."
+format:
+  html:
+    body-classes: page-methods
+    css:
+      - ../styles.css
+      - ../styles/methods.css
+      - ../styles/glossary.css
+    include-after-body:
+      text: |
+        <script src="../assets/js/js-yaml.min.js"></script>
+        <script src="../assets/js/glossary.js"></script>
+---
+
+```{=html}
+<header class="mt-hero" style="--mt-accent:#0369a1">
+  <p class="mt-eyebrow"><a href="../methods.html">Data Analysis Methods</a> · Параметрийн бус тест</p>
+  <h1>Уилкоксоны тэмдэгт эрэмбийн тест</h1>
+  <p class="mt-en" lang="en">Wilcoxon signed-rank test</p>
+  <p class="mt-lead">Нэг хүнээс авсан хоёр хэмжилтийн (өмнө/дараа) зөрүү тэгээс ялгаатай эсэхийг зөрүүний эрэмбээр шалгана. Нэг бүлгийн утгыг жишиг утгатай харьцуулахад ч хэрэглэнэ.</p>
+  <ul class="mt-badges"><li>Тасралтгүй / дараалсан</li><li>2 хэмжилт эсвэл 1 бүлэг</li><li><code>wilcox.test(paired = TRUE)</code></li><li><span class="vc" data-vc-href=""></span></li></ul>
+</header>
+```
+
+## Товч мэдээлэл
+
+```{=html}
+<div class="mt-facts"><div><span>Үр дагавар</span><strong>Тасралтгүй (хэвийн бус) эсвэл дараалсан</strong></div><div><span>Бүтэц</span><strong>Нэг хүний 2 хэмжилт / 1 бүлэг</strong></div><div><span>Тэг таамаглал</span><strong>Зөрүүний медиан = 0</strong></div><div><span>Параметрийн хувилбар</span><strong>Хамааралт эсвэл нэг түүврийн t-тест</strong></div></div>
+```
+
+## Хэзээ хэрэглэх вэ?
+
+Хамааралт түүврийн t тестийн оронд, хоёр хэмжилтийн **зөрүү** нь хэвийн бус тархалттай, огцом утгатай эсвэл үр дагавар нь дараалсан оноо байх үед.
+
+::: {.callout-tip appearance="simple" icon="false"}
+**Жишээ судалгааны асуулт:** Физик эмчилгээний 6 долоо хоногийн дараа өвдөгний өвдөлтийн оноо (0–10) эмчилгээний өмнөхөөс буурсан уу?
+:::
+
+## Таамаглалууд
+
+Шинжилгээ хийхээс өмнө шалгана:
+
+- [ ] Хэмжилтүүд хосолсон бөгөөд хосууд хоорондоо хамааралгүй.
+- [ ] Зөрүүг эрэмбэлэх боломжтой (дор хаяж дараалсан түвшин).
+- [ ] Зөрүүний тархалт медианыхаа хоёр талд ойролцоогоор тэгш хэмтэй. Хүчтэй хазайлттай бол тэмдгийн тест (sign test) хэрэглэнэ.
+
+## R дээр хийх
+
+```r
+# Өргөн хэлбэрийн өгөгдөл: df$pain0 (өмнө), df$pain6 (6 долоо хоногийн дараа)
+summary(df$pain6 - df$pain0)                # зөрүүний медиан ба IQR
+
+wilcox.test(df$pain6, df$pain0, paired = TRUE,
+            conf.int = TRUE, exact = FALSE)
+
+# Нэг бүлгийг жишиг утгатай (жишээ нь медиан = 5):
+wilcox.test(df$pain0, mu = 5)
+
+# Нөлөөний хэмжээ
+effectsize::rank_biserial(df$pain6, df$pain0, paired = TRUE)
+```
+
+## Цэс дээр хийх (jamovi / SPSS)
+
+```{=html}
+<div class="mt-menu"><div><b>jamovi</b> Analyses → T-Tests → Paired Samples T-Test → Tests: Wilcoxon rank. Нэг бүлэгт: One Sample T-Test → Wilcoxon rank.</div><div><b>SPSS</b> Analyze → Nonparametric Tests → Legacy Dialogs → 2 Related Samples → Wilcoxon.</div></div>
+```
+
+## Үр дүнг тайлбарлах
+
+- **V, p-value**: зөрүүний медиан тэг гэсэн тэг таамаглалын эсрэг нотолгоо (R нь эерэг зөрүүний эрэмбийн нийлбэрийг V гэж нэрлэдэг).
+- **(pseudo)median, 95% CI**: зөрүүний төв утгын тооцоо ба итгэх интервал.
+- **Тэг зөрүүтэй хосууд**: тест тэдгээрийг хасдаг тул хэдэн хос хасагдсаныг тайлагнана.
+- **Rank-biserial r**: нөлөөний хэмжээ.
+
+## Тайлагнах жишээ
+
+::: {.callout-note appearance="simple" icon="false"}
+Физик эмчилгээний дараа өвдөлтийн оноо медиан 6 (IQR 5–7)-аас 4 (IQR 3–5) болж буурсан бөгөөд статистик ач холбогдолтой байв (Уилкоксоны тэмдэгт эрэмбийн тест, V = 52, p < 0.001; зөрүүний псевдомедиан −2.0, 95% CI −2.5; −1.5; n = 48).
+
+<small>Тоонууд зохиомол бөгөөд тайлагнах хэлбэрийг харуулах зорилготой.</small>
+:::
+
+## Түгээмэл алдаа
+
+::: {.callout-warning appearance="simple" icon="false"}
+- Хоёр хэмжилтийг хамааралгүй бүлэг мэт үзэж Манн-Уитнигийн тест хийх.
+- Зөрүүний оронд хэмжилт тус бүрийн хэвийн тархалтыг шалгах. Хамааралт тестэд **зөрүүний** тархалт чухал.
+- ≥ 3 давтан хэмжилтийг хосоор нь олон Уилкоксоны тестээр харьцуулах. Фридманы тест эсвэл холимог загвар хэрэглэнэ.
+:::
+
+## Өөр аргууд
+
+- [Хамааралт түүврийн t тест](paired-t-test.html) — зөрүү хэвийн тархалттай бол.
+- [Манн-Уитнигийн U тест](mann-whitney.html) — хамааралгүй хоёр бүлэгт.
+- [Давтан хэмжилтийн ANOVA](repeated-measures-anova.html) — нэг хүний ≥ 3 хэмжилтэд.
+
+## Холбогдох нэр томьёо
+
+```{=html}
+<div class="glossary-embed"
+     data-src="../glossary/terms.yml"
+     data-glossary-url="../glossary.html"
+     data-terms="wilcoxon,nonparametric-test,paired-t-test,median,interquartile-range,ordinal-variable,effect-size">
+  <p class="gl-loading">Нэр томьёог ачаалж байна…</p>
+</div>
+
+<nav class="mt-pager" aria-label="Аргууд хооронд шилжих"><a href="mann-whitney.html">← Манн-Уитнигийн U тест</a><a href="kruskal-wallis.html">Крускал-Валлисын тест →</a></nav>
+```

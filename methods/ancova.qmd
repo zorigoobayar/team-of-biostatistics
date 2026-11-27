@@ -62,6 +62,12 @@ anova(lm(wt12 ~ group * wt0, data = df))
 emmeans::emmeans(m, ~ group)
 ```
 
+## Цэс дээр хийх (jamovi / SPSS)
+
+```{=html}
+<div class="mt-menu"><div><b>jamovi</b> Analyses → ANOVA → ANCOVA → Covariates-д суурь утгыг оруулна → Estimated Marginal Means.</div><div><b>SPSS</b> Analyze → General Linear Model → Univariate → Covariate(s); Options/EM Means… → залруулсан дундаж.</div></div>
+```
+
 ## Үр дүнг тайлбарлах
 
 - **group коэффициент** — суурь утгыг ижил байлгахад бүлгүүдийн дунджийн зөрүү.

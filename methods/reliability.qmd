@@ -1,0 +1,122 @@
+---
+title: "Найдвартай байдал ба тохирол (Kappa, ICC)"
+description: "Хоёр ба түүнээс дээш үнэлэгч, багаж эсвэл давтан хэмжилтийн тохирлыг Cohen-ийн kappa, ICC, Bland–Altman аргаар үнэлнэ."
+format:
+  html:
+    body-classes: page-methods
+    css:
+      - ../styles.css
+      - ../styles/methods.css
+      - ../styles/glossary.css
+    include-after-body:
+      text: |
+        <script src="../assets/js/js-yaml.min.js"></script>
+        <script src="../assets/js/glossary.js"></script>
+---
+
+```{=html}
+<header class="mt-hero" style="--mt-accent:#a21caf">
+  <p class="mt-eyebrow"><a href="../methods.html">Data Analysis Methods</a> · Оношилгоо ба тохирол</p>
+  <h1>Найдвартай байдал ба тохирол</h1>
+  <p class="mt-en" lang="en">Reliability &amp; agreement: Cohen's kappa, ICC, Bland–Altman</p>
+  <p class="mt-lead">Хоёр эмч нэг рентген зургийг ижил үнэлж байна уу, шинэ зөөврийн даралтын аппарат эмнэлгийн аппараттай ижил утга өгч байна уу гэх мэт асуултад хариулна. Категорийн үнэлгээнд kappa, тасралтгүй хэмжилтэд ICC ба Bland–Altman аргыг хэрэглэнэ.</p>
+  <ul class="mt-badges"><li>Үнэлэгч / багаж хоорондын</li><li>κ, ICC</li><li><code>irr::kappa2()</code></li><li><span class="vc" data-vc-href=""></span></li></ul>
+</header>
+```
+
+## Товч мэдээлэл
+
+```{=html}
+<div class="mt-facts"><div><span>Категорийн үнэлгээ</span><strong>Cohen-ийн κ (жинлэсэн κ)</strong></div><div><span>Тасралтгүй хэмжилт</span><strong>ICC, Bland–Altman</strong></div><div><span>≥ 3 үнэлэгч</span><strong>Fleiss-ийн κ, ICC</strong></div><div><span>Асуулт</span><strong>Тохирол, алтан стандарт биш</strong></div></div>
+```
+
+## Хэзээ хэрэглэх вэ?
+
+- **Үнэлэгч хоорондын найдвартай байдал**: хоёр эмч, лаборант нэг өвчтөнийг тус тусдаа үнэлсэн.
+- **Давтан хэмжилтийн найдвартай байдал (test–retest)**: нэг хүнийг нэг аргаар хоёр удаа хэмжсэн.
+- **Аргын тохирол**: хоёр багаж эсвэл хоёр аргыг нэг хүмүүс дээр харьцуулсан, аль нь ч алтан стандарт биш.
+
+::: {.callout-tip appearance="simple" icon="false"}
+**Жишээ судалгааны асуулт:** Хоёр рентгенологич хүүхдийн цээжний рентген зурган дээр уушгины хатгалгааг (тийм/үгүй) хэр тохиролтой оношилж байна вэ?
+:::
+
+## Таамаглалууд
+
+Шинжилгээ хийхээс өмнө шалгана:
+
+- [ ] Үнэлэгчид бие биеийнхээ үнэлгээг мэдээгүй (бие даасан).
+- [ ] Ижил ангилал эсвэл ижил нэгжийг хэрэглэсэн.
+- [ ] ICC-д: зорилгодоо тохирох загвар (нэг эсвэл хоёр чиглэлт), төрөл (тохирол эсвэл тогтвортой байдал), нэгж (нэг эсвэл дундаж үнэлгээ) сонгосон.
+- [ ] Bland–Altman-д: зөрүү ойролцоогоор хэвийн тархалттай, хэмжилтийн түвшнээс хамаарахгүй.
+
+## R дээр хийх
+
+```r
+library(irr)
+# Категорийн: df$rater1, df$rater2 ("Хатгалгаа", "Үгүй")
+table(df$rater1, df$rater2)
+kappa2(df[, c("rater1", "rater2")])                     # Cohen-ийн kappa
+kappa2(df[, c("grade1", "grade2")], weight = "squared") # дараалсан ангилалд жинлэсэн kappa
+kappam.fleiss(df[, c("r1", "r2", "r3")])                # ≥ 3 үнэлэгч
+
+# Тасралтгүй: хоёр аппаратаар хэмжсэн систолын даралт
+icc(df[, c("sbp_home", "sbp_clinic")],
+    model = "twoway", type = "agreement", unit = "single")
+
+# Bland–Altman
+d <- df$sbp_home - df$sbp_clinic
+m <- mean(d); s <- sd(d)
+c(bias = m, lower = m - 1.96 * s, upper = m + 1.96 * s)  # тохирлын хязгаар
+plot((df$sbp_home + df$sbp_clinic) / 2, d,
+     xlab = "Хоёр аргын дундаж", ylab = "Зөрүү")
+abline(h = c(m, m - 1.96 * s, m + 1.96 * s), lty = c(1, 2, 2))
+```
+
+## Цэс дээр хийх (jamovi / SPSS)
+
+```{=html}
+<div class="mt-menu"><div><b>jamovi</b> Analyses → Frequencies → Contingency Tables → Independent Samples → Statistics: Cohen's kappa (хувилбараас хамаарна). ICC ба Bland–Altman-д: seolmatrix эсвэл blandr модуль.</div><div><b>SPSS</b> Kappa: Analyze → Descriptive Statistics → Crosstabs → Statistics… → Kappa. ICC: Analyze → Scale → Reliability Analysis → Statistics… → Intraclass correlation coefficient.</div></div>
+```
+
+## Үр дүнг тайлбарлах
+
+- **Cohen-ийн κ**: санамсаргүй тохиролыг хассан тохирол. Ойролцоогоор < 0.20 бага, 0.21–0.40 сул, 0.41–0.60 дунд, 0.61–0.80 сайн, > 0.80 маш сайн (Landis &amp; Koch).
+- **Ажиглагдсан тохирлын хувь**: κ-тай хамт тайлагнана. Тархалт хэт өндөр эсвэл бага үед κ бага гарч болно.
+- **ICC**: 0–1. < 0.5 бага, 0.5–0.75 дунд, 0.75–0.9 сайн, > 0.9 маш сайн (Koo &amp; Li). Ямар загвар, төрөл ашигласнаа заавал бичнэ.
+- **Bland–Altman**: дундаж зөрүү (системтэй хазайлт) ба 95% тохирлын хязгаар. Хязгаар эмнэлзүйн хувьд хүлээн зөвшөөрөгдөхүйц эсэхийг судлаач урьдчилан тогтооно.
+
+## Тайлагнах жишээ
+
+::: {.callout-note appearance="simple" icon="false"}
+Хоёр рентгенологичийн хатгалгааны оношийн тохирол 88.5% байсан бөгөөд дунд зэргээс сайн түвшинд байв (Cohen-ийн κ = 0.68, 95% CI 0.57; 0.79; n = 200). Гэрийн ба эмнэлгийн даралтын аппаратын хэмжилтийн тохирол сайн байв (ICC(2,1), absolute agreement = 0.87, 95% CI 0.82; 0.91); дундаж зөрүү −2.1 мм м.у.б, 95% тохирлын хязгаар −13.4; 9.2.
+
+<small>Тоонууд зохиомол бөгөөд тайлагнах хэлбэрийг харуулах зорилготой.</small>
+:::
+
+## Түгээмэл алдаа
+
+::: {.callout-warning appearance="simple" icon="false"}
+- Хоёр аргын тохирлыг Пирсоны корреляциар үнэлэх. Корреляци өндөр ч системтэй зөрүү их байж болно.
+- Тохирлын хувийг kappa-гүйгээр (санамсаргүй тохиролыг хасалгүй) тайлагнах.
+- ICC-ийн загвар, төрлийг тайлагнахгүй орхих. Өөр төрлийн ICC өөр утга өгнө.
+- Дараалсан ангилалд (I–IV зэрэг) жингүй kappa хэрэглэх.
+:::
+
+## Өөр аргууд
+
+- [Оношилгооны тестийн нарийвчлал](diagnostic-accuracy.html) — нэг арга нь алтан стандарт бол.
+- [Корреляцийн шинжилгээ](correlation.html) — хамаарлын хүч сонирхолтой бол (тохирол биш).
+- [МакНемарын тест](mcnemar-test.html) — хоёр үнэлэгчийн эерэг хувь системтэйгээр ялгаатай эсэх.
+
+## Холбогдох нэр томьёо
+
+```{=html}
+<div class="glossary-embed"
+     data-src="../glossary/terms.yml"
+     data-glossary-url="../glossary.html"
+     data-terms="kappa,icc,ordinal-variable,pearson-correlation,confidence-interval,gold-standard">
+  <p class="gl-loading">Нэр томьёог ачаалж байна…</p>
+</div>
+
+<nav class="mt-pager" aria-label="Аргууд хооронд шилжих"><a href="diagnostic-accuracy.html">← Оношилгооны тестийн нарийвчлал</a><a href="sample-size.html">Түүврийн хэмжээ ба чадал →</a></nav>
+```

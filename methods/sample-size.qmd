@@ -1,0 +1,121 @@
+---
+title: "Түүврийн хэмжээ ба статистик чадал"
+description: "Судалгаа эхлэхээс өмнө хангалттай статистик чадалтай байх түүврийн хэмжээг тооцно."
+format:
+  html:
+    body-classes: page-methods
+    css:
+      - ../styles.css
+      - ../styles/methods.css
+      - ../styles/glossary.css
+    include-after-body:
+      text: |
+        <script src="../assets/js/js-yaml.min.js"></script>
+        <script src="../assets/js/glossary.js"></script>
+---
+
+```{=html}
+<header class="mt-hero" style="--mt-accent:#65a30d">
+  <p class="mt-eyebrow"><a href="../methods.html">Data Analysis Methods</a> · Судалгааны төлөвлөлт</p>
+  <h1>Түүврийн хэмжээ ба статистик чадал</h1>
+  <p class="mt-en" lang="en">Sample size &amp; power calculation</p>
+  <p class="mt-lead">Эмнэлзүйн хувьд чухал ялгаа үнэхээр байгаа бол түүнийг илрүүлэх хангалттай магадлалтай (ихэвчлэн 80–90%) байхын тулд хэдэн оролцогч хэрэгтэйг судалгаа эхлэхээс <strong>өмнө</strong> тооцно. Ёс зүйн хороо, тэтгэлэг, сэтгүүл бүгд үүнийг шаарддаг.</p>
+  <ul class="mt-badges"><li>Төлөвлөлт</li><li>α, 1 − β, нөлөөний хэмжээ</li><li><code>pwr</code></li><li><span class="vc" data-vc-href=""></span></li></ul>
+</header>
+```
+
+## Товч мэдээлэл
+
+```{=html}
+<div class="mt-facts"><div><span>Хэзээ</span><strong>Өгөгдөл цуглуулахаас өмнө</strong></div><div><span>Шаардлагатай оролт</span><strong>α, чадал, нөлөөний хэмжээ, хэлбэлзэл</strong></div><div><span>Ердийн утга</span><strong>α = 0.05, чадал = 0.80 эсвэл 0.90</strong></div><div><span>Үнэгүй хэрэгсэл</span><strong>R pwr, G*Power</strong></div></div>
+```
+
+## Хэзээ хэрэглэх вэ?
+
+Судалгааны протокол бичих үед. Тооцоо нь **гол үр дагавар** болон түүнийг шинжлэх **гол статистик арга** дээр суурилна.
+
+::: {.callout-tip appearance="simple" icon="false"}
+**Жишээ судалгааны асуулт:** Шинэ эм систолын даралтыг плацебогоос 8 мм м.у.б-аар бууруулдаг бол (SD = 15) үүнийг 90% чадалтай илрүүлэхэд бүлэг бүрт хэдэн өвчтөн хэрэгтэй вэ?
+:::
+
+## Тооцоонд хэрэгтэй оролт
+
+- [ ] **α (I төрлийн алдаа)**: ихэвчлэн 0.05, хоёр талт.
+- [ ] **Чадал (1 − β)**: 0.80 эсвэл 0.90.
+- [ ] **Эмнэлзүйн хувьд ач холбогдолтой хамгийн бага ялгаа**: дунджийн зөрүү, хувийн зөрүү, HR гэх мэт. Өмнөх судалгаа эсвэл эмнэлзүйн зөвшилцлөөс авна.
+- [ ] **Хэлбэлзэл**: тасралтгүй үр дагаварт SD, хоёр утгат үр дагаварт хяналтын бүлгийн хувь.
+- [ ] **Хасагдалт (dropout)**: хүлээгдэж буй хувиар түүврийг нэмэгдүүлнэ.
+
+## R дээр хийх
+
+```r
+library(pwr)
+
+# 1) Хоёр бүлгийн дундаж: зөрүү 8, SD 15 → d = 8/15 = 0.53
+power.t.test(delta = 8, sd = 15, sig.level = 0.05, power = 0.90)
+# эсвэл: pwr.t.test(d = 0.53, power = 0.90)
+
+# 2) Хоёр бүлгийн хувь: 20% → 10%
+power.prop.test(p1 = 0.20, p2 = 0.10, power = 0.80)
+# эсвэл Cohen-ийн h-аар:
+pwr.2p.test(h = ES.h(0.20, 0.10), power = 0.80)
+
+# 3) ANOVA, 3 бүлэг, дунд нөлөө (f = 0.25)
+pwr.anova.test(k = 3, f = 0.25, power = 0.80)
+
+# 4) Корреляци r = 0.3
+pwr.r.test(r = 0.3, power = 0.80)
+
+# 5) Хасагдалт 15% гэж үзээд нэмэгдүүлэх
+n <- 75; ceiling(n / (1 - 0.15))
+
+# Хугацаа-үйл явдлын (Cox / log-rank) тооцоонд: powerSurvEpi эсвэл gsDesign багц
+```
+
+## Цэс дээр хийх (jamovi / SPSS / G*Power)
+
+```{=html}
+<div class="mt-menu"><div><b>G*Power</b> Үнэгүй програм: Test family → t tests → Means: Difference between two independent means → A priori.</div><div><b>jamovi</b> jpower модулийг суулгана → Independent Samples T-Test (эсвэл Paired, One Sample) → Calculate: N per group.</div><div><b>SPSS</b> 27 ба түүнээс хойшхи хувилбар: Analyze → Power Analysis → Means / Proportions / Correlations.</div></div>
+```
+
+## Үр дүнг тайлбарлах
+
+- **n**: R-ийн `power.t.test` нь **бүлэг бүрт** хэрэгтэй тоог гаргадаг. Нийт түүвэр = n × бүлгийн тоо.
+- Бүхэл тоо руу **дээш** бөөрөнхийлж, хасагдалтыг тооцож нэмнэ.
+- Тооцоонд хэрэглэсэн бүх оролт (α, чадал, ялгаа, SD, эх сурвалж) протоколд бичигдсэн байх ёстой. Ингэснээр бусад хүн давтан тооцох боломжтой.
+
+## Тайлагнах жишээ
+
+::: {.callout-note appearance="simple" icon="false"}
+Өмнөх судалгаанд (Иш, он) үндэслэн систолын даралтын SD-г 15 мм м.у.б гэж үзэв. Эмнэлзүйн хувьд ач холбогдолтой 8 мм м.у.б ялгааг хоёр талт α = 0.05, 90% чадалтайгаар илрүүлэхэд бүлэг бүрт 75 өвчтөн шаардлагатай. 15%-ийн хасагдалтыг тооцож бүлэг бүрт 89, нийт 178 өвчтөнийг хамруулна.
+
+<small>Тооцоог R-ийн power.t.test() функцээр хийсэн.</small>
+:::
+
+## Түгээмэл алдаа
+
+::: {.callout-warning appearance="simple" icon="false"}
+- Судалгаа дууссаны дараа "post-hoc чадал" тооцох. Энэ нь p-утгаас шууд гардаг тул шинэ мэдээлэл өгдөггүй. Үүний оронд итгэх интервалыг тайлбарлана.
+- Нөлөөний хэмжээг бодит бусаар том сонгож түүврийг багасгах.
+- Хасагдалтыг тооцохгүй орхих.
+- Кластер санамсаргүйчилсэн судалгаанд дизайн эффектийг (1 + (m − 1) × ICC) тооцохгүй байх.
+:::
+
+## Өөр аргууд
+
+- [Хамааралгүй түүврийн t-тест](independent-t-test.html) — хамгийн түгээмэл тооцооны суурь.
+- [Хи-квадрат тест](chi-square-test.html) — хоёр хувийг харьцуулах судалгаанд.
+- [Бүх аргад хамаарах суурь ойлголт](essentials.html) — нөлөөний хэмжээ, I ба II төрлийн алдаа.
+
+## Холбогдох нэр томьёо
+
+```{=html}
+<div class="glossary-embed"
+     data-src="../glossary/terms.yml"
+     data-glossary-url="../glossary.html"
+     data-terms="sample-size,power,effect-size,type-i-error,type-ii-error,significance-level,clinical-significance,pilot-study">
+  <p class="gl-loading">Нэр томьёог ачаалж байна…</p>
+</div>
+
+<nav class="mt-pager" aria-label="Аргууд хооронд шилжих"><a href="reliability.html">← Найдвартай байдал ба тохирол</a><a href="../methods.html">Бүх аргууд →</a></nav>
+```

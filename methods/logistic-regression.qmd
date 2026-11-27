@@ -63,6 +63,12 @@ gtsummary::tbl_regression(m, exponentiate = TRUE)
 pROC::auc(pROC::roc(df$htn, fitted(m)))
 ```
 
+## Цэс дээр хийх (jamovi / SPSS)
+
+```{=html}
+<div class="mt-menu"><div><b>jamovi</b> Analyses → Regression → 2 Outcomes (Binomial) → Model Coefficients: Odds ratio, Confidence interval.</div><div><b>SPSS</b> Analyze → Regression → Binary Logistic → Options… → CI for exp(B).</div></div>
+```
+
 ## Үр дүнг тайлбарлах
 
 - **OR = exp(β)** — тухайн хувьсагч нэг нэгжээр (эсвэл жишиг ангиллаас) өөрчлөгдөхөд үр дагаврын odds хэд дахин өөрчлөгдөх. OR > 1 эрсдэл нэмэгдүүлнэ.
@@ -91,6 +97,7 @@ pROC::auc(pROC::roc(df$htn, fitted(m)))
 - [Шугаман регресс](linear-regression.html) — Тасралтгүй үр дагаврыг нэг буюу олон тайлбарлагч хувьсагчаар загварчилна.
 - [Коксын регресс](cox-regression.html) — Үйл явдал хүртэлх хугацаанд олон хувьсагчийн нөлөөг залруулж hazard ratio тооцно.
 - [Ерөнхийлсөн үнэлгээний тэгшитгэл (GEE)](gee.html) — Давтан хэмжилт эсвэл кластерласан өгөгдлийн хүн амын түвшний нөлөөг үнэлнэ.
+- [Хи-квадрат тест ба Фишерийн яг тест](chi-square-test.html) — Залруулгагүйгээр хоёр бүлгийн хувийг харьцуулах бол.
 
 ## Холбогдох нэр томьёо
 

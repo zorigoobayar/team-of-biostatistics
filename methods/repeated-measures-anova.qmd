@@ -1,0 +1,120 @@
+---
+title: "Давтан хэмжилтийн ANOVA"
+description: "Нэг хүнээс гурав ба түүнээс дээш удаа авсан тасралтгүй хэмжилтийн дундажийг харьцуулна."
+format:
+  html:
+    body-classes: page-methods
+    css:
+      - ../styles.css
+      - ../styles/methods.css
+      - ../styles/glossary.css
+    include-after-body:
+      text: |
+        <script src="../assets/js/js-yaml.min.js"></script>
+        <script src="../assets/js/glossary.js"></script>
+---
+
+```{=html}
+<header class="mt-hero" style="--mt-accent:#0f766e">
+  <p class="mt-eyebrow"><a href="../methods.html">Data Analysis Methods</a> · Давтан хэмжилт ба кластер</p>
+  <h1>Давтан хэмжилтийн ANOVA</h1>
+  <p class="mt-en" lang="en">Repeated measures ANOVA</p>
+  <p class="mt-lead">Нэг хүнийг гурав ба түүнээс дээш цэгт (жишээ нь 0, 3, 6 сар) хэмжсэн үед дундаж хугацааны явцад өөрчлөгдсөн эсэхийг, хүн хоорондын ялгааг тооцож шалгана. Бүлэг нэмбэл "холимог ANOVA" болж, бүлгүүдийн өөрчлөлтийг харьцуулна.</p>
+  <ul class="mt-badges"><li>Тасралтгүй</li><li>≥ 3 хэмжилт</li><li><code>afex::aov_ez()</code></li><li><span class="vc" data-vc-href=""></span></li></ul>
+</header>
+```
+
+## Товч мэдээлэл
+
+```{=html}
+<div class="mt-facts"><div><span>Үр дагавар</span><strong>Тасралтгүй</strong></div><div><span>Бүтэц</span><strong>Нэг хүний ≥ 3 хэмжилт</strong></div><div><span>Тэг таамаглал</span><strong>Бүх хугацааны дундаж тэнцүү</strong></div><div><span>Параметрийн бус хувилбар</span><strong>Фридманы тест</strong></div></div>
+```
+
+## Хэзээ хэрэглэх вэ?
+
+Хамааралт түүврийн t тестийг хоёроос олон хэмжилт рүү өргөтгөсөн арга. Өгөгдөл **бүрэн** (хүн бүр бүх хэмжилттэй), хэмжилтийн цэгүүд хүн бүрт ижил бол тохиромжтой.
+
+::: {.callout-tip appearance="simple" icon="false"}
+**Жишээ судалгааны асуулт:** Хоолны дэглэм ба дасгалын хөтөлбөрт хамрагдсан 2-р хэвшлийн чихрийн шижинтэй өвчтөнүүдийн HbA1c 0, 3, 6 дахь сард өөрчлөгдсөн үү?
+:::
+
+## Таамаглалууд
+
+Шинжилгээ хийхээс өмнө шалгана:
+
+- [ ] Хүмүүс хоорондоо хамааралгүй.
+- [ ] Хэмжилт бүрт үр дагавар ойролцоогоор хэвийн тархалттай.
+- [ ] **Сферик байдал (sphericity):** хос хэмжилтийн зөрүүнүүдийн дисперс тэнцүү. Моклийн тестээр шалгаж, зөрчигдвөл Гринхаус-Гайссерын засвар хэрэглэнэ.
+- [ ] Дутуу өгөгдөл байхгүй. Дутуутай хүн бүхэлдээ хасагддаг тул дутуу их бол [холимог загвар](mixed-models.html) илүү.
+
+## R дээр хийх
+
+```r
+library(afex)
+# Урт хэлбэрийн өгөгдөл: нэг мөр = нэг хүний нэг хэмжилт
+# df$id, df$month (0, 3, 6 — factor), df$hba1c
+
+m <- aov_ez(id = "id", dv = "hba1c", within = "month", data = df)
+m              # Гринхаус-Гайссерын засвар анхдагчаар (GG)
+summary(m)     # Моклийн сферик байдлын тест
+
+# Хугацааны цэгүүдийг хосоор харьцуулах (Холмын засвартай)
+emmeans::emmeans(m, pairwise ~ month, adjust = "holm")
+
+# Бүлэг нэмэх (холимог ANOVA):
+aov_ez(id = "id", dv = "hba1c", within = "month",
+       between = "group", data = df)
+
+# Параметрийн бус хувилбар:
+friedman.test(hba1c ~ month | id, data = df)
+```
+
+## Цэс дээр хийх (jamovi / SPSS)
+
+```{=html}
+<div class="mt-menu"><div><b>jamovi</b> Analyses → ANOVA → Repeated Measures ANOVA → Assumption Checks: Sphericity tests, Sphericity corrections (Greenhouse-Geisser); Post Hoc Tests.</div><div><b>SPSS</b> Analyze → General Linear Model → Repeated Measures → хүчин зүйл (month, 3 түвшин) тодорхойлно → EM Means… → Compare main effects (Bonferroni).</div></div>
+```
+
+## Үр дүнг тайлбарлах
+
+- **F, df, p-value**: бүх хугацааны дундаж тэнцүү гэсэн тэг таамаглалын эсрэг нотолгоо. GG засвартай үед df бутархай байна.
+- **Mauchly's test**: p < 0.05 бол сферик байдал зөрчигдсөн, GG засвартай үр дүнг тайлагнана.
+- **ges (generalized η²)**: нөлөөний хэмжээ.
+- **Хосын харьцуулалт**: аль хугацааны цэгүүд ялгаатайг харуулна.
+- Холимог ANOVA-д **бүлэг × хугацааны харилцан үйлчлэл** хамгийн чухал: бүлгүүдийн өөрчлөлт өөр эсэхийг харуулна.
+
+## Тайлагнах жишээ
+
+::: {.callout-note appearance="simple" icon="false"}
+HbA1c хугацааны явцад статистик ач холбогдолтой буурсан (давтан хэмжилтийн ANOVA, Гринхаус-Гайссерын засвартай F(1.72, 92.9) = 18.4, p < 0.001, ges = 0.08). Дундаж HbA1c 0 дахь сард 8.4%, 3 дахь сард 7.9%, 6 дахь сард 7.6% байсан бөгөөд хос бүрийн ялгаа ач холбогдолтой байв (Холмын засвартай p ≤ 0.012; n = 55).
+
+<small>Тоонууд зохиомол бөгөөд тайлагнах хэлбэрийг харуулах зорилготой.</small>
+:::
+
+## Түгээмэл алдаа
+
+::: {.callout-warning appearance="simple" icon="false"}
+- Хугацааны цэгүүдийг хосоор нь олон хамааралт t тестээр засваргүй харьцуулах.
+- Давтан хэмжилтийг хамааралгүй бүлэг мэт үзэж энгийн ANOVA хийх.
+- Сферик байдлыг шалгахгүй, засваргүй үр дүн тайлагнах.
+- Дутуу өгөгдөлтэй хүмүүсийг чимээгүй хасах. Хэдэн хүн хасагдсаныг тайлагнах эсвэл холимог загвар хэрэглэнэ.
+:::
+
+## Өөр аргууд
+
+- [Холимог нөлөөний загвар](mixed-models.html) — дутуу өгөгдөл, хүн бүрт өөр хэмжилтийн хугацаа, ковариат байвал.
+- [GEE](gee.html) — хүн амын дундаж нөлөө сонирхолтой бол.
+- [Хамааралт түүврийн t тест](paired-t-test.html) — зөвхөн хоёр хэмжилттэй бол.
+
+## Холбогдох нэр томьёо
+
+```{=html}
+<div class="glossary-embed"
+     data-src="../glossary/terms.yml"
+     data-glossary-url="../glossary.html"
+     data-terms="repeated-measures-anova,anova,paired-t-test,post-hoc-test,multiple-comparisons,mixed-model,missing-data,effect-size">
+  <p class="gl-loading">Нэр томьёог ачаалж байна…</p>
+</div>
+
+<nav class="mt-pager" aria-label="Аргууд хооронд шилжих"><a href="poisson-regression.html">← Пуассон регресс</a><a href="mixed-models.html">Холимог нөлөөний загвар →</a></nav>
+```

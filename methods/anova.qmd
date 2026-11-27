@@ -62,6 +62,12 @@ oneway.test(loss ~ diet, data = df)   # Welch ANOVA
 kruskal.test(loss ~ diet, data = df)
 ```
 
+## Цэс дээр хийх (jamovi / SPSS)
+
+```{=html}
+<div class="mt-menu"><div><b>jamovi</b> Analyses → ANOVA → One-Way ANOVA (эсвэл ANOVA) → Post Hoc Tests: Tukey.</div><div><b>SPSS</b> Analyze → Compare Means → One-Way ANOVA → Post Hoc… → Tukey; Options… → Homogeneity of variance test.</div></div>
+```
+
 ## Үр дүнг тайлбарлах
 
 - **F value, Pr(>F)** — бүх бүлгийн дундаж ижил гэсэн тэг таамаглалын тест. Ач холбогдолтой гарвал дор хаяж нэг бүлэг ялгаатай.
@@ -90,6 +96,7 @@ kruskal.test(loss ~ diet, data = df)
 - [Ковариацын шинжилгээ (ANCOVA)](ancova.html) — Бүлгүүдийн дундажийг суурь утга зэрэг тасралтгүй ковариатаар залруулж харьцуулна.
 - [Олон хэмжээст дисперсийн шинжилгээ (MANOVA)](manova.html) — Хоёр ба түүнээс дээш хамааралтай үр дагаврыг бүлгүүдийн хооронд зэрэг харьцуулна.
 - [Хамааралгүй түүврийн t-тест](independent-t-test.html) — Хоёр хамааралгүй бүлгийн тасралтгүй хувьсагчийн дундажийг харьцуулна.
+- [Крускал-Валлисын тест](kruskal-wallis.html) — Хэвийн тархалт эсвэл дисперсийн тэгш байдал зөрчигдсөн үед.
 
 ## Холбогдох нэр томьёо
 

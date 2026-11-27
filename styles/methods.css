@@ -109,6 +109,10 @@ body.page-methods {
   --g-relation: #7c3aed;
   --g-survival: #d97706;
   --g-clustered: #0d9488;
+  --g-categorical: #e11d48;
+  --g-nonparam: #0284c7;
+  --g-diagnostic: #be185d;
+  --g-design: #65a30d;
 }
 
 .mt-browse {
@@ -188,6 +192,10 @@ body.page-methods {
 .mt-filters button.mt-f-relation  { --f: var(--g-relation); }
 .mt-filters button.mt-f-survival  { --f: var(--g-survival); }
 .mt-filters button.mt-f-clustered { --f: var(--g-clustered); }
+.mt-filters button.mt-f-categorical { --f: var(--g-categorical); }
+.mt-filters button.mt-f-nonparam   { --f: var(--g-nonparam); }
+.mt-filters button.mt-f-diagnostic { --f: var(--g-diagnostic); }
+.mt-filters button.mt-f-design     { --f: var(--g-design); }
 .mt-filters button i { color: var(--f, var(--mt-brand)); }
 
 .mt-filters button.is-active {
@@ -228,6 +236,10 @@ body.page-methods {
 .mt-card.g-relation  { --mt-accent: var(--g-relation); }
 .mt-card.g-survival  { --mt-accent: var(--g-survival); }
 .mt-card.g-clustered { --mt-accent: var(--g-clustered); }
+.mt-card.g-categorical { --mt-accent: var(--g-categorical); }
+.mt-card.g-nonparam    { --mt-accent: var(--g-nonparam); }
+.mt-card.g-diagnostic  { --mt-accent: var(--g-diagnostic); }
+.mt-card.g-design      { --mt-accent: var(--g-design); }
 
 a.mt-card:hover,
 a.mt-card:focus-visible {
@@ -442,3 +454,98 @@ body.page-methods main h2 {
 @media (prefers-reduced-motion: reduce) {
   .mt-card, .mt-filters button { transition: none; }
 }
+
+/* ---------- Түвшний шошго (карт дээр) ---------- */
+
+.mt-level {
+  margin-left: auto;
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.mt-level.lv-1 { background: #dcfce7; color: #166534; }
+.mt-level.lv-2 { background: #fef3c7; color: #92400e; }
+.mt-level.lv-3 { background: #fee2e2; color: #991b1b; }
+.mt-level + .mt-num { margin-left: 0.4rem; }
+.mt-legend .mt-level { margin-left: 0; }
+
+.mt-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  align-items: center;
+  margin: -0.5rem 0 1rem;
+  font-size: 0.82rem;
+  color: var(--mt-muted);
+}
+
+/* ---------- Шийдвэрийн мод (wizard) ---------- */
+
+.mt-wizard {
+  margin-top: 2.5rem;
+  padding: 1.5rem;
+  border-radius: 18px;
+  background: var(--mt-card);
+  border: 1px solid var(--mt-line);
+}
+.mt-wizard h2 { margin-top: 0 !important; border: 0 !important; }
+.mt-wz-trail {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0 0 0.9rem;
+  padding: 0;
+  list-style: none;
+  font-size: 0.8rem;
+  color: var(--mt-muted);
+}
+.mt-wz-trail li:not(:last-child)::after { content: " ›"; margin-left: 0.35rem; }
+.mt-wz-q { margin: 0 0 0.8rem; font-size: 1.1rem; font-weight: 600; color: var(--mt-ink); }
+.mt-wz-opts { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.6rem; }
+.mt-wz-opts button {
+  padding: 0.75rem 0.9rem;
+  border: 1px solid var(--mt-line);
+  border-radius: 12px;
+  background: #fff;
+  text-align: left;
+  font-size: 0.93rem;
+  color: var(--mt-ink);
+  cursor: pointer;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.mt-wz-opts button:hover,
+.mt-wz-opts button:focus-visible { border-color: var(--mt-brand); box-shadow: 0 4px 14px rgba(67, 56, 202, 0.12); }
+.mt-wz-opts button small { display: block; margin-top: 0.15rem; color: var(--mt-muted); font-size: 0.8rem; }
+.mt-wz-result {
+  padding: 1rem 1.1rem;
+  border-radius: 12px;
+  background: #eef2ff;
+  border: 1px solid #c7d2fe;
+}
+.mt-wz-result h3 { margin: 0 0 0.4rem; font-size: 1.05rem; }
+.mt-wz-result ul { margin: 0.25rem 0 0; padding-left: 1.1rem; }
+.mt-wz-result p { margin: 0.4rem 0 0; color: var(--mt-muted); font-size: 0.9rem; }
+.mt-wz-nav { display: flex; gap: 0.5rem; margin-top: 1rem; }
+.mt-wz-nav button {
+  padding: 0.35rem 0.85rem;
+  border: 1px solid var(--mt-line);
+  border-radius: 999px;
+  background: #fff;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+.mt-wz-nav button[hidden] { display: none; }
+
+/* ---------- jamovi / SPSS цэсний зам ---------- */
+
+.mt-menu { display: grid; gap: 0.5rem; margin: 0.75rem 0; }
+.mt-menu div {
+  padding: 0.6rem 0.85rem;
+  border-radius: 10px;
+  background: #fff;
+  border: 1px solid var(--mt-line);
+  font-size: 0.92rem;
+}
+.mt-menu b { display: inline-block; min-width: 4.5rem; color: var(--mt-accent, var(--mt-brand)); }

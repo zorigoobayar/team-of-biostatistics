@@ -58,6 +58,12 @@ t.test(df$hba1c_3, df$hba1c_0, paired = TRUE)
 wilcox.test(df$hba1c_3, df$hba1c_0, paired = TRUE)
 ```
 
+## Цэс дээр хийх (jamovi / SPSS)
+
+```{=html}
+<div class="mt-menu"><div><b>jamovi</b> Analyses → T-Tests → Paired Samples T-Test → хоёр хэмжилтийг хос болгон оруулна.</div><div><b>SPSS</b> Analyze → Compare Means → Paired-Samples T Test.</div></div>
+```
+
 ## Үр дүнг тайлбарлах
 
 - **mean difference** — хос бүрийн зөрүүний дундаж (дараа − өмнө).
@@ -84,6 +90,7 @@ wilcox.test(df$hba1c_3, df$hba1c_0, paired = TRUE)
 
 - [Хамааралгүй түүврийн t-тест](independent-t-test.html) — Хоёр хамааралгүй бүлгийн тасралтгүй хувьсагчийн дундажийг харьцуулна.
 - [Ерөнхийлсөн үнэлгээний тэгшитгэл (GEE)](gee.html) — Давтан хэмжилт эсвэл кластерласан өгөгдлийн хүн амын түвшний нөлөөг үнэлнэ.
+- [Уилкоксоны тэмдэгт эрэмбийн тест](wilcoxon-signed-rank.html) — Зөрүү хэвийн тархалтгүй үед хэрэглэх параметрийн бус хувилбар.
 
 ## Холбогдох нэр томьёо
 

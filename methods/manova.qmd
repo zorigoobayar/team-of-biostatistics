@@ -56,6 +56,12 @@ summary(m, test = "Pillai")      # олон хэмжээст тест
 summary.aov(m)                   # үр дагавар тус бүрийн ANOVA
 ```
 
+## Цэс дээр хийх (jamovi / SPSS)
+
+```{=html}
+<div class="mt-menu"><div><b>jamovi</b> Analyses → ANOVA → MANCOVA → Dependent Variables-д хэд хэдэн үр дагаврыг оруулна.</div><div><b>SPSS</b> Analyze → General Linear Model → Multivariate.</div></div>
+```
+
 ## Үр дүнг тайлбарлах
 
 - **Pillai's trace** — хамгийн бат бөх тестийн статистик (таамаглал бага зэрэг зөрчигдсөн ч найдвартай).

@@ -1,0 +1,120 @@
+---
+title: "Пуассон ба сөрөг биномын регресс"
+description: "Тоолсон үр дагавар (тохиолдлын тоо) эсвэл өвчлөлийн түвшинг олон хувьсагчаар загварчилж IRR тооцно."
+format:
+  html:
+    body-classes: page-methods
+    css:
+      - ../styles.css
+      - ../styles/methods.css
+      - ../styles/glossary.css
+    include-after-body:
+      text: |
+        <script src="../assets/js/js-yaml.min.js"></script>
+        <script src="../assets/js/glossary.js"></script>
+---
+
+```{=html}
+<header class="mt-hero" style="--mt-accent:#9333ea">
+  <p class="mt-eyebrow"><a href="../methods.html">Data Analysis Methods</a> · Хамаарал ба регресс</p>
+  <h1>Пуассон ба сөрөг биномын регресс</h1>
+  <p class="mt-en" lang="en">Poisson &amp; negative binomial regression</p>
+  <p class="mt-lead">Үр дагавар нь 0, 1, 2, … гэсэн тоо (халдварын тоо, эмнэлэгт хэвтсэн удаа, астмын сэдрэл) эсвэл хүн-хугацаанд ногдох түвшин байх үед хүчин зүйлсийн нөлөөг түвшний харьцаагаар (IRR) үнэлнэ.</p>
+  <ul class="mt-badges"><li>Тоолсон үр дагавар</li><li>IRR</li><li><code>glm(poisson)</code></li><li><span class="vc" data-vc-href=""></span></li></ul>
+</header>
+```
+
+## Товч мэдээлэл
+
+```{=html}
+<div class="mt-facts"><div><span>Үр дагавар</span><strong>Тоо (0, 1, 2, …) эсвэл түвшин</strong></div><div><span>Тайлбарлагч</span><strong>Тоон ба категорийн</strong></div><div><span>Үр дүн</span><strong>IRR = exp(β)</strong></div><div><span>Хэт тархалттай бол</span><strong>Сөрөг биномын регресс</strong></div></div>
+```
+
+## Хэзээ хэрэглэх вэ?
+
+Нэг хүнд (эсвэл нэг нэгжид) тодорхой хугацаанд тохиолдсон үйл явдлын **тоог** загварчлах бол. Ажиглалтын хугацаа хүн бүрт өөр бол хугацааг **offset** болгон оруулж түвшинг загварчилна.
+
+::: {.callout-tip appearance="simple" icon="false"}
+**Жишээ судалгааны асуулт:** Гэртээ нүүрсний зуух хэрэглэдэг хүүхдүүдэд жилд тохиолдох амьсгалын замын цочмог халдварын тоо цахилгаан халаагууртай гэрийн хүүхдүүдийнхээс өндөр байна уу?
+:::
+
+## Таамаглалууд
+
+Шинжилгээ хийхээс өмнө шалгана:
+
+- [ ] Үр дагавар нь сөрөг биш бүхэл тоо.
+- [ ] Ажиглалтууд хоорондоо хамааралгүй (давтан хэмжилт бол GEE эсвэл холимог загвар).
+- [ ] log(түвшин) нь тоон тайлбарлагчтай шугаман хамааралтай.
+- [ ] **Хэт тархалт (overdispersion) байхгүй:** Пуассон загвар дисперс = дундаж гэж үздэг. Дисперс их бол сөрөг биномын загвар хэрэглэнэ.
+- [ ] Тэг утга хэт олон эсэхийг шалгана (шаардлагатай бол zero-inflated загвар).
+
+## R дээр хийх
+
+```r
+# Өгөгдөл: df$ari (жилийн халдварын тоо), df$stove, df$age, df$years (ажигласан жил)
+m_p <- glm(ari ~ stove + age + offset(log(years)),
+           family = poisson, data = df)
+summary(m_p)
+
+# Хэт тархалт шалгах: харьцаа ≫ 1 бол асуудалтай
+sum(residuals(m_p, type = "pearson")^2) / df.residual(m_p)
+performance::check_overdispersion(m_p)
+
+# Сөрөг биномын загвар
+m_nb <- MASS::glm.nb(ari ~ stove + age + offset(log(years)), data = df)
+
+# IRR ба 95% CI
+broom::tidy(m_nb, conf.int = TRUE, exponentiate = TRUE)
+
+# Пуассон загвар хэвээр бол robust SE ашиглах нэг сонголт:
+lmtest::coeftest(m_p, vcov = sandwich::vcovHC(m_p, type = "HC0"))
+```
+
+## Цэс дээр хийх (jamovi / SPSS)
+
+```{=html}
+<div class="mt-menu"><div><b>jamovi</b> GAMLj модулийг суулгана → Linear Models → Generalized Linear Models → Poisson (эсвэл Negative Binomial).</div><div><b>SPSS</b> Analyze → Generalized Linear Models → Generalized Linear Models → Type of Model: Poisson loglinear (эсвэл Negative binomial with log link). Offset-ийг Predictors хэсэгт тохируулна.</div></div>
+```
+
+## Үр дүнг тайлбарлах
+
+- **Estimate (β)**: log(түвшин)-ий өөрчлөлт. exp(β) = **IRR** (incidence rate ratio).
+- **IRR = 1.4**: бусад хувьсагчийг тогтмол үед түвшин 40%-иар өндөр. IRR < 1 бол бага.
+- **Хэт тархалтын харьцаа**: ойролцоогоор 1 байвал Пуассон тохиромжтой, 1.5–2-оос их бол сөрөг биномын загвар руу шилжинэ.
+- **AIC**: Пуассон ба сөрөг биномын загварыг харьцуулахад бага нь илүү.
+
+## Тайлагнах жишээ
+
+::: {.callout-note appearance="simple" icon="false"}
+Нас болон ажигласан хугацаагаар залруулахад нүүрсний зуухтай гэрийн хүүхдүүдэд амьсгалын замын цочмог халдварын түвшин 1.38 дахин өндөр байв (IRR = 1.38, 95% CI 1.15; 1.66; сөрөг биномын регресс, n = 420). Пуассон загварт хэт тархалт илэрсэн (харьцаа 2.3) тул сөрөг биномын загварыг сонгосон.
+
+<small>Тоонууд зохиомол бөгөөд тайлагнах хэлбэрийг харуулах зорилготой.</small>
+:::
+
+## Түгээмэл алдаа
+
+::: {.callout-warning appearance="simple" icon="false"}
+- Тоолсон үр дагаврыг шугаман регрессээр шинжлэх. Сөрөг таамаг утга гарч, стандарт алдаа буруу болно.
+- Хэт тархалтыг шалгахгүй орхих. Стандарт алдаа хэт бага, p-утга хэт жижиг гарна.
+- Ажиглалтын хугацаа өөр байхад offset оруулахгүй байх.
+- Тоог "тийм/үгүй" болгож логистик регресс хийх. Мэдээлэл алдагдана.
+:::
+
+## Өөр аргууд
+
+- [Логистик регресс](logistic-regression.html) — үр дагавар нь зөвхөн тийм/үгүй бол.
+- [GEE](gee.html) — давтан эсвэл кластерласан тоолсон өгөгдөлд (`family = poisson`).
+- [Холимог нөлөөний загвар](mixed-models.html) — `lme4::glmer(family = poisson)` хэлбэрээр.
+
+## Холбогдох нэр томьёо
+
+```{=html}
+<div class="glossary-embed"
+     data-src="../glossary/terms.yml"
+     data-glossary-url="../glossary.html"
+     data-terms="poisson-regression,poisson-distribution,incidence-rate,person-time,discrete-variable,regression-coefficient,confounding">
+  <p class="gl-loading">Нэр томьёог ачаалж байна…</p>
+</div>
+
+<nav class="mt-pager" aria-label="Аргууд хооронд шилжих"><a href="kruskal-wallis.html">← Крускал-Валлисын тест</a><a href="repeated-measures-anova.html">Давтан хэмжилтийн ANOVA →</a></nav>
+```

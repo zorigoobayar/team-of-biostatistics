@@ -59,6 +59,12 @@ cor.test(df$bmi, df$sbp, method = "spearman")   # Спирмен
 cor(df[, c("age", "bmi", "sbp", "glucose")], use = "complete.obs")
 ```
 
+## Цэс дээр хийх (jamovi / SPSS)
+
+```{=html}
+<div class="mt-menu"><div><b>jamovi</b> Analyses → Regression → Correlation Matrix → Pearson / Spearman, Confidence intervals.</div><div><b>SPSS</b> Analyze → Correlate → Bivariate → Pearson / Spearman.</div></div>
+```
+
 ## Үр дүнг тайлбарлах
 
 - **r (cor)** — 0–0.3 сул, 0.3–0.7 дунд, > 0.7 хүчтэй (ойролцоо босго, салбараас хамаарна).

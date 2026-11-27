@@ -3,6 +3,7 @@ project:
   resources:
     - glossary/terms.yml
     - assets/js/*.js
+    - resources/data/*.csv
 
 website:
   title: "Team of Biostatistics"

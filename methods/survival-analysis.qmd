@@ -61,6 +61,12 @@ survdiff(Surv(time, status) ~ group, data = df)   # лог-ранк тест
 survminer::ggsurvplot(fit, risk.table = TRUE, conf.int = TRUE)
 ```
 
+## Цэс дээр хийх (jamovi / SPSS)
+
+```{=html}
+<div class="mt-menu"><div><b>jamovi</b> Нэмэлт модуль шаардлагатай (жишээ нь jsurvival) → Survival Analysis → Kaplan-Meier, Log-rank.</div><div><b>SPSS</b> Analyze → Survival → Kaplan-Meier → Compare Factor… → Log rank; Options… → Survival plot.</div></div>
+```
+
 ## Үр дүнг тайлбарлах
 
 - **S(t)** — t хугацаанд үйл явдалгүй үлдэх магадлал.

@@ -57,6 +57,12 @@ t.test(df$hb, mu = 120)          # нэг түүврийн t-тест
 wilcox.test(df$hb, mu = 120)
 ```
 
+## Цэс дээр хийх (jamovi / SPSS)
+
+```{=html}
+<div class="mt-menu"><div><b>jamovi</b> Analyses → T-Tests → One Sample T-Test → Test value-д жишиг утгыг оруулна.</div><div><b>SPSS</b> Analyze → Compare Means → One-Sample T Test → Test Value.</div></div>
+```
+
 ## Үр дүнг тайлбарлах
 
 - **t ба df** — тестийн статистик ба чөлөөний зэрэг (n − 1).
@@ -83,6 +89,7 @@ wilcox.test(df$hb, mu = 120)
 
 - [Хамааралгүй түүврийн t-тест](independent-t-test.html) — Хоёр хамааралгүй бүлгийн тасралтгүй хувьсагчийн дундажийг харьцуулна.
 - [Хамааралт түүврийн t тест](paired-t-test.html) — Нэг хүнээс авсан хоёр хэмжилтийн (өмнө/дараа) дундаж зөрүүг шалгана.
+- [Уилкоксоны тэмдэгт эрэмбийн тест](wilcoxon-signed-rank.html) — Хэвийн тархалт зөрчигдсөн үед хэрэглэх параметрийн бус хувилбар.
 
 ## Холбогдох нэр томьёо
 

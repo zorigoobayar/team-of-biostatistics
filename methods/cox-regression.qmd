@@ -60,6 +60,12 @@ plot(cox.zph(m))
 gtsummary::tbl_regression(m, exponentiate = TRUE)
 ```
 
+## Цэс дээр хийх (jamovi / SPSS)
+
+```{=html}
+<div class="mt-menu"><div><b>jamovi</b> Нэмэлт модуль шаардлагатай (жишээ нь jsurvival) → Multivariable Survival.</div><div><b>SPSS</b> Analyze → Survival → Cox Regression → Options… → CI for exp(B); пропорциональ эрсдэлийг шалгахад Cox w/ Time-Dep Cov.</div></div>
+```
+
 ## Үр дүнг тайлбарлах
 
 - **exp(coef) = HR** — HR < 1 бол үйл явдал удаан тохиолддог (хамгаалах), HR > 1 бол эрсдэл өндөр.
